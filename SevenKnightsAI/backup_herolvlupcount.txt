@@ -1,0 +1,35 @@
+/*
+            int curCount = 0;
+            Rectangle rect = Level30DialogPM.R_HeroLvlUpCount;
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
+            {
+                using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
+                {
+                    string text = this.ReplaceNumericResource(page.GetText());
+                    string text1 = Regex.Replace(text, @"\D", "");
+                    Utility.FilterAscii(text1);
+#if DEBUG
+                    bitmap.Save("HeroCount.png");
+                    this.Log("NewText = " + text1);
+#endif
+                    if (text1.Length != 0)
+                    {
+#if DEBUG
+                        this.Log("FilterText =" + "'" + text1 + "'");
+#endif
+                        int.TryParse(text1, out curCount);
+                        if (curCount < 100)
+                        {
+                            this.Log(string.Format("Max Heroes level up per day : {0}/100", curCount), Color.BlueViolet);
+                        }
+                        else if (curCount == 100)
+                        {
+                            this.Log(string.Format("Max Heroes level up per day : {0}/100", curCount), Color.BlueViolet);
+                            this.MaxHeroUpCount = true;
+                            this.NextPossibleObjective();
+                        }
+                        h30 = curCount;
+                        this.ReportCount(Objective.ADVENTURE);
+                    }
+                }
+            }*/
