@@ -46,25 +46,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CollectButtonNotAvailable = new PixelMapping
         {
-            X = 313,
-            Y = 427,
+            X = 317,
+            Y = 425,
             Color = 1513239,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping LootButtonNotAvailable = new PixelMapping
         {
-            X = 434,
-            Y = 427,
-            Color = 1644825,
+            X = 435,
+            Y = 430,
+            Color = 1710618,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping LootRedIcon = new PixelMapping
         {
-            X = 347,
-            Y = 418,
-            Color = 12526598,
+            X = 348, 
+            Y = 419, 
+            Color = 12264197,
             Type = MappingType.ANCHOR
         };
 

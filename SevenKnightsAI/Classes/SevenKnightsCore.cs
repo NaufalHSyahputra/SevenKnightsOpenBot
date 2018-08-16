@@ -70,6 +70,7 @@ namespace SevenKnightsAI.Classes
         private bool IsAdventureLimit;
         private bool IsAlreadyAdvEnd;
         private bool IsAlreadyAdvFight;
+        private bool IsAlreadyAdvLoot;
         private AIProfiles AIProfiles;
         private int ArenaKeys;
         private TimeSpan ArenaKeyTime;
@@ -260,6 +261,7 @@ namespace SevenKnightsAI.Classes
             this.AdventureCount++;
             this.IsAlreadyAdvEnd = false;
             this.IsAlreadyAdvFight = false;
+            this.IsAlreadyAdvLoot = true;
             this.ReportCount(Objective.ADVENTURE);
             this.ProgressSequence();
             this.AdventureCheckLimits();
@@ -1551,6 +1553,7 @@ namespace SevenKnightsAI.Classes
             this.itemfull = false;
             this.IsAlreadyAdvEnd = false;
             this.IsAlreadyAdvFight = false;
+            this.IsAlreadyAdvLoot = false;
         }
 
         private bool IsAnyQuestsEnabled()
@@ -2320,20 +2323,18 @@ namespace SevenKnightsAI.Classes
                                             /*This created to avoid bot detect adventure_end scene when in boss round*/
                                             if (!this.IsAlreadyAdvFight)
                                             {
+                                                this.IsAlreadyAdvFight = true;
                                                 if (this.world3 < World.MoonlitIsle)
                                                 {
-                                                    this.IsAlreadyAdvFight = true;
-                                                    this.Log("35000");
                                                     SevenKnightsCore.Sleep(35000); //sleep 1 minute when battle 3 wave map 
                                                 }
                                                 else
                                                 {
-                                                    this.IsAlreadyAdvFight = true;
-                                                    this.Log("25000");
                                                     SevenKnightsCore.Sleep(25000); //sleep 30 second when battle in 2 wave map
                                                 }
                                             }
                                             //this.PerformFightTatics(scene.SceneType);
+                                            this.IsAlreadyAdvLoot = false;
                                             break;
 
                                         case SceneType.ADVENTURE_END:
@@ -2353,13 +2354,12 @@ namespace SevenKnightsAI.Classes
                                                 }
                                                 else
                                                 {
-                                                    this.Log("False Positive");
                                                     SevenKnightsCore.Sleep(2500);
                                                 }
                                             }
                                             else
                                             {
-                                                this.Log("Adventure End Again?");
+                                                SevenKnightsCore.Sleep(1000);
                                             }
                                             break;
 
@@ -2377,61 +2377,78 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.AUTO_REPEAT_INFO:
-                                            SevenKnightsCore.Sleep(2500);
-                                            this.ParseGoldAutoRepeat();
-                                            SevenKnightsCore.Sleep(1000);
-                                            this.ParseHeroAutoRepeat();
-                                            SevenKnightsCore.Sleep(1000);
-                                            this.ParseItemAutoRepeat();
-                                            SevenKnightsCore.Sleep(1000);
-                                            this.ReportCount(Objective.ADVENTURE);
-                                            SevenKnightsCore.Sleep(1000);
-                                            this.checkslothero = true;
-                                            this.checkslotitem = true;
-                                            this.ChangeObjective(Objective.CHECK_SLOT_HERO);
-                                            this.WeightedClick(AutoRepeatInfoPM.CloseBtn, 1.0, 1.0, 1, 0, "left");
+                                                SevenKnightsCore.Sleep(2500);
+                                                this.ParseGoldAutoRepeat();
+                                                SevenKnightsCore.Sleep(1000);
+                                                this.ParseHeroAutoRepeat();
+                                                SevenKnightsCore.Sleep(1000);
+                                                this.ParseItemAutoRepeat();
+                                                SevenKnightsCore.Sleep(1000);
+                                                this.ReportCount(Objective.ADVENTURE);
+                                                SevenKnightsCore.Sleep(1000);
+                                                this.checkslothero = true;
+                                                this.checkslotitem = true;
+                                                this.ChangeObjective(Objective.CHECK_SLOT_HERO);
+                                                this.WeightedClick(AutoRepeatInfoPM.CloseBtn, 1.0, 1.0, 1, 0, "left");
                                             break;
+
                                         case SceneType.AUTO_REPEAT_STOP:
                                             SevenKnightsCore.Sleep(500);
                                             this.WeightedClick(AutoRepeatStopPM.YesButton, 1.0, 1.0, 1, 0, "left");
                                             SevenKnightsCore.Sleep(2200);
                                             break;
+
                                         case SceneType.AUTO_REPEAT_POPUP:
                                             SevenKnightsCore.Sleep(500);
                                             this.WeightedClick(AutoRepeatPopupPM.YesButton, 1.0, 1.0, 1, 0, "left");
                                             SevenKnightsCore.Sleep(2000);
                                             break;
+
                                         case SceneType.ADVENTURE_LOOT:
-                                            this.AdventureAfterFight();
-                                            SevenKnightsCore.Sleep(500);
-                                            if (this.CurrentObjective == Objective.ADVENTURE)
+                                            if (!this.IsAlreadyAdvLoot)
                                             {
-                                                if (this.AISettings.AD_Continuous && this.AISettings.AD_World != World.Sequencer)
+                                                this.AdventureAfterFight();
+                                                SevenKnightsCore.Sleep(500);
+                                                if (this.CurrentObjective == Objective.ADVENTURE)
                                                 {
-                                                    this.WeightedClick(AdventureLootPM.NextZoneButton, 1.0, 1.0, 1, 0, "left");
+                                                    if (this.AISettings.AD_Continuous && this.AISettings.AD_World != World.Sequencer)
+                                                    {
+                                                        this.WeightedClick(AdventureLootPM.NextZoneButton, 1.0, 1.0, 1, 0, "left");
+                                                    }
+                                                    else if (this.AISettings.AD_World == World.None)
+                                                    {
+                                                        this.WeightedClick(AdventureLootPM.QuickStartButton, 1.0, 1.0, 1, 0, "left");
+                                                    }
+                                                    else
+                                                    {
+                                                        this.WeightedClick(AdventureLootPM.AgainButton, 1.0, 1.0, 1, 0, "left");
+                                                    }
                                                 }
-                                                else if (this.AISettings.AD_World == World.None)
-                                                {
-                                                    this.WeightedClick(AdventureLootPM.QuickStartButton, 1.0, 1.0, 1, 0, "left");
-                                                }
-                                                else
+                                                else if (this.CurrentObjective == Objective.CHECK_SLOT_HERO)
                                                 {
                                                     this.WeightedClick(AdventureLootPM.AgainButton, 1.0, 1.0, 1, 0, "left");
                                                 }
-                                            }
-                                            else if (this.CurrentObjective == Objective.CHECK_SLOT_HERO)
-                                            {
-                                                this.WeightedClick(AdventureLootPM.AgainButton, 1.0, 1.0, 1, 0, "left");
+                                                else
+                                                {
+                                                    this.WeightedClick(SharedPM.Loot_LobbyButton, 1.0, 1.0, 1, 0, "left");
+                                                }
+                                                SevenKnightsCore.Sleep(3000);
                                             }
                                             else
                                             {
-                                                this.WeightedClick(SharedPM.Loot_LobbyButton, 1.0, 1.0, 1, 0, "left");
+                                                SevenKnightsCore.Sleep(1000);
                                             }
-                                            SevenKnightsCore.Sleep(2000);
                                             break;
                                         case SceneType.ADVENTURE_LOOT_AUTO:
-                                            this.AdventureAfterFight();
-                                            SevenKnightsCore.Sleep(2000);
+                                            if (!this.IsAlreadyAdvLoot)
+                                            {
+                                                this.AdventureAfterFight();
+                                                SevenKnightsCore.Sleep(3500);
+                                            }
+                                            else
+                                            {
+                                                SevenKnightsCore.Sleep(1000);
+                                            }
                                             break;
                                         case SceneType.OUT_OF_KEYS_OFFER:
                                             if (!flag3)

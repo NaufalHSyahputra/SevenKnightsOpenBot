@@ -1040,6 +1040,14 @@ namespace SevenKnightsAI
             this.AD_NoHeroUp_Checkbox.Checked = this.AIProfiles.AD_NoHeroUp;
         }
 
+        private void InitSmartModeTab()
+        {
+            this.SM_EnableCheckBox.Checked = this.AISettings.SM_Enable;
+            this.SM_CollectRaidCheckBox.Checked = this.AISettings.SM_CollectRaid;
+            this.SM_CollectTartarusCheckBox.Checked = this.AISettings.SM_CollectTartarus;
+            this.SM_CollectTowerCheckBox.Checked = this.AISettings.SM_CollectTower;
+        }
+
         private void LG_clearButton_Click(object sender, EventArgs e)
         {
             this.LG_logTextBox.Clear();
@@ -1228,6 +1236,7 @@ namespace SevenKnightsAI
             this.InitResourcesTab();
             this.InitLogsTab();
             this.InitOtherTab();
+            this.InitSmartModeTab();
             if (refreshSettings)
             {
                 this.InitSettingsTab();
@@ -1898,8 +1907,6 @@ ts.Hours, ts.Minutes, ts.Seconds);
             bool @checked = checkBox.Checked;
             this.AISettings.SM_CollectTartarus = @checked;
         }
-        #endregion Private Methods 
-
         private void button4_Click_1(object sender, EventArgs e)
         {
             this.AI.ChangeMode(Objective.SMART_MODE);
@@ -1911,6 +1918,7 @@ ts.Hours, ts.Minutes, ts.Seconds);
             bool @checked = checkBox.Checked;
             this.AISettings.SM_Enable = @checked;
         }
+        #endregion Private Methods 
     }
     public class AutoClosingMessageBox
     {
