@@ -866,11 +866,11 @@ namespace SevenKnightsAI
                             Thread.Sleep(1500);
                             this.AlertSound.Stop();
                         }
-                        else if ((string)progressArgs.Message == "Dragon Found")
+                        else if ((string)progressArgs.Message == "Internet Down")
                         {
+                            bot.sendMessage.send(this.AIProfiles.ST_TelegramChatID, "Bot Paused because your internet connection is down");
                             this.PauseAI();
                             this.AlertSound.PlayLooping();
-                            AutoClosingMessageBox.Show("Dragon Point 100!", "Dragon Point 100!", 5000);
                             Thread.Sleep(1500);
                             this.AlertSound.Stop();
                         }
@@ -1220,7 +1220,7 @@ namespace SevenKnightsAI
             if (this.Worker != null)
             {
                 this.AIProfiles.TMP_Paused = true;
-                this.aiButton.Text = "&Resume AI";
+                this.aiButton.Text = "&Resume Bot";
                 this.EnablePause(false);
                 timer1.Stop();
             }
@@ -1248,7 +1248,7 @@ namespace SevenKnightsAI
             this.AIProfiles.TMP_Paused = false;
             this.AIProfiles.TMP_WaitingForKeys = false;
             this.tsslCursorPosition.Text = "";
-            this.aiButton.Text = "Stop AI";
+            this.aiButton.Text = "Stop Bot";
             this.botstatusLabel.Text = "Bot Running";
             this.botstatusLabel.ForeColor = Color.Green;
 
@@ -1639,7 +1639,7 @@ namespace SevenKnightsAI
             this.Worker.ProgressChanged += new ProgressChangedEventHandler(this.BackgroundWorkerOnProgressChanged);
             this.Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(this.BackgroundWorkerOnCompleted);
             this.started = true;
-            this.aiButton.Text = "Stop AI";
+            this.aiButton.Text = "Stop Bot";
             this.botstatusLabel.Text = "Bot Running";
             this.botstatusLabel.ForeColor = Color.Green;
 
@@ -1919,6 +1919,11 @@ ts.Hours, ts.Minutes, ts.Seconds);
             this.AISettings.SM_Enable = @checked;
         }
         #endregion Private Methods 
+
+        private void groupBox7_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
     public class AutoClosingMessageBox
     {

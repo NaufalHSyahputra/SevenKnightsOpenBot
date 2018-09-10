@@ -62,9 +62,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping LootRedIcon = new PixelMapping
         {
-            X = 348, 
-            Y = 419, 
-            Color = 12264197,
+            X = 353,
+            Y = 419,
+            Color = 12592134,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping LootRedIcon2 = new PixelMapping
+        {
+            X = 347,
+            Y = 419,
+            Color = 11936260,
             Type = MappingType.ANCHOR
         };
 

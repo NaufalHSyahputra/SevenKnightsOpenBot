@@ -82,6 +82,16 @@ namespace SevenKnightsAI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap awk_rachel_cover {
+            get {
+                object obj = ResourceManager.GetObject("awk_rachel_cover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap goldmineIcon {
             get {
                 object obj = ResourceManager.GetObject("goldmineIcon", resourceCulture);
@@ -212,6 +222,16 @@ namespace SevenKnightsAI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lubu_cover {
+            get {
+                object obj = ResourceManager.GetObject("lubu_cover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap raidIcon {
             get {
                 object obj = ResourceManager.GetObject("raidIcon", resourceCulture);
@@ -236,6 +256,16 @@ namespace SevenKnightsAI.Properties {
             get {
                 object obj = ResourceManager.GetObject("tessdata", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap title_aquila2 {
+            get {
+                object obj = ResourceManager.GetObject("title_aquila2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

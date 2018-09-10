@@ -59,6 +59,7 @@ namespace SevenKnightsAI.Classes
         public string TMP_NormalProfile;
         public bool TMP_LogPixel;
         public bool TMP_WaitingForKeys;
+        public bool TMP_WaitingForInternet;
         public bool TMP_Paused;
         public bool TMP_UsingHotTimeProfile;
 

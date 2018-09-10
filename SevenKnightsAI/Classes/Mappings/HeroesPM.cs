@@ -661,10 +661,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_HeroCount = new Rectangle
         {
-            X = 386,
-            Y = 73,
-            Width = 58,
-            Height = 26
+            X = 391,
+            Y = 71,
+            Width = 84,
+            Height = 28
             //X = 456,
             //Y = 78,
             //Width = 56,

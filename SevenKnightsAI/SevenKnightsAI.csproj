@@ -11,7 +11,7 @@
     <AssemblyName>Seven Knights OpenBot</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>Resources\1513314656005_131578995572303453.ico</ApplicationIcon>
+    <ApplicationIcon>icon_kagura.ico</ApplicationIcon>
     <StartupObject>SevenKnightsAI.Program</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
@@ -332,8 +332,10 @@
     <None Include="Resources\2017-09-22 17_22_55-Bluestacks App Player.png" />
     <None Include="Resources\amelia_title.png" />
     <None Include="Resources\1513314656005_131578995572303453.ico" />
+    <Content Include="icon_kagura.ico" />
     <Content Include="Resources\arenaIcon.png" />
     <None Include="Resources\dellon2.ico" />
+    <None Include="Resources\awk_rachel_cover.png" />
     <Content Include="Resources\goldmineIcon.png" />
     <None Include="Resources\kriss.ico" />
     <None Include="Resources\title_ingrid.png" />
@@ -341,6 +343,9 @@
     <None Include="Resources\test_cover.jpg" />
     <None Include="Resources\test_cover_504x90.jpg" />
     <None Include="Resources\title_kagura.png" />
+    <None Include="Resources\title_aquila.png" />
+    <None Include="Resources\title_aquila2.png" />
+    <None Include="Resources\lubu_cover.png" />
     <Content Include="x64\liblept172.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

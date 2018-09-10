@@ -80,7 +80,6 @@
             this.statusToolStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitterStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslCursorPosition = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsPixel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslBuildInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveSettingsButton = new System.Windows.Forms.Button();
             this.Event = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -470,7 +469,7 @@
             this.ST_delayValueLabel.Name = "ST_delayValueLabel";
             this.ST_delayValueLabel.Size = new System.Drawing.Size(47, 13);
             this.ST_delayValueLabel.TabIndex = 2;
-            this.ST_delayValueLabel.Text = "1800 ms";
+            this.ST_delayValueLabel.Text = "2000 ms";
             // 
             // ST_delayLabel
             // 
@@ -494,7 +493,7 @@
             this.ST_delayTrackBar.TabIndex = 0;
             this.ST_delayTrackBar.TickFrequency = 100;
             this.ST_delayTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.ST_delayTrackBar.Value = 1800;
+            this.ST_delayTrackBar.Value = 2000;
             this.ST_delayTrackBar.ValueChanged += new System.EventHandler(this.ST_delayTrackBar_ValueChanged);
             // 
             // button1
@@ -803,11 +802,12 @@
             this.button4.TabIndex = 12;
             this.button4.Text = "Test Button";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // raidPictureBox
             // 
-            this.raidPictureBox.Image = global::SevenKnightsAI.Properties.Resources.raidIcon;
+            this.raidPictureBox.Image = global::SevenKnightsAI.Properties.Resources.icon_raid;
             this.raidPictureBox.Location = new System.Drawing.Point(6, 76);
             this.raidPictureBox.Name = "raidPictureBox";
             this.raidPictureBox.Size = new System.Drawing.Size(32, 32);
@@ -818,7 +818,7 @@
             // 
             // goldChamberPictureBox
             // 
-            this.goldChamberPictureBox.Image = global::SevenKnightsAI.Properties.Resources.towerIcon;
+            this.goldChamberPictureBox.Image = global::SevenKnightsAI.Properties.Resources.goldmineIcon;
             this.goldChamberPictureBox.Location = new System.Drawing.Point(125, 19);
             this.goldChamberPictureBox.Name = "goldChamberPictureBox";
             this.goldChamberPictureBox.Size = new System.Drawing.Size(32, 32);
@@ -923,7 +923,6 @@
             this.statusToolStripLabel,
             this.splitterStatusLabel,
             this.tsslCursorPosition,
-            this.tsPixel,
             this.tsslBuildInfo});
             this.statusStrip.Location = new System.Drawing.Point(0, 693);
             this.statusStrip.Name = "statusStrip";
@@ -961,12 +960,6 @@
             this.tsslCursorPosition.Name = "tsslCursorPosition";
             this.tsslCursorPosition.Size = new System.Drawing.Size(0, 17);
             // 
-            // tsPixel
-            // 
-            this.tsPixel.Name = "tsPixel";
-            this.tsPixel.Size = new System.Drawing.Size(55, 17);
-            this.tsPixel.Text = "Nulled.io";
-            // 
             // tsslBuildInfo
             // 
             this.tsslBuildInfo.Name = "tsslBuildInfo";
@@ -998,10 +991,10 @@
             // topheaderPictureBox
             // 
             this.topheaderPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.title_kagura;
+            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.lubu_cover;
             this.topheaderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.topheaderPictureBox.Name = "topheaderPictureBox";
-            this.topheaderPictureBox.Size = new System.Drawing.Size(510, 90);
+            this.topheaderPictureBox.Size = new System.Drawing.Size(508, 90);
             this.topheaderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;
@@ -1083,7 +1076,7 @@
             // 
             this.GB_WaitForKeys.AutoSize = true;
             this.GB_WaitForKeys.ForeColor = System.Drawing.Color.Blue;
-            this.GB_WaitForKeys.Location = new System.Drawing.Point(6, 80);
+            this.GB_WaitForKeys.Location = new System.Drawing.Point(6, 65);
             this.GB_WaitForKeys.Name = "GB_WaitForKeys";
             this.GB_WaitForKeys.Size = new System.Drawing.Size(72, 17);
             this.GB_WaitForKeys.TabIndex = 11;
@@ -1140,7 +1133,7 @@
             this.groupBox9.Controls.Add(this.label3);
             this.groupBox9.Controls.Add(this.heroslotLabel);
             this.groupBox9.Controls.Add(this.label16);
-            this.groupBox9.Location = new System.Drawing.Point(331, 250);
+            this.groupBox9.Location = new System.Drawing.Point(331, 126);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(163, 70);
             this.groupBox9.TabIndex = 27;
@@ -1193,7 +1186,7 @@
             this.groupBox10.Controls.Add(this.label13);
             this.groupBox10.Controls.Add(this.goldadvLabel);
             this.groupBox10.Controls.Add(this.label9);
-            this.groupBox10.Location = new System.Drawing.Point(331, 126);
+            this.groupBox10.Location = new System.Drawing.Point(331, 202);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(163, 118);
             this.groupBox10.TabIndex = 26;
@@ -1373,14 +1366,14 @@
             this.groupBox23.Controls.Add(this.AD_StopOnFullHeroes_Checkbox);
             this.groupBox23.Location = new System.Drawing.Point(8, 6);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(486, 103);
+            this.groupBox23.Size = new System.Drawing.Size(486, 90);
             this.groupBox23.TabIndex = 0;
             this.groupBox23.TabStop = false;
             // 
             // AD_EnHottime_Checkbox
             // 
             this.AD_EnHottime_Checkbox.AutoSize = true;
-            this.AD_EnHottime_Checkbox.Location = new System.Drawing.Point(6, 34);
+            this.AD_EnHottime_Checkbox.Location = new System.Drawing.Point(6, 19);
             this.AD_EnHottime_Checkbox.Name = "AD_EnHottime_Checkbox";
             this.AD_EnHottime_Checkbox.Size = new System.Drawing.Size(95, 17);
             this.AD_EnHottime_Checkbox.TabIndex = 27;
@@ -1391,7 +1384,7 @@
             // AD_NoHeroUp_Checkbox
             // 
             this.AD_NoHeroUp_Checkbox.AutoSize = true;
-            this.AD_NoHeroUp_Checkbox.Location = new System.Drawing.Point(6, 57);
+            this.AD_NoHeroUp_Checkbox.Location = new System.Drawing.Point(6, 42);
             this.AD_NoHeroUp_Checkbox.Name = "AD_NoHeroUp_Checkbox";
             this.AD_NoHeroUp_Checkbox.Size = new System.Drawing.Size(208, 17);
             this.AD_NoHeroUp_Checkbox.TabIndex = 4;
@@ -1489,7 +1482,7 @@
             // AD_bootmodeCheckBox
             // 
             this.AD_bootmodeCheckBox.AutoSize = true;
-            this.AD_bootmodeCheckBox.Location = new System.Drawing.Point(6, 39);
+            this.AD_bootmodeCheckBox.Location = new System.Drawing.Point(6, 40);
             this.AD_bootmodeCheckBox.Name = "AD_bootmodeCheckBox";
             this.AD_bootmodeCheckBox.Size = new System.Drawing.Size(83, 17);
             this.AD_bootmodeCheckBox.TabIndex = 28;
@@ -3106,7 +3099,6 @@
 
 
         private System.Windows.Forms.Button aiPause;
-        private System.Windows.Forms.ToolStripStatusLabel tsPixel;
 		private System.Windows.Forms.ToolStripStatusLabel tsslCursorPosition;
 		private System.Windows.Forms.ToolStripStatusLabel tsslBuildInfo;
         private System.Windows.Forms.Label timer;

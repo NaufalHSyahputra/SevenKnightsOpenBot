@@ -35,6 +35,8 @@ namespace SevenKnightsAI.Classes
 
         private static readonly string SETTINGS_HANDLE_TITLE = "WindowsForms10.Window.8.app.0.33c0d9d5";
 
+        RegistryKey HKLM = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+
         private string Adb(string command)
         {
             //this.ConnectAdb();
@@ -159,8 +161,9 @@ namespace SevenKnightsAI.Classes
                 this.Show(true);
                 result = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                AutoClosingMessageBox.Show(ex.Message, ex.Message, 10000);
                 result = false;
             }
             return result;
@@ -395,7 +398,7 @@ namespace SevenKnightsAI.Classes
         {
             get
             {
-                return Registry.LocalMachine.OpenSubKey("Software\\BlueStacks", true);
+                return HKLM.OpenSubKey("SOFTWARE\\BlueStacks", true);
             }
         }
 

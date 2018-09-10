@@ -22,9 +22,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CharacterBody = new PixelMapping
         {
-            X = 152,
-            Y = 185,
-            Color = 7835333,
+            X = 186,
+            Y = 179,
+            Color = 6379102,
             Type = MappingType.ANCHOR
         };
 
@@ -46,15 +46,15 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CurrencyTab = new PixelMapping //currency tab
         {
-            X = 552,
-            Y = 132,
+            X = 550,
+            Y = 130,
             Color = 0,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping CurrencyTabRedIcon = new PixelMapping //currency tab
         {
             X = 502,
-            Y = 104,
+            Y = 105,
             Color = 13116423,
             Type = MappingType.ANCHOR
         };
@@ -65,8 +65,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping HonorsTab = new PixelMapping
         {
-            X = 326,
-            Y = 131,
+            X = 314,
+            Y = 126,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -84,8 +84,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping KeysTab = new PixelMapping 
         {
-            X = 444,
-            Y = 131,
+            X = 437,
+            Y = 133,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -112,23 +112,23 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping MailIcon = new PixelMapping
         {
-            X = 47,
-            Y = 418,
-            Color = 7085840,
+            X = 77,
+            Y = 442,
+            Color = 11287102,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MaterialTab = new PixelMapping
         {
-            X = 655,
-            Y = 132,
+            X = 656,
+            Y = 135,
             Color = 0,
             Type = MappingType.BUTTON
         };
         
         public static readonly PixelMapping MaterialTabRedIcon = new PixelMapping
         {
-            X = 609,
+            X = 610,
             Y = 104,
             Color = 13116423,
             Type = MappingType.ANCHOR

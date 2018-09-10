@@ -2,11 +2,15 @@
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
 
 namespace SevenKnightsAI.Classes
 {
     internal class Utility
     {
+        [DllImport("wininet.dll")]
+        public extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+
         public static string FilterAscii(string input)
         {
             return Regex.Replace(input, "[^\\u0000-\\u007F]", string.Empty).Replace(Environment.NewLine, string.Empty);

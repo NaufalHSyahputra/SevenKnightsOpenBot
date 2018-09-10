@@ -63,6 +63,7 @@ namespace SevenKnightsAI.Classes
         private readonly Color COLOR_SMART_MODE = Color.SteelBlue;
 
         private int AdventureCount;
+        private int AdventureCount2;
         private int AdventureKeys;
         private TimeSpan AdventureKeyTime;
         private int AdventureLimitCount;
@@ -131,7 +132,10 @@ namespace SevenKnightsAI.Classes
         private int goldadv;
         private int heroadv;
         private int itemadv;
+        private int entrytolv30;
+        private int h30;
         private World world3; //for give delay to adventure_fight
+        private int internetdc;
 
         #endregion Private Fields
 
@@ -172,6 +176,22 @@ namespace SevenKnightsAI.Classes
         #endregion Public Constructors
 
         #region Public Methods
+
+        public static bool IsConnectedToInternet()
+        {
+            bool returnValue = false;
+            try
+            {
+
+                int Desc;
+                returnValue = Utility.InternetGetConnectedState(out Desc, 0);
+            }
+            catch
+            {
+                returnValue = false;
+            }
+            return returnValue;
+        }
 
         public BackgroundWorker Start(SynchronizationContext synchronizationContext)
         {
@@ -259,6 +279,13 @@ namespace SevenKnightsAI.Classes
         private void AdventureAfterFight()
         {
             this.AdventureCount++;
+            this.AdventureCount2++;
+            if(this.AdventureCount2 >= this.entrytolv30)
+            {
+                this.h30 += 4;
+                this.AdventureCount2 = 0;
+                this.Log("Hero 30 : " + this.h30);
+            }
             this.IsAlreadyAdvEnd = false;
             this.IsAlreadyAdvFight = false;
             this.IsAlreadyAdvLoot = true;
@@ -277,9 +304,10 @@ namespace SevenKnightsAI.Classes
             {
                 this.AdventureLimitCount2 = 0;
                 this.CurrentSequenceCount2 = 0;
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     this.WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
+
                 }
             }
             else if (this.CurrentSequenceCount2 >= this.AISettings.AD_AmountSequence[this.CurrentSequence])
@@ -288,7 +316,7 @@ namespace SevenKnightsAI.Classes
                 this.checkslothero = true;
                 this.checkslotitem = true;
                 this.ChangeObjective(Objective.CHECK_SLOT_HERO);
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     this.WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
                 }
@@ -568,6 +596,14 @@ namespace SevenKnightsAI.Classes
                         int.TryParse(array[0], out num3);
                         int.TryParse(array[1], out num4);
                         this.Log("World: " + num3 + " Map: " + num4);
+                        if(num3 >= 8)
+                        {
+                            this.entrytolv30 = 4;
+                        }
+                        else
+                        {
+                            this.entrytolv30 = 7;
+                        }
                         if (num3 == num && num4 == num2)
                         {
                             bool result = true;
@@ -1394,30 +1430,22 @@ namespace SevenKnightsAI.Classes
                     SevenKnightsCore.Sleep(1000);
                     this.WeightedClick(mapping, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(3000);
-                    if (!this.MatchMapping(SmartLobbyPM.CollectButtonNotAvailable, 2))
-                    {
-
-                        this.WeightedClick(SmartLobbyPM.CollectButton, 1.0, 1.0, 1, 0, "left");
-                        SevenKnightsCore.Sleep(1000);
-                        this.Log("Collect Resource success", this.COLOR_SMART_MODE);
-                        SevenKnightsCore.Sleep(2000);
+						this.WeightedClick(SmartLobbyPM.CollectButton, 1.0, 1.0, 1, 0, "left");
+						this.Log("Collect Resource success", this.COLOR_SMART_MODE);
+						SevenKnightsCore.Sleep(3000);
+						this.WeightedClick(SmartLobbyPM.LootButton, 1.0, 1.0, 1, 0, "left");
+						SevenKnightsCore.Sleep(2000);
+						this.CaptureFrame();
+						Scene scene = this.SceneSearch();
+						if (scene.SceneType == SceneType.SMART_LOOT_COLLECT_LOBBY)
+						{
+							this.Log("Collect Loot success", this.COLOR_SMART_MODE);
+							this.Escape();
+							SevenKnightsCore.Sleep(4000);
                     }
                     else
                     {
-                        this.Log("Resource is not available", this.COLOR_SMART_MODE);
-                    }
-                    if (!this.MatchMapping(SmartLobbyPM.LootButtonNotAvailable, 2) || this.MatchMapping(SmartLobbyPM.LootRedIcon, 2))
-                    {
-
-                        this.WeightedClick(SmartLobbyPM.LootButton, 1.0, 1.0, 1, 0, "left");
-                        SevenKnightsCore.Sleep(1000);
-                        this.Log("Collect Loot success", this.COLOR_SMART_MODE);
-                        SevenKnightsCore.Sleep(4000);
-                        this.Escape();
-                    }
-                    else
-                    {
-                        this.Log("Loot is not available", this.COLOR_SMART_MODE);
+                        this.Log("Loot Not Available", this.COLOR_SMART_MODE);
                     }
                 }
                 else
@@ -1527,6 +1555,8 @@ namespace SevenKnightsAI.Classes
             this.AdventureLimitCount2 = 0;
             this.dragonsummoncount = 0;
             this.goldmineentry = 0;
+            this.entrytolv30 = 0;
+            this.h30 = 0;
             this.goldminegoldamount = 0;
             this.ArenaLimitCount = 0;
             this.HeroCount = 0;
@@ -1554,6 +1584,7 @@ namespace SevenKnightsAI.Classes
             this.IsAlreadyAdvEnd = false;
             this.IsAlreadyAdvFight = false;
             this.IsAlreadyAdvLoot = false;
+            this.internetdc = 0;
         }
 
         private bool IsAnyQuestsEnabled()
@@ -1672,7 +1703,6 @@ namespace SevenKnightsAI.Classes
                     SevenKnightsCore.Sleep(1000);
                     //Process.Start(exePath);
                 }
-
                 return;
             }
             if (this.BlueStacks.NeedRenderConfig() || this.BlueStacks.NeedResize())
@@ -1706,7 +1736,7 @@ namespace SevenKnightsAI.Classes
                 {
                     try
                     {
-                        if (!this.AIProfiles.TMP_Paused && !this.AIProfiles.TMP_WaitingForKeys)
+                        if (!this.AIProfiles.TMP_Paused && !this.AIProfiles.TMP_WaitingForKeys && !this.AIProfiles.TMP_WaitingForInternet)
                         {
                             if (this.AIProfiles.ST_BlueStacksForceActive)
                             {
@@ -1726,7 +1756,6 @@ namespace SevenKnightsAI.Classes
                             if (this.BlueStacks.MainWindowAS.CurrentFrame != null)
                             {
                                 this.UpdateHangFingerprint();
-
                                 if (this.HangCounter >= 30000)
                                 {
                                     this.Log("Restarting Seven Knights", Color.DarkRed);
@@ -1887,14 +1916,7 @@ namespace SevenKnightsAI.Classes
                                                 this.Hottimeloop = false;
                                                 SevenKnightsCore.Sleep(800);
                                             }
-                                            if (this.MatchMapping(LobbyPM.SmartAvailable, 3) && this.AISettings.SM_Enable)
-                                            {
-                                                if (this.CurrentObjective != Objective.SMART_MODE && this.CurrentObjective != Objective.COLLECT_INBOX && this.CurrentObjective != Objective.COLLECT_QUESTS && this.CurrentObjective != Objective.SEND_HONORS && this.CurrentObjective != Objective.BUY_KEYS)
-                                                {
-                                                    this.ChangeObjective(Objective.SMART_MODE);
-                                                }
-                                            }
-                                            else if (this.IsSendHonorsEnabled() && this.CooldownSendHonors <= 0)
+                                            if (this.IsSendHonorsEnabled() && this.CooldownSendHonors <= 0)
                                             {
                                                 this.CooldownSendHonors = 1800000;
                                                 if (this.IsSendHonorsEnabled() && this.CurrentObjective != Objective.COLLECT_QUESTS && this.CurrentObjective != Objective.COLLECT_INBOX && this.CurrentObjective != Objective.SEND_HONORS && this.CurrentObjective != Objective.BUY_KEYS && this.CurrentObjective != Objective.SMART_MODE)
@@ -2273,24 +2295,14 @@ namespace SevenKnightsAI.Classes
                                                             SevenKnightsCore.Sleep(600);
                                                         }
                                                     }
-                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && !this.itemfull)
+                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!this.itemfull || !this.herofull))
                                                     {
-                                                        this.WeightedClick(AdventureStartPM.AutoRepeatOn, 1.0, 1.0, 1, 0, "left");
+                                                        this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
                                                         SevenKnightsCore.Sleep(1000);
                                                     }
-                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && !this.herofull)
+                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (!this.itemfull || !this.herofull))
                                                     {
-                                                        this.WeightedClick(AdventureStartPM.AutoRepeatOn, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(1000);
-                                                    }
-                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && this.itemfull)
-                                                    {
-                                                        this.WeightedClick(AdventureStartPM.AutoRepeatOff, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(1000);
-                                                    }
-                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && this.herofull)
-                                                    {
-                                                        this.WeightedClick(AdventureStartPM.AutoRepeatOff, 1.0, 1.0, 1, 0, "left");
+                                                        this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
                                                         SevenKnightsCore.Sleep(1000);
                                                     }
                                                     this.world3 = world2;
@@ -2316,7 +2328,7 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.ADVENTURE_START_AUTO:
-                                            this.Log("Adventure Start Auto");
+                                            SevenKnightsCore.Sleep(1000);
                                             break;
 
                                         case SceneType.ADVENTURE_FIGHT:
@@ -2359,7 +2371,7 @@ namespace SevenKnightsAI.Classes
                                             }
                                             else
                                             {
-                                                SevenKnightsCore.Sleep(1000);
+                                                SevenKnightsCore.Sleep(750);
                                             }
                                             break;
 
@@ -2377,15 +2389,6 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.AUTO_REPEAT_INFO:
-                                                SevenKnightsCore.Sleep(2500);
-                                                this.ParseGoldAutoRepeat();
-                                                SevenKnightsCore.Sleep(1000);
-                                                this.ParseHeroAutoRepeat();
-                                                SevenKnightsCore.Sleep(1000);
-                                                this.ParseItemAutoRepeat();
-                                                SevenKnightsCore.Sleep(1000);
-                                                this.ReportCount(Objective.ADVENTURE);
-                                                SevenKnightsCore.Sleep(1000);
                                                 this.checkslothero = true;
                                                 this.checkslotitem = true;
                                                 this.ChangeObjective(Objective.CHECK_SLOT_HERO);
@@ -2436,7 +2439,7 @@ namespace SevenKnightsAI.Classes
                                             }
                                             else
                                             {
-                                                SevenKnightsCore.Sleep(1000);
+                                                SevenKnightsCore.Sleep(750);
                                             }
                                             break;
                                         case SceneType.ADVENTURE_LOOT_AUTO:
@@ -2447,7 +2450,7 @@ namespace SevenKnightsAI.Classes
                                             }
                                             else
                                             {
-                                                SevenKnightsCore.Sleep(1000);
+                                                SevenKnightsCore.Sleep(750);
                                             }
                                             break;
                                         case SceneType.OUT_OF_KEYS_OFFER:
@@ -2799,7 +2802,14 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.SMART_LOOT_COLLECT_LOBBY:
-                                            //smart loot collect
+                                            if(this.CurrentObjective == Objective.SMART_MODE)
+                                            {
+                                                this.Escape();
+                                            }
+                                            else
+                                            {
+                                                this.Escape();
+                                            }
                                             break;
 
                                         case SceneType.SMART_LOBBY:
@@ -3051,14 +3061,18 @@ namespace SevenKnightsAI.Classes
                                 this.Log("Main Frame error?");
                             }
                         }
+                        else if (this.AIProfiles.TMP_WaitingForInternet && IsConnectedToInternet())
+                        {
+                            this.Log("Internet is connected, Game Resuming");
+                            this.AIProfiles.TMP_WaitingForInternet = false;
+                            this.BlueStacks.LaunchGame();
+                        }
                         else if (this.AIProfiles.TMP_WaitingForKeys)
                         {
                             Random rnd = new Random();
 #if DEBUG
 							if ((this.AISettings.AD_Enable && this.AdventureKeys >= 1 && rnd.Next(1, (int)this.AdventureKeyTime.TotalMinutes) == 1) ||
-								(this.AISettings.AR_Enable && this.ArenaKeys >= 1 && rnd.Next(1, (int)this.ArenaKeyTime.TotalMinutes) == 1) ||
-								(this.AISettings.GC_Enable && this.TowerKeys >= 1 && rnd.Next(1, (int)this.TowerKeyTime.TotalMinutes) == 1) ||
-								(this.AISettings.RD_Enable && this.AdventureKeys >= 1 && rnd.Next(1, (int)this.AdventureKeyTime.TotalMinutes) == 1))
+								(this.AISettings.AR_Enable && this.ArenaKeys >= 1 && rnd.Next(1, (int)this.ArenaKeyTime.TotalMinutes) == 1))
 #else
                             if ((this.AISettings.AD_Enable && this.AdventureKeys >= 10 && rnd.Next(1, (int)this.AdventureKeyTime.TotalSeconds) == 1) ||
                                 (this.AISettings.AR_Enable && this.ArenaKeys >= 4 && rnd.Next(1, (int)this.ArenaKeyTime.TotalSeconds) == 1))
@@ -3238,6 +3252,11 @@ namespace SevenKnightsAI.Classes
                         this.ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
+                    if (sM_Enable)
+                    {
+                        this.ChangeObjective(Objective.SMART_MODE);
+                        return;
+                    }
                     if (aR_Enable)
                     {
                         this.ChangeObjective(Objective.ARENA);
@@ -3249,6 +3268,11 @@ namespace SevenKnightsAI.Classes
                     if (aD_Enable && this.AdventureLimitCount < this.AISettings.AD_Limit && !this.IsAdventureLimit)
                     {
                         this.ChangeObjective(Objective.ADVENTURE);
+                        return;
+                    }
+                    if (sM_Enable)
+                    {
+                        this.ChangeObjective(Objective.SMART_MODE);
                         return;
                     }
                     if (aR_Enable)
@@ -3317,6 +3341,22 @@ namespace SevenKnightsAI.Classes
                 this.SendTelegram(this.AIProfiles.ST_TelegramChatID, "Max Hero lvl up 100/100, Bot Paused");
                 this.Alert("Max Level Up");
             }
+
+            if (!IsConnectedToInternet())
+            {
+                this.internetdc += 1;
+            }
+            else
+            {
+                this.internetdc = 0;
+            }
+            if (this.internetdc >= 10)
+            {
+                this.AIProfiles.TMP_WaitingForInternet = true;
+                this.Log("Waiting for Internet to reconnect");
+                this.BlueStacks.TerminateGame();
+            }
+
             TimeSpan ts = TimeSpan.FromSeconds(1.0);
             if (this.AdventureKeyTime != TimeSpan.MaxValue)
             {
@@ -3381,7 +3421,7 @@ namespace SevenKnightsAI.Classes
 #endif
                 using (Page page3 = this.Tesseractor.Engine.Process(bitmap3, null))
                 {
-                    string text3 = page3.GetText().Replace(" ", "").Replace("f", "").Replace("ﬁ", "").Replace("-", "").Replace("‘", "").Replace(",", "").Replace("l", "1").Replace(".", "").Replace("'", "").Trim();
+                    string text3 = page3.GetText().Replace(" ", "").Replace("f", "").Replace("ﬁ", "").Replace("-", "").Replace("‘", "").Replace(",", "").Replace("l", "1").Replace(".", "").Replace("'", "").Replace("~", "").Trim();
                     Utility.FilterAscii(text3);
                     string text4 = Regex.Replace(text3, @"\t|\n|\r", "|");
                     this.Log(text4);
@@ -3948,8 +3988,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.ARENA_FIGHT);
                     return result;
                 }
-                if (this.MatchMapping(AdventureFightPM.GoldIcon, 2) &&
-                    (this.MatchMapping(SharedPM.Fight_PauseButton, 2) || this.MatchMapping(SharedPM.Fight_ChatButton, 2)))
+                if (this.MatchMapping(SharedPM.Fight_PauseButton, 2) || this.MatchMapping(SharedPM.Fight_ChatButton, 2))
                 {
                     Scene result = new Scene(SceneType.ADVENTURE_FIGHT);
                     return result;
@@ -3997,7 +4036,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.SMART_LOBBY);
                     return result;
                 }
-                if (this.MatchMapping(SmartLootCollectPM.Point1, 2) && this.MatchMapping(SmartLootCollectPM.Point2, 2))
+                if (this.MatchMapping(SmartLootCollectPM.Point1, 2) && this.MatchMapping(SmartLootCollectPM.Point2, 2) && this.MatchMapping(SmartLootCollectPM.Card, 2))
                 {
                     Scene result = new Scene(SceneType.SMART_LOOT_COLLECT_LOBBY);
                     return result;
@@ -4142,7 +4181,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.ADVENTURE_START_AUTO);
                     return result;
                 }
-                if (this.MatchMapping(AutoRepeatStopPM.x2Icon, 2) && this.MatchMapping(AutoRepeatStopPM.GoldIcon, 2) && this.MatchMapping(AutoRepeatStopPM.NoButton, 2) && this.MatchMapping(AutoRepeatStopPM.YesButton, 2) && this.MatchMapping(AutoRepeatStopPM.PopupBorder, 2))
+                if (this.MatchMapping(AutoRepeatStopPM.x2Icon, 2) && this.MatchMapping(AutoRepeatStopPM.GoldIcon, 2) && this.MatchMapping(AutoRepeatStopPM.PopupBorder, 2))
                 {
                     Scene result = new Scene(SceneType.AUTO_REPEAT_STOP);
                     return result;
@@ -5362,10 +5401,6 @@ namespace SevenKnightsAI.Classes
                         {
                             int.TryParse(array[1], out maxItem);
                         }
-#if DEBUG
-                        this.Log(string.Format("HC: {0}/{1} String: {2}", curHero, maxHero, text.Trim()));
-                        bitmap.Save(string.Format("H_{0} of {1}.png", curHero, maxHero));
-#endif
                     }
                     this.ItemCount = curItem;
                     this.ItemMax = maxItem;

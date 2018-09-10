@@ -47,17 +47,17 @@ namespace SevenKnightsAI.Classes.Mappings
         };
         public static readonly PixelMapping BorderBottomRight = new PixelMapping //Adventure Button
         {
-            X = 710,
-            Y = 443,
-            Color = 13474397,
+            X = 777,
+            Y = 437,
+            Color = 13480576,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BorderTopLeft = new PixelMapping //Back Button
         {
-            X = 31,
-            Y = 42,
-            Color = 13583116,
+            X = 33,
+            Y = 43,
+            Color = 13385996,
             Type = MappingType.ANCHOR
         };
 
@@ -91,9 +91,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping QuestRedScroll = new PixelMapping
         {
-            X = 27,
-            Y = 454,
-            Color = 6898973,
+            X = 85,
+            Y = 431,
+            Color = 12102274,
             Type = MappingType.ANCHOR
         };
 

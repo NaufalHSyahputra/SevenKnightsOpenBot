@@ -7,31 +7,31 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping x2Icon = new PixelMapping
         {
-            X = 56,
-            Y = 421,
+            X = 39,
+            Y = 452,
             Color = 4934475,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 559,
-            Y = 43,
-            Color = 4272923,
+            X = 119,
+            Y = 428,
+            Color = 3748132,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping PopupBorder = new PixelMapping
         {
-            X = 527,
-            Y = 249,
-            Color = 12562041,
+            X = 432,
+            Y = 118,
+            Color = 16430099,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping NoButton = new PixelMapping
         {
-            X = 273,
-            Y = 374,
-            Color = 13384458,
+            X = 272,
+            Y = 368,
+            Color = 9575696,
             Type = MappingType.BOTH
         };
 

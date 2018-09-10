@@ -7,23 +7,23 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 440,
-            Y = 216,
-            Color = 15446857,
+            X = 434,
+            Y = 212,
+            Color = 16640930,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping CardIcon = new PixelMapping
         {
             X = 436,
-            Y = 163,
-            Color = 16711162,
+            Y = 165,
+            Color = 15186275,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping ChestIcon = new PixelMapping
         {
-            X = 597,
+            X = 599,
             Y = 162,
-            Color = 11239494,
+            Color = 9535081,
             Type = MappingType.ANCHOR
         };
 

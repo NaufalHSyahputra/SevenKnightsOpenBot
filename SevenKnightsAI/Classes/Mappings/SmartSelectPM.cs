@@ -6,17 +6,17 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 261,
-            Y = 114,
-            Color = 8009740,
+            X = 143,
+            Y = 147,
+            Color = 6110761,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 492,
-            Y = 114,
-            Color = 11036177,
+            X = 262,
+            Y = 198,
+            Color = 3218702,
             Type = MappingType.ANCHOR
         };
 

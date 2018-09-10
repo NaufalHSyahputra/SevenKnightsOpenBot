@@ -23,17 +23,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Auto_KeyPlusButton = new PixelMapping
         {
-            X = 426,
-            Y = 37,
-            Color = 4865576,
+            X = 748,
+            Y = 420,
+            Color = 5120784,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Auto_StopButton = new PixelMapping
         {
-            X = 754,
-            Y = 422,
-            Color = 5055248,
+            X = 554,
+            Y = 418,
+            Color = 6381390,
             Type = MappingType.BOTH
         };
 
@@ -55,6 +55,7 @@ namespace SevenKnightsAI.Classes.Mappings
             Type = MappingType.ANCHOR
         };
 
+
         public static readonly PixelMapping AutoRepeatOn = new PixelMapping
         {
             X = 395,
@@ -69,6 +70,14 @@ namespace SevenKnightsAI.Classes.Mappings
             Y = 374,
             Color = 2365712,
             Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping AutoRepeatButton = new PixelMapping
+        {
+            X = 390,
+            Y = 372,
+            Color = 0,
+            Type = MappingType.BUTTON
         };
 
         public static readonly Rectangle R_MapNumber = new Rectangle
