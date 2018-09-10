@@ -225,6 +225,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.screenshotButton = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.AD_CheckSlot_CheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -952,7 +953,7 @@
             // splitterStatusLabel
             // 
             this.splitterStatusLabel.Name = "splitterStatusLabel";
-            this.splitterStatusLabel.Size = new System.Drawing.Size(292, 17);
+            this.splitterStatusLabel.Size = new System.Drawing.Size(347, 17);
             this.splitterStatusLabel.Spring = true;
             // 
             // tsslCursorPosition
@@ -1346,6 +1347,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.AD_CheckSlot_CheckBox);
             this.tabPage1.Controls.Add(this.groupBox23);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -2640,6 +2642,17 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // AD_CheckSlot_CheckBox
+            // 
+            this.AD_CheckSlot_CheckBox.AutoSize = true;
+            this.AD_CheckSlot_CheckBox.Location = new System.Drawing.Point(282, 92);
+            this.AD_CheckSlot_CheckBox.Name = "AD_CheckSlot_CheckBox";
+            this.AD_CheckSlot_CheckBox.Size = new System.Drawing.Size(136, 17);
+            this.AD_CheckSlot_CheckBox.TabIndex = 26;
+            this.AD_CheckSlot_CheckBox.Text = "Check Slot Hero && Item";
+            this.AD_CheckSlot_CheckBox.UseVisualStyleBackColor = true;
+            this.AD_CheckSlot_CheckBox.CheckedChanged += new System.EventHandler(this.AD_CheckSlot_CheckBox_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.aiButton;
@@ -2702,6 +2715,7 @@
             this.tabPage6.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AD_limitNumericBox)).EndInit();
@@ -3278,5 +3292,6 @@
         private System.Windows.Forms.Label goldChamberCountLabel;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox SM_EnableCheckBox;
+        private System.Windows.Forms.CheckBox AD_CheckSlot_CheckBox;
     }
 }

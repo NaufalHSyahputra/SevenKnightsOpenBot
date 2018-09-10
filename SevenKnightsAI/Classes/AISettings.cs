@@ -48,6 +48,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "AD_StopOnFullItems")]
         public bool AD_StopOnFullItems;
 
+        [XmlElement(ElementName = "AD_CheckSlot")]
+        public bool AD_CheckSlot;
+
         [XmlElement(ElementName = "AD_CheckingHeroes")]
         public bool AD_CheckingHeroes;
 
@@ -237,6 +240,7 @@ namespace SevenKnightsAI.Classes
             this.AD_Continuous = false;
             this.AD_StopOnFullHeroes = false;
             this.AD_StopOnFullItems = true;
+            this.AD_CheckSlot = true;
             this.AD_CheckingHeroes = true;
             this.AD_UseFriend = false;
             this.AD_BootMode = false;
@@ -428,6 +432,12 @@ namespace SevenKnightsAI.Classes
                 try
                 {
                     aISettings.AD_StopOnFullItems = (bool)dictionary["AD_StopOnFullItems"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_CheckSlot = (bool)dictionary["AD_CheckSlot"];
                 }
                 catch (Exception)
                 { }
@@ -774,7 +784,10 @@ namespace SevenKnightsAI.Classes
                     "AD_StopOnFullItems",
                     this.AD_StopOnFullItems
                 },
-
+                {
+                    "AD_CheckSlot",
+                    this.AD_CheckSlot
+                },
                 {
                     "AD_CheckingHeroes",
                     this.AD_CheckingHeroes

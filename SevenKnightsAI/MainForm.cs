@@ -1924,6 +1924,13 @@ ts.Hours, ts.Minutes, ts.Seconds);
         {
 
         }
+
+        private void AD_CheckSlot_CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            bool @checked = checkBox.Checked;
+            this.AISettings.AD_CheckSlot = @checked;
+        }
     }
     public class AutoClosingMessageBox
     {

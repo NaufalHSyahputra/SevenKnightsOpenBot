@@ -315,7 +315,10 @@ namespace SevenKnightsAI.Classes
                 this.CurrentSequenceCount2 = 0;
                 this.checkslothero = true;
                 this.checkslotitem = true;
-                this.ChangeObjective(Objective.CHECK_SLOT_HERO);
+                if (this.AISettings.AD_CheckSlot)
+                {
+                    this.ChangeObjective(Objective.CHECK_SLOT_HERO);
+                }
                 for (int i = 0; i < 3; i++)
                 {
                     this.WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
@@ -1437,7 +1440,7 @@ namespace SevenKnightsAI.Classes
 						SevenKnightsCore.Sleep(2000);
 						this.CaptureFrame();
 						Scene scene = this.SceneSearch();
-						if (scene.SceneType == SceneType.SMART_LOOT_COLLECT_LOBBY)
+						if (scene != null || (scene.SceneType == SceneType.SMART_LOOT_COLLECT_LOBBY || scene.SceneType == SceneType.SMART_LOBBY))
 						{
 							this.Log("Collect Loot success", this.COLOR_SMART_MODE);
 							this.Escape();
@@ -2391,7 +2394,10 @@ namespace SevenKnightsAI.Classes
                                         case SceneType.AUTO_REPEAT_INFO:
                                                 this.checkslothero = true;
                                                 this.checkslotitem = true;
-                                                this.ChangeObjective(Objective.CHECK_SLOT_HERO);
+                                                if (this.AISettings.AD_CheckSlot)
+                                                {
+                                                    this.ChangeObjective(Objective.CHECK_SLOT_HERO);
+                                                }
                                                 this.WeightedClick(AutoRepeatInfoPM.CloseBtn, 1.0, 1.0, 1, 0, "left");
                                             break;
 
