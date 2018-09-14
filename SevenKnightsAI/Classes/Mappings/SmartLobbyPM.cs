@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -90,6 +91,46 @@ namespace SevenKnightsAI.Classes.Mappings
             Y = 422,
             Color = 0,
             Type = MappingType.BUTTON
+        };
+
+        public static readonly Rectangle R_GoldenCrystal = new Rectangle
+        {
+            X = 683,
+            Y = 27,
+            Width = 87,
+            Height = 25
+        };
+
+        public static readonly Rectangle R_Horn = new Rectangle
+        {
+            X = 422,
+            Y = 28,
+            Width = 90,
+            Height = 23
+        };
+
+        public static readonly Rectangle R_Scale = new Rectangle
+        {
+            X = 553,
+            Y = 28,
+            Width = 93,
+            Height = 23
+        };
+
+        public static readonly Rectangle R_Essecense = new Rectangle
+        {
+            X = 688,
+            Y = 27,
+            Width = 81,
+            Height = 26
+        };
+
+        public static readonly Rectangle R_Star = new Rectangle
+        {
+            X = 690,
+            Y = 26,
+            Width = 80,
+            Height = 23
         };
     }
 }

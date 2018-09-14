@@ -107,6 +107,7 @@
     <Compile Include="Classes\AISettingsException.cs" />
     <Compile Include="Classes\ArchiveManager.cs" />
     <Compile Include="Classes\AutoSpy.cs" />
+    <Compile Include="Classes\ControlBlueStacks.cs" />
     <Compile Include="Classes\BlueStacks.cs" />
     <Compile Include="Classes\BuildInfo.cs" />
     <Compile Include="Classes\BuyKeyHonorsType.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Classes\Mappings\FriendsPM.cs" />
     <Compile Include="Classes\Mappings\FullHeroPopupPM.cs" />
     <Compile Include="Classes\Mappings\FullItemPopupPM.cs" />
+    <Compile Include="Classes\Mappings\NoMoreHeroPopupPM.cs" />
     <Compile Include="Classes\Mappings\ItemsPM.cs" />
     <Compile Include="Classes\Mappings\HeroesPM.cs" />
     <Compile Include="Classes\Mappings\HeroesSameTeamPopupPM.cs" />
@@ -314,18 +316,31 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="dellon2.ico" />
+    <None Include="icons\icon_adv.png" />
     <Content Include="icons\icon_adventure.png" />
+    <None Include="icons\icon_advkey.png" />
     <Content Include="icons\icon_arena.png" />
+    <None Include="icons\icon_card.png" />
+    <None Include="icons\icon_ess.png" />
     <Content Include="icons\icon_gold.png" />
+    <None Include="icons\icon_golden.png" />
     <Content Include="icons\icon_gold_chamber.png" />
     <Content Include="icons\icon_help.png" />
     <Content Include="icons\icon_honor.png" />
+    <None Include="icons\icon_horn.png" />
+    <None Include="icons\icon_item.png" />
     <Content Include="icons\icon_key_adventure.png" />
     <Content Include="icons\icon_key_arena.png" />
     <Content Include="icons\icon_key_tower.png" />
+    <None Include="icons\icon_mode.png" />
     <Content Include="icons\icon_pushbullet.png" />
     <Content Include="icons\icon_raid.png" />
+    <None Include="icons\icon_report.png" />
     <Content Include="icons\icon_ruby.png" />
+    <None Include="icons\icon_scale.png" />
+    <None Include="icons\icon_setting.png" />
+    <None Include="icons\icon_smart.png" />
+    <None Include="icons\icon_star.png" />
     <Content Include="icons\icon_topaz.png" />
     <Content Include="icons\icon_uac.png" />
     <Content Include="icons\SevenKnights.png" />

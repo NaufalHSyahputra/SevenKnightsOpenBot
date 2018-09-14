@@ -122,9 +122,6 @@ namespace SevenKnightsAI.Classes
         private bool Hottimeloop;
         private string PlayerName = "";
         private bool CheckPlayaName;
-        private int dragonsummoncount;
-        private int goldminegoldamount;
-        private int goldmineentry;
         private bool checkslothero;
         private bool checkslotitem;
         private bool herofull;
@@ -136,6 +133,12 @@ namespace SevenKnightsAI.Classes
         private int h30;
         private World world3; //for give delay to adventure_fight
         private int internetdc;
+        private int SmartModeCount;
+        private int GoldenCrystalCount;
+        private int HornCount;
+        private int ScaleCount;
+        private int EssecenseCount;
+        private int StarCount;
 
         #endregion Private Fields
 
@@ -292,6 +295,12 @@ namespace SevenKnightsAI.Classes
             this.ReportCount(Objective.ADVENTURE);
             this.ProgressSequence();
             this.AdventureCheckLimits();
+        }
+
+        private void SmartModeAfterFight()
+        {
+            this.SmartModeCount++;
+            this.ReportSmartCount();
         }
 
         private void EndAutoRepeat()
@@ -1412,6 +1421,15 @@ namespace SevenKnightsAI.Classes
                 this.AISettings.SM_CollectRaid,
                 this.AISettings.SM_CollectTartarus
             };
+
+            Rectangle R_0 = SmartLobbyPM.R_GoldenCrystal;
+            Rectangle R_2 = SmartLobbyPM.R_Star;
+            Rectangle[] R_1 = new Rectangle[]
+            {
+                SmartLobbyPM.R_Horn,
+                SmartLobbyPM.R_Scale,
+                SmartLobbyPM.R_Essecense
+            };
             this.Log("Start Collect Smart mode", this.COLOR_SMART_MODE);
             int start = -1;
             bool stopSmartMode = false;
@@ -1421,6 +1439,7 @@ namespace SevenKnightsAI.Classes
                 if (start > 2)
                 {
                     stopSmartMode = true;
+                    this.SmartModeAfterFight();
                     this.NextPossibleObjective();
                     break;
                 }
@@ -1433,22 +1452,40 @@ namespace SevenKnightsAI.Classes
                     SevenKnightsCore.Sleep(1000);
                     this.WeightedClick(mapping, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(3000);
-						this.WeightedClick(SmartLobbyPM.CollectButton, 1.0, 1.0, 1, 0, "left");
-						this.Log("Collect Resource success", this.COLOR_SMART_MODE);
-						SevenKnightsCore.Sleep(3000);
-						this.WeightedClick(SmartLobbyPM.LootButton, 1.0, 1.0, 1, 0, "left");
-						SevenKnightsCore.Sleep(2000);
-						this.CaptureFrame();
-						Scene scene = this.SceneSearch();
-						if (scene != null || (scene.SceneType == SceneType.SMART_LOOT_COLLECT_LOBBY || scene.SceneType == SceneType.SMART_LOBBY))
-						{
-							this.Log("Collect Loot success", this.COLOR_SMART_MODE);
-							this.Escape();
-							SevenKnightsCore.Sleep(4000);
+					this.WeightedClick(SmartLobbyPM.CollectButton, 1.0, 1.0, 1, 0, "left");
+					this.Log("Collect Resource success", this.COLOR_SMART_MODE);
+					SevenKnightsCore.Sleep(3000);
+					this.WeightedClick(SmartLobbyPM.LootButton, 1.0, 1.0, 1, 0, "left");
+					SevenKnightsCore.Sleep(2000);
+					this.CaptureFrame();
+					Scene scene = this.SceneSearch();
+                    this.Log(scene.SceneType.ToString());
+					if (scene.SceneType == SceneType.SMART_LOOT_COLLECT_LOBBY)
+					{
+						this.Log("Collect Loot success", this.COLOR_SMART_MODE);
+						this.Escape();
+						SevenKnightsCore.Sleep(4000);
                     }
                     else
                     {
                         this.Log("Loot Not Available", this.COLOR_SMART_MODE);
+                    }
+                    if(start == 0)
+                    {
+                        this.GoldenCrystalCount = this.ParseSmartResource(R_0);
+                        this.ReportResources(ResourceType.GOLDEN_CRYSTAL);
+                    }else if(start == 1)
+                    {
+                        this.HornCount = this.ParseSmartResource(R_1[0]);
+                        this.ReportResources(ResourceType.HORN);
+                        this.ScaleCount = this.ParseSmartResource(R_1[1]);
+                        this.ReportResources(ResourceType.SCALE);
+                        this.EssecenseCount = this.ParseSmartResource(R_1[2]);
+                        this.ReportResources(ResourceType.ESSENCE);
+                    }else if(start == 2)
+                    {
+                        this.StarCount = this.ParseSmartResource(R_2);
+                        this.ReportResources(ResourceType.STAR);
                     }
                 }
                 else
@@ -1550,17 +1587,15 @@ namespace SevenKnightsAI.Classes
             this.CooldownSellHeroes = 0;
             this.CooldownSellItems = 0;
             this.AdventureCount = 0;
+            this.SmartModeCount = 0;
             this.ArenaWinCount = 0;
             this.ArenaRank = 0;
             this.ArenaLoseCount = 0;
             this.ReportAllCount();
             this.AdventureLimitCount = 0;
             this.AdventureLimitCount2 = 0;
-            this.dragonsummoncount = 0;
-            this.goldmineentry = 0;
             this.entrytolv30 = 0;
             this.h30 = 0;
-            this.goldminegoldamount = 0;
             this.ArenaLimitCount = 0;
             this.HeroCount = 0;
             this.ItemCount = 0;
@@ -1577,6 +1612,11 @@ namespace SevenKnightsAI.Classes
             this.RubyCount = -1;
             this.HonorCount = -1;
             this.TopazCount = -1;
+            this.GoldenCrystalCount = 0;
+            this.HornCount = 0;
+            this.ScaleCount = 0;
+            this.EssecenseCount = 0;
+            this.StarCount = 0;
             this.ReportAllResources();
             this.OneSecTimer.Enabled = true;
             this.checkslothero = false;
@@ -2334,6 +2374,22 @@ namespace SevenKnightsAI.Classes
                                             SevenKnightsCore.Sleep(1000);
                                             break;
 
+                                        case SceneType.NO_MORE_HERO_POPUP:
+                                            if (this.AIProfiles.AD_NoHeroUp)
+                                            {
+                                                this.Alert("No More Hero 30");
+                                                SendTelegram(this.AIProfiles.ST_TelegramChatID, "Bot has stopped Because No More Heroes to be replaced with");
+                                                this.Escape();
+                                            }
+                                            else
+                                            {
+                                                SendTelegram(this.AIProfiles.ST_TelegramChatID, "No More Heroes to be replaced, bot will disable adventure");
+                                                this.DisableMode(Objective.ADVENTURE);
+                                                this.Escape();
+                                                this.NextPossibleObjective();
+                                            }
+                                            break;
+
                                         case SceneType.ADVENTURE_FIGHT:
                                             /*This created to avoid bot detect adventure_end scene when in boss round*/
                                             if (!this.IsAlreadyAdvFight)
@@ -2639,33 +2695,6 @@ namespace SevenKnightsAI.Classes
                                                 }
                                                 ReportCheckSlot(Objective.CHECK_SLOT_HERO);
                                                 SevenKnightsCore.Sleep(1500);
-                                                //if (this.CurrentObjective != Objective.CHECK_SLOT_HERO && this.PreviousObjective != Objective.CHECK_SLOT_HERO && this.CurrentObjective != Objective.SELL_HEROES && this.PreviousObjective != Objective.SELL_HEROES && this.AISettings.AD_Formation != Formation.None && this.AISettings.AD_HeroManagePositions != null && this.AISettings.AD_HeroManagePositions.Length > 0)
-                                                //{
-                                                //    this.ChangeObjective(Objective.CHECK_SLOT_HERO);
-                                                //}
-                                                //if (this.MatchMapping(HeroesPM.BlockingChatCloseButton, 2))
-                                                //{
-                                                //    this.WeightedClick(HeroesPM.BlockingChatCloseButton, 1.0, 1.0, 1, 0, "left");
-                                                //}
-                                                //else if (this.CurrentObjective == Objective.CHECK_SLOT_HERO)
-                                                //{
-                                                //    this.WeightedClick(HeroesPM.HeroesButton, 1.0, 1.0, 1, 0, "left");
-                                                //}
-                                                //else if (this.CurrentObjective == Objective.SELL_HEROES)
-                                                //{
-                                                //    if (this.MatchMapping(HeroesPM.ElementButton, 2))
-                                                //    {
-                                                //        this.WeightedClick(HeroesPM.HeroesButton, 1.0, 1.0, 1, 0, "left");
-                                                //    }
-                                                //    else
-                                                //    {
-                                                //        this.SellHeroes();
-                                                //    }
-                                                //}
-                                                //else
-                                                //{
-                                                //    this.Escape();
-                                                //}
                                             }
                                             else if (this.CurrentObjective == Objective.CHECK_SLOT_ITEM)
                                             {
@@ -3492,6 +3521,24 @@ namespace SevenKnightsAI.Classes
             return result;
         }
 
+        private int ParseSmartResource(Rectangle rect)
+        {
+            int result = -1;
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect))
+            {
+                using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
+                {
+                    string text = this.ReplaceNumericResource(page.GetText());
+                    this.Log("Smart Text: " + text);
+                    if (text.Length >= 1)
+                    {
+                        int.TryParse(text, out result);
+                    }
+                }
+            }
+            return result;
+        }
+
         private int ParseHonor(Rectangle rect)
         {
             int result = -1;
@@ -3726,21 +3773,32 @@ namespace SevenKnightsAI.Classes
             this.Worker.ReportProgress(0, userState);
         }
 
+        private void ReportSmartCount()
+        {
+            Dictionary<string, object> message = new Dictionary<string, object>
+            {
+                {
+                    "objective",
+                    Objective.SMART_MODE
+                },
+                {
+                    "count",
+                    this.SmartModeCount
+                }
+            };
+            ProgressArgs userState = new ProgressArgs(ProgressType.COUNT, message);
+            this.Worker.ReportProgress(0, userState);
+        }
+
         private void ReportCount(Objective objective)
         {
             int num = 0;
             int num2 = 0;
-            int num3 = 0;
-            int num4 = 0;
-            int num5 = 0;
             switch (objective)
             {
                 case Objective.ADVENTURE:
                     num = this.AdventureCount;
-                    num2 = this.dragonsummoncount;
-                    num3 = this.goldadv;
-                    num4 = this.itemadv;
-                    num5 = this.heroadv;
+                    num2 = this.h30;
                     break;
             }
 
@@ -3755,20 +3813,8 @@ namespace SevenKnightsAI.Classes
                          num
                     },
                     {
-                        "gold",
-                         num3
-                    },
-                    {
-                        "hero",
-                         num2
-                    },
-                    {
-                        "item",
-                         num4
-                    },
-                    {
                         "h30",
-                         num5
+                         num2
                 }
                 };
 
@@ -3863,6 +3909,21 @@ namespace SevenKnightsAI.Classes
 
                 case ResourceType.HONOR:
                     num = this.HonorCount;
+                    break;
+                case ResourceType.GOLDEN_CRYSTAL:
+                    num = this.GoldenCrystalCount;
+                    break;
+                case ResourceType.HORN:
+                    num = this.HornCount;
+                    break;
+                case ResourceType.SCALE:
+                    num = this.ScaleCount;
+                    break;
+                case ResourceType.ESSENCE:
+                    num = this.EssecenseCount;
+                    break;
+                case ResourceType.STAR:
+                    num = this.StarCount;
                     break;
             }
             Dictionary<string, object> message = new Dictionary<string, object>
@@ -4185,6 +4246,11 @@ namespace SevenKnightsAI.Classes
                 if (this.MatchMapping(AdventureStartPM.Auto_KeyPlusButton, 2) && this.MatchMapping(AdventureStartPM.Auto_StopButton, 2))
                 {
                     Scene result = new Scene(SceneType.ADVENTURE_START_AUTO);
+                    return result;
+                }
+                if (this.MatchMapping(NoMoreHeroPopupPM.DimmedBG, 2) && this.MatchMapping(NoMoreHeroPopupPM.PopupBorderLeft, 2) && this.MatchMapping(NoMoreHeroPopupPM.PopupBorderRight, 2))
+                {
+                    Scene result = new Scene(SceneType.NO_MORE_HERO_POPUP);
                     return result;
                 }
                 if (this.MatchMapping(AutoRepeatStopPM.x2Icon, 2) && this.MatchMapping(AutoRepeatStopPM.GoldIcon, 2) && this.MatchMapping(AutoRepeatStopPM.PopupBorder, 2))

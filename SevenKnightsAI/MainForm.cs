@@ -95,6 +95,8 @@ namespace SevenKnightsAI
 
         private Stopwatch timer1;
 
+        private ControlBluestacks cb = new ControlBluestacks();
+
         #endregion Private Fields
 
         #region Public Properties
@@ -158,41 +160,48 @@ namespace SevenKnightsAI
 
         public void CaptureReport()
         {
-            /*if (tabControl1.SelectedTab != tabControl1.TabPages["tabPage4"])
-            {
-                this.tabControl1.SelectedTab = tabPage4;
-            }
-            System.Threading.Thread.Sleep(5000);*/
+            this.tabControl1.SelectedIndex = 0;
+            Thread.Sleep(3000);
+            this.tabControl3.SelectedIndex = 0;
+            Thread.Sleep(3000);
             ScreenCapture sc = new ScreenCapture();
-            // capture entire screen, and save it to a file
             Image img = sc.CaptureScreen();
-            // capture this window, and save it
             sc.CaptureWindowToFile(this.Handle, "C:\\report.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            Bitmap screen = this.AI.BlueStacks.CaptureFrame(!this.AIProfiles.ST_ForegroundMode);
-            screen.Save("C:\\screen.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            cb.Screenshot();
+            //Bitmap screen = this.AI.BlueStacks.CaptureFrame(!this.AIProfiles.ST_ForegroundMode);
+            //screen.Save("C:\\screen.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
         public void Test(object sender, DoWorkEventArgs e)
         {
-            while (!this.Worker2.CancellationPending)
+            while (true)
             {
                 bot.update = "true";
                 if (bot.message_text == "/start" || bot.message_text == "/Start" || bot.message_text == "ResetTelegram")
                 {
-                    bot.sendKeyboard.keyboard_R1_1 = "ChangeMode";
+                    bot.sendKeyboard.keyboard_R1_1 = "ControlBot";
                     bot.sendKeyboard.keyboard_R1_2 = "ControlPC";
-                    bot.sendKeyboard.keyboard_R1_3 = "ResetTelegram";
+                    bot.sendKeyboard.keyboard_R1_3 = "ControlBluestacks";
                     bot.sendKeyboard.keyboard_R2_1 = "EnableMode";
                     bot.sendKeyboard.keyboard_R2_2 = "DisableMode";
-                    bot.sendKeyboard.keyboard_R2_3 = "GetReport";
-                    bot.sendKeyboard.keyboard_R3_1 = "StartBot";
-                    bot.sendKeyboard.keyboard_R3_2 = "StopBot";
-                    bot.sendKeyboard.keyboard_R3_3 = "PauseBot";
-                    bot.sendKeyboard.keyboard_R3_4 = "ResumeBot";
-                    bot.sendKeyboard.send(bot.chat_id, "Welcome to Seven Knights AI Black Telegram Bot.\nYour ChatID will automatically added to your bot.");
+                    bot.sendKeyboard.keyboard_R3_1 = "GetReport";
+                    bot.sendKeyboard.keyboard_R3_2 = "ResetTelegram";
+                    bot.sendKeyboard.send(bot.chat_id, "Welcome to Seven Knights OpenBot Telegram Bot.\nYour ChatID will automatically added to your bot.");
                     ST_TelegramChatIDTextBox.Text = bot.chat_id;
                 }
-                if (bot.message_text == "StartBot")
+                if (bot.message_text == "ControlBot")
+                {
+                    bot.send_inline_keyboard.keyboard_R1_1 = "Start Bot";
+                    bot.send_inline_keyboard.keyboard_R1_1_callback_data = "StartBot";
+                    bot.send_inline_keyboard.keyboard_R1_2 = "Stop Bot";
+                    bot.send_inline_keyboard.keyboard_R1_2_callback_data = "StopBot";
+                    bot.send_inline_keyboard.keyboard_R1_3 = "Pause Bot";
+                    bot.send_inline_keyboard.keyboard_R1_3_callback_data = "PauseBot";
+                    bot.send_inline_keyboard.keyboard_R2_1 = "Restart Bot";
+                    bot.send_inline_keyboard.keyboard_R2_1_callback_data = "RestartBot";
+                    bot.send_inline_keyboard.send(bot.chat_id, "Select Mode You Want To Enable : ");
+                }
+                if (bot.data == "StartBot")
                 {
 
                     this.tabControl1.SelectedTab = tabPage4;
@@ -208,7 +217,7 @@ namespace SevenKnightsAI
                         bot.sendMessage.send(bot.chat_id, "Bot Already Started");
                     }
                 }
-                if (bot.message_text == "StopBot")
+                if (bot.data == "StopBot")
                 {
                     if (this.started)
                     {
@@ -222,7 +231,7 @@ namespace SevenKnightsAI
 
                     }
                 }
-                if (bot.message_text == "PauseBot")
+                if (bot.data == "PauseBot")
                 {
                     if (this.started)
                     {
@@ -234,7 +243,7 @@ namespace SevenKnightsAI
                         bot.sendMessage.send(bot.chat_id, "Bot Not Running");
                     }
                 }
-                if (bot.message_text == "ResumeBot")
+                if (bot.data == "ResumeBot")
                 {
                     if (this.AIProfiles.TMP_Paused)
                     {
@@ -252,6 +261,8 @@ namespace SevenKnightsAI
                     bot.send_inline_keyboard.keyboard_R1_1_callback_data = "EnableAdventure";
                     bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                     bot.send_inline_keyboard.keyboard_R1_2_callback_data = "EnableArena";
+                    bot.send_inline_keyboard.keyboard_R1_3 = "Smart Mode";
+                    bot.send_inline_keyboard.keyboard_R1_3_callback_data = "EnableSmartMode";
                     bot.send_inline_keyboard.send(bot.chat_id, "Select Mode You Want To Enable : ");
                 }
                 if (bot.data == "EnableAdventure")
@@ -264,12 +275,19 @@ namespace SevenKnightsAI
                     SendCommand("Enable Arena");
                     bot.sendMessage.send(bot.chat_id, "Adventure Enabled");
                 }
+                if (bot.data == "EnableSmartMode")
+                {
+                    SendCommand("Enable Smart Mode");
+                    bot.sendMessage.send(bot.chat_id, "Smart Mode Enabled");
+                }
                 if (bot.message_text == "DisableMode")
                 {
                     bot.send_inline_keyboard.keyboard_R1_1 = "Adventure";
                     bot.send_inline_keyboard.keyboard_R1_1_callback_data = "DisableAdventure";
                     bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                     bot.send_inline_keyboard.keyboard_R1_2_callback_data = "DisableArena";
+                    bot.send_inline_keyboard.keyboard_R1_3 = "Smart Mode";
+                    bot.send_inline_keyboard.keyboard_R1_3_callback_data = "DisableSmartMode";
                     bot.send_inline_keyboard.send(bot.chat_id, "Select Mode You Want To Disable : ");
                 }
                 if (bot.data == "DisableAdventure")
@@ -282,6 +300,43 @@ namespace SevenKnightsAI
                     SendCommand("Disable Arena");
                     bot.sendMessage.send(bot.chat_id, "Adventure Disabled");
                 }
+                if (bot.data == "DisableSmartMode")
+                {
+                    SendCommand("Disable Smart Mode");
+                    bot.sendMessage.send(bot.chat_id, "Smart Mode Disabled");
+                }
+                if (bot.message_text == "ControlBluestacks")
+                {
+                    bot.send_inline_keyboard.keyboard_R1_1 = "Kill Bluestacks";
+                    bot.send_inline_keyboard.keyboard_R1_1_callback_data = "KillBS";
+                    bot.send_inline_keyboard.keyboard_R1_2 = "Restart Bluestacks";
+                    bot.send_inline_keyboard.keyboard_R1_2_callback_data = "RestartBS";
+                    bot.send_inline_keyboard.keyboard_R2_1 = "Kill 7K";
+                    bot.send_inline_keyboard.keyboard_R2_1_callback_data = "Kill7K";
+                    bot.send_inline_keyboard.keyboard_R2_2 = "Restart 7K";
+                    bot.send_inline_keyboard.keyboard_R2_2_callback_data = "Restat7K";
+                    bot.send_inline_keyboard.send(bot.chat_id, "Select your choice : ");
+                }
+                if (bot.data == "KillBS")
+                {
+                    SendCommand("KillBS");
+                    bot.sendMessage.send(bot.chat_id, "Bluestacks will be killed");
+                }
+                if (bot.data == "RestartBS")
+                {
+                    SendCommand("RestartBS");
+                    bot.sendMessage.send(bot.chat_id, "Bluestacks will restart, and automatically run Seven Knights");
+                }
+                if (bot.data == "Kill7K")
+                {
+                    SendCommand("Kill7K");
+                    bot.sendMessage.send(bot.chat_id, "Seven Knights will be killed");
+                }
+                if (bot.data == "Restart7K")
+                {
+                    SendCommand("Restart7K");
+                    bot.sendMessage.send(bot.chat_id, "Seven Knights will restart");
+                }
                 if (bot.message_text == "GetReport")
                 {
                     CaptureReport();
@@ -290,53 +345,15 @@ namespace SevenKnightsAI
                     bot.SendPhoto.send(this.AIProfiles.ST_TelegramChatID, @"C://report.jpg");
                     bot.SendPhoto.Show_sending_a_photo = true;
                     bot.SendPhoto.caption = String.Format("Last Screenshot {0}", DateTime.Now.ToString());
-                    bot.SendPhoto.send(this.AIProfiles.ST_TelegramChatID, @"C://screen.jpg");
-                }
-                if (bot.message_text == "ChangeMode")
-                {
-                    bot.send_inline_keyboard.keyboard_R1_1 = "Adventure";
-                    bot.send_inline_keyboard.keyboard_R1_1_callback_data = "FAdventure";
-                    bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
-                    bot.send_inline_keyboard.keyboard_R1_2_callback_data = "FArena";
-                    bot.send_inline_keyboard.send(bot.chat_id, "This Feature will force bot to change mode, Please choose Mode what you want : ");
-                }
-                if (bot.data == "FAdventure")
-                {
-                    if (this.AISettings.AD_Enable == true)
-                    {
-                        SendCommand("Change Mode Adventure");
-                        bot.sendMessage.send(bot.chat_id, "Mode Changed to : Adventure");
-                    }
-                    else
-                    {
-                        bot.sendMessage.send(bot.chat_id, "Adventure Mode is not Activated");
-                    }
-                }
-                if (bot.data == "FArena")
-                {
-                    if (this.AISettings.AR_Enable == true)
-                    {
-                        SendCommand("Change Mode Arena");
-                        bot.sendMessage.send(bot.chat_id, "Mode Changed to : Arena");
-                    }
-                    else
-                    {
-                        bot.sendMessage.send(bot.chat_id, "Arena Mode is not Activated");
-                    }
+                    bot.SendPhoto.send(this.AIProfiles.ST_TelegramChatID, @"C://screenshot.png");
                 }
                 if (bot.message_text == "ControlPC")
                 {
-                    bot.send_inline_keyboard.keyboard_R1_1 = "Shutdown PC";
+                    bot.send_inline_keyboard.keyboard_R1_1 = "Shutdown";
                     bot.send_inline_keyboard.keyboard_R1_1_callback_data = "Shutdown";
-                    bot.send_inline_keyboard.keyboard_R1_2 = "Restart PC";
+                    bot.send_inline_keyboard.keyboard_R1_2 = "Restart";
                     bot.send_inline_keyboard.keyboard_R1_2_callback_data = "Restart";
-                    bot.send_inline_keyboard.keyboard_R2_1 = "Restart 7k";
-                    bot.send_inline_keyboard.keyboard_R2_1_callback_data = "Restart7k";
                     bot.send_inline_keyboard.send(bot.chat_id, "Select Mode You Want To Enable : ");
-                }
-                if (bot.data == "Restart7k")
-                {
-                    bot.sendMessage.send(bot.chat_id, Restart7k());
                 }
                 if (bot.data == "Shutdown")
                 {
@@ -662,6 +679,11 @@ namespace SevenKnightsAI
                             this.rankArenaLabel.Text = numm2.ToString();
                             return;
                         }
+                        else if(objective == Objective.SMART_MODE)
+                        {
+                            int num = (int)dictionary["count"];
+                            this.SmartModeCountLabel.Text = "x" + num.ToString();
+                        }
 
                         int num3 = (int)dictionary["count"];
                         string text = string.Format("x" + num3);
@@ -677,17 +699,14 @@ namespace SevenKnightsAI
                         }
                         else if (objective == Objective.ADVENTURE)
                         {
-                            text2 = "" + dictionary["hero"]; //dragon
-                            text3 = "" + dictionary["gold"]; //gold
-                            text4 = "" + dictionary["item"]; //item
-                            text5 = "" + dictionary["h30"]; //hero
+                            text2 = "" + dictionary["h30"]; //hero30
                         }
                         switch (objective)
                         {
                             case Objective.ADVENTURE:
                                 this.adventureCountLabel.Text = text;
                                 this.heroadvLabel.Text = text5;
-                                this.goldadvLabel.Text = text3;
+                                this.goldadvLabel.Text = text2; //hero30
                                 this.itemadvLabel.Text = text4;
                                 return;
 
@@ -769,6 +788,26 @@ namespace SevenKnightsAI
                                 label = this.honorLabel2;
                                 label.Text = text2;
                                 break;
+                            case ResourceType.GOLDEN_CRYSTAL:
+                                label = this.goldencrystalLabel;
+                                label.Text = text2;
+                                break;
+                            case ResourceType.HORN:
+                                label = this.hornLabel;
+                                label.Text = text2;
+                                break;
+                            case ResourceType.SCALE:
+                                label = this.scaleLabel;
+                                label.Text = text2;
+                                break;
+                            case ResourceType.ESSENCE:
+                                label = this.essenceLabel;
+                                label.Text = text2;
+                                break;
+                            case ResourceType.STAR:
+                                label = this.starLabel;
+                                label.Text = text2;
+                                break;
                         }
                         break;
                     }
@@ -806,6 +845,16 @@ namespace SevenKnightsAI
                                 this.PauseAI();
                                 this.AlertSound.PlayLooping();
                                 AutoClosingMessageBox.Show("Heroes Full!", "Heroes Full!", 5000);
+                                this.AlertSound.Stop();
+                            }
+                        }
+                        else if ((string)progressArgs.Message == "Items Full")
+                        {
+                            if (this.AISettings.AD_StopOnFullItems)
+                            {
+                                this.PauseAI();
+                                this.AlertSound.PlayLooping();
+                                AutoClosingMessageBox.Show("Items Full!", "Items Full!", 5000);
                                 this.AlertSound.Stop();
                             }
                         }
@@ -966,7 +1015,6 @@ namespace SevenKnightsAI
             this.AD_continuousCheckBox.Checked = this.AISettings.AD_Continuous;
             this.AD_StopOnFullHeroes_Checkbox.Checked = this.AISettings.AD_StopOnFullHeroes;
             this.AD_StopOnFullItems_Checkbox.Checked = this.AISettings.AD_StopOnFullItems;
-            this.AD_CheckingHeroes_Checkbox.Checked = this.AISettings.AD_CheckingHeroes;
             this.AD_UseFriendCheckBox.Checked = this.AISettings.AD_UseFriend;
             this.AD_bootmodeCheckBox.Checked = this.AISettings.AD_BootMode;
         }
@@ -1861,6 +1909,22 @@ namespace SevenKnightsAI
                         {
                             this.AI.ChangeMode(Objective.ARENA);
                         }
+                        else if ((string)progressArgsT.Message == "RestartBS")
+                        {
+                            cb.RestartBluestacks();
+                        }
+                        else if ((string)progressArgsT.Message == "KillBS")
+                        {
+                            cb.Kill();
+                        }
+                        else if ((string)progressArgsT.Message == "Kill7K")
+                        {
+                            cb.TerminateGame();
+                        }
+                        else if ((string)progressArgsT.Message == "Restart7K")
+                        {
+                            cb.RestartGame();
+                        }
                         break;
                     }
             }
@@ -1909,16 +1973,14 @@ ts.Hours, ts.Minutes, ts.Seconds);
         }
         private void button4_Click_1(object sender, EventArgs e)
         {
-            this.AI.ChangeMode(Objective.SMART_MODE);
+            cb.RunApp();
         }
-
         private void SM_EnableCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
             bool @checked = checkBox.Checked;
             this.AISettings.SM_Enable = @checked;
         }
-        #endregion Private Methods 
 
         private void groupBox7_Enter(object sender, EventArgs e)
         {
@@ -1930,6 +1992,27 @@ ts.Hours, ts.Minutes, ts.Seconds);
             CheckBox checkBox = sender as CheckBox;
             bool @checked = checkBox.Checked;
             this.AISettings.AD_CheckSlot = @checked;
+        }
+        #endregion Private Methods 
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class AutoClosingMessageBox

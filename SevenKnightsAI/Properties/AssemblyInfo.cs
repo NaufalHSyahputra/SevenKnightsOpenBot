@@ -8,13 +8,13 @@ using System.Runtime.Versioning;
 using System.Security;
 using System.Security.Permissions;
 
-[assembly: AssemblyVersion("1.3.1")]
+[assembly: AssemblyVersion("1.4")]
 [assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: AssemblyCompany("Naufal Hakim Syahputra")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCopyright("Naufal Hakim Syahputra")]
 [assembly: AssemblyDescription("Seven Knights OpenBot")]
-[assembly: AssemblyFileVersion("1.3.1")]
+[assembly: AssemblyFileVersion("1.4")]
 [assembly: AssemblyProduct("Seven Knights OpenBot")]
 [assembly: AssemblyTitle("Seven Knights OpenBot")]
 [assembly: AssemblyTrademark("Naufal Hakim Syahputra")]

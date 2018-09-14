@@ -10,6 +10,16 @@ namespace SevenKnightsAI.Classes
 
         HONOR,
 
-        TOPAZ
+        TOPAZ,
+
+        GOLDEN_CRYSTAL,
+
+        HORN,
+
+        SCALE,
+
+        STAR,
+
+        ESSENCE
     }
 }

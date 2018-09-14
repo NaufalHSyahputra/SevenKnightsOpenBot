@@ -33,6 +33,8 @@ namespace SevenKnightsAI.Classes
 
         public static readonly int OFFSET_Y = 29;
 
+        public static readonly int DELAY_BS_EXIT = 12000;
+
         private static readonly string SETTINGS_HANDLE_TITLE = "WindowsForms10.Window.8.app.0.33c0d9d5";
 
         RegistryKey HKLM = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
@@ -179,11 +181,12 @@ namespace SevenKnightsAI.Classes
             return this.Adb("shell pm list packages " + BlueStacks.PACKAGE_NAME).Contains(BlueStacks.PACKAGE_NAME);
         }
 
-        public void Kill()
+        public string Kill()
         {
-            Process process = this.CreateProcess(this.InstallPath + "HD-Quit.exe", null);
+            Process process = this.CreateProcess(this.QuitPath, null);
             process.Start();
             process.WaitForExit();
+            return process.StandardOutput.ReadToEnd();
         }
 
         public void LaunchGame()
@@ -335,6 +338,22 @@ namespace SevenKnightsAI.Classes
             get
             {
                 return this.InstallPath + "HD-Adb.exe";
+            }
+        }
+
+        private string QuitPath
+        {
+            get
+            {
+                return this.InstallPath + "HD-Quit.exe";
+            }
+        }
+
+        private string RunAppPath
+        {
+            get
+            {
+                return this.InstallPath + "HD-RunApp.exe";
             }
         }
 
