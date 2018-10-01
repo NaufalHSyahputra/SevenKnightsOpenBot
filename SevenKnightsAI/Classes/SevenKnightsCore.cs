@@ -4770,11 +4770,11 @@ namespace SevenKnightsAI.Classes
                     MapSelectPM.World11_1Stage3,
                     MapSelectPM.World11_1Stage4,
                     MapSelectPM.World11_1Stage5,
-                    MapSelectPM.World11_2Stage6,
-                    MapSelectPM.World11_2Stage7,
-                    MapSelectPM.World11_2Stage8,
-                    MapSelectPM.World11_2Stage9,
-                    MapSelectPM.World11_2Stage10
+                    MapSelectPM.World11_2Stage1,
+                    MapSelectPM.World11_2Stage2,
+                    MapSelectPM.World11_2Stage3,
+                    MapSelectPM.World11_2Stage4,
+                    MapSelectPM.World11_2Stage5
                 }
             };
             int pageDestIndex = array.Length + 1;
