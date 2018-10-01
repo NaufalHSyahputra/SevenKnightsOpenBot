@@ -44,25 +44,25 @@ namespace SevenKnightsAI.Classes.Mappings
         /* Package Shop */
         public static readonly PixelMapping EventPackPoint1 = new PixelMapping // "P" in "PACKAGE"
         {
-            X = 318,
-            Y = 46,
-            Color = 14201675,
+            X = 494,
+            Y = 38,
+            Color = 14005581,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping EventPackPoint2 = new PixelMapping // "P" in "SHOP"
         {
-            X = 496,
-            Y = 46,
-            Color = 14201675,
+            X = 307,
+            Y = 40,
+            Color = 14135625,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping EventPackCloseBtn = new PixelMapping
         {
-            X = 770,
-            Y = 46,
-            Color = 12663051,
+            X = 787,
+            Y = 34,
+            Color = 13320716,
             Type = MappingType.BOTH
         };
 

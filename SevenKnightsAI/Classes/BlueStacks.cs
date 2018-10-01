@@ -303,7 +303,7 @@ namespace SevenKnightsAI.Classes
         {
             get
             {
-                return HKCU.OpenSubKey("Software\\Changzhi\\dnplayer-en", true);
+                return HKCU.OpenSubKey("SOFTWARE\\Changzhi\\dnplayer-en", true);
             }
         }
     }

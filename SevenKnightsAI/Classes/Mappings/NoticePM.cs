@@ -6,24 +6,24 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping CloseButton = new PixelMapping
         {
-            X = 804,
-            Y = 29,
+            X = 792,
+            Y = 30,
             Color = 0,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping TopBorderLeft = new PixelMapping
         {
-            X = 804,
-            Y = 29,
-            Color = 3289650,
+            X = 787,
+            Y = 25,
+            Color = 16448250,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping TopBorderRight = new PixelMapping
         {
-            X = 807,
-            Y = 34,
-            Color = 15856113,
+            X = 792,
+            Y = 30,
+            Color = 16777215,
             Type = MappingType.ANCHOR
         };
         /*

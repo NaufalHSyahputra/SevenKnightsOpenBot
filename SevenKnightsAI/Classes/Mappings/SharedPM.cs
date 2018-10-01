@@ -882,25 +882,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping HelpFriendOK = new PixelMapping
         {
-            X = 361,
-            Y = 375,
+            X = 362,
+            Y = 384,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HelpFriendTik = new PixelMapping
         {
-            X = 361,
-            Y = 375,
-            Color = 16760609,
+            X = 426,
+            Y = 276,
+            Color = 10692875,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping HelpFriendBorder = new PixelMapping
         {
-            X = 336,
-            Y = 285,
-            Color = 12922891,
+            X = 145,
+            Y = 192,
+            Color = 15784349,
             Type = MappingType.ANCHOR
         };
         #endregion Public Fields

@@ -2067,7 +2067,7 @@ namespace SevenKnightsAI.Classes
                                                         SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
 
                                                         this.CaptureFrame();
-
+                                                            
                                                         //then
 
                                                     }
