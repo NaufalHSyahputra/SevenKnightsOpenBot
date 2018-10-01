@@ -120,9 +120,9 @@ namespace SevenKnightsAI.Classes
 
         public void Screenshot()
         {
-            this.Adb("shell /system/bin/screencap -p /sdcard/screenshot.png");
+            this.Adb("shell /system/bin/screencap -p /sdcard/screen.png");
             Thread.Sleep(3000);
-            this.Adb("pull /sdcard/screenshot.png C:\\screenshot.png");
+            this.Adb("pull /sdcard/screen.png C:\\screen.png");
         }
 
         public void TerminateGame()

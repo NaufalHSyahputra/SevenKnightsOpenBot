@@ -13,21 +13,13 @@ namespace SevenKnightsAI.Classes
 
         private static readonly string ACTIVITY_NAME = BlueStacks.PACKAGE_NAME + "/com.netmarble.sknightsgb.MainActivity";
 
-        public static readonly int ACTUAL_HEIGHT = 586;
+        public static readonly int LD_HEIGHT = 533;
 
-        public static readonly int ACTUAL_WIDTH = 888;
+        public static readonly int LD_WIDTH = 818;
 
-        public static readonly int BS_HEIGHT = 657;
+        private static readonly string CONTROL_HANDLE_TITLE = "TheRender";
 
-        public static readonly int BS_WIDTH = 1168;
-
-        private static readonly string CONTROL_HANDLE_TITLE = "BlueStacks Android PluginAndroid";
-
-        public static readonly int GUEST_HEIGHT = 720;
-
-        public static readonly int GUEST_WIDTH = 1280;
-
-        private static readonly string HANDLE_TITLE = "BlueStacks";
+        private static readonly string HANDLE_TITLE = "LDPlayer";
 
         public static readonly int OFFSET_X = 1;
 
@@ -35,14 +27,10 @@ namespace SevenKnightsAI.Classes
 
         public static readonly int DELAY_BS_EXIT = 12000;
 
-        private static readonly string SETTINGS_HANDLE_TITLE = "WindowsForms10.Window.8.app.0.33c0d9d5";
-
-        RegistryKey HKLM = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+        RegistryKey HKCU = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64);
 
         private string Adb(string command)
         {
-            //this.ConnectAdb();
-            string str = string.Format("-s localhost:{0} ", this.AdbPort);
             Process process = this.CreateProcess(this.AdbPath, command);
             process.Start();
             process.WaitForExit();
@@ -54,18 +42,9 @@ namespace SevenKnightsAI.Classes
             return this.MainWindowAS.CaptureFrame(backgroundMode, true);
         }
 
-        private string ConnectAdb()
-        {
-            string arguments = string.Format("connect localhost:{0} ", this.AdbPort);
-            Process process = this.CreateProcess(this.AdbPath, arguments);
-            process.Start();
-            process.WaitForExit();
-            return process.StandardOutput.ReadToEnd();
-        }
-
         public void KillADB()
         {
-            Process process = this.CreateProcess("cmd.exe", "taskkill /IM HD-Adb.exe /F");
+            Process process = this.CreateProcess("cmd.exe", "taskkill /IM adb.exe /F");
             process.Start();
             process.WaitForExit();
         }
@@ -94,7 +73,21 @@ namespace SevenKnightsAI.Classes
                 return null;
             }
             Process processById = Process.GetProcessById((int)num);
-            return processById.MainModule.FileName;
+            return num.ToString();
+        }
+
+        public int GetProcessID()
+        {
+            uint num = 0u;
+            BlueStacks.GetWindowThreadProcessId(this.MainWindowAS.Handle, out num);
+            if(num == 0u)
+            {
+                return (int)0u;
+            }
+            else
+            {
+                return (int)num;
+            }
         }
 
         public Point GetMousePos()
@@ -122,6 +115,12 @@ namespace SevenKnightsAI.Classes
             return result;
         }
 
+        public Size GetWindowSize()
+        {
+            Size test = this.MainWindowAS.GetControlSize();
+            return test;
+        }
+
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
 
@@ -129,7 +128,6 @@ namespace SevenKnightsAI.Classes
         {
             this.HideMainWindow(useOpacity);
             Thread.Sleep(50);
-            //this.HideSideMenu(useOpacity);
             this.IsHidden = true;
         }
 
@@ -143,23 +141,12 @@ namespace SevenKnightsAI.Classes
             this.MainWindowAS.Hide();
         }
 
-        /*public void HideSideMenu(bool useOpacity = true)
-        {
-            if (useOpacity)
-            {
-                this.SideMenuOpacity(0);
-                return;
-            }
-            this.SideMenuAS.Hide();
-        }*/
-
         public bool Hook()
         {
             bool result;
             try
             {
                 this.MainWindowAS = new AutoSpy(AutoSpy.GetHandle(BlueStacks.HANDLE_TITLE, null), AutoSpy.GetControlHandle(BlueStacks.HANDLE_TITLE, BlueStacks.CONTROL_HANDLE_TITLE));
-                //this.SideMenuAS = new AutoSpy(AutoSpy.GetHandle("", BlueStacks.SIDE_MENU_HANDLE_TITLE));
                 this.Show(true);
                 result = true;
             }
@@ -183,7 +170,8 @@ namespace SevenKnightsAI.Classes
 
         public string Kill()
         {
-            Process process = this.CreateProcess(this.QuitPath, null);
+            int procid = this.GetProcessID();
+            Process process = this.CreateProcess("taskkill /pid "+ procid + " / t  /F", null);
             process.Start();
             process.WaitForExit();
             return process.StandardOutput.ReadToEnd();
@@ -199,17 +187,10 @@ namespace SevenKnightsAI.Classes
             this.MainWindowAS.Opacity(value);
         }
 
-        public bool NeedRenderConfig()
-        {
-            int num = (int)this.ConfigRegistryKey.GetValue("GlMode");
-            int num2 = (int)this.ConfigRegistryKey.GetValue("GlRenderMode");
-            return num != 1 || num2 != 1;
-        }
-
         public bool NeedWindowResize()
         {
             Size test = this.MainWindowAS.GetControlSize();
-            if (test.Width != 830 && test.Height != 553)
+            if (test.Width != 818 && test.Height != 533)
             {
                 return true;
             }
@@ -219,59 +200,22 @@ namespace SevenKnightsAI.Classes
             }
         }
 
-        public bool NeedResize()
-        {
-            Size windowSize = this.WindowSize;
-            Size guestSize = this.GuestSize;
-            return guestSize.Width != BlueStacks.GUEST_WIDTH || guestSize.Height != BlueStacks.GUEST_HEIGHT;
-        }
-
         public void Opacity(int value)
         {
             this.MainWindowOpacity(value);
-            //this.SideMenuAS.Opacity(value);
-        }
-
-        public void RenderConfig()
-        {
-            this.ConfigRegistryKey.SetValue("GlMode", 1);
-            this.ConfigRegistryKey.SetValue("GlRenderMode", 1);
         }
 
         public void ResizeWindow()
         {
-            this.MainWindowAS.ResizeWindow(830, 553, true);
-            /*this.FrameBufferRegistry.SetValue("WindowWidth", BlueStacks.BS_WIDTH);
-            this.FrameBufferRegistry.SetValue("WindowHeight", BlueStacks.BS_HEIGHT);
-            this.FrameBufferRegistry.SetValue("GuestWidth", BlueStacks.GUEST_WIDTH);
-            this.FrameBufferRegistry.SetValue("GuestHeight", BlueStacks.GUEST_HEIGHT);*/
-        }
-
-        public void Resize()
-        {
-            //this.MainWindowAS.ResizeWindow(BlueStacks.ACTUAL_WIDTH, BlueStacks.ACTUAL_HEIGHT, true);
-            this.FrameBufferRegistry.SetValue("GuestWidth", BlueStacks.GUEST_WIDTH);
-            this.FrameBufferRegistry.SetValue("GuestHeight", BlueStacks.GUEST_HEIGHT);
-            this.FrameBufferRegistry.SetValue("WindowWidth", BlueStacks.BS_WIDTH);
-            this.FrameBufferRegistry.SetValue("WindowHeight", BlueStacks.BS_HEIGHT);
-            this.FrameBufferRegistry.SetValue("WindowHeight", BlueStacks.BS_HEIGHT);
+            this.MainWindowAS.ResizeWindow(816, 495, true);
         }
 
         public bool RestartAndroid()
         {
-            try
-            {
-                AutoSpy autoSpy = new AutoSpy(AutoSpy.GetHandle(BlueStacks.HANDLE_TITLE, null), AutoSpy.GetControlHandle(BlueStacks.HANDLE_TITLE, BlueStacks.SETTINGS_HANDLE_TITLE));
-                autoSpy.FocusWindow();
-                autoSpy.Click(16, 9, 1, 0, "left");
-                autoSpy.PressKey(40u, 2, 100);
-                autoSpy.PressKey(13u, 1, 100);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            return this.Hook();
+            this.Kill();
+            Thread.Sleep(2000);
+            this.CreateProcess(this.LauncherPath, null);
+            return true;
         }
 
         public bool RestartGame(int maxAttempts = 5)
@@ -299,7 +243,6 @@ namespace SevenKnightsAI.Classes
         {
             this.ShowMainWindow(useOpacity);
             Thread.Sleep(50);
-            //this.ShowSideMenu(useOpacity);
             this.IsHidden = false;
         }
 
@@ -313,21 +256,6 @@ namespace SevenKnightsAI.Classes
             this.MainWindowAS.Show();
         }
 
-        /*public void ShowSideMenu(bool useOpacity = true)
-        {
-            if (useOpacity)
-            {
-                this.SideMenuOpacity(-1);
-                return;
-            }
-            this.MainWindowAS.Show();
-        }
-
-        public void SideMenuOpacity(int value)
-        {
-            this.SideMenuAS.Opacity(value);
-        }*/
-
         public void TerminateGame()
         {
             this.Adb("shell am force-stop " + BlueStacks.PACKAGE_NAME);
@@ -337,57 +265,15 @@ namespace SevenKnightsAI.Classes
         {
             get
             {
-                return this.InstallPath + "HD-Adb.exe";
+                return this.InstallPath + "adb.exe";
             }
         }
 
-        private string QuitPath
+        private string LauncherPath
         {
             get
             {
-                return this.InstallPath + "HD-Quit.exe";
-            }
-        }
-
-        private string RunAppPath
-        {
-            get
-            {
-                return this.InstallPath + "HD-RunApp.exe";
-            }
-        }
-
-        private string AdbPort
-        {
-            get
-            {
-                return this.ConfigRegistryKey.GetValue("BstAdbPort").ToString();
-            }
-        }
-
-        private RegistryKey ConfigRegistryKey
-        {
-            get
-            {
-                return this.RegistryKey.OpenSubKey("Guests\\Android\\Config", true);
-            }
-        }
-
-        private RegistryKey FrameBufferRegistry
-        {
-            get
-            {
-                return this.RegistryKey.OpenSubKey("Guests\\Android\\FrameBuffer\\0", true);
-            }
-        }
-
-        public Size GuestSize
-        {
-            get
-            {
-                int width = (int)this.FrameBufferRegistry.GetValue("GuestWidth");
-                int height = (int)this.FrameBufferRegistry.GetValue("GuestHeight");
-                return new Size(width, height);
+                return this.InstallPath + "dnplayer.exe";
             }
         }
 
@@ -417,24 +303,7 @@ namespace SevenKnightsAI.Classes
         {
             get
             {
-                return HKLM.OpenSubKey("SOFTWARE\\BlueStacks", true);
-            }
-        }
-
-        /*public AutoSpy SideMenuAS
-        {
-            get;
-
-            private set;
-        }*/
-
-        public Size WindowSize
-        {
-            get
-            {
-                int width = (int)this.FrameBufferRegistry.GetValue("WindowWidth");
-                int height = (int)this.FrameBufferRegistry.GetValue("WindowHeight");
-                return new Size(width, height);
+                return HKCU.OpenSubKey("Software\\Changzhi\\dnplayer-en", true);
             }
         }
     }

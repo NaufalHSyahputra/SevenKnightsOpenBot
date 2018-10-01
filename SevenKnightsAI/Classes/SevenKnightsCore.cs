@@ -1722,8 +1722,8 @@ namespace SevenKnightsAI.Classes
             string errorMessage;
             if (!this.BlueStacks.Hook())
             {
-                errorMessage = "BlueStacks is not active or not yet initialized";
-                SendTelegram(this.AIProfiles.ST_TelegramChatID, "ERROR : BlueStacks is not active or not yet initialized");
+                errorMessage = "LDPlayer is not active or not yet initialized";
+                SendTelegram(this.AIProfiles.ST_TelegramChatID, "ERROR : LDPlayer is not active or not yet initialized");
                 this.LogError(errorMessage);
                 this.SynchronizationContext.Send(delegate (object callback)
                 {
@@ -1733,36 +1733,14 @@ namespace SevenKnightsAI.Classes
             }
             if (this.BlueStacks.NeedWindowResize())
             {
-                string text = "BlueStacks needs to be resized. Proceed?";
-                SendTelegram(this.AIProfiles.ST_TelegramChatID, "ERROR : Bluestacks needs to be resized.Check now!");
+                string text = "LDPlayer needs to be resized. Proceed?";
+                SendTelegram(this.AIProfiles.ST_TelegramChatID, "ERROR : LDPlayer needs to be resized.Check now!");
                 DialogResult dialogResult = MessageBox.Show(text, "Restart Required", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                 if (dialogResult == DialogResult.OK)
                 {
-                    //string exePath = this.BlueStacks.GetExePath();
-                    //this.BlueStacks.RenderConfig();
-                    this.BlueStacks.Resize();
                     this.BlueStacks.ResizeWindow();
-                    //this.BlueStacks.Kill();
                     SevenKnightsCore.Sleep(1000);
-                    //Process.Start(exePath);
                 }
-                return;
-            }
-            if (this.BlueStacks.NeedRenderConfig() || this.BlueStacks.NeedResize())
-            {
-                string text = "BlueStacks needs to be reconfigure. Proceed?";
-                SendTelegram(this.AIProfiles.ST_TelegramChatID, "ERROR : Bluestacks needs to be reconfigure.Check now!");
-                DialogResult dialogResult = MessageBox.Show(text, "Restart Required", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
-                if (dialogResult == DialogResult.OK)
-                {
-                    string exePath = this.BlueStacks.GetExePath();
-                    this.BlueStacks.RenderConfig();
-                    this.BlueStacks.Resize();
-                    this.BlueStacks.Kill();
-                    SevenKnightsCore.Sleep(1000);
-                    Process.Start(exePath);
-                }
-
                 return;
             }
             if (this.BlueStacks.IsGameInstalled())

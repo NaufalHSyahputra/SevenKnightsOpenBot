@@ -160,14 +160,12 @@ namespace SevenKnightsAI
 
         public void CaptureReport()
         {
+            cb.Screenshot();
             this.tabControl1.SelectedIndex = 0;
-            Thread.Sleep(3000);
-            this.tabControl3.SelectedIndex = 0;
             Thread.Sleep(3000);
             ScreenCapture sc = new ScreenCapture();
             Image img = sc.CaptureScreen();
             sc.CaptureWindowToFile(this.Handle, "C:\\report.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            cb.Screenshot();
             //Bitmap screen = this.AI.BlueStacks.CaptureFrame(!this.AIProfiles.ST_ForegroundMode);
             //screen.Save("C:\\screen.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
         }
@@ -705,9 +703,9 @@ namespace SevenKnightsAI
                         {
                             case Objective.ADVENTURE:
                                 this.adventureCountLabel.Text = text;
-                                this.heroadvLabel.Text = text5;
+                                //this.heroadvLabel.Text = text5;
                                 this.goldadvLabel.Text = text2; //hero30
-                                this.itemadvLabel.Text = text4;
+                                //this.itemadvLabel.Text = text4;
                                 return;
 
                             case Objective.ARENA:
@@ -871,17 +869,17 @@ namespace SevenKnightsAI
                         else if ((string)progressArgs.Message == "Bot Error2")
                         {
                             bot.sendMessage.send(this.AIProfiles.ST_TelegramChatID, "Bot Stuck, bot will restart seven knights. You still need to ResumeBot");
-                            this.PauseAI();
-                            this.AlertSound.PlayLooping();
-                            Thread.Sleep(2000);
-                            this.AlertSound.Stop();
+                            this.aiPause.PerformClick();
                             CaptureReport();
                             bot.SendPhoto.Show_sending_a_photo = true;
                             bot.SendPhoto.caption = String.Format("Last Screenshot {0}", DateTime.Now.ToString());
-                            bot.SendPhoto.send(this.AIProfiles.ST_TelegramChatID, @"C://screen.jpg");
-                            Thread.Sleep(1000);
+                            bot.SendPhoto.send(this.AIProfiles.ST_TelegramChatID, @"C://screen.png");
+                            this.AlertSound.PlayLooping();
+                            Thread.Sleep(5000);
+                            this.AlertSound.Stop();
+                            Thread.Sleep(5000);
                             Restart7k();
-                            Thread.Sleep(2000);
+                            Thread.Sleep(5000);
                             aiButton.PerformClick(); // resume
                         }
                         else if ((string)progressArgs.Message == "Bot Error")
@@ -889,14 +887,14 @@ namespace SevenKnightsAI
                             bot.sendMessage.send(this.AIProfiles.ST_TelegramChatID, "Bot Stuck, bot automatically paused");
                             this.PauseAI();
                             this.AlertSound.PlayLooping();
-                            Thread.Sleep(2000);
+                            Thread.Sleep(5000);
                             this.AlertSound.Stop();
                         }
                         else if ((string)progressArgs.Message == "Hero Level 30")
                         {
                             this.PauseAI();
                             this.AlertSound.PlayLooping();
-                            Thread.Sleep(1500);
+                            Thread.Sleep(5000);
                             this.AlertSound.Stop();
                         }
                         else if ((string)progressArgs.Message == "No More Hero 30")
@@ -904,7 +902,7 @@ namespace SevenKnightsAI
                             bot.sendMessage.send(this.AIProfiles.ST_TelegramChatID, "Bot Paused because no more hero to replace");
                             this.PauseAI();
                             this.AlertSound.PlayLooping();
-                            Thread.Sleep(1500);
+                            Thread.Sleep(5000);
                             this.AlertSound.Stop();
                         }
                         else if ((string)progressArgs.Message == "Max Level Up")
@@ -1785,6 +1783,7 @@ namespace SevenKnightsAI
         {
             CheckBox checkBox = sender as CheckBox;
             this.AISettings.AD_BootMode = checkBox.Checked;
+            MessageBox.Show("Enable Boost in Asgar map only coming soon");
         }
 
         private void AD_teamComboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -2013,6 +2012,28 @@ ts.Hours, ts.Minutes, ts.Seconds);
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void adventurePictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adventureCountLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void summaryGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Bitmap screen = this.AI.BlueStacks.CaptureFrame(!this.AIProfiles.ST_ForegroundMode);
+            screen.Save("C:\\screenTest.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            MessageBox.Show("Open C:\\screenTest.jpg, if image show 7k game then you're bluestacks is fine");
         }
     }
     public class AutoClosingMessageBox
