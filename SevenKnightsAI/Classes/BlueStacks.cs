@@ -37,6 +37,14 @@ namespace SevenKnightsAI.Classes
             return process.StandardOutput.ReadToEnd();
         }
 
+        private string LDConsole(string command)
+        {
+            Process process = this.CreateProcess(this.LDConsolePath, command);
+            process.Start();
+            process.WaitForExit();
+            return process.StandardOutput.ReadToEnd();
+        }
+
         public Bitmap CaptureFrame(bool backgroundMode)
         {
             return this.MainWindowAS.CaptureFrame(backgroundMode, true);
@@ -59,7 +67,8 @@ namespace SevenKnightsAI.Classes
                     Arguments = arguments,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
-                    CreateNoWindow = true
+                    CreateNoWindow = true,
+                    Verb = "runas"
                 }
             };
         }
@@ -73,10 +82,10 @@ namespace SevenKnightsAI.Classes
                 return null;
             }
             Process processById = Process.GetProcessById((int)num);
-            return num.ToString();
+            return processById.MainModule.FileName;
         }
 
-        public int GetProcessID()
+        public uint GetProcessID()
         {
             uint num = 0u;
             BlueStacks.GetWindowThreadProcessId(this.MainWindowAS.Handle, out num);
@@ -86,7 +95,7 @@ namespace SevenKnightsAI.Classes
             }
             else
             {
-                return (int)num;
+                return num;
             }
         }
 
@@ -118,6 +127,11 @@ namespace SevenKnightsAI.Classes
         public Size GetWindowSize()
         {
             Size test = this.MainWindowAS.GetControlSize();
+            return test;
+        }
+        public Size GetWindowSize2()
+        {
+            Size test = this.MainWindowAS.GetControlSize2();
             return test;
         }
 
@@ -168,18 +182,19 @@ namespace SevenKnightsAI.Classes
             return this.Adb("shell pm list packages " + BlueStacks.PACKAGE_NAME).Contains(BlueStacks.PACKAGE_NAME);
         }
 
-        public string Kill()
+        public void Kill()
         {
-            int procid = this.GetProcessID();
-            Process process = this.CreateProcess("taskkill /pid "+ procid + " / t  /F", null);
-            process.Start();
-            process.WaitForExit();
-            return process.StandardOutput.ReadToEnd();
+            this.LDConsole("quit --name LDPlayer");
         }
 
         public void LaunchGame()
         {
             this.Adb("shell am start -n " + BlueStacks.ACTIVITY_NAME);
+        }
+
+        public void LaunchEmulator()
+        {
+            this.LDConsole("launch --name LDPlayer");
         }
 
         public void MainWindowOpacity(int value)
@@ -189,8 +204,7 @@ namespace SevenKnightsAI.Classes
 
         public bool NeedWindowResize()
         {
-            Size test = this.MainWindowAS.GetControlSize();
-            if (test.Width != 818 && test.Height != 533)
+            if (this.GetWindowSize().Width != 802 && this.GetWindowSize().Height != 490)
             {
                 return true;
             }
@@ -207,14 +221,18 @@ namespace SevenKnightsAI.Classes
 
         public void ResizeWindow()
         {
-            this.MainWindowAS.ResizeWindow(816, 495, true);
+            this.Kill();
+            Thread.Sleep(1000);
+            this.LDConsole("modify --name LDPlayer --resolution 800,452,160");
+            Thread.Sleep(500);
+            this.LaunchEmulator();
         }
 
         public bool RestartAndroid()
         {
             this.Kill();
             Thread.Sleep(2000);
-            this.CreateProcess(this.LauncherPath, null);
+            this.LaunchEmulator();
             return true;
         }
 
@@ -266,6 +284,14 @@ namespace SevenKnightsAI.Classes
             get
             {
                 return this.InstallPath + "adb.exe";
+            }
+        }
+
+        private string LDConsolePath
+        {
+            get
+            {
+                return this.InstallPath + "dnconsole.exe";
             }
         }
 

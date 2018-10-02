@@ -8,16 +8,16 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Point1 = new PixelMapping //Red Ruby in "V"
         {
-            X = 134,
-            Y = 46,
-            Color = 16713220,
+            X = 121,
+            Y = 43,
+            Color = 16767447,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping TapArea = new PixelMapping //Anywhere
         {
-            X = 408,
-            Y = 454,
+            X = 427,
+            Y = 423,
             Color = 0,
             Type = MappingType.BUTTON
         };

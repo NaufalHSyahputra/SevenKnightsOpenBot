@@ -22,17 +22,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Shield = new PixelMapping
         {
-            X = 23,
-            Y = 486,
-            Color = 10653786,
+            X = 744,
+            Y = 442,
+            Color = 3615505,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping LeftCheck = new PixelMapping
         {
-            X = 692,
-            Y = 486,
-            Color = 12099953,
+            X = 145,
+            Y = 445,
+            Color = 3287325,
             Type = MappingType.ANCHOR
         };
     }

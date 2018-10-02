@@ -1738,8 +1738,11 @@ namespace SevenKnightsAI.Classes
                 DialogResult dialogResult = MessageBox.Show(text, "Restart Required", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
                 if (dialogResult == DialogResult.OK)
                 {
+                    string exePath = this.BlueStacks.GetExePath();
                     this.BlueStacks.ResizeWindow();
+                    this.BlueStacks.Kill();
                     SevenKnightsCore.Sleep(1000);
+                    Process.Start(exePath);
                 }
                 return;
             }

@@ -122,6 +122,9 @@ namespace SevenKnightsAI.Classes
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr FindWindowEx(IntPtr parentHWnd, IntPtr childAfterHWnd, string className, string windowTitle);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
         public static IntPtr GetControlHandle(string title, string control)
         {
             IntPtr handle = AutoSpy.GetHandle(title, null);
@@ -283,14 +286,16 @@ namespace SevenKnightsAI.Classes
 
         public void ResizeWindow(int width, int height, bool fixedSize = false)
         {
-            if (fixedSize)
+            /*if (fixedSize)
             {
                 int nIndex = -16;
                 long num = (long)AutoSpy.GetWindowLong(this.Handle, nIndex);
                 num &= -13303809L;
                 AutoSpy.SetWindowLong(this.Handle, nIndex, (int)num);
             }
-            AutoSpy.SetWindowPos(this.Handle, IntPtr.Zero, 0, 0, width, height, 2u);
+            AutoSpy.SetWindowPos(this.Handle, IntPtr.Zero, 0, 0, width, height, 2u);*/
+            MoveWindow(this.ControlHandle, 0, 0, 828, 494, true);
+            MoveWindow(this.Handle, 0,0, 830, 533, true);
         }
 
         public Size GetControlSize()
@@ -299,6 +304,18 @@ namespace SevenKnightsAI.Classes
             Size cSize = new Size();
             // get coordinates relative to window
             GetWindowRect(this.Handle, out pRect);
+
+            cSize.Width = pRect.Right - pRect.Left;
+            cSize.Height = pRect.Bottom - pRect.Top;
+
+            return cSize;
+        }
+        public Size GetControlSize2()
+        {
+            RECT pRect;
+            Size cSize = new Size();
+            // get coordinates relative to window
+            GetWindowRect(this.ControlHandle, out pRect);
 
             cSize.Width = pRect.Right - pRect.Left;
             cSize.Height = pRect.Bottom - pRect.Top;

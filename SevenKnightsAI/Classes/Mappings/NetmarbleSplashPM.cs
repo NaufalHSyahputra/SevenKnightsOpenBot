@@ -6,24 +6,24 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping Mascot_1 = new PixelMapping
         {
-            X = 384,
-            Y = 264,
-            Color = 16701184,
+            X = 376,
+            Y = 245,
+            Color = 16635394,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping Mascot_2 = new PixelMapping
         {
-            X = 372,
-            Y = 260,
-            Color = 16766208,
+            X = 393,
+            Y = 237,
+            Color = 16635655,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping WhiteBackground = new PixelMapping
         {
-            X = 726,
-            Y = 141,
+            X = 125,
+            Y = 221,
             Color = 16777215,
             Type = MappingType.BOTH
         };

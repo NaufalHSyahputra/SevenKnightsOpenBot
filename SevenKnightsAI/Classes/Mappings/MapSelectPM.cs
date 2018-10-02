@@ -8,680 +8,680 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping BottomRightPanel = new PixelMapping
         {
-            X = 61,
-            Y = 32,
-            Color = 15849393,
+            X = 134,
+            Y = 434,
+            Color = 8548418,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping QuickStartLeftButton = new PixelMapping
         {
-            X = 614,
-            Y = 448,
-            Color = 14337701,
+            X = 612,
+            Y = 410,
+            Color = 14337449,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping QuickStartMidButton = new PixelMapping
         {
-            X = 701,
-            Y = 453,
-            Color = 15721679,
+            X = 693,
+            Y = 402,
+            Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping QuickStartMidIcon = new PixelMapping
         {
-            X = 701,
-            Y = 453,
-            Color = 15721679,
+            X = 695,
+            Y = 405,
+            Color = 10186037,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AishaBoatLeft = new PixelMapping
         {
-            X = 675,
-            Y = 475,
+            X = 674,
+            Y = 429,
             Color = 11314332,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AishaBoatRight = new PixelMapping
         {
-            X = 707,
-            Y = 476,
+            X = 697,
+            Y = 431,
             Color = 12762036,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RightBottomBTN = new PixelMapping
         {
-            X = 765,
-            Y = 471,
+            X = 754,
+            Y = 413,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping DifficultyBox = new PixelMapping
         {
-            X = 81,
-            Y = 473,
+            X = 92,
+            Y = 435,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping MoonBoatLitLeft = new PixelMapping
         {
-            X = 758,
-            Y = 470,
-            Color = 4597524,
+            X = 774,
+            Y = 430,
+            Color = 7347986,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MoonLitBoatRight = new PixelMapping
         {
-            X = 788,
-            Y = 470,
-            Color = 5974034,
+            X = 741,
+            Y = 431,
+            Color = 10655369,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping DifficultyBoxExpanded = new PixelMapping
         {
-            X = 147,
-            Y = 371,
-            Color = 9666128,
+            X = 136,
+            Y = 370,
+            Color = 9534285,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping DifficultyBoxSelectEasy = new PixelMapping
         {
-            X = 80,
-            Y = 442,
+            X = 74,
+            Y = 403,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping DifficultyBoxSelectNormal = new PixelMapping
         {
-            X = 82,
-            Y = 404,
+            X = 76,
+            Y = 366,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping DifficultyBoxSelectHard = new PixelMapping
         {
-            X = 80,
-            Y = 364,
+            X = 77,
+            Y = 336,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping NextButton = new PixelMapping
         {
-            X = 798,
-            Y = 251,
+            X = 782,
+            Y = 230,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping PreviousButton = new PixelMapping
         {
-            X = 16,
-            Y = 251,
+            X = 18,
+            Y = 230,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Anchor_1 = new PixelMapping
         {
-            X = 261,
-            Y = 455,
-            Color = 2892819,
+            X = 345,
+            Y = 350,
+            Color = 7293977,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World1Anchor_2 = new PixelMapping
         {
-            X = 476,
-            Y = 143,
-            Color = 4202254,
+            X = 258,
+            Y = 428,
+            Color = 3482900,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World1Stage1 = new PixelMapping
         {
-            X = 194,
-            Y = 323,
+            X = 191,
+            Y = 301,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage10 = new PixelMapping
         {
-            X = 482,
-            Y = 382,
+            X = 466,
+            Y = 358,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage2 = new PixelMapping
         {
-            X = 195,
-            Y = 197,
+            X = 210,
+            Y = 175,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage3 = new PixelMapping
         {
-            X = 321,
-            Y = 159,
+            X = 314,
+            Y = 134,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage4 = new PixelMapping
         {
-            X = 453,
-            Y = 242,
+            X = 441,
+            Y = 222,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage5 = new PixelMapping
         {
-            X = 552,
-            Y = 189,
+            X = 539,
+            Y = 166,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage6 = new PixelMapping
         {
-            X = 660,
-            Y = 170,
+            X = 649,
+            Y = 146,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage7 = new PixelMapping
         {
-            X = 727,
-            Y = 234,
+            X = 711,
+            Y = 218,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage8 = new PixelMapping
         {
-            X = 685,
-            Y = 327,
+            X = 673,
+            Y = 300,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World1Stage9 = new PixelMapping
         {
-            X = 566,
-            Y = 347,
+            X = 555,
+            Y = 325,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Anchor_1 = new PixelMapping
         {
-            X = 366,
-            Y = 58,
-            Color = 1184274,
+            X = 372,
+            Y = 120,
+            Color = 657938,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World2Anchor_2 = new PixelMapping
         {
-            X = 621,
-            Y = 459,
-            Color = 2627848,
+            X = 549,
+            Y = 93,
+            Color = 3088150,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World2Stage1 = new PixelMapping
         {
-            X = 466,
-            Y = 156,
+            X = 455,
+            Y = 135,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage10 = new PixelMapping
         {
-            X = 447,
-            Y = 385,
+            X = 437,
+            Y = 357,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage2 = new PixelMapping
         {
-            X = 547,
-            Y = 245,
+            X = 541,
+            Y = 224,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage3 = new PixelMapping
         {
-            X = 492,
-            Y = 300,
+            X = 482,
+            Y = 279,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage4 = new PixelMapping
         {
-            X = 353,
-            Y = 252,
+            X = 346,
+            Y = 227,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage5 = new PixelMapping
         {
-            X = 270,
-            Y = 161,
+            X = 268,
+            Y = 142,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage6 = new PixelMapping
         {
-            X = 105,
-            Y = 203,
+            X = 107,
+            Y = 179,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage7 = new PixelMapping
         {
-            X = 130,
-            Y = 319,
+            X = 127,
+            Y = 295,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage8 = new PixelMapping
         {
-            X = 206,
-            Y = 393,
+            X = 204,
+            Y = 366,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World2Stage9 = new PixelMapping
         {
-            X = 355,
-            Y = 363,
+            X = 349,
+            Y = 350,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Anchor_1 = new PixelMapping
         {
-            X = 408,
-            Y = 292,
-            Color = 11368997,
+            X = 384,
+            Y = 278,
+            Color = 9349022,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World3Anchor_2 = new PixelMapping
         {
-            X = 627,
-            Y = 390,
-            Color = 3217923,
+            X = 387,
+            Y = 198,
+            Color = 6504476,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World3Stage1 = new PixelMapping
         {
-            X = 262,
-            Y = 150,
+            X = 255,
+            Y = 133,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage10 = new PixelMapping
         {
-            X = 441,
-            Y = 142,
+            X = 435,
+            Y = 125,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage2 = new PixelMapping
         {
-            X = 275,
-            Y = 266,
+            X = 265,
+            Y = 242,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage3 = new PixelMapping
         {
-            X = 131,
-            Y = 256,
+            X = 123,
+            Y = 237,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage4 = new PixelMapping
         {
-            X = 84,
-            Y = 352,
+            X = 89,
+            Y = 328,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage5 = new PixelMapping
         {
-            X = 233,
-            Y = 389,
+            X = 232,
+            Y = 366,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage6 = new PixelMapping
         {
-            X = 355,
-            Y = 396,
+            X = 349,
+            Y = 373,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage7 = new PixelMapping
         {
-            X = 484,
-            Y = 396,
+            X = 476,
+            Y = 373,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage8 = new PixelMapping
         {
-            X = 528,
-            Y = 311,
+            X = 518,
+            Y = 292,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World3Stage9 = new PixelMapping
         {
-            X = 500,
-            Y = 212,
+            X = 497,
+            Y = 194,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Anchor_1 = new PixelMapping
         {
-            X = 355,
-            Y = 230,
-            Color = 4599316,
+            X = 337,
+            Y = 218,
+            Color = 3285006,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World4Anchor_2 = new PixelMapping
         {
-            X = 328,
-            Y = 442,
-            Color = 1905941,
+            X = 604,
+            Y = 369,
+            Color = 2306834,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World4Stage1 = new PixelMapping
         {
-            X = 245,
-            Y = 394,
+            X = 243,
+            Y = 368,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage10 = new PixelMapping
         {
-            X = 681,
-            Y = 250,
+            X = 664,
+            Y = 228,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage2 = new PixelMapping
         {
-            X = 213,
-            Y = 294,
+            X = 205,
+            Y = 274,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage3 = new PixelMapping
         {
-            X = 262,
-            Y = 197,
+            X = 259,
+            Y = 175,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage4 = new PixelMapping
         {
-            X = 390,
-            Y = 169,
+            X = 382,
+            Y = 151,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage5 = new PixelMapping
         {
-            X = 523,
-            Y = 164,
+            X = 514,
+            Y = 141,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage6 = new PixelMapping
         {
-            X = 460,
-            Y = 269,
+            X = 449,
+            Y = 252,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage7 = new PixelMapping
         {
-            X = 369,
-            Y = 352,
+            X = 365,
+            Y = 325,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage8 = new PixelMapping
         {
-            X = 469,
-            Y = 398,
+            X = 453,
+            Y = 370,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World4Stage9 = new PixelMapping
         {
-            X = 556,
-            Y = 328,
+            X = 545,
+            Y = 307,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Anchor_1 = new PixelMapping
         {
-            X = 326,
-            Y = 470,
-            Color = 3417614,
+            X = 400,
+            Y = 283,
+            Color = 8216364,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World5Anchor_2 = new PixelMapping
         {
-            X = 548,
-            Y = 250,
-            Color = 1712906,
+            X = 269,
+            Y = 438,
+            Color = 2239250,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World5Stage1 = new PixelMapping
         {
-            X = 208,
-            Y = 353,
+            X = 203,
+            Y = 331,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage10 = new PixelMapping
         {
-            X = 725,
-            Y = 199,
+            X = 711,
+            Y = 177,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage2 = new PixelMapping
         {
-            X = 315,
-            Y = 397,
+            X = 307,
+            Y = 364,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage3 = new PixelMapping
         {
-            X = 426,
-            Y = 390,
+            X = 420,
+            Y = 364,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage4 = new PixelMapping
         {
-            X = 318,
-            Y = 291,
+            X = 310,
+            Y = 265,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage5 = new PixelMapping
         {
-            X = 377,
-            Y = 169,
+            X = 372,
+            Y = 148,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage6 = new PixelMapping
         {
-            X = 466,
-            Y = 253,
+            X = 450,
+            Y = 234,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage7 = new PixelMapping
         {
-            X = 537,
-            Y = 373,
+            X = 527,
+            Y = 352,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage8 = new PixelMapping
         {
-            X = 628,
-            Y = 295,
+            X = 615,
+            Y = 271,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World5Stage9 = new PixelMapping
         {
-            X = 582,
-            Y = 167,
+            X = 570,
+            Y = 143,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Anchor_1 = new PixelMapping
         {
-            X = 408,
-            Y = 268,
-            Color = 5469333,
+            X = 477,
+            Y = 57,
+            Color = 1972277,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World6Anchor_2 = new PixelMapping
         {
-            X = 487,
-            Y = 69,
-            Color = 2367792,
+            X = 449,
+            Y = 422,
+            Color = 9544405,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World6Stage1 = new PixelMapping
         {
-            X = 393,
-            Y = 397,
+            X = 387,
+            Y = 372,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage10 = new PixelMapping
         {
-            X = 730,
-            Y = 259,
+            X = 711,
+            Y = 238,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage2 = new PixelMapping
         {
-            X = 228,
-            Y = 400,
+            X = 218,
+            Y = 368,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage3 = new PixelMapping
         {
-            X = 152,
-            Y = 305,
+            X = 144,
+            Y = 281,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage4 = new PixelMapping
         {
-            X = 248,
-            Y = 162,
+            X = 242,
+            Y = 144,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage5 = new PixelMapping
         {
-            X = 401,
-            Y = 164,
+            X = 392,
+            Y = 144,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage6 = new PixelMapping
         {
-            X = 332,
-            Y = 309,
+            X = 327,
+            Y = 287,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -689,343 +689,343 @@ namespace SevenKnightsAI.Classes.Mappings
         public static readonly PixelMapping World6Stage7 = new PixelMapping
         {
             X = 473,
-            Y = 312,
+            Y = 292,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage8 = new PixelMapping
         {
-            X = 620,
-            Y = 358,
+            X = 606,
+            Y = 334,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World6Stage9 = new PixelMapping
         {
-            X = 568,
-            Y = 199,
+            X = 560,
+            Y = 174,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Anchor_1 = new PixelMapping
         {
-            X = 288,
-            Y = 449,
-            Color = 4004883,
+            X = 271,
+            Y = 391,
+            Color = 1839883,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World7Anchor_2 = new PixelMapping
         {
-            X = 614,
-            Y = 82,
-            Color = 15756595,
+            X = 358,
+            Y = 119,
+            Color = 2561542,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World7Stage1 = new PixelMapping
         {
-            X = 717,
-            Y = 208,
+            X = 703,
+            Y = 189,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage10 = new PixelMapping
         {
-            X = 714,
-            Y = 329,
+            X = 701,
+            Y = 306,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage2 = new PixelMapping
         {
-            X = 638,
-            Y = 241,
+            X = 635,
+            Y = 218,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage3 = new PixelMapping
         {
-            X = 550,
-            Y = 180,
+            X = 537,
+            Y = 157,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage4 = new PixelMapping
         {
-            X = 436,
-            Y = 160,
+            X = 424,
+            Y = 140,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage5 = new PixelMapping
         {
-            X = 286,
-            Y = 225,
+            X = 279,
+            Y = 202,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage6 = new PixelMapping
         {
-            X = 429,
-            Y = 301,
+            X = 419,
+            Y = 275,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage7 = new PixelMapping
         {
-            X = 383,
-            Y = 393,
+            X = 378,
+            Y = 369,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage8 = new PixelMapping
         {
-            X = 499,
-            Y = 389,
+            X = 491,
+            Y = 366,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World7Stage9 = new PixelMapping
         {
-            X = 590,
-            Y = 331,
+            X = 571,
+            Y = 304,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_1Anchor_1 = new PixelMapping
         {
-            X = 340,
-            Y = 476,
-            Color = 1447452,
+            X = 170,
+            Y = 190,
+            Color = 2368589,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_1Anchor_2 = new PixelMapping
         {
-            X = 312,
-            Y = 62,
-            Color = 11371706,
+            X = 627,
+            Y = 314,
+            Color = 10189742,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_1Stage1 = new PixelMapping
         {
-            X = 116,
-            Y = 177,
+            X = 112,
+            Y = 157,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_1Stage2 = new PixelMapping
         {
-            X = 252,
-            Y = 202,
+            X = 243,
+            Y = 178,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_1Stage3 = new PixelMapping
         {
-            X = 296,
-            Y = 297,
+            X = 285,
+            Y = 273,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_1Stage4 = new PixelMapping
         {
-            X = 351,
-            Y = 371,
+            X = 342,
+            Y = 348,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_1Stage5 = new PixelMapping
         {
-            X = 472,
-            Y = 385,
+            X = 469,
+            Y = 349,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_2Anchor_1 = new PixelMapping
         {
-            X = 280,
-            Y = 96,
-            Color = 12883140,
+            X = 30,
+            Y = 152,
+            Color = 13348307,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_2Anchor_2 = new PixelMapping
         {
-            X = 251,
-            Y = 18,
-            Color = 5197738,
+            X = 283,
+            Y = 115,
+            Color = 10783406,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_2Stage10 = new PixelMapping
         {
-            X = 508,
-            Y = 193,
+            X = 501,
+            Y = 176,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_2Stage6 = new PixelMapping
         {
-            X = 220,
-            Y = 389,
+            X = 216,
+            Y = 366,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_2Stage7 = new PixelMapping
         {
-            X = 294,
-            Y = 332,
+            X = 286,
+            Y = 311,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_2Stage8 = new PixelMapping
         {
-            X = 342,
-            Y = 248,
+            X = 335,
+            Y = 225,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_2Stage9 = new PixelMapping
         {
-            X = 423,
-            Y = 197,
+            X = 410,
+            Y = 169,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_3Anchor_1 = new PixelMapping
         {
-            X = 318,
-            Y = 116,
-            Color = 7889289,
+            X = 294,
+            Y = 311,
+            Color = 12034748,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_3Anchor_2 = new PixelMapping
         {
-            X = 261,
-            Y = 376,
-            Color = 14141672,
+            X = 287,
+            Y = 128,
+            Color = 7097220,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_3Stage11 = new PixelMapping
         {
-            X = 611,
-            Y = 308,
+            X = 601,
+            Y = 298,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_3Stage12 = new PixelMapping
         {
-            X = 494,
-            Y = 306,
+            X = 488,
+            Y = 290,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_3Stage13 = new PixelMapping
         {
-            X = 371,
-            Y = 261,
+            X = 358,
+            Y = 245,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_3Stage14 = new PixelMapping
         {
-            X = 403,
-            Y = 163,
+            X = 394,
+            Y = 138,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_3Stage15 = new PixelMapping
         {
-            X = 209,
-            Y = 203,
+            X = 199,
+            Y = 186,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_4Anchor_1 = new PixelMapping
         {
-            X = 464,
-            Y = 50,
-            Color = 15061727,
+            X = 392,
+            Y = 362,
+            Color = 5528751,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_4Anchor_2 = new PixelMapping
         {
-            X = 592,
-            Y = 237,
-            Color = 5588125,
+            X = 569,
+            Y = 208,
+            Color = 3943308,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World8_4Stage16 = new PixelMapping
         {
-            X = 238,
-            Y = 171,
+            X = 235,
+            Y = 152,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_4Stage17 = new PixelMapping
         {
-            X = 398,
-            Y = 151,
+            X = 388,
+            Y = 129,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_4Stage18 = new PixelMapping
         {
-            X = 553,
-            Y = 148,
+            X = 538,
+            Y = 125,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_4Stage19 = new PixelMapping
         {
-            X = 436,
-            Y = 277,
+            X = 426,
+            Y = 259,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World8_4Stage20 = new PixelMapping
         {
-            X = 537,
-            Y = 380,
+            X = 529,
+            Y = 354,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -1033,488 +1033,488 @@ namespace SevenKnightsAI.Classes.Mappings
         //
         public static readonly PixelMapping World9_1Anchor_1 = new PixelMapping
         {
-            X = 449,
-            Y = 118,
-            Color = 14018278,
+            X = 443,
+            Y = 100,
+            Color = 14413036,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World9_1Anchor_2 = new PixelMapping
         {
-            X = 639,
-            Y = 323,
-            Color = 9278846,
+            X = 620,
+            Y = 308,
+            Color = 7766629,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World9_1Stage1 = new PixelMapping
         {
-            X = 543,
-            Y = 180,
+            X = 533,
+            Y = 160,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_1Stage2 = new PixelMapping
         {
-            X = 290,
-            Y = 218,
+            X = 287,
+            Y = 194,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_1Stage3 = new PixelMapping
         {
-            X = 161,
-            Y = 321,
+            X = 155,
+            Y = 296,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_1Stage4 = new PixelMapping
         {
-            X = 324,
-            Y = 401,
+            X = 319,
+            Y = 377,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_1Stage5 = new PixelMapping
         {
-            X = 527,
-            Y = 372,
+            X = 514,
+            Y = 341,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_2Anchor_1 = new PixelMapping
         {
-            X = 351,
-            Y = 401,
-            Color = 14169897,
+            X = 472,
+            Y = 292,
+            Color = 10193731,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World9_2Anchor_2 = new PixelMapping
         {
-            X = 564,
-            Y = 396,
-            Color = 3022093,
+            X = 352,
+            Y = 334,
+            Color = 986895,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World9_2Stage10 = new PixelMapping
         {
-            X = 571,
-            Y = 144,
+            X = 560,
+            Y = 126,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_2Stage6 = new PixelMapping
         {
-            X = 338,
-            Y = 298,
+            X = 332,
+            Y = 271,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_2Stage7 = new PixelMapping
         {
-            X = 465,
-            Y = 220,
+            X = 461,
+            Y = 200,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_2Stage8 = new PixelMapping
         {
-            X = 594,
-            Y = 285,
+            X = 579,
+            Y = 259,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_2Stage9 = new PixelMapping
         {
-            X = 706,
-            Y = 343,
+            X = 697,
+            Y = 321,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_3Anchor_1 = new PixelMapping
         {
-            X = 637,
-            Y = 387,
-            Color = 1576736,
+            X = 394,
+            Y = 241,
+            Color = 6375201,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World9_3Anchor_2 = new PixelMapping
         {
-            X = 367,
-            Y = 258,
-            Color = 8475684,
+            X = 171,
+            Y = 108,
+            Color = 8995874,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World9_3Stage11 = new PixelMapping
         {
-            X = 362,
-            Y = 392,
+            X = 356,
+            Y = 366,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_3Stage12 = new PixelMapping
         {
-            X = 207,
-            Y = 234,
+            X = 203,
+            Y = 210,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_3Stage13 = new PixelMapping
         {
-            X = 334,
-            Y = 154,
+            X = 325,
+            Y = 132,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_3Stage14 = new PixelMapping
         {
-            X = 495,
-            Y = 205,
+            X = 480,
+            Y = 186,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World9_3Stage15 = new PixelMapping
         {
-            X = 578,
-            Y = 298,
+            X = 564,
+            Y = 271,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_1Anchor_1 = new PixelMapping
         {
-            X = 447,
-            Y = 319,
-            Color = 14995575,
+            X = 749,
+            Y = 329,
+            Color = 2105393,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World10_1Anchor_2 = new PixelMapping
         {
-            X = 434,
-            Y = 190,
-            Color = 12961221,
+            X = 454,
+            Y = 295,
+            Color = 14071130,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World10_1Stage1 = new PixelMapping
         {
-            X = 592,
-            Y = 164,
+            X = 581,
+            Y = 145,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_1Stage2 = new PixelMapping
         {
-            X = 479,
-            Y = 193,
+            X = 468,
+            Y = 170,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_1Stage3 = new PixelMapping
         {
-            X = 649,
-            Y = 221,
+            X = 631,
+            Y = 201,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_1Stage4 = new PixelMapping
         {
-            X = 695,
-            Y = 296,
+            X = 682,
+            Y = 271,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_1Stage5 = new PixelMapping
         {
-            X = 567,
-            Y = 368,
+            X = 554,
+            Y = 343,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_2Anchor_1 = new PixelMapping
         {
-            X = 440,
-            Y = 368,
-            Color = 8997678,
+            X = 451,
+            Y = 321,
+            Color = 14452547,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World10_2Anchor_2 = new PixelMapping
         {
-            X = 607,
-            Y = 114,
-            Color = 3551014,
+            X = 383,
+            Y = 267,
+            Color = 8740652,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World10_2Stage6 = new PixelMapping
         {
-            X = 301,
-            Y = 251,
+            X = 294,
+            Y = 227,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_2Stage7 = new PixelMapping
         {
-            X = 471,
-            Y = 198,
+            X = 462,
+            Y = 181,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_2Stage8 = new PixelMapping
         {
-            X = 624,
-            Y = 246,
+            X = 610,
+            Y = 217,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_2Stage9 = new PixelMapping
         {
-            X = 602,
-            Y = 344,
+            X = 595,
+            Y = 321,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World10_2Stage10 = new PixelMapping
         {
-            X = 744,
-            Y = 322,
+            X = 727,
+            Y = 299,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_1Anchor_1 = new PixelMapping
         {
-            X = 407,
-            Y = 135,
-            Color = 16760682,
+            X = 398,
+            Y = 115,
+            Color = 15313236,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World11_1Anchor_2 = new PixelMapping
         {
-            X = 318,
-            Y = 90,
-            Color = 5386521,
+            X = 274,
+            Y = 165,
+            Color = 2035973,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World11_1Stage1 = new PixelMapping
         {
-            X = 85,
-            Y = 243,
+            X = 81,
+            Y = 222,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_1Stage2 = new PixelMapping
         {
-            X = 203,
-            Y = 357,
+            X = 198,
+            Y = 334,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_1Stage3 = new PixelMapping
         {
-            X = 372,
-            Y = 377,
+            X = 371,
+            Y = 357,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_1Stage4 = new PixelMapping
         {
-            X = 549,
-            Y = 359,
+            X = 541,
+            Y = 334,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_1Stage5 = new PixelMapping
         {
-            X = 635,
-            Y = 233,
+            X = 623,
+            Y = 212,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_2Anchor_1 = new PixelMapping
         {
-            X = 437,
-            Y = 73,
-            Color = 2169890,
+            X = 431,
+            Y = 65,
+            Color = 2235684,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World11_2Anchor_2 = new PixelMapping
         {
-            X = 466,
-            Y = 315,
-            Color = 11437377,
+            X = 97,
+            Y = 159,
+            Color = 10035489,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World11_2Stage1 = new PixelMapping
         {
-            X = 704,
-            Y = 288,
+            X = 686,
+            Y = 266,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_2Stage2 = new PixelMapping
         {
-            X = 586,
-            Y = 164,
+            X = 577,
+            Y = 143,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_2Stage3 = new PixelMapping
         {
-            X = 383,
-            Y = 253,
+            X = 371,
+            Y = 220,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_2Stage4 = new PixelMapping
         {
-            X = 329,
-            Y = 403,
+            X = 320,
+            Y = 374,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World11_2Stage5 = new PixelMapping
         {
-            X = 271,
-            Y = 316,
+            X = 236,
+            Y = 295,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Anchor_1 = new PixelMapping
         {
-            X = 429,
-            Y = 70,
-            Color = 8608321,
+            X = 477,
+            Y = 335,
+            Color = 16706697,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World12_1Anchor_2 = new PixelMapping
         {
-            X = 445,
-            Y = 430,
-            Color = 4995891,
+            X = 622,
+            Y = 73,
+            Color = 9529415,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World12_1Stage1 = new PixelMapping
         {
             X = 130,
-            Y = 178,
+            Y = 157,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage2 = new PixelMapping
         {
-            X = 210,
-            Y = 240,
+            X = 202,
+            Y = 221,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage3 = new PixelMapping
         {
-            X = 148,
-            Y = 317,
+            X = 147,
+            Y = 290,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage4 = new PixelMapping
         {
-            X = 268,
-            Y = 387,
+            X = 263,
+            Y = 361,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage5 = new PixelMapping
         {
-            X = 353,
-            Y = 298,
+            X = 349,
+            Y = 281,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage6 = new PixelMapping
         {
-            X = 381,
-            Y = 217,
+            X = 373,
+            Y = 195,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage7 = new PixelMapping
         {
-            X = 478,
-            Y = 178,
+            X = 464,
+            Y = 158,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage8 = new PixelMapping
         {
-            X = 562,
-            Y = 235,
+            X = 553,
+            Y = 211,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage9 = new PixelMapping
         {
-            X = 642,
-            Y = 327,
+            X = 629,
+            Y = 301,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping World12_1Stage10 = new PixelMapping
         {
-            X = 770,
-            Y = 249,
+            X = 739,
+            Y = 227,
             Color = 0,
             Type = MappingType.BUTTON
         };
