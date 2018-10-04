@@ -9,33 +9,33 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CombatTeamBorderLeft = new PixelMapping //First "A" in "ARENA"
         {
-            X = 60,
-            Y = 32,
-            Color = 16578271,
+            X = 57,
+            Y = 30,
+            Color = 14204312,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CombatTeamBorderRight = new PixelMapping //"M" in "TEAM"
         {
-            X = 219,
-            Y = 82,
-            Color = 15712605,
+            X = 204,
+            Y = 69,
+            Color = 16634990,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FormationBorderLeft = new PixelMapping
         {
-            X = 794,
-            Y = 120,
-            Color = 14665873,
+            X = 288,
+            Y = 109,
+            Color = 15126421,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FormationBorderRight = new PixelMapping
         {
-            X = 927,
-            Y = 137,
-            Color = 15587227,
+            X = 773,
+            Y = 314,
+            Color = 9070394,
             Type = MappingType.ANCHOR
         };
 
@@ -77,41 +77,41 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Key_0 = new PixelMapping
         {
-            X = 336,
-            Y = 33,
-            Color = 11797504,
+            X = 322,
+            Y = 25,
+            Color = 12948309,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Key_1 = new PixelMapping    //เช็คตำแหน่ง 2
         {
-            X = 356,
-            Y = 33,
-            Color = 9700609,
+            X = 342,
+            Y = 24,
+            Color = 15828767,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Key_2 = new PixelMapping    //เช็คตำแหน่ง 3
         {
-            X = 375,
-            Y = 32,
-            Color = 15430421,
+            X = 361,
+            Y = 27,
+            Color = 10654377,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Key_3 = new PixelMapping   //เช็คตำแหน่ง 4
         {
-            X = 395,
-            Y = 34,
-            Color = 8723720,
+            X = 381,
+            Y = 27,
+            Color = 12806433,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Key_4 = new PixelMapping    //ฝั่งขวาอันที่ 5 ไม่เต็ม 4 เต็ม
         {
-            X = 415,
-            Y = 33,
-            Color = 6424579,
+            X = 401,
+            Y = 28,
+            Color = 8291783,
             Type = MappingType.ANCHOR
         };
 

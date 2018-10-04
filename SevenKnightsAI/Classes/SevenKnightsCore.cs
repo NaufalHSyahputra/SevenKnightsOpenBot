@@ -578,19 +578,19 @@ namespace SevenKnightsAI.Classes
             }
             int num = world - World.Sequencer;
             int num2 = stage + 1;
-            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureStartPM.R_MapNumber).ScaleByPercent(128))
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureStartPM.R_MapNumber).ScaleByPercent(200))
             {
-                using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
+                using (Page page = this.Tesseractor.Engine.Process(bitmap, PageSegMode.Auto))
                 {
                     string text = page.GetText().ToLower().Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5")
                         .Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace(")", "").Replace("j", "").Replace("_", "")
                         .Replace("‘", "").Replace("'", "").Replace(":", "").Replace("f", "").Replace("[", "").Replace("]", "")
-                        .Replace("#", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Replace("!", "");
+                        .Replace("#", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Replace("!", "").Replace("101", "10").Replace("201", "20").Replace("—", "-");
                     Utility.FilterAscii(text);
-                    this.Log("MapNumber = " + text.Trim());
+                    this.Log("MapNumber = " + text.Trim()); bitmap.Save("MapNumber.png"); this.Log("MapNumber Before: " + page.GetText().ToLower());
 #if DEBUG
                     Console.WriteLine("MapNumber = " + text.Trim());
-                    bitmap.Save("MapNumber.png");
+                    
 #endif
                     if (text.Length >= 2)
                     {
@@ -2287,12 +2287,13 @@ namespace SevenKnightsAI.Classes
                                                 if (this.AISettings.AD_Continuous || this.CheckMapNumber(world2, stage2) || this.MapCheckCount >= 3)
                                                 {
                                                     this.SelectTeam(SceneType.ADVENTURE_START);
+                                                    SevenKnightsCore.Sleep(1000);
                                                     if (this.AISettings.AD_UseFriend)
                                                     {
                                                         if (this.MatchMapping(AdventureStartPM.UseFriendOff, 2))
                                                         {
                                                             this.WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(600);
+                                                            SevenKnightsCore.Sleep(1000);
                                                         }
                                                     }
                                                     else
@@ -2300,15 +2301,22 @@ namespace SevenKnightsAI.Classes
                                                         if (this.MatchMapping(AdventureStartPM.UseFriendOn, 2))
                                                         {
                                                             this.WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(600);
+                                                            SevenKnightsCore.Sleep(1000);
                                                         }
                                                     }
                                                     if (this.AISettings.AD_BootMode)
                                                     {
                                                         if (this.MatchMapping(AdventureStartPM.BootmodeOff, 2))
                                                         {
-                                                            this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(600);
+                                                            if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory) && this.AISettings.AD_BoostAsgar)
+                                                            {
+                                                                this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
+                                                            }else if (this.AISettings.AD_BoostAllMap)
+                                                            {
+                                                                this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
+                                                            }
                                                         }
                                                     }
                                                     else
@@ -2316,23 +2324,23 @@ namespace SevenKnightsAI.Classes
                                                         if (this.MatchMapping(AdventureStartPM.BootmodeOn, 2))
                                                         {
                                                             this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(600);
+                                                            SevenKnightsCore.Sleep(1000);
                                                         }
                                                     }
                                                     if (this.MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!this.itemfull || !this.herofull))
                                                     {
                                                         this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(1000);
+                                                        SevenKnightsCore.Sleep(2000);
                                                     }
-                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (!this.itemfull || !this.herofull))
+                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (this.itemfull || this.herofull))
                                                     {
                                                         this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(1000);
+                                                        SevenKnightsCore.Sleep(2000);
                                                     }
                                                     this.world3 = world2;
-                                                    SevenKnightsCore.Sleep(500);
+                                                    SevenKnightsCore.Sleep(750);
                                                     this.WeightedClick(SharedPM.PrepareFight_StartButton, 1.0, 1.0, 1, 0, "left");
-                                                    SevenKnightsCore.Sleep(600);
+                                                    SevenKnightsCore.Sleep(1000);
                                                 }
                                                 else
                                                 {
@@ -3430,8 +3438,9 @@ namespace SevenKnightsAI.Classes
             int num = -1;
             int result = 0;
             TimeSpan adventureKeyTime = TimeSpan.MaxValue;
-            using (Bitmap bitmap3 = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
+            using (Bitmap bitmap3 = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(175))
             {
+                bitmap3.Save("r_normalbase.png");
 #if DEBUG
                 bitmap3.Save("r_normalbase.png");
 #endif
@@ -3442,6 +3451,7 @@ namespace SevenKnightsAI.Classes
                     string text4 = Regex.Replace(text3, @"\t|\n|\r", "|");
                     this.Log(text4);
                     //bitmap3.Save("AdvKey.png");
+                    
                     if (text4.ToLower().Contains("|"))
                     {
                         string[] array = text4.Split(new char[]
@@ -3477,7 +3487,7 @@ namespace SevenKnightsAI.Classes
                     {
                         this.AdventureKeys = 0;
                         num = 0;
-                        this.AdventureKeyTime = adventureKeyTime;
+                        //this.AdventureKeyTime = adventureKeyTime;
                     }
                 }
             }
@@ -3523,10 +3533,12 @@ namespace SevenKnightsAI.Classes
         private int ParseHonor(Rectangle rect)
         {
             int result = -1;
-            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect))
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
             {
+                bitmap.Save("r_honor.png");
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
+                    this.Log("HO :"+page.GetText().ToLower().Trim());
                     string text = this.ReplaceNumericResource(page.GetText().ToLower().Trim());
                     if (text.Contains("/"))
                     {
@@ -3706,7 +3718,7 @@ namespace SevenKnightsAI.Classes
 
         private string ReplaceNumericResource(string text)
         {
-            return Utility.FilterAscii(text).ToLower().Replace("o", "0").Replace("l", "1").Replace("s", "8").Replace(",", "").Replace(".", "");
+            return Utility.FilterAscii(text).ToLower().Replace("o", "0").Replace("l", "1").Replace("s", "8").Replace(",", "").Replace(".", "").Replace("_", "").Replace(">", "");
         }
 
         private void ReportAllCount()
@@ -4041,7 +4053,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.ADVENTURE_FIGHT);
                     return result;
                 }
-                if (this.MatchMapping(AdventureFightPM.GoldIcon, 5) && (!this.MatchMapping(SharedPM.Fight_PauseButton, 5) || !this.MatchMapping(SharedPM.Fight_ChatButton, 5)))
+                if (this.MatchMapping(AdventureFightPM.GoldIcon, 2) && (!this.MatchMapping(SharedPM.Fight_PauseButton, 5) || !this.MatchMapping(SharedPM.Fight_ChatButton, 5)))
                 {
                     Scene result = new Scene(SceneType.ADVENTURE_END);
                     return result;
@@ -4343,6 +4355,11 @@ namespace SevenKnightsAI.Classes
                 if (this.MatchMapping(PatchUpdatePM.ProgressBarLeft, 2) && this.MatchMapping(PatchUpdatePM.ProgressBarRight, 2))
                 {
                     Scene result = new Scene(SceneType.PATCH_UPDATE);
+                    return result;
+                }
+                if (this.MatchMapping(UpdatePM.Point1, 2) && this.MatchMapping(UpdatePM.Point2, 2))
+                {
+                    Scene result = new Scene(SceneType.UPDATE);
                     return result;
                 }
                 if (this.MatchMapping(TapToPlayPM.Point1, 2) && !this.MatchMapping(LandingPM.Shield, 2))
@@ -5557,23 +5574,22 @@ namespace SevenKnightsAI.Classes
         {
             PixelMapping[] array = new PixelMapping[]
             {
-                ArenaStartPM.Key_0,
-                ArenaStartPM.Key_1,
-                ArenaStartPM.Key_2,
-                ArenaStartPM.Key_3,
-                ArenaStartPM.Key_4,
-                ArenaStartPM.Key_5
+                ArenaStartPM.Key_4, //0
+                ArenaStartPM.Key_3, //1
+                ArenaStartPM.Key_2, //2
+                ArenaStartPM.Key_1, //3
+                ArenaStartPM.Key_0, //4
             };
-            int num = -1;
-            for (int i = 0; i < 6; i++)
+            int num = 5;
+            for (int i = 0; i < 5; i++)
             {
-                if (!this.MatchMapping(array[i], 2))
+                if (this.MatchMapping(array[i], 2))
                 {
-                    num = i;
+                    num -= i;
                     break;
                 }
             }
-            if (num != -1)
+            if (num != 0)
             {
                 this.ArenaKeys = num;
                 this.ReportKeys(Objective.ARENA);

@@ -6,25 +6,25 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping RibbonLeft = new PixelMapping
         {
-            X = 323,
-            Y = 52,
+            X = 308,
+            Y = 39,
             Color = 16741893,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RibbonMiddle = new PixelMapping
         {
-            X = 410,
-            Y = 51,
-            Color = 6835972,
+            X = 394,
+            Y = 37,
+            Color = 14603397,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RibbonRight = new PixelMapping
         {
-            X = 514,
-            Y = 61,
-            Color = 16736514,
+            X = 503,
+            Y = 41,
+            Color = 16736258,
             Type = MappingType.ANCHOR
         };
 

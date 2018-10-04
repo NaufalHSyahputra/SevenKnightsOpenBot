@@ -73,9 +73,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 559,
-            Y = 36,
-            Color = 16772487,
+            X = 543,
+            Y = 33,
+            Color = 16568424,
             Type = MappingType.ANCHOR
         };
 
@@ -175,8 +175,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping StopButton = new PixelMapping
         {
-            X = 238,
-            Y = 430,
+            X = 245,
+            Y = 426,
             Color = 0,
             Type = MappingType.BUTTON
         };

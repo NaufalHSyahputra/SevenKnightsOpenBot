@@ -8,25 +8,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CloseButton = new PixelMapping
         {
-            X = 630,
-            Y = 54,
-            Color = 12925963,
+            X = 605,
+            Y = 45,
+            Color = 13517580,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping ReadyButton = new PixelMapping
         {
-            X = 440,
-            Y = 439,
+            X = 403,
+            Y = 403,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping ReadyButtonBackground = new PixelMapping
         {
-            X = 440,
-            Y = 439,
-            Color = 16050620,
+            X = 403,
+            Y = 403,
+            Color = 16577478,
             Type = MappingType.ANCHOR
         };
 

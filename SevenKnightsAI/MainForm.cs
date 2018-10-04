@@ -1992,7 +1992,7 @@ ts.Hours, ts.Minutes, ts.Seconds);
             bool @checked = checkBox.Checked;
             this.AISettings.AD_CheckSlot = @checked;
         }
-        #endregion Private Methods 
+        
 
         private void pictureBox13_Click(object sender, EventArgs e)
         {
@@ -2035,6 +2035,19 @@ ts.Hours, ts.Minutes, ts.Seconds);
             screen.Save("C:\\screenTest.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             MessageBox.Show("Open C:\\screenTest.jpg, if image show 7k game then you're bluestacks is fine");
         }
+
+        private void AD_BoostModeAsgarRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton Radio = sender as RadioButton;
+            this.AISettings.AD_BoostAsgar = Radio.Checked;
+        }
+
+        private void AD_BoostModeAllMapsRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton Radio = sender as RadioButton;
+            this.AISettings.AD_BoostAllMap = Radio.Checked;
+        }
+        #endregion Private Methods 
     }
     public class AutoClosingMessageBox
     {

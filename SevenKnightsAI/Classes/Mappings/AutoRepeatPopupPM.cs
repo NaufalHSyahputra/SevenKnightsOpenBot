@@ -37,31 +37,31 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping GoldIcon_NoHotTime = new PixelMapping
         {
-            X = 377,
-            Y = 264,
-            Color = 15581795,
+            X = 365,
+            Y = 251,
+            Color = 14394448,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping TopLeftBorder_NoHotTime = new PixelMapping
         {
-            X = 205,
-            Y = 169,
-            Color = 16047520,
+            X = 195,
+            Y = 154,
+            Color = 15587227,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping NoButton_NoHotTime = new PixelMapping
         {
-            X = 270,
-            Y = 371,
-            Color = 14499080,
+            X = 262,
+            Y = 356,
+            Color = 14040329,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping YesButton_NoHotTime = new PixelMapping
         {
-            X = 472,
-            Y = 370,
-            Color = 16768576,
+            X = 451,
+            Y = 358,
+            Color = 16760609,
             Type = MappingType.BOTH
         };
 

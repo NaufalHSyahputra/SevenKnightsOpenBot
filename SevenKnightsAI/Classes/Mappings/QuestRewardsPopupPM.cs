@@ -14,24 +14,24 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping QuestIcon = new PixelMapping
         {
-            X = 543,
-            Y = 431,
-            Color = 14005066,
+            X = 527,
+            Y = 406,
+            Color = 3482640,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AragonPic = new PixelMapping
         {
-            X = 132,
-            Y = 92,
-            Color = 13399378,
+            X = 116,
+            Y = 93,
+            Color = 16175794,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping OKButton = new PixelMapping
         {
-            X = 689,
-            Y = 426,
+            X = 670,
+            Y = 402,
             Color = 0,
             Type = MappingType.BUTTON
         };

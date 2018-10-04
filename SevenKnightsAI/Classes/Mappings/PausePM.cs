@@ -8,48 +8,48 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Point1 = new PixelMapping //Red Ruby in "V"
         {
-            X = 350,
-            Y = 157,
-            Color = 9260812,
+            X = 338,
+            Y = 150,
+            Color = 9784327,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping //Anywhere
         {
-            X = 350,
-            Y = 157,
-            Color = 9260812,
+            X = 460,
+            Y = 145,
+            Color = 8537094,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ContinueButton = new PixelMapping //Anywhere
         {
-            X = 247,
-            Y = 245,
+            X = 243,
+            Y = 235,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SettingButton = new PixelMapping //Anywhere
         {
-            X = 358,
-            Y = 246,
+            X = 347,
+            Y = 235,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping LobbyButton = new PixelMapping //Anywhere
         {
-            X = 476,
-            Y = 246,
+            X = 463,
+            Y = 232,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping AdventureButton = new PixelMapping //Anywhere
         {
-            X = 595,
-            Y = 244,
+            X = 572,
+            Y = 227,
             Color = 0,
             Type = MappingType.BUTTON
         };

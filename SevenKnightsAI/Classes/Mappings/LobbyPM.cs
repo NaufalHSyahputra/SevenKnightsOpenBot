@@ -198,9 +198,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_KeyNormalBase = new Rectangle
         {
-            X = 259,
-            Y = 28,
-            Width = 60,
+            X = 248,
+            Y = 15, 
+            Width = 56,
             Height = 25
         };
 

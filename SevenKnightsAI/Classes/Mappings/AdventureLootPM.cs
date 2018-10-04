@@ -7,56 +7,56 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping AdventureButton = new PixelMapping
         {
-            X = 756,
-            Y = 321,
-            Color = 10516284,
+            X = 737,
+            Y = 312,
+            Color = 10714947,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping EndAutoRepeat = new PixelMapping
         {
-            X = 757,
-            Y = 349,
-            Color = 7291147,
+            X = 740,
+            Y = 319,
+            Color = 5645582,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AgainButton = new PixelMapping
         {
-            X = 757,
-            Y = 131,
-            Color = 10253093,
+            X = 734,
+            Y = 130,
+            Color = 5120784,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping NextZoneButton = new PixelMapping
         {
-            X = 744,
-            Y = 237,
-            Color = 13148748,
+            X = 735,
+            Y = 227,
+            Color = 16111214,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping QuickStartButton = new PixelMapping
         {
-            X = 668,
-            Y = 424,
-            Color = 3743506,
+            X = 649,
+            Y = 396,
+            Color = 16110958,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping Auto_QuickStartButton = new PixelMapping
         {
-            X = 666,
-            Y = 429,
-            Color = 3479304,
+            X = 648,
+            Y = 395,
+            Color = 9337663,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Auto_LobbyButton = new PixelMapping
         {
-            X = 757,
-            Y = 415,
+            X = 734,
+            Y = 400,
             Color = 4599816,
             Type = MappingType.ANCHOR
         };

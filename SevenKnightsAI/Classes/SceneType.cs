@@ -103,6 +103,7 @@ namespace SevenKnightsAI.Classes
         SMART_SELECT,
         SMART_LOBBY,
         SMART_LOOT_COLLECT_LOBBY,
-        NO_MORE_HERO_POPUP
+        NO_MORE_HERO_POPUP,
+        UPDATE
     }
 }

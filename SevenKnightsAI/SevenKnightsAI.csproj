@@ -172,6 +172,7 @@
     <Compile Include="Classes\Mappings\OutOfKeysOfferPM.cs" />
     <Compile Include="Classes\Mappings\OutOfKeysPopupPM.cs" />
     <Compile Include="Classes\Mappings\OutOfSwordsPopupPM.cs" />
+    <Compile Include="Classes\Mappings\UpdatePM.cs" />
     <Compile Include="Classes\Mappings\PatchUpdatePM.cs" />
     <Compile Include="Classes\Mappings\Popup3PM.cs" />
     <Compile Include="Classes\Mappings\QuestCollectFailedPopupPM.cs" />

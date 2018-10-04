@@ -7,131 +7,106 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         #region Public Fields
 
-        public static readonly int GOLD_OFFSET_X = 364;
-        public static readonly int GOLD_OFFSET_Y = 0;
-
-        public static readonly int KEY_OFFSET_X = 363;
-        public static readonly int KEY_OFFSET_Y = 0;
-
         public static readonly PixelMapping KeyPlusButton = new PixelMapping
         {
-            X = 425,
-            Y = 37,
-            Color = 16372359,
+            X = 411,
+            Y = 27,
+            Color = 14727532,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Auto_KeyPlusButton = new PixelMapping
         {
-            X = 748,
-            Y = 420,
-            Color = 5120784,
+            X = 413,
+            Y = 23,
+            Color = 1445895,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Auto_StopButton = new PixelMapping
         {
-            X = 554,
-            Y = 418,
-            Color = 6381390,
+            X = 719,
+            Y = 402,
+            Color = 4661776,
             Type = MappingType.BOTH
         };
 
-        
-
-        public static readonly PixelMapping Point1 = new PixelMapping //Question Mark Auto Repeat
-        {
-            X = 610,
-            Y = 415,
-            Color = 16777075,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Point2 = new PixelMapping //Question Mark Boost Mode
-        {
-            X = 816,
-            Y = 414,
-            Color = 16777065,
-            Type = MappingType.ANCHOR
-        };
-
-
         public static readonly PixelMapping AutoRepeatOn = new PixelMapping
         {
-            X = 395,
-            Y = 373,
-            Color = 16704319,
+            X = 381,
+            Y = 354,
+            Color = 16699958,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping AutoRepeatOff = new PixelMapping
         {
             X = 381,
-            Y = 374,
-            Color = 2365712,
+            Y = 354,
+            Color = 2562579,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping AutoRepeatButton = new PixelMapping
         {
-            X = 390,
-            Y = 372,
+            X = 376,
+            Y = 356,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly Rectangle R_MapNumber = new Rectangle
         {
-            X = 261,
-            Y = 28,
-            Width = 74,
-            Height = 29
+            X = 254,
+            Y = 17,
+            Width = 68,
+            Height = 22
         };
 
         public static readonly PixelMapping UseFriendOn = new PixelMapping
         {
-            X = 679,
-            Y = 134,
-            Color = 5448207,
+            X = 643,
+            Y = 125,
+            Color = 12529677,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping UseFriendOff = new PixelMapping
         {
-            X = 679,
-            Y = 136,
-            Color = 16031744,
+            X = 643,
+            Y = 125,
+            Color = 3677456,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BootmodeOn = new PixelMapping
         {
-            X = 529,
-            Y = 374,
-            Color = 16706119,
+            X = 524,
+            Y = 357,
+            Color = 16705090,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping BootmodeOff = new PixelMapping
         {
-            X = 529,
-            Y = 374,
-            Color = 2694165,
+            X = 524,
+            Y = 357,
+            Color = 2891286,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping UsedBootModeButton = new PixelMapping
         {
-            X = 529,
-            Y = 374,
+            X = 524,
+            Y = 357,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping AutoSettingsBTN = new PixelMapping
         {
-            X = 324,
-            Y = 336,
+            X = 315,
+            Y = 320,
             Color = 0,
             Type = MappingType.BUTTON
         };

@@ -72,6 +72,12 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "AD_BootMode")]
         public bool AD_BootMode;
 
+        [XmlElement(ElementName = "AD_BoostAsgar")]
+        public bool AD_BoostAsgar;
+
+        [XmlElement(ElementName = "AD_BoostAllMap")]
+        public bool AD_BoostAllMap;
+
         [XmlElement(ElementName = "AR_Enable")]
         public bool AR_Enable;
 
@@ -244,6 +250,8 @@ namespace SevenKnightsAI.Classes
             this.AD_CheckingHeroes = true;
             this.AD_UseFriend = false;
             this.AD_BootMode = false;
+            this.AD_BoostAsgar = false;
+            this.AD_BoostAllMap = false;
             this.GB_WaitForKeys = false;
             this.AR_Enable = true;
             this.AR_EnableLimit = false;
@@ -450,6 +458,18 @@ namespace SevenKnightsAI.Classes
                 try
                 {
                     aISettings.AD_BootMode = (bool)dictionary["AD_BootMode"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_BoostAsgar = (bool)dictionary["AD_BoostAsgar"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_BoostAllMap = (bool)dictionary["AD_BoostAllMap"];
                 }
                 catch (Exception)
                 { }
@@ -962,6 +982,14 @@ namespace SevenKnightsAI.Classes
                 {
                     "AD_BootMode",
                     this.AD_BootMode
+                },
+                {
+                    "AD_BoostAsgar",
+                    this.AD_BoostAsgar
+                },
+                {
+                    "AD_BoostAllMap",
+                    this.AD_BoostAllMap
                 },
                 {
                     "ST_Stop100",

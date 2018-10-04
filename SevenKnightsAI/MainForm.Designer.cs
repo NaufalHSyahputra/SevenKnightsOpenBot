@@ -133,8 +133,8 @@
             this.AD_StopOnFullHeroes_Checkbox = new System.Windows.Forms.CheckBox();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.AD_BoostModeAllMapsRadio = new System.Windows.Forms.RadioButton();
+            this.AD_BoostModeAsgarRadio = new System.Windows.Forms.RadioButton();
             this.AD_bootmodeCheckBox = new System.Windows.Forms.CheckBox();
             this.ADCH_ChangeHeroGroupBox = new System.Windows.Forms.GroupBox();
             this.AD_teamLabel = new System.Windows.Forms.Label();
@@ -1548,8 +1548,8 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.radioButton2);
-            this.groupBox5.Controls.Add(this.radioButton1);
+            this.groupBox5.Controls.Add(this.AD_BoostModeAllMapsRadio);
+            this.groupBox5.Controls.Add(this.AD_BoostModeAsgarRadio);
             this.groupBox5.Controls.Add(this.AD_bootmodeCheckBox);
             this.groupBox5.Location = new System.Drawing.Point(223, 114);
             this.groupBox5.Name = "groupBox5";
@@ -1557,29 +1557,31 @@
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             // 
-            // radioButton2
+            // AD_BoostModeAllMapsRadio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Enabled = false;
-            this.radioButton2.Location = new System.Drawing.Point(118, 25);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 17);
-            this.radioButton2.TabIndex = 30;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "All Maps";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.AD_BoostModeAllMapsRadio.AutoSize = true;
+            this.AD_BoostModeAllMapsRadio.Enabled = false;
+            this.AD_BoostModeAllMapsRadio.Location = new System.Drawing.Point(118, 25);
+            this.AD_BoostModeAllMapsRadio.Name = "AD_BoostModeAllMapsRadio";
+            this.AD_BoostModeAllMapsRadio.Size = new System.Drawing.Size(65, 17);
+            this.AD_BoostModeAllMapsRadio.TabIndex = 30;
+            this.AD_BoostModeAllMapsRadio.TabStop = true;
+            this.AD_BoostModeAllMapsRadio.Text = "All Maps";
+            this.AD_BoostModeAllMapsRadio.UseVisualStyleBackColor = true;
+            this.AD_BoostModeAllMapsRadio.CheckedChanged += new System.EventHandler(this.AD_BoostModeAllMapsRadio_CheckedChanged);
             // 
-            // radioButton1
+            // AD_BoostModeAsgarRadio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Enabled = false;
-            this.radioButton1.Location = new System.Drawing.Point(12, 25);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(100, 17);
-            this.radioButton1.TabIndex = 29;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Asgar Map Only";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.AD_BoostModeAsgarRadio.AutoSize = true;
+            this.AD_BoostModeAsgarRadio.Enabled = false;
+            this.AD_BoostModeAsgarRadio.Location = new System.Drawing.Point(12, 25);
+            this.AD_BoostModeAsgarRadio.Name = "AD_BoostModeAsgarRadio";
+            this.AD_BoostModeAsgarRadio.Size = new System.Drawing.Size(100, 17);
+            this.AD_BoostModeAsgarRadio.TabIndex = 29;
+            this.AD_BoostModeAsgarRadio.TabStop = true;
+            this.AD_BoostModeAsgarRadio.Text = "Asgar Map Only";
+            this.AD_BoostModeAsgarRadio.UseVisualStyleBackColor = true;
+            this.AD_BoostModeAsgarRadio.CheckedChanged += new System.EventHandler(this.AD_BoostModeAsgarRadio_CheckedChanged);
             // 
             // AD_bootmodeCheckBox
             // 
@@ -3406,8 +3408,8 @@
         private System.Windows.Forms.Label arenaWinLabel2;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton AD_BoostModeAllMapsRadio;
+        private System.Windows.Forms.RadioButton AD_BoostModeAsgarRadio;
         private System.Windows.Forms.Button button5;
     }
 }

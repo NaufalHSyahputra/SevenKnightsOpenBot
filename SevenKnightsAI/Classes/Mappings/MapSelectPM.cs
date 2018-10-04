@@ -8,17 +8,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping BottomRightPanel = new PixelMapping
         {
-            X = 134,
-            Y = 434,
-            Color = 8548418,
+            X = 16,
+            Y = 27,
+            Color = 15909753,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping QuickStartLeftButton = new PixelMapping
         {
-            X = 612,
-            Y = 410,
-            Color = 14337449,
+            X = 610,
+            Y = 411,
+            Color = 15458505,
             Type = MappingType.BOTH
         };
 
@@ -32,25 +32,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping QuickStartMidIcon = new PixelMapping
         {
-            X = 695,
-            Y = 405,
-            Color = 10186037,
+            X = 693,
+            Y = 409,
+            Color = 8674091,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AishaBoatLeft = new PixelMapping
         {
-            X = 674,
-            Y = 429,
-            Color = 11314332,
+            X = 671,
+            Y = 415,
+            Color = 13344365,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AishaBoatRight = new PixelMapping
         {
-            X = 697,
-            Y = 431,
-            Color = 12762036,
+            X = 700,
+            Y = 414,
+            Color = 15125658,
             Type = MappingType.ANCHOR
         };
 
@@ -1369,17 +1369,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping World11_2Anchor_1 = new PixelMapping
         {
-            X = 431,
-            Y = 65,
-            Color = 2235684,
+            X = 695,
+            Y = 148,
+            Color = 14933580,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping World11_2Anchor_2 = new PixelMapping
         {
-            X = 97,
-            Y = 159,
-            Color = 10035489,
+            X = 432,
+            Y = 82,
+            Color = 2235684,
             Type = MappingType.ANCHOR
         };
 

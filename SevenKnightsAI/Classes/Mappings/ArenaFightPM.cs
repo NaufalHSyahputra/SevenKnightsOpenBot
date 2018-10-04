@@ -6,25 +6,25 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping ChatButton = new PixelMapping
         {
-            X = 804,
-            Y = 50,
-            Color = 12297052,
+            X = 779,
+            Y = 33,
+            Color = 13745784,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping PauseButton = new PixelMapping
         {
-            X = 806,
-            Y = 92,
-            Color = 13745783,
+            X = 771,
+            Y = 77,
+            Color = 14404485,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping TimeBorder = new PixelMapping
         {
-            X = 480,
-            Y = 25,
-            Color = 1706762,
+            X = 400,
+            Y = 56,
+            Color = 3085843,
             Type = MappingType.ANCHOR
         };
     }
