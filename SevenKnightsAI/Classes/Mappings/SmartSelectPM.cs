@@ -6,40 +6,40 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 143,
-            Y = 147,
-            Color = 6110761,
+            X = 180,
+            Y = 99,
+            Color = 1838854,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 262,
-            Y = 198,
-            Color = 3218702,
+            X = 694,
+            Y = 404,
+            Color = 327680,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CelestialTowerButton = new PixelMapping
         {
-            X = 199,
-            Y = 241,
+            X = 182,
+            Y = 222,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping RaidButton = new PixelMapping
         {
-            X = 417,
-            Y = 230,
+            X = 402,
+            Y = 194,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping TartarusButton = new PixelMapping
         {
-            X = 637,
-            Y = 229,
+            X = 610,
+            Y = 240,
             Color = 0,
             Type = MappingType.BUTTON
         };

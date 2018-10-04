@@ -56,6 +56,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "ST_ReconnectInterruptInterval")]
         public int ST_ReconnectInterruptInterval;
 
+        [XmlElement(ElementName = "ST_EmulatorNameTextBox")]
+        public string ST_EmulatorNameTextBox;
+
         public string TMP_NormalProfile;
         public bool TMP_LogPixel;
         public bool TMP_WaitingForKeys;

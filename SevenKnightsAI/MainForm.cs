@@ -1079,6 +1079,7 @@ namespace SevenKnightsAI
             this.ST_TelegramEnableCheckBox.Checked = this.AIProfiles.ST_EnableTelegram;
             this.ST_TelegramTokenTextBox.Text = this.AIProfiles.ST_TelegramToken;
             this.ST_TelegramChatIDTextBox.Text = this.AIProfiles.ST_TelegramChatID;
+            this.ST_EmulatorNameTextBox.Text = this.AIProfiles.ST_EmulatorNameTextBox;
         }
 
         private void InitOtherTab()
@@ -2048,6 +2049,11 @@ ts.Hours, ts.Minutes, ts.Seconds);
             this.AISettings.AD_BoostAllMap = Radio.Checked;
         }
         #endregion Private Methods 
+
+        private void button4_Click_2(object sender, EventArgs e)
+        {
+            this.AppendLog(this.AI.BlueStacks.ValidateResolution());
+        }
     }
     public class AutoClosingMessageBox
     {

@@ -92,7 +92,6 @@
             this.logsBox = new System.Windows.Forms.RichTextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Label();
@@ -221,7 +220,6 @@
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage19 = new System.Windows.Forms.TabPage();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.label79 = new System.Windows.Forms.Label();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.groupBox39 = new System.Windows.Forms.GroupBox();
@@ -231,6 +229,9 @@
             this.screenshotButton = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.resourcesTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ST_EmulatorNameTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -1028,7 +1029,6 @@
             // 
             this.tabPage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tabPage4.Controls.Add(this.groupBox6);
-            this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Controls.Add(this.groupBox9);
             this.tabPage4.Controls.Add(this.groupBox10);
@@ -1089,16 +1089,6 @@
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.LG_clearButton_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(359, 390);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(103, 27);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "Test Button";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
             // 
             // groupBox1
             // 
@@ -2629,7 +2619,6 @@
             // 
             // groupBox38
             // 
-            this.groupBox38.Controls.Add(this.button5);
             this.groupBox38.Controls.Add(this.label79);
             this.groupBox38.Controls.Add(this.ST_delayLabel);
             this.groupBox38.Controls.Add(this.ST_opacityLabel);
@@ -2640,20 +2629,10 @@
             this.groupBox38.Controls.Add(this.ST_reconnectNumericUpDown);
             this.groupBox38.Location = new System.Drawing.Point(8, 6);
             this.groupBox38.Name = "groupBox38";
-            this.groupBox38.Size = new System.Drawing.Size(486, 119);
+            this.groupBox38.Size = new System.Drawing.Size(485, 119);
             this.groupBox38.TabIndex = 0;
             this.groupBox38.TabStop = false;
             this.groupBox38.Text = "Delay Setting";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(304, 26);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(103, 27);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "Test Bluestacks";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label79
             // 
@@ -2762,6 +2741,27 @@
             this.resourcesTableLayoutPanel.Size = new System.Drawing.Size(504, 24);
             this.resourcesTableLayoutPanel.TabIndex = 11;
             // 
+            // ST_EmulatorNameTextBox
+            // 
+            this.ST_EmulatorNameTextBox.Location = new System.Drawing.Point(0, 0);
+            this.ST_EmulatorNameTextBox.Name = "ST_EmulatorNameTextBox";
+            this.ST_EmulatorNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ST_EmulatorNameTextBox.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 23);
+            this.label2.TabIndex = 0;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.aiButton;
@@ -2780,7 +2780,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Seven Knights OpenBot";
+            this.Text = "Seven Knights OpenBot for LDPlayer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Shown += new System.EventHandler(this.MainForm_Shown);
@@ -3376,7 +3376,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label timer;
@@ -3410,6 +3409,8 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.RadioButton AD_BoostModeAllMapsRadio;
         private System.Windows.Forms.RadioButton AD_BoostModeAsgarRadio;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox ST_EmulatorNameTextBox;
+        private System.Windows.Forms.Button button4;
     }
 }

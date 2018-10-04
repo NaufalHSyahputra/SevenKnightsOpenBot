@@ -7,130 +7,98 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 93,
-            Y = 168,
-            Color = 9275781,
+            X = 277,
+            Y = 61,
+            Color = 8487554,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 757,
-            Y = 160,
-            Color = 7762284,
+            X = 525,
+            Y = 66,
+            Color = 4474181,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CelestialTowerButton = new PixelMapping
         {
-            X = 135,
-            Y = 84,
+            X = 114,
+            Y = 82,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping RaidButton = new PixelMapping
         {
-            X = 180,
-            Y = 82,
+            X = 158,
+            Y = 85,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping TartarusButton = new PixelMapping
         {
-            X = 226,
-            Y = 80,
+            X = 204,
+            Y = 83,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
-        public static readonly PixelMapping CollectButtonNotAvailable = new PixelMapping
-        {
-            X = 317,
-            Y = 425,
-            Color = 1513239,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping LootButtonNotAvailable = new PixelMapping
-        {
-            X = 435,
-            Y = 430,
-            Color = 1710618,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping LootRedIcon = new PixelMapping
-        {
-            X = 353,
-            Y = 419,
-            Color = 12592134,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping LootRedIcon2 = new PixelMapping
-        {
-            X = 347,
-            Y = 419,
-            Color = 11936260,
-            Type = MappingType.ANCHOR
-        };
-
         public static readonly PixelMapping CollectButton = new PixelMapping
         {
-            X = 277,
-            Y = 421,
+            X = 267,
+            Y = 410,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping LootButton = new PixelMapping
         {
-            X = 403,
-            Y = 422,
+            X = 391,
+            Y = 412,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly Rectangle R_GoldenCrystal = new Rectangle
         {
-            X = 683,
-            Y = 27,
-            Width = 87,
-            Height = 25
+            X = 662,
+            Y = 18,
+            Width = 88,
+            Height = 21
         };
 
         public static readonly Rectangle R_Horn = new Rectangle
         {
-            X = 422,
-            Y = 28,
-            Width = 90,
-            Height = 23
+            X = 407,
+            Y = 18,
+            Width = 89,
+            Height = 21
         };
 
         public static readonly Rectangle R_Scale = new Rectangle
         {
-            X = 553,
-            Y = 28,
-            Width = 93,
-            Height = 23
+            X = 533,
+            Y = 17,
+            Width = 90,
+            Height = 22
         };
 
         public static readonly Rectangle R_Essecense = new Rectangle
         {
-            X = 688,
-            Y = 27,
-            Width = 81,
-            Height = 26
+            X = 663,
+            Y = 19,
+            Width = 87,
+            Height = 21
         };
 
         public static readonly Rectangle R_Star = new Rectangle
         {
-            X = 690,
-            Y = 26,
-            Width = 80,
-            Height = 23
+            X = 668,
+            Y = 17,
+            Width = 82,
+            Height = 24
         };
     }
 }

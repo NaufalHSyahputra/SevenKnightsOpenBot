@@ -9,33 +9,33 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping BackButton = new PixelMapping //Red Back button
         {
-            X = 31,
-            Y = 38,
-            Color = 13846028,
+            X = 28,
+            Y = 34,
+            Color = 12991755,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping BackButtonAnchor = new PixelMapping //Red Back button
         {
-            X = 31,
-            Y = 38,
-            Color = 13846028,
+            X = 28,
+            Y = 34,
+            Color = 12991755,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BackButton2 = new PixelMapping //yellow back button
         {
-            X = 21,
-            Y = 35,
-            Color = 16776629,
+            X = 16,
+            Y = 26,
+            Color = 16769174,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping BackButtonAnchor2 = new PixelMapping //yellow back button
         {
-            X = 21,
-            Y = 35,
-            Color = 16776629,
+            X = 16,
+            Y = 26,
+            Color = 16769174,
             Type = MappingType.ANCHOR
         };
 

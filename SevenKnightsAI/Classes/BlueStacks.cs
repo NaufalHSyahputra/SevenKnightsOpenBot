@@ -19,7 +19,7 @@ namespace SevenKnightsAI.Classes
 
         private static readonly string CONTROL_HANDLE_TITLE = "TheRender";
 
-        private static readonly string HANDLE_TITLE = "LDPlayer";
+        public readonly static string HANDLE_TITLE = "LDPlayer";
 
         public static readonly int OFFSET_X = 1;
 
@@ -277,6 +277,11 @@ namespace SevenKnightsAI.Classes
         public void TerminateGame()
         {
             this.Adb("shell am force-stop " + BlueStacks.PACKAGE_NAME);
+        }
+
+        public string ValidateResolution()
+        {
+            return this.Adb("shell wm size");
         }
 
         private string AdbPath

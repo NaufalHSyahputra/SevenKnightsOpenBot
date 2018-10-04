@@ -190,10 +190,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_HonorBase = new Rectangle
         {
-            X = 571,
-            Y = 17,
-            Width = 66,
-            Height = 23
+            X = 573,
+            Y = 18,
+            Width = 64,
+            Height = 21
         };
 
         public static readonly Rectangle R_KeyNormalBase = new Rectangle

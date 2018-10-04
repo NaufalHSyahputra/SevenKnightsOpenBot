@@ -2312,10 +2312,19 @@ namespace SevenKnightsAI.Classes
                                                             {
                                                                 this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
                                                                 SevenKnightsCore.Sleep(1000);
+
                                                             }else if (this.AISettings.AD_BoostAllMap)
                                                             {
                                                                 this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
                                                                 SevenKnightsCore.Sleep(1000);
+                                                            }
+                                                            else
+                                                            {
+                                                                if (this.MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                                {
+                                                                    this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                    SevenKnightsCore.Sleep(1000);
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -3533,13 +3542,13 @@ namespace SevenKnightsAI.Classes
         private int ParseHonor(Rectangle rect)
         {
             int result = -1;
-            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(180))
             {
                 bitmap.Save("r_honor.png");
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
                     this.Log("HO :"+page.GetText().ToLower().Trim());
-                    string text = this.ReplaceNumericResource(page.GetText().ToLower().Trim());
+                    string text = this.ReplaceNumericResource(page.GetText().ToLower().Replace("! ", "8").Trim());
                     if (text.Contains("/"))
                     {
                         string[] array = text.Split(new char[]
@@ -4096,7 +4105,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.SMART_LOBBY);
                     return result;
                 }
-                if (this.MatchMapping(SmartLootCollectPM.Point1, 2) && this.MatchMapping(SmartLootCollectPM.Point2, 2) && this.MatchMapping(SmartLootCollectPM.Card, 2))
+                if (this.MatchMapping(SmartLootCollectPM.Point1, 2) && this.MatchMapping(SmartLootCollectPM.Point2, 2))
                 {
                     Scene result = new Scene(SceneType.SMART_LOOT_COLLECT_LOBBY);
                     return result;
