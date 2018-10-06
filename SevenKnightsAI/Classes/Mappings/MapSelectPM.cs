@@ -8,58 +8,74 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping BottomRightPanel = new PixelMapping
         {
-            X = 16,
-            Y = 27,
-            Color = 15909753,
+            X = 84,
+            Y = 33,
+            Color = 15584934,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping QuickStartLeftButton = new PixelMapping
+        public static readonly PixelMapping QuicStart3Icon = new PixelMapping
         {
-            X = 610,
-            Y = 411,
-            Color = 15458505,
+            X = 628,
+            Y = 409,
+            Color = 14337958,
             Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping QuickStartMidButton = new PixelMapping
+        public static readonly PixelMapping QuicStart4Icon = new PixelMapping
         {
-            X = 693,
-            Y = 402,
-            Color = 0,
-            Type = MappingType.BUTTON
+            X = 564,
+            Y = 407,
+            Color = 15456440,
+            Type = MappingType.BOTH
         };
-
-        public static readonly PixelMapping QuickStartMidIcon = new PixelMapping
-        {
-            X = 693,
-            Y = 409,
-            Color = 8674091,
-            Type = MappingType.ANCHOR
-        };
-
+        /*Asgar Boat in Moonlit ++ */
         public static readonly PixelMapping AishaBoatLeft = new PixelMapping
         {
-            X = 671,
-            Y = 415,
-            Color = 13344365,
+            X = 603,
+            Y = 414,
+            Color = 15784109,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AishaBoatRight = new PixelMapping
         {
-            X = 700,
-            Y = 414,
-            Color = 15125658,
+            X = 623,
+            Y = 416,
+            Color = 12686693,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping RightBottomBTN = new PixelMapping
+        public static readonly PixelMapping BtnBottom1 = new PixelMapping //Heavenly Stairs BTN || ShadowEye BTN
         {
-            X = 754,
-            Y = 413,
+            X = 763,
+            Y = 417,
             Color = 0,
             Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping BtnBottom2 = new PixelMapping //MoonLite Boat / Shadow Eye BTN
+        {
+            X = 697,
+            Y = 427,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping BtnBottom3 = new PixelMapping // Asgar BTN (Moonlite Map & Heavenly Map) || Quick Start Button in ASGAR
+        {
+            X = 624,
+            Y = 429,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping BtnBottom4 = new PixelMapping // Quick Start Button in AISHA++
+        {
+            X = 563,
+            Y = 406,
+            Color = 14996666,
+            Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping DifficultyBox = new PixelMapping
@@ -69,20 +85,37 @@ namespace SevenKnightsAI.Classes.Mappings
             Color = 0,
             Type = MappingType.BUTTON
         };
-
+        /*MoonLit Isle Boat in Asgar*/
         public static readonly PixelMapping MoonBoatLitLeft = new PixelMapping
         {
-            X = 774,
+            X = 676,
             Y = 430,
-            Color = 7347986,
+            Color = 4399383,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MoonLitBoatRight = new PixelMapping
         {
-            X = 741,
-            Y = 431,
-            Color = 10655369,
+            X = 703,
+            Y = 416,
+            Color = 13872507,
+            Type = MappingType.ANCHOR
+        };
+
+        /*Heavenly Stairs ICON*/
+        public static readonly PixelMapping HeavenlyStairsLeft = new PixelMapping
+        {
+            X = 744,
+            Y = 433,
+            Color = 6707023,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping HeavenlyStairsRight = new PixelMapping
+        {
+            X = 779,
+            Y = 434,
+            Color = 12628383,
             Type = MappingType.ANCHOR
         };
 
@@ -1515,6 +1548,102 @@ namespace SevenKnightsAI.Classes.Mappings
         {
             X = 739,
             Y = 227,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Anchor_1 = new PixelMapping
+        {
+            X = 441,
+            Y = 99,
+            Color = 5874553,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping World13_1Anchor_2 = new PixelMapping
+        {
+            X = 617,
+            Y = 294,
+            Color = 5984909,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping World13_1Stage1 = new PixelMapping
+        {
+            X = 64,
+            Y = 307,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage2 = new PixelMapping
+        {
+            X = 123,
+            Y = 257,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage3 = new PixelMapping
+        {
+            X = 203,
+            Y = 197,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage4 = new PixelMapping
+        {
+            X = 221,
+            Y = 319,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage5 = new PixelMapping
+        {
+            X = 294,
+            Y = 240,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage6 = new PixelMapping
+        {
+            X = 402,
+            Y = 222,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage7 = new PixelMapping
+        {
+            X = 440,
+            Y = 308,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage8 = new PixelMapping
+        {
+            X = 541,
+            Y = 261,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage9 = new PixelMapping
+        {
+            X = 626,
+            Y = 191,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping World13_1Stage10 = new PixelMapping
+        {
+            X = 750,
+            Y = 166,
             Color = 0,
             Type = MappingType.BUTTON
         };

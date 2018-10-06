@@ -300,7 +300,8 @@ namespace SevenKnightsAI
             "9 - Western Empire",
             "10 - Eastern Empire",
             "11 - Dark Sanctuary",
-            "12 - Shadows Eye"
+            "12 - Shadows Eye",
+            "13 - Heavenly Stairs"
         };
     }
 }

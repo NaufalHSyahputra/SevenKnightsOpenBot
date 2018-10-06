@@ -526,33 +526,33 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Full_DimmedBG = new PixelMapping
         {
-            X = 424,
-            Y = 39,
-            Color = 4076316,
+            X = 306,
+            Y = 391,
+            Color = 4668704,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Full_NoButton = new PixelMapping
         {
-            X = 293,
-            Y = 352,
-            Color = 0,
+            X = 239,
+            Y = 335,
+            Color = 14761223,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Full_ProceedButton = new PixelMapping
         {
-            X = 380,
-            Y = 350,
-            Color = 0,
+            X = 405,
+            Y = 335,
+            Color = 13337092,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Full_SellButton = new PixelMapping
         {
-            X = 536,
-            Y = 350,
-            Color = 0,
+            X = 484,
+            Y = 343,
+            Color = 15189850,
             Type = MappingType.BUTTON
         };
 
@@ -590,17 +590,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Hero_BlackBar = new PixelMapping
         {
-            X = 814,
-            Y = 47,
+            X = 726,
+            Y = 31,
             Color = 0,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Hero_BottomLeftBorder = new PixelMapping //preview button
         {
-            X = 26,
-            Y = 429,
-            Color = 6774872,
+            X = 29,
+            Y = 412,
+            Color = 6906714,
             Type = MappingType.ANCHOR
         };
 

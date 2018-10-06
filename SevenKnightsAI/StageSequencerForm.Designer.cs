@@ -117,7 +117,8 @@
             "9 - Western Empire",
             "10 - Eastern Empire",
             "11 - Dark Sanctuary",
-            "12 - Shadow\'s Eye"});
+            "12 - Shadow\'s Eye",
+            "13- Heavenly Stairs"});
             this.World.MinimumWidth = 127;
             this.World.Name = "World";
             this.World.Width = 127;

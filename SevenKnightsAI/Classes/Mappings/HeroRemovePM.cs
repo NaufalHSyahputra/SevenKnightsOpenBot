@@ -6,17 +6,17 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping PositionButton = new PixelMapping
         {
-            X = 448,
-            Y = 422,
-            Color = 15123797,
+            X = 432,
+            Y = 398,
+            Color = 16049284,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping RemoveAllButton = new PixelMapping
         {
-            X = 536,
-            Y = 410,
-            Color = 16049284,
+            X = 534,
+            Y = 393,
+            Color = 13084487,
             Type = MappingType.BOTH
         };
 
@@ -30,9 +30,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping RemoveButtonIcon = new PixelMapping
         {
-            X = 748,
-            Y = 411,
-            Color = 16049284,
+            X = 744,
+            Y = 394,
+            Color = 15058003,
             Type = MappingType.ANCHOR
         };
     }

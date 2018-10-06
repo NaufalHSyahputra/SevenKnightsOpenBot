@@ -9,26 +9,26 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 541,
-            Y = 432,
-            Color = 14201414,
+            X = 269,
+            Y = 108,
+            Color = 16561683,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 666,
-            Y = 433,
-            Color = 15982975,
+            X = 761,
+            Y = 412,
+            Color = 11902059,
             Type = MappingType.ANCHOR
         };
 
         public static readonly Rectangle R_ItemCount = new Rectangle
         {
-            X = 375,
-            Y = 117,
-            Width = 68,
-            Height = 25
+            X = 364,
+            Y = 105,
+            Width = 64,
+            Height = 21
         };
         #endregion Public Fields
     }

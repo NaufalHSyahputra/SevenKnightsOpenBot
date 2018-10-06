@@ -350,6 +350,7 @@
     <Content Include="Resources\arenaIcon.png" />
     <None Include="Resources\dellon2.ico" />
     <None Include="Resources\awk_rachel_cover.png" />
+    <None Include="Resources\colt_cover.jpg" />
     <Content Include="Resources\goldmineIcon.png" />
     <None Include="Resources\kriss.ico" />
     <None Include="Resources\title_ingrid.png" />

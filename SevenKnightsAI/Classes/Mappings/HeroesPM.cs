@@ -445,25 +445,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping IconLeft = new PixelMapping //3 Yellow Card Icon 
         {
-            X = 785,
-            Y = 436,
-            Color = 11507302,
+            X = 63,
+            Y = 26,
+            Color = 16049092,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping IconMiddle = new PixelMapping //R Char in HEROES Word
         {
-            X = 301,
-            Y = 74,
-            Color = 12289595,
+            X = 328,
+            Y = 70,
+            Color = 12356916,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping IconRight = new PixelMapping //border formation
         {
-            X = 258,
-            Y = 440,
-            Color = 11639144,
+            X = 535,
+            Y = 66,
+            Color = 12033644,
             Type = MappingType.ANCHOR
         };
 
@@ -489,9 +489,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping OptimizeBorder = new PixelMapping
         {
-            X = 257,
-            Y = 404,
-            Color = 12164718,
+            X = 242,
+            Y = 386,
+            Color = 13348218,
             Type = MappingType.ANCHOR
         };
 
@@ -661,10 +661,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_HeroCount = new Rectangle
         {
-            X = 391,
-            Y = 71,
-            Width = 84,
-            Height = 28
+            X = 382,
+            Y = 62,
+            Width = 77,
+            Height = 21
             //X = 456,
             //Y = 78,
             //Width = 56,

@@ -72,6 +72,16 @@ namespace SevenKnightsAI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap colt_cover {
+            get {
+                object obj = ResourceManager.GetObject("colt_cover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_adv {
             get {
                 object obj = ResourceManager.GetObject("icon_adv", resourceCulture);
@@ -245,36 +255,6 @@ namespace SevenKnightsAI.Properties {
         internal static System.Drawing.Bitmap icon_star {
             get {
                 object obj = ResourceManager.GetObject("icon_star", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon kriss {
-            get {
-                object obj = ResourceManager.GetObject("kriss", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon kriss2 {
-            get {
-                object obj = ResourceManager.GetObject("kriss2", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap lubu_cover {
-            get {
-                object obj = ResourceManager.GetObject("lubu_cover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

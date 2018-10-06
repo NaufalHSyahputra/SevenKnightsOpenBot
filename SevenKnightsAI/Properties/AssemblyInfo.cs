@@ -8,13 +8,13 @@ using System.Runtime.Versioning;
 using System.Security;
 using System.Security.Permissions;
 
-[assembly: AssemblyVersion("0.1")]
+[assembly: AssemblyVersion("0.3")]
 [assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: AssemblyCompany("Naufal Hakim Syahputra")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCopyright("Naufal Hakim Syahputra")]
 [assembly: AssemblyDescription("Seven Knights OpenBot LDPlayer")]
-[assembly: AssemblyFileVersion("0.1")]
+[assembly: AssemblyFileVersion("0.3")]
 [assembly: AssemblyProduct("Seven Knights OpenBot LDPlayer")]
 [assembly: AssemblyTitle("Seven Knights OpenBot LDPlayer")]
 [assembly: AssemblyTrademark("Naufal Hakim Syahputra")]

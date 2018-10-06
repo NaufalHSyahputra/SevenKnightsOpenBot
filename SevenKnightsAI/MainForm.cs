@@ -686,9 +686,6 @@ namespace SevenKnightsAI
                         int num3 = (int)dictionary["count"];
                         string text = string.Format("x" + num3);
                         string text2 = "";
-                        string text3 = "";
-                        string text4 = "";
-                        string text5 = "";
                         if (objective == Objective.CHECK_SLOT_HERO)
                         {
                             string t1 = "" + dictionary["hc"];
@@ -856,31 +853,18 @@ namespace SevenKnightsAI
                                 this.AlertSound.Stop();
                             }
                         }
-                        else if ((string)progressArgs.Message == "Items Full")
-                        {
-                            if (this.AISettings.AD_StopOnFullItems)
-                            {
-                                this.PauseAI();
-                                this.AlertSound.PlayLooping();
-                                AutoClosingMessageBox.Show("Items Full!", "Items Full!", 5000);
-                                this.AlertSound.Stop();
-                            }
-                        }
                         else if ((string)progressArgs.Message == "Bot Error2")
                         {
-                            bot.sendMessage.send(this.AIProfiles.ST_TelegramChatID, "Bot Stuck, bot will restart seven knights. You still need to ResumeBot");
-                            this.aiPause.PerformClick();
                             CaptureReport();
+                            bot.sendMessage.send(this.AIProfiles.ST_TelegramChatID, "Bot Stuck, bot will restart seven knights. You still need to ResumeBot");
                             bot.SendPhoto.Show_sending_a_photo = true;
                             bot.SendPhoto.caption = String.Format("Last Screenshot {0}", DateTime.Now.ToString());
                             bot.SendPhoto.send(this.AIProfiles.ST_TelegramChatID, @"C://screen.png");
-                            this.AlertSound.PlayLooping();
-                            Thread.Sleep(5000);
-                            this.AlertSound.Stop();
+                            this.PauseAI();
                             Thread.Sleep(5000);
                             Restart7k();
-                            Thread.Sleep(5000);
-                            aiButton.PerformClick(); // resume
+                            Thread.Sleep(8000);
+                            this.ResumeAI(); // resume
                         }
                         else if ((string)progressArgs.Message == "Bot Error")
                         {

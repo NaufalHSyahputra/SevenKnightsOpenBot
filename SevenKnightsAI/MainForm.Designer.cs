@@ -806,7 +806,7 @@
             // topheaderPictureBox
             // 
             this.topheaderPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.lubu_cover;
+            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.colt_cover;
             this.topheaderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.topheaderPictureBox.Name = "topheaderPictureBox";
             this.topheaderPictureBox.Size = new System.Drawing.Size(508, 90);
@@ -1728,7 +1728,8 @@
             "9 - Western Empire",
             "10 - Eastern Empire",
             "11 - Dark Sanctuary",
-            "12 - Shadow\'s EYE"});
+            "12 - Shadow\'s Eye",
+            "13 - Heavenly Stairs"});
             this.AD_worldComboBox.Location = new System.Drawing.Point(69, 16);
             this.AD_worldComboBox.Name = "AD_worldComboBox";
             this.AD_worldComboBox.Size = new System.Drawing.Size(127, 21);

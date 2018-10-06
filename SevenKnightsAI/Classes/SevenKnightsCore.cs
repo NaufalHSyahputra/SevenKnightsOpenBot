@@ -2050,8 +2050,35 @@ namespace SevenKnightsAI.Classes
                                                 }
 
                                                 //this.Log("Wrold =" + world);
+                                                if (world == World.HeavenlyStairs)
 
-                                                if (world == World.ShadowsEye)
+                                                {
+
+                                                    this.Log("HeavenlyStairs");
+
+                                                    //on ASGAR || AISHA || SHADOW_EYE
+
+                                                    if (!this.MatchMapping(MapSelectPM.World13_1Anchor_1, 2) && !this.MatchMapping(MapSelectPM.World13_1Anchor_1, 2))
+
+                                                    {
+
+                                                        //this.Log("1,1");
+
+                                                        this.WeightedClick(MapSelectPM.BtnBottom1, 1.0, 1.0, 1, 0, "left");
+
+                                                        SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
+
+                                                        this.CaptureFrame();
+
+                                                        //then
+
+                                                    }
+                                                    this.MapZone = "HeavenlyStairs";
+
+                                                    this.SelectStageHeavenlyStairs(world, stage);
+
+                                                }
+                                                else if (world == World.ShadowsEye)
 
                                                 {
 
@@ -2065,7 +2092,7 @@ namespace SevenKnightsAI.Classes
 
                                                         //this.Log("1,1");
 
-                                                        this.WeightedClick(MapSelectPM.RightBottomBTN, 1.0, 1.0, 1, 0, "left");
+                                                        this.WeightedClick(MapSelectPM.BtnBottom2, 1.0, 1.0, 1, 0, "left");
 
                                                         SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
 
@@ -2083,7 +2110,7 @@ namespace SevenKnightsAI.Classes
 
                                                         //this.Log("1,2");
 
-                                                        this.WeightedClick(MapSelectPM.RightBottomBTN, 1.0, 1.0, 1, 0, "left");
+                                                        this.WeightedClick(MapSelectPM.BtnBottom2, 1.0, 1.0, 1, 0, "left");
 
                                                         SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
 
@@ -2091,7 +2118,21 @@ namespace SevenKnightsAI.Classes
 
                                                     }
 
+                                                    //on HeavenlyStairs
 
+                                                    if (this.MatchMapping(MapSelectPM.World13_1Anchor_1, 2) && this.MatchMapping(MapSelectPM.World13_1Anchor_2, 2))
+
+                                                    {
+
+                                                        //this.Log("1,2");
+
+                                                        this.WeightedClick(MapSelectPM.BtnBottom1, 1.0, 1.0, 1, 0, "left");
+
+                                                        SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
+
+                                                        this.CaptureFrame();
+
+                                                    }
 
                                                     this.MapZone = "ShadowsEye";
 
@@ -2105,6 +2146,38 @@ namespace SevenKnightsAI.Classes
 
                                                     //this.Log("Aisha");
 
+                                                    //on HeavenlyStairs
+
+                                                    if (this.MatchMapping(MapSelectPM.World13_1Anchor_1, 2) && this.MatchMapping(MapSelectPM.World13_1Anchor_2, 2))
+
+                                                    {
+
+                                                        //this.Log("1,2");
+
+                                                        this.WeightedClick(MapSelectPM.BtnBottom2, 1.0, 1.0, 1, 0, "left");
+
+                                                        SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
+
+                                                        this.CaptureFrame();
+
+                                                    }
+
+                                                    if (this.MatchMapping(MapSelectPM.World12_1Anchor_1, 2) && this.MatchMapping(MapSelectPM.World12_1Anchor_2, 2))
+
+                                                    {
+
+                                                        //this.Log("3,1");
+
+                                                        this.WeightedClick(MapSelectPM.BtnBottom2, 1.0, 1.0, 1, 0, "left");
+
+                                                        SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
+
+                                                        //then
+
+                                                        this.CaptureFrame();
+
+                                                    }
+
                                                     //on ASGAR
 
                                                     if (this.MatchMapping(MapSelectPM.MoonBoatLitLeft, 2) && this.MatchMapping(MapSelectPM.MoonLitBoatRight, 2))
@@ -2113,7 +2186,7 @@ namespace SevenKnightsAI.Classes
 
                                                         //this.Log("2,1");
 
-                                                        this.WeightedClick(MapSelectPM.RightBottomBTN, 1.0, 1.0, 1, 0, "left");
+                                                        this.WeightedClick(MapSelectPM.BtnBottom2, 1.0, 1.0, 1, 0, "left");
 
                                                         SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
 
@@ -2133,6 +2206,22 @@ namespace SevenKnightsAI.Classes
 
                                                     //this.Log("Asgar");
 
+                                                    //on HeavenlyStairs
+
+                                                    if (this.MatchMapping(MapSelectPM.World13_1Anchor_1, 2) && this.MatchMapping(MapSelectPM.World13_1Anchor_2, 2))
+
+                                                    {
+
+                                                        //this.Log("1,2");
+
+                                                        this.WeightedClick(MapSelectPM.BtnBottom3, 1.0, 1.0, 1, 0, "left");
+
+                                                        SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
+
+                                                        this.CaptureFrame();
+
+                                                    }
+
                                                     //on shadow eye
 
                                                     if (this.MatchMapping(MapSelectPM.World12_1Anchor_1, 2) && this.MatchMapping(MapSelectPM.World12_1Anchor_2, 2))
@@ -2141,7 +2230,7 @@ namespace SevenKnightsAI.Classes
 
                                                         //this.Log("3,1");
 
-                                                        this.WeightedClick(MapSelectPM.RightBottomBTN, 1.0, 1.0, 1, 0, "left");
+                                                        this.WeightedClick(MapSelectPM.BtnBottom2, 1.0, 1.0, 1, 0, "left");
 
                                                         SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
 
@@ -2161,7 +2250,7 @@ namespace SevenKnightsAI.Classes
 
                                                         //this.Log("3,2");
 
-                                                        this.WeightedClick(MapSelectPM.QuickStartMidButton, 1.0, 1.0, 1, 0, "left");
+                                                        this.WeightedClick(MapSelectPM.BtnBottom3, 1.0, 1.0, 1, 0, "left");
 
                                                         SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
 
@@ -2180,7 +2269,6 @@ namespace SevenKnightsAI.Classes
                                             }
 
                                             else
-
                                             {
 
                                                 this.Escape();
@@ -3093,6 +3181,20 @@ namespace SevenKnightsAI.Classes
                             {
                                 this.Log("Main Frame error?");
                             }
+                            if (!IsConnectedToInternet())
+                            {
+                                this.internetdc += 1;
+                            }
+                            else
+                            {
+                                this.internetdc = 0;
+                            }
+                            if (this.internetdc >= 10)
+                            {
+                                this.AIProfiles.TMP_WaitingForInternet = true;
+                                this.Log("Waiting for Internet to reconnect");
+                                this.BlueStacks.TerminateGame();
+                            }
                         }
                         else if (this.AIProfiles.TMP_WaitingForInternet && IsConnectedToInternet())
                         {
@@ -3373,21 +3475,6 @@ namespace SevenKnightsAI.Classes
                 MaxHeroUpCount = false;
                 this.SendTelegram(this.AIProfiles.ST_TelegramChatID, "Max Hero lvl up 100/100, Bot Paused");
                 this.Alert("Max Level Up");
-            }
-
-            if (!IsConnectedToInternet())
-            {
-                this.internetdc += 1;
-            }
-            else
-            {
-                this.internetdc = 0;
-            }
-            if (this.internetdc >= 10)
-            {
-                this.AIProfiles.TMP_WaitingForInternet = true;
-                this.Log("Waiting for Internet to reconnect");
-                this.BlueStacks.TerminateGame();
             }
 
             TimeSpan ts = TimeSpan.FromSeconds(1.0);
@@ -4165,7 +4252,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.MASTERY_POPUP);
                     return result;
                 }
-                if ((this.MatchMapping(MapSelectPM.QuickStartMidIcon, 2) || this.MatchMapping(MapSelectPM.QuickStartLeftButton, 2)) && this.MatchMapping(MapSelectPM.BottomRightPanel, 3))
+                if ((this.MatchMapping(MapSelectPM.QuicStart3Icon, 2) || this.MatchMapping(MapSelectPM.QuicStart4Icon, 2)) || (this.MatchMapping(MapSelectPM.HeavenlyStairsLeft, 2) || this.MatchMapping(MapSelectPM.HeavenlyStairsRight, 2)))
                 {
                     Scene result = new Scene(SceneType.MAP_SELECT);
                     return result;
@@ -4487,7 +4574,7 @@ namespace SevenKnightsAI.Classes
             {
                 aD_Difficulty = this.AISettings.AD_Difficulty;
             }
-            else if (MapZone.Equals("Aisha") || MapZone.Equals("ShadowsEye"))
+            else if (MapZone.Equals("Aisha") || MapZone.Equals("ShadowsEye") || MapZone.Equals("HeavenlyStairs"))
             {
                 aD_Difficulty = this.AISettings.AD_Difficulty2nd;
             }
@@ -4668,7 +4755,7 @@ namespace SevenKnightsAI.Classes
             };
             if (world == World.None)
             {
-                this.WeightedClick(MapSelectPM.QuickStartMidButton, 1.0, 1.0, 1, 0, "left");
+                this.WeightedClick(MapSelectPM.BtnBottom3, 1.0, 1.0, 1, 0, "left");
                 return;
             }
             int num = world - World.MysticWoods;
@@ -4809,7 +4896,7 @@ namespace SevenKnightsAI.Classes
             int pageDestIndex = array.Length + 1;
             if (world == World.None)
             {
-                this.WeightedClick(MapSelectPM.QuickStartLeftButton, 1.0, 1.0, 1, 0, "left");
+                this.WeightedClick(MapSelectPM.BtnBottom4, 1.0, 1.0, 1, 0, "left");
                 return;
             }
             PixelMapping stageMapping;
@@ -4908,10 +4995,46 @@ namespace SevenKnightsAI.Classes
             };
             if (world == World.None)
             {
-                this.WeightedClick(MapSelectPM.QuickStartMidButton, 1.0, 1.0, 1, 0, "left");
+                this.WeightedClick(MapSelectPM.BtnBottom3, 1.0, 1.0, 1, 0, "left");
                 return;
             }
             int num = world - World.ShadowsEye;
+            PixelMapping stageMapping = array[num][stage];
+            this.SelectStage(anchorMappings, stageMapping, num);
+        }
+
+        private void SelectStageHeavenlyStairs(World world, int stage)
+        {
+            PixelMapping[][] anchorMappings = new PixelMapping[][]
+            {
+                new PixelMapping[]
+                {
+                    MapSelectPM.World13_1Anchor_1,
+                    MapSelectPM.World13_1Anchor_2
+                }
+            };
+            PixelMapping[][] array = new PixelMapping[][]
+            {
+                new PixelMapping[]
+                {
+                    MapSelectPM.World13_1Stage1,
+                    MapSelectPM.World13_1Stage2,
+                    MapSelectPM.World13_1Stage3,
+                    MapSelectPM.World13_1Stage4,
+                    MapSelectPM.World13_1Stage5,
+                    MapSelectPM.World13_1Stage6,
+                    MapSelectPM.World13_1Stage7,
+                    MapSelectPM.World13_1Stage8,
+                    MapSelectPM.World13_1Stage9,
+                    MapSelectPM.World13_1Stage10
+                }
+            };
+            if (world == World.None)
+            {
+                this.WeightedClick(MapSelectPM.BtnBottom4, 1.0, 1.0, 1, 0, "left");
+                return;
+            }
+            int num = world - World.HeavenlyStairs;
             PixelMapping stageMapping = array[num][stage];
             this.SelectStage(anchorMappings, stageMapping, num);
         }

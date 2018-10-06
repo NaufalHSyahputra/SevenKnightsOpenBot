@@ -239,7 +239,7 @@ namespace SevenKnightsAI.Classes
         public bool RestartGame(int maxAttempts = 5)
         {
             this.TerminateGame();
-            Thread.Sleep(200);
+            Thread.Sleep(1000);
             this.LaunchGame();
             Thread.Sleep(2000);
             int i = 0;

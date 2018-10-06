@@ -17,6 +17,7 @@ namespace SevenKnightsAI.Classes
         WesternEmpire,
         EasternEmpire,
         DarkSanctuary,
-        ShadowsEye
+        ShadowsEye,
+        HeavenlyStairs
     }
 }
