@@ -47,25 +47,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping QuickStartButtonBG = new PixelMapping
         {
-            X = 771,
-            Y = 139,
-            Color = 3944986,
+            X = 751,
+            Y = 128,
+            Color = 4471326,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping LobbyButtonBG = new PixelMapping
         {
-            X = 778,
-            Y = 420,
-            Color = 4734753,
+            X = 756,
+            Y = 390,
+            Color = 2892560,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RankUpTik = new PixelMapping
         {
-            X = 385,
-            Y = 350,
-            Color = 16771403,
+            X = 372,
+            Y = 332,
+            Color = 16775001,
             Type = MappingType.BOTH
         };
 

@@ -8,9 +8,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SellButtonIcon = new PixelMapping
         {
-            X = 507,
-            Y = 356,
-            Color = 14792524,
+            X = 485,
+            Y = 341,
+            Color = 13999149,
             Type = MappingType.ANCHOR
         };
 

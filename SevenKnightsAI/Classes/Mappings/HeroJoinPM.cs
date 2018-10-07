@@ -39,8 +39,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping ItemButton = new PixelMapping
         {
-            X = 707,
-            Y = 244,
+            X = 728,
+            Y = 233,
             Color = 0,
             Type = MappingType.BUTTON
         };

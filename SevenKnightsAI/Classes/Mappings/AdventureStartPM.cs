@@ -57,10 +57,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_MapNumber = new Rectangle
         {
-            X = 254,
-            Y = 17,
-            Width = 68,
-            Height = 22
+            X = 250,
+            Y = 14,
+            Width = 69,
+            Height = 25
         };
 
         public static readonly PixelMapping UseFriendOn = new PixelMapping

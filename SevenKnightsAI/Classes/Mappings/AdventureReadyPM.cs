@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -28,6 +29,14 @@ namespace SevenKnightsAI.Classes.Mappings
             Y = 403,
             Color = 16577478,
             Type = MappingType.ANCHOR
+        };
+
+        public static readonly Rectangle R_MapNumber = new Rectangle
+        {
+            X = 183,
+            Y = 35,
+            Width = 300,
+            Height = 27
         };
 
         #endregion Public Fields

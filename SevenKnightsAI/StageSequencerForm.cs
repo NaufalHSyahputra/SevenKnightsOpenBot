@@ -289,19 +289,19 @@ namespace SevenKnightsAI
 
         private string[] worldConverter = new string[]
         {
-            "1 - Mystic Woods",
-            "2 - Silent Mine",
-            "3 - Blazing Desert",
-            "4 - Dark Grave",
-            "5 - Dragon Ruins",
-            "6 - Frozen Land",
-            "7 - Revenger's Hell",
-            "8 - Moonlit Isle",
-            "9 - Western Empire",
-            "10 - Eastern Empire",
-            "11 - Dark Sanctuary",
-            "12 - Shadows Eye",
-            "13 - Heavenly Stairs"
+            "1 - Mystic Woods", //0
+            "2 - Silent Mine", //1
+            "3 - Blazing Desert", //2
+            "4 - Dark Grave", //3
+            "5 - Dragon Ruins", //4 
+            "6 - Frozen Land", //5
+            "7 - Revenger's Hell", //6
+            "8 - Moonlit Isle", //7
+            "9 - Western Empire", //8
+            "10 - Eastern Empire", //9 
+            "11 - Dark Sanctuary", //10
+            "12 - Shadows Eye", //11
+            "13 - Heavenly Stairs" //12
         };
     }
 }

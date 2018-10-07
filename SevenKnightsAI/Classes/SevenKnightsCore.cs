@@ -580,12 +580,12 @@ namespace SevenKnightsAI.Classes
             int num2 = stage + 1;
             using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureStartPM.R_MapNumber).ScaleByPercent(200))
             {
-                using (Page page = this.Tesseractor.Engine.Process(bitmap, PageSegMode.Auto))
+                using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
                     string text = page.GetText().ToLower().Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5")
                         .Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace(")", "").Replace("j", "").Replace("_", "")
                         .Replace("‘", "").Replace("'", "").Replace(":", "").Replace("f", "").Replace("[", "").Replace("]", "")
-                        .Replace("#", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Replace("!", "").Replace("101", "10").Replace("201", "20").Replace("—", "-");
+                        .Replace("#", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Replace("!", "").Replace("m", "0").Replace("51", "5").Replace("—", "-").Replace("“", "0");
                     Utility.FilterAscii(text);
                     this.Log("MapNumber = " + text.Trim()); bitmap.Save("MapNumber.png"); this.Log("MapNumber Before: " + page.GetText().ToLower());
 #if DEBUG
@@ -625,6 +625,48 @@ namespace SevenKnightsAI.Classes
                 }
             }
             return false;
+        }
+
+        private bool CheckMapNumber2(World world, int stage)
+        {
+            if (world == World.None)
+            {
+                return true;
+            }
+            int num = world - World.Sequencer;
+            int num2 = stage + 1;
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureReadyPM.R_MapNumber).ScaleByPercent(200))
+            {
+                using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
+                {
+                    string text = page.GetText().ToLower().Replace("[", "").Trim();
+                    bitmap.Save("MapNumber2.png"); this.Log("MapText: " + page.GetText().ToLower().Trim());
+                    int num3 = -1;
+                    int num4 = -1;
+                    string[] array = text.Split(new char[]
+                    {
+                            ']'
+                    });
+                    this.Log("MapNumber:" + array[0]);
+                    string[] array2 = array[0].Split(new char[]
+                    {
+                            '-'
+                    });
+                    int.TryParse(array2[0], out num3);
+                    int.TryParse(array2[1], out num4);
+                    this.Log("World: " + num3 + " Map: " + num4);
+                    if (num3 == num && num4 == num2)
+                    {
+                        bool result = true;
+                        return result;
+                    }
+                    else
+                    {
+                        bool result = false;
+                        return result;
+                    }
+                }
+            }
         }
 
         private void ClickDrag(int startX, int startY, int endX, int endY)
@@ -1801,6 +1843,7 @@ namespace SevenKnightsAI.Classes
                                 Scene scene = this.SceneSearch();
                                 bool flag4 = false;
                                 string text2 = "";
+                                int tryerror = 0;
                                 if (scene == null)
                                 {
                                     Sleep(this.AIProfiles.ST_Delay);
@@ -1840,18 +1883,8 @@ namespace SevenKnightsAI.Classes
                                 }
                                 if (flag4)
                                 {
-                                    if ((this.MatchMapping(SharedPM.BackButton, 2) && this.MatchMapping(SharedPM.BackButtonAnchor, 2)) || (this.MatchMapping(SharedPM.BackButton2, 2) && this.MatchMapping(SharedPM.BackButtonAnchor2, 2)))
-                                    {
                                         this.LogScene("BACKABLE");
                                         this.Escape();
-                                    }
-                                    else if (this.IdleCounter >= sT_Delay)
-                                    {
-                                        this.Escape();
-                                        this.Log("cannot find scene escape");
-                                        this.Alert("Bot Error2");
-                                        this.IdleCounter = 0;
-                                    }
                                 }
                                 else
                                 {
@@ -2339,7 +2372,21 @@ namespace SevenKnightsAI.Classes
 
                                         case SceneType.ADVENTURE_READY:
                                             SevenKnightsCore.Sleep(600);
-                                            if (this.CurrentObjective == Objective.ADVENTURE && ExpectingScene(SceneType.ADVENTURE_READY, 3, 500))
+                                            World world3 = this.AISettings.AD_World;
+                                            int stage3 = this.AISettings.AD_Stage;
+                                            if (this.AISettings.AD_World == World.Sequencer)
+                                            {
+                                                Tuple<World, int> worldStageFromSequencer2 = this.GetWorldStageFromSequencer();
+                                                if (worldStageFromSequencer2 == null)
+                                                {
+                                                    this.LogError("Stage sequence is empty");
+                                                    this.NextPossibleObjective();
+                                                    break;
+                                                }
+                                                world3 = worldStageFromSequencer2.Item1;
+                                                stage3 = worldStageFromSequencer2.Item2;
+                                            }
+                                            if(this.CheckMapNumber2(world3, stage3) || this.MapCheckCount >= 3)
                                             {
                                                 this.WeightedClick(AdventureReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
                                             }
@@ -2372,9 +2419,9 @@ namespace SevenKnightsAI.Classes
                                                     world2 = worldStageFromSequencer2.Item1;
                                                     stage2 = worldStageFromSequencer2.Item2;
                                                 }
-                                                if (this.AISettings.AD_Continuous || this.CheckMapNumber(world2, stage2) || this.MapCheckCount >= 3)
+                                                if (!this.AISettings.AD_Continuous)
                                                 {
-                                                    this.SelectTeam(SceneType.ADVENTURE_START);
+                                                    this.SelectTeam(SceneType.ADVENTURE_START, world2);
                                                     SevenKnightsCore.Sleep(1000);
                                                     if (this.AISettings.AD_UseFriend)
                                                     {
@@ -2396,7 +2443,7 @@ namespace SevenKnightsAI.Classes
                                                     {
                                                         if (this.MatchMapping(AdventureStartPM.BootmodeOff, 2))
                                                         {
-                                                            if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory) && this.AISettings.AD_BoostAsgar)
+                                                            if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory || world2 == World.HeavenlyStairs) && this.AISettings.AD_BoostAsgar)
                                                             {
                                                                 this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
                                                                 SevenKnightsCore.Sleep(1000);
@@ -5039,7 +5086,7 @@ namespace SevenKnightsAI.Classes
             this.SelectStage(anchorMappings, stageMapping, num);
         }
 
-        private void SelectTeam(SceneType sceneType)
+        private void SelectTeam(SceneType sceneType ,World world)
         {
             Team team = Team.None;
             PixelMapping[] array = new PixelMapping[]
@@ -5051,6 +5098,10 @@ namespace SevenKnightsAI.Classes
             if (sceneType == SceneType.ADVENTURE_START)
             {
                 team = this.AISettings.AD_Team;
+            }
+            if (world == World.HeavenlyStairs && this.AISettings.AD2_Team != Team.None)
+            {
+                team = this.AISettings.AD2_Team;
             }
             if (team == Team.None)
             {
@@ -5548,6 +5599,7 @@ namespace SevenKnightsAI.Classes
                         {
                             int.TryParse(array[1], out maxHero);
                         }
+                        this.Log(string.Format("HC: {0}/{1} String: {2}", curHero, maxHero, text.Trim()));
 #if DEBUG
                         this.Log(string.Format("HC: {0}/{1} String: {2}", curHero, maxHero, text.Trim()));
                         bitmap.Save(string.Format("H_{0} of {1}.png", curHero, maxHero));
@@ -5604,6 +5656,7 @@ namespace SevenKnightsAI.Classes
                             int.TryParse(array[1], out maxItem);
                         }
                     }
+                    this.Log(string.Format("IC: {0}/{1} String: {2}", curItem, maxItem, text.Trim()));
                     this.ItemCount = curItem;
                     this.ItemMax = maxItem;
                     if (curItem >= maxItem)

@@ -855,7 +855,8 @@ namespace SevenKnightsAI
                         }
                         else if ((string)progressArgs.Message == "Bot Error2")
                         {
-                            CaptureReport();
+                            cb.Screenshot();
+                            Thread.Sleep(2000);
                             bot.sendMessage.send(this.AIProfiles.ST_TelegramChatID, "Bot Stuck, bot will restart seven knights. You still need to ResumeBot");
                             bot.SendPhoto.Show_sending_a_photo = true;
                             bot.SendPhoto.caption = String.Format("Last Screenshot {0}", DateTime.Now.ToString());
@@ -994,6 +995,7 @@ namespace SevenKnightsAI
             this.AD_difficultyComboBox.SelectedValue = this.AISettings.AD_Difficulty;
             this.AD_difficultyComboBox2nd.SelectedValue = this.AISettings.AD_Difficulty2nd;
             this.AD_teamComboBox.SelectedIndex = (int)this.AISettings.AD_Team;
+            this.AD_teamComboBox2.SelectedIndex = (int)this.AISettings.AD2_Team;
             this.AD_continuousCheckBox.Checked = this.AISettings.AD_Continuous;
             this.AD_StopOnFullHeroes_Checkbox.Checked = this.AISettings.AD_StopOnFullHeroes;
             this.AD_StopOnFullItems_Checkbox.Checked = this.AISettings.AD_StopOnFullItems;
@@ -1768,7 +1770,16 @@ namespace SevenKnightsAI
         {
             CheckBox checkBox = sender as CheckBox;
             this.AISettings.AD_BootMode = checkBox.Checked;
-            MessageBox.Show("Enable Boost in Asgar map only coming soon");
+            if(checkBox.Checked == true)
+            {
+                this.AD_BoostModeAllMapsRadio.Enabled = true;
+                this.AD_BoostModeAsgarRadio.Enabled = true;
+            }
+            else
+            {
+                this.AD_BoostModeAllMapsRadio.Enabled = false;
+                this.AD_BoostModeAsgarRadio.Enabled = false;
+            }
         }
 
         private void AD_teamComboBox2_SelectedIndexChanged(object sender, EventArgs e)

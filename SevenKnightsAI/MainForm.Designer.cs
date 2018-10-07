@@ -136,6 +136,7 @@
             this.AD_BoostModeAsgarRadio = new System.Windows.Forms.RadioButton();
             this.AD_bootmodeCheckBox = new System.Windows.Forms.CheckBox();
             this.ADCH_ChangeHeroGroupBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.AD_teamLabel = new System.Windows.Forms.Label();
             this.AD_teamComboBox2 = new System.Windows.Forms.ComboBox();
             this.AD_teamComboBox = new System.Windows.Forms.ComboBox();
@@ -1541,17 +1542,16 @@
             this.groupBox5.Controls.Add(this.AD_BoostModeAllMapsRadio);
             this.groupBox5.Controls.Add(this.AD_BoostModeAsgarRadio);
             this.groupBox5.Controls.Add(this.AD_bootmodeCheckBox);
-            this.groupBox5.Location = new System.Drawing.Point(223, 114);
+            this.groupBox5.Location = new System.Drawing.Point(229, 141);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(263, 63);
+            this.groupBox5.Size = new System.Drawing.Size(251, 63);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             // 
             // AD_BoostModeAllMapsRadio
             // 
             this.AD_BoostModeAllMapsRadio.AutoSize = true;
-            this.AD_BoostModeAllMapsRadio.Enabled = false;
-            this.AD_BoostModeAllMapsRadio.Location = new System.Drawing.Point(118, 25);
+            this.AD_BoostModeAllMapsRadio.Location = new System.Drawing.Point(174, 25);
             this.AD_BoostModeAllMapsRadio.Name = "AD_BoostModeAllMapsRadio";
             this.AD_BoostModeAllMapsRadio.Size = new System.Drawing.Size(65, 17);
             this.AD_BoostModeAllMapsRadio.TabIndex = 30;
@@ -1563,13 +1563,12 @@
             // AD_BoostModeAsgarRadio
             // 
             this.AD_BoostModeAsgarRadio.AutoSize = true;
-            this.AD_BoostModeAsgarRadio.Enabled = false;
             this.AD_BoostModeAsgarRadio.Location = new System.Drawing.Point(12, 25);
             this.AD_BoostModeAsgarRadio.Name = "AD_BoostModeAsgarRadio";
-            this.AD_BoostModeAsgarRadio.Size = new System.Drawing.Size(100, 17);
+            this.AD_BoostModeAsgarRadio.Size = new System.Drawing.Size(156, 17);
             this.AD_BoostModeAsgarRadio.TabIndex = 29;
             this.AD_BoostModeAsgarRadio.TabStop = true;
-            this.AD_BoostModeAsgarRadio.Text = "Asgar Map Only";
+            this.AD_BoostModeAsgarRadio.Text = "Asgar&&Heavenly Stairs Only";
             this.AD_BoostModeAsgarRadio.UseVisualStyleBackColor = true;
             this.AD_BoostModeAsgarRadio.CheckedChanged += new System.EventHandler(this.AD_BoostModeAsgarRadio_CheckedChanged);
             // 
@@ -1586,15 +1585,24 @@
             // 
             // ADCH_ChangeHeroGroupBox
             // 
+            this.ADCH_ChangeHeroGroupBox.Controls.Add(this.label3);
             this.ADCH_ChangeHeroGroupBox.Controls.Add(this.AD_teamLabel);
             this.ADCH_ChangeHeroGroupBox.Controls.Add(this.AD_teamComboBox2);
             this.ADCH_ChangeHeroGroupBox.Controls.Add(this.AD_teamComboBox);
             this.ADCH_ChangeHeroGroupBox.Location = new System.Drawing.Point(223, 6);
             this.ADCH_ChangeHeroGroupBox.Name = "ADCH_ChangeHeroGroupBox";
-            this.ADCH_ChangeHeroGroupBox.Size = new System.Drawing.Size(266, 59);
+            this.ADCH_ChangeHeroGroupBox.Size = new System.Drawing.Size(266, 90);
             this.ADCH_ChangeHeroGroupBox.TabIndex = 18;
             this.ADCH_ChangeHeroGroupBox.TabStop = false;
             this.ADCH_ChangeHeroGroupBox.Text = "Change Hero Setting";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(9, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 30);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Team (Map 13)";
             // 
             // AD_teamLabel
             // 
@@ -1607,19 +1615,17 @@
             // AD_teamComboBox2
             // 
             this.AD_teamComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AD_teamComboBox2.Enabled = false;
             this.AD_teamComboBox2.FormattingEnabled = true;
             this.AD_teamComboBox2.Items.AddRange(new object[] {
             "--",
             "A",
             "B",
             "C"});
-            this.AD_teamComboBox2.Location = new System.Drawing.Point(164, 22);
+            this.AD_teamComboBox2.Location = new System.Drawing.Point(77, 51);
             this.AD_teamComboBox2.Name = "AD_teamComboBox2";
-            this.AD_teamComboBox2.Size = new System.Drawing.Size(60, 21);
+            this.AD_teamComboBox2.Size = new System.Drawing.Size(52, 21);
             this.AD_teamComboBox2.TabIndex = 28;
             this.AD_teamComboBox2.Tag = "0";
-            this.AD_teamComboBox2.Visible = false;
             this.AD_teamComboBox2.SelectedIndexChanged += new System.EventHandler(this.AD_teamComboBox2_SelectedIndexChanged);
             // 
             // AD_teamComboBox
@@ -1641,7 +1647,7 @@
             // groupBox26
             // 
             this.groupBox26.Controls.Add(this.AD_UseFriendCheckBox);
-            this.groupBox26.Location = new System.Drawing.Point(223, 71);
+            this.groupBox26.Location = new System.Drawing.Point(223, 101);
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Size = new System.Drawing.Size(263, 112);
             this.groupBox26.TabIndex = 1;
@@ -3413,5 +3419,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ST_EmulatorNameTextBox;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label3;
     }
 }
