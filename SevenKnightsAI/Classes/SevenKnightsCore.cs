@@ -41,7 +41,6 @@ namespace SevenKnightsAI.Classes
         private const int MAX_IDLE_TIME = 8000;
         private const int MAX_MAP_SELECT_TIME = 10000;
         private const int PIXEL_TOLERANCE = 2;
-        private const string PUSHBULLET_TOKEN = "";
         private const int SLEEP_L = 1000;
         private const int SLEEP_M = 500;
         private const int SLEEP_S = 300;
@@ -123,6 +122,7 @@ namespace SevenKnightsAI.Classes
         private string PlayerName = "";
         private bool CheckPlayaName;
         private bool checkslothero;
+        private bool changemap;
         private bool checkslotitem;
         private bool herofull;
         private bool itemfull;
@@ -311,6 +311,7 @@ namespace SevenKnightsAI.Classes
             this.Log("After: " + this.CurrentSequenceCount2 + " Progress Sequnce: " + this.AISettings.AD_AmountSequence[this.CurrentSequence]);
             if (this.AdventureLimitCount2 >= this.AISettings.AD_Limit)
             {
+                this.changemap = true;
                 this.AdventureLimitCount2 = 0;
                 this.CurrentSequenceCount2 = 0;
                 for (int i = 0; i < 3; i++)
@@ -321,6 +322,7 @@ namespace SevenKnightsAI.Classes
             }
             else if (this.CurrentSequenceCount2 >= this.AISettings.AD_AmountSequence[this.CurrentSequence])
             {
+                this.changemap = true;
                 this.CurrentSequenceCount2 = 0;
                 this.checkslothero = true;
                 this.checkslotitem = true;
@@ -570,61 +572,16 @@ namespace SevenKnightsAI.Classes
             this.Log(message + " Disabled", Color.Orange);
         }
 
-        private bool CheckMapNumber(World world, int stage)
+        private void CheckMapNumber()
         {
-            if (world == World.None)
-            {
-                return true;
-            }
-            int num = world - World.Sequencer;
-            int num2 = stage + 1;
-            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureStartPM.R_MapNumber).ScaleByPercent(200))
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureStartPM.R_MapNumber).ScaleByPercent(250))
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
-                    string text = page.GetText().ToLower().Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5")
-                        .Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace(")", "").Replace("j", "").Replace("_", "")
-                        .Replace("‘", "").Replace("'", "").Replace(":", "").Replace("f", "").Replace("[", "").Replace("]", "")
-                        .Replace("#", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Replace("!", "").Replace("m", "0").Replace("51", "5").Replace("—", "-").Replace("“", "0");
-                    Utility.FilterAscii(text);
-                    this.Log("MapNumber = " + text.Trim()); bitmap.Save("MapNumber.png"); this.Log("MapNumber Before: " + page.GetText().ToLower());
-#if DEBUG
-                    Console.WriteLine("MapNumber = " + text.Trim());
-                    
-#endif
-                    if (text.Length >= 2)
-                    {
-                        int num3 = -1;
-                        int num4 = -1;
-                        string[] array = text.Split(new char[]
-                        {
-                            '-'
-                        });
-                        if (array.Length < 2)
-                        {
-                            bool result = false;
-                            return result;
-                        }
-                        int.TryParse(array[0], out num3);
-                        int.TryParse(array[1], out num4);
-                        this.Log("World: " + num3 + " Map: " + num4);
-                        if(num3 >= 8)
-                        {
-                            this.entrytolv30 = 4;
-                        }
-                        else
-                        {
-                            this.entrytolv30 = 7;
-                        }
-                        if (num3 == num && num4 == num2)
-                        {
-                            bool result = true;
-                            return result;
-                        }
-                    }
+                    bitmap.Save("MapNumber.png"); this.Log("MapNumber Before: " + page.GetText().ToLower().Trim().Replace(" ", "").Replace("ﬂ","1").Replace("21", "2").Replace("31", "3"));
+
                 }
             }
-            return false;
         }
 
         private bool CheckMapNumber2(World world, int stage)
@@ -655,6 +612,14 @@ namespace SevenKnightsAI.Classes
                     int.TryParse(array2[0], out num3);
                     int.TryParse(array2[1], out num4);
                     this.Log("World: " + num3 + " Map: " + num4);
+                    if (num3 >= 8)
+                    {
+                        this.entrytolv30 = 4;
+                    }
+                    else
+                    {
+                        this.entrytolv30 = 7;
+                    }
                     if (num3 == num && num4 == num2)
                     {
                         bool result = true;
@@ -1663,6 +1628,7 @@ namespace SevenKnightsAI.Classes
             this.OneSecTimer.Enabled = true;
             this.checkslothero = false;
             this.checkslotitem = false;
+            this.changemap = false;
             this.IsAdventureLimit = false;
             this.herofull = false;
             this.itemfull = false;
@@ -1843,7 +1809,6 @@ namespace SevenKnightsAI.Classes
                                 Scene scene = this.SceneSearch();
                                 bool flag4 = false;
                                 string text2 = "";
-                                int tryerror = 0;
                                 if (scene == null)
                                 {
                                     Sleep(this.AIProfiles.ST_Delay);
@@ -2421,86 +2386,94 @@ namespace SevenKnightsAI.Classes
                                                 }
                                                 if (!this.AISettings.AD_Continuous)
                                                 {
-                                                    this.SelectTeam(SceneType.ADVENTURE_START, world2);
-                                                    SevenKnightsCore.Sleep(1000);
-                                                    if (this.AISettings.AD_UseFriend)
+                                                    if (this.changemap == true)
                                                     {
-                                                        if (this.MatchMapping(AdventureStartPM.UseFriendOff, 2))
-                                                        {
-                                                            this.WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(1000);
-                                                        }
+                                                        this.changemap = false;
+                                                        this.Escape();
+                                                        SevenKnightsCore.Sleep(1500);
                                                     }
                                                     else
                                                     {
-                                                        if (this.MatchMapping(AdventureStartPM.UseFriendOn, 2))
+                                                        SevenKnightsCore.Sleep(1000);
+                                                        this.SelectTeam(SceneType.ADVENTURE_START, world2);
+                                                        if (this.AISettings.AD_UseFriend)
                                                         {
-                                                            this.WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(1000);
-                                                        }
-                                                    }
-                                                    if (this.AISettings.AD_BootMode)
-                                                    {
-                                                        if (this.MatchMapping(AdventureStartPM.BootmodeOff, 2))
-                                                        {
-                                                            if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory || world2 == World.HeavenlyStairs) && this.AISettings.AD_BoostAsgar)
+                                                            if (this.MatchMapping(AdventureStartPM.UseFriendOff, 2))
                                                             {
-                                                                this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                SevenKnightsCore.Sleep(1000);
-
-                                                            }else if (this.AISettings.AD_BoostAllMap)
-                                                            {
-                                                                this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                this.WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
                                                                 SevenKnightsCore.Sleep(1000);
                                                             }
-                                                            else
+                                                        }
+                                                        else
+                                                        {
+                                                            if (this.MatchMapping(AdventureStartPM.UseFriendOn, 2))
                                                             {
-                                                                if (this.MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                                this.WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
+                                                            }
+                                                        }
+                                                        if (this.AISettings.AD_BootMode)
+                                                        {
+                                                            if (this.MatchMapping(AdventureStartPM.BootmodeOff, 2))
+                                                            {
+                                                                if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory || world2 == World.HeavenlyStairs) && this.AISettings.AD_BoostAsgar)
+                                                                {
+                                                                    this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                    SevenKnightsCore.Sleep(1000);
+
+                                                                }
+                                                                else if (this.AISettings.AD_BoostAllMap)
                                                                 {
                                                                     this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
                                                                     SevenKnightsCore.Sleep(1000);
                                                                 }
+                                                                else
+                                                                {
+                                                                    if (this.MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                                    {
+                                                                        this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                        SevenKnightsCore.Sleep(1000);
+                                                                    }
+                                                                }
                                                             }
                                                         }
-                                                    }
-                                                    else
-                                                    {
-                                                        if (this.MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                        else
                                                         {
-                                                            this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(1000);
+                                                            if (this.MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                            {
+                                                                this.WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
+                                                            }
                                                         }
+                                                        if (this.MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!this.itemfull || !this.herofull))
+                                                        {
+                                                            this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
+                                                            SevenKnightsCore.Sleep(2000);
+                                                        }
+                                                        if (this.MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (this.itemfull || this.herofull))
+                                                        {
+                                                            this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
+                                                            SevenKnightsCore.Sleep(2000);
+                                                        }
+                                                        this.world3 = world2;
+                                                        SevenKnightsCore.Sleep(750);
+                                                        this.WeightedClick(SharedPM.PrepareFight_StartButton, 1.0, 1.0, 1, 0, "left");
+                                                        SevenKnightsCore.Sleep(1000);
                                                     }
-                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!this.itemfull || !this.herofull))
-                                                    {
-                                                        this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(2000);
+                                                    } else {
+                                                        this.MapCheckCount++;
+                                                        this.Escape();
+                                                        SevenKnightsCore.Sleep(300);
                                                     }
-                                                    if (this.MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (this.itemfull || this.herofull))
-                                                    {
-                                                        this.WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(2000);
-                                                    }
-                                                    this.world3 = world2;
-                                                    SevenKnightsCore.Sleep(750);
-                                                    this.WeightedClick(SharedPM.PrepareFight_StartButton, 1.0, 1.0, 1, 0, "left");
-                                                    SevenKnightsCore.Sleep(1000);
+                                                }
+                                                else if (this.CurrentObjective == Objective.CHECK_SLOT_HERO)
+                                                {
+                                                    this.WeightedClick(SharedPM.PrepareFight_ManageButton, 1.0, 1.0, 1, 0, "left");
                                                 }
                                                 else
                                                 {
-                                                    this.MapCheckCount++;
                                                     this.Escape();
-                                                    SevenKnightsCore.Sleep(300);
                                                 }
-                                            }
-                                            else if (this.CurrentObjective == Objective.CHECK_SLOT_HERO)
-                                            {
-                                                this.WeightedClick(SharedPM.PrepareFight_ManageButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else
-                                            {
-                                                this.Escape();
-                                            }
                                             break;
 
                                         case SceneType.ADVENTURE_START_AUTO:
@@ -2578,16 +2551,24 @@ namespace SevenKnightsAI.Classes
                                         case SceneType.VICTORY:
                                             SevenKnightsCore.Sleep(250);
                                             this.IsAlreadyAdvEnd = false;
+                                            this.WeightedClick(VictoryPM.TapToSkipArea, 1.0, 1.0, 1, 0, "left");
                                             break;
 
                                         case SceneType.AUTO_REPEAT_INFO:
-                                                this.checkslothero = true;
-                                                this.checkslotitem = true;
                                                 if (this.AISettings.AD_CheckSlot)
                                                 {
+                                                    this.checkslothero = true;
+                                                    this.checkslotitem = true;
                                                     this.ChangeObjective(Objective.CHECK_SLOT_HERO);
                                                 }
-                                                this.WeightedClick(AutoRepeatInfoPM.CloseBtn, 1.0, 1.0, 1, 0, "left");
+                                            this.ParseGoldAutoRepeat();
+                                            Sleep(500);
+                                            this.ParseItemAutoRepeat();
+                                            Sleep(500);
+                                            this.ParseHeroAutoRepeat();
+                                            Sleep(500);
+                                            this.ReportCount(Objective.ADVENTURE);
+                                            this.WeightedClick(AutoRepeatInfoPM.CloseBtn, 1.0, 1.0, 1, 0, "left");
                                             break;
 
                                         case SceneType.AUTO_REPEAT_STOP:
@@ -3748,79 +3729,56 @@ namespace SevenKnightsAI.Classes
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null, PageSegMode.Auto))
                 {
-                    string text = page.GetText().ToLower().Replace("accpired", "").Replace("acquired", "").Replace("acmired", "").Trim();
-                    string text2 = text.Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5")
-    .Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace("Z", "2").Replace(")", "").Replace("j", "").Replace("_", "")
-    .Replace("‘", "").Replace("'", "").Replace(":", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Trim();
-
-                    //this.Log("OldText =" + "'" + page.GetText().ToLower() + "'");
-                    string text1 = Regex.Replace(text2, @"\D", "");
-                    Utility.FilterAscii(text1);
-                    //bitmap.Save("GoldAdv.png");
-                    //this.Log("NewText = " + text1);
-                    int.TryParse(text1, out num);
-#if DEBUG
-                    bitmap.Save("HeroCount.png");
-                    Console.WriteLine("NewText = " + text1);
-#endif
+                    string text = page.GetText().ToLower().Replace("acquired", "");
+                    string text2 = text.Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5").Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace("Z", "2").Replace(")", "").Replace("j", "").Replace("_", "").Replace("‘", "").Replace("'", "").Replace(":", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Trim();
+                    string text3 = Regex.Replace(text2, @"\D", "");
+                    Utility.FilterAscii(text3);
+                    int.TryParse(text3, out num);
+                    bitmap.Save("GoldInfo - " + num + ".png");
+                    this.Log("Gold Count: " + text3 + "| GoldText: " + page.GetText().ToLower().Trim());
+                    this.goldadv += num;
                 }
             }
-            this.goldadv += num;
         }
 
         private void ParseItemAutoRepeat()
         {
             Rectangle rect = AutoRepeatInfoPM.Item;
             int num = 0;
-            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(250))
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null, PageSegMode.Auto))
                 {
-                    string text = page.GetText().ToLower().Replace("accpired", "").Replace("acquired", "").Replace("acmired", "").Trim();
-                    string text2 = text.Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5")
-    .Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace("Z", "2").Replace(")", "").Replace("j", "").Replace("_", "")
-    .Replace("‘", "").Replace("'", "").Replace(":", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Trim();
-                    //this.Log("OldText =" + "'" + text2 + "'");
-                    string text1 = Regex.Replace(text2, @"\D", "");
-                    Utility.FilterAscii(text1);
-                    //bitmap.Save("ItemAdv.png");
-                    //this.Log("NewText = " + text1);
-                    int.TryParse(text1, out num);
-#if DEBUG
-                    bitmap.Save("HeroCount.png");
-                    Console.WriteLine("NewText = " + text1);
-#endif
+                    string text = page.GetText().ToLower().Replace("acquired", "");
+                    string text2 = text.Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5").Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace("Z", "2").Replace(")", "").Replace("j", "").Replace("_", "").Replace("‘", "").Replace("'", "").Replace(":", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Trim();
+                    string text3 = Regex.Replace(text2, @"\D", "");
+                    Utility.FilterAscii(text3);
+                    int.TryParse(text3, out num);
+                    bitmap.Save("ItemInfo - " + num + ".png");
+                    this.Log("Item Count: " + text3 + "| ItemText: " + page.GetText().ToLower().Trim());
+                    this.itemadv += num;
                 }
             }
-            this.itemadv += num;
         }
 
         private void ParseHeroAutoRepeat()
         {
             Rectangle rect = AutoRepeatInfoPM.Hero;
             int num = 0;
-            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(250))
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null, PageSegMode.Auto))
                 {
-                    string text = page.GetText().ToLower().Replace("accpired", "").Replace("acquired", "").Replace("acmired", "").Trim();
-                    string text2 = text.Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5")
-    .Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace("Z", "2").Replace(")", "").Replace("j", "").Replace("_", "")
-    .Replace("‘", "").Replace("'", "").Replace(":", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Trim();
-
-                    //this.Log("OldText =" + "'" + text2 + "'");
-                    string text1 = Regex.Replace(text2, @"\D", "");
-                    Utility.FilterAscii(text1);
-                    //bitmap.Save("HeroAdv.png");
-                    //this.Log("NewText = " + text1);
-                    int.TryParse(text1, out num);
-#if DEBUG
-                    bitmap.Save("HeroCount.png");
-                    Console.WriteLine("NewText = " + text1);
-#endif
+                    string text = page.GetText().ToLower().Replace("acquired", "");
+                    string text2 = text.Replace("l", "1").Replace(".", "").Replace(" ", "").Replace("s", "5").Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace("Z", "2").Replace(")", "").Replace("j", "").Replace("_", "").Replace("‘", "").Replace("'", "").Replace(":", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Trim();
+                    string text3 = Regex.Replace(text2, @"\D", "");
+                    Utility.FilterAscii(text3);
+                    int.TryParse(text3, out num);
+                    bitmap.Save("HeroInfo - " + num + ".png");
+                    this.Log("Hero Count: " + text3 + "| HeroText: "+page.GetText().ToLower().Trim());
+                    this.heroadv += num;
                 }
             }
-            this.heroadv += num;
         }
 
         private void ProgressSequence()
@@ -3951,7 +3909,19 @@ namespace SevenKnightsAI.Classes
                     {
                         "h30",
                          num2
-                }
+                    },
+                    {
+                        "goldadv",
+                         this.goldadv
+                    },
+                    {
+                        "heroadv",
+                         this.heroadv
+                    },
+                    {
+                        "itemadv",
+                         this.itemadv
+                    }
                 };
 
             ProgressArgs userState = new ProgressArgs(ProgressType.COUNT, message);

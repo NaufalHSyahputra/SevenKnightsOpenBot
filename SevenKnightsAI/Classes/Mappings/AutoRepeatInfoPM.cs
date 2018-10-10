@@ -45,26 +45,26 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle Gold = new Rectangle
         {
-            X = 463,
-            Y = 209, 
-            Width = 110,
-            Height = 30
+            X = 447,
+            Y = 197, 
+            Width = 130,
+            Height = 22
         };
 
         public static readonly Rectangle Hero = new Rectangle
         {
-            X = 464,
-            Y = 159,
-            Width = 97,
-            Height = 26
+            X = 446,
+            Y = 149,
+            Width = 108,
+            Height = 22
         };
 
         public static readonly Rectangle Item = new Rectangle
         {
-            X = 620,
-            Y = 159,
-            Width = 97,
-            Height = 26
+            X = 603,
+            Y = 148,
+            Width = 90,
+            Height = 22
         };
     }
 }

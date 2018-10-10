@@ -6,32 +6,32 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping DimmedBG = new PixelMapping
         {
-            X = 549,
-            Y = 418,
-            Color = 4868155,
+            X = 307,
+            Y = 410,
+            Color = 2692102,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping PopupBorderLeft = new PixelMapping
         {
-            X = 337,
-            Y = 237,
-            Color = 13840908,
+            X = 307,
+            Y = 222,
+            Color = 12398091,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping PopupBorderRight = new PixelMapping
         {
-            X = 498,
-            Y = 238,
-            Color = 14562316,
+            X = 418,
+            Y = 106,
+            Color = 15970066,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping TapArea = new PixelMapping
         {
-            X = 399,
-            Y = 371,
+            X = 390,
+            Y = 349,
             Color = 0,
             Type = MappingType.BUTTON
         };

@@ -84,6 +84,9 @@
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.LG_logTextBox = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -100,7 +103,10 @@
             this.itemslotLabel = new System.Windows.Forms.Label();
             this.heroslotLabel = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.itemadvLabel = new System.Windows.Forms.Label();
+            this.heroadvLabel = new System.Windows.Forms.Label();
             this.goldadvLabel = new System.Windows.Forms.Label();
+            this.h30advLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.essenceLabel = new System.Windows.Forms.Label();
@@ -256,6 +262,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -1002,6 +1011,39 @@
             this.pictureBox7.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBox7, "Gold");
             // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::SevenKnightsAI.Properties.Resources.icon_card;
+            this.pictureBox12.Location = new System.Drawing.Point(6, 107);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox12, "Arena Keys");
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::SevenKnightsAI.Properties.Resources.icon_item;
+            this.pictureBox13.Location = new System.Drawing.Point(6, 153);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 29;
+            this.pictureBox13.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox13, "Arena Keys");
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Image = global::SevenKnightsAI.Properties.Resources.icon_gold1;
+            this.pictureBox15.Location = new System.Drawing.Point(6, 63);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(29, 29);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 35;
+            this.pictureBox15.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox15, "Gold");
+            // 
             // LG_logTextBox
             // 
             this.LG_logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1098,7 +1140,7 @@
             this.groupBox1.Controls.Add(this.botstatusLabel);
             this.groupBox1.Location = new System.Drawing.Point(174, 115);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(167, 82);
+            this.groupBox1.Size = new System.Drawing.Size(155, 82);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
@@ -1107,7 +1149,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(22, 45);
+            this.label10.Location = new System.Drawing.Point(17, 44);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 18);
             this.label10.TabIndex = 23;
@@ -1118,7 +1160,7 @@
             this.timer.AutoSize = true;
             this.timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timer.ForeColor = System.Drawing.Color.Green;
-            this.timer.Location = new System.Drawing.Point(77, 45);
+            this.timer.Location = new System.Drawing.Point(69, 44);
             this.timer.Name = "timer";
             this.timer.Size = new System.Drawing.Size(64, 18);
             this.timer.TabIndex = 18;
@@ -1129,7 +1171,7 @@
             this.botstatusLabel.AutoSize = true;
             this.botstatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botstatusLabel.ForeColor = System.Drawing.Color.Red;
-            this.botstatusLabel.Location = new System.Drawing.Point(38, 18);
+            this.botstatusLabel.Location = new System.Drawing.Point(30, 18);
             this.botstatusLabel.Name = "botstatusLabel";
             this.botstatusLabel.Size = new System.Drawing.Size(90, 18);
             this.botstatusLabel.TabIndex = 20;
@@ -1141,7 +1183,7 @@
             this.groupBox9.Controls.Add(this.pictureBox1);
             this.groupBox9.Controls.Add(this.itemslotLabel);
             this.groupBox9.Controls.Add(this.heroslotLabel);
-            this.groupBox9.Location = new System.Drawing.Point(335, 203);
+            this.groupBox9.Location = new System.Drawing.Point(335, 309);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(159, 114);
             this.groupBox9.TabIndex = 34;
@@ -1170,35 +1212,78 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.pictureBox15);
+            this.groupBox10.Controls.Add(this.pictureBox13);
+            this.groupBox10.Controls.Add(this.pictureBox12);
+            this.groupBox10.Controls.Add(this.itemadvLabel);
+            this.groupBox10.Controls.Add(this.heroadvLabel);
             this.groupBox10.Controls.Add(this.goldadvLabel);
+            this.groupBox10.Controls.Add(this.h30advLabel);
             this.groupBox10.Controls.Add(this.label9);
-            this.groupBox10.Location = new System.Drawing.Point(341, 115);
+            this.groupBox10.Location = new System.Drawing.Point(335, 115);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(153, 82);
+            this.groupBox10.Size = new System.Drawing.Size(158, 188);
             this.groupBox10.TabIndex = 33;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Adventure";
+            // 
+            // itemadvLabel
+            // 
+            this.itemadvLabel.AutoSize = true;
+            this.itemadvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemadvLabel.ForeColor = System.Drawing.Color.MediumPurple;
+            this.itemadvLabel.Location = new System.Drawing.Point(61, 153);
+            this.itemadvLabel.Name = "itemadvLabel";
+            this.itemadvLabel.Size = new System.Drawing.Size(16, 18);
+            this.itemadvLabel.TabIndex = 34;
+            this.itemadvLabel.Tag = "";
+            this.itemadvLabel.Text = "0";
+            // 
+            // heroadvLabel
+            // 
+            this.heroadvLabel.AutoSize = true;
+            this.heroadvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heroadvLabel.ForeColor = System.Drawing.Color.MediumPurple;
+            this.heroadvLabel.Location = new System.Drawing.Point(61, 107);
+            this.heroadvLabel.Name = "heroadvLabel";
+            this.heroadvLabel.Size = new System.Drawing.Size(16, 18);
+            this.heroadvLabel.TabIndex = 32;
+            this.heroadvLabel.Tag = "";
+            this.heroadvLabel.Text = "0";
             // 
             // goldadvLabel
             // 
             this.goldadvLabel.AutoSize = true;
             this.goldadvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goldadvLabel.ForeColor = System.Drawing.Color.MediumPurple;
-            this.goldadvLabel.Location = new System.Drawing.Point(72, 16);
+            this.goldadvLabel.Location = new System.Drawing.Point(61, 63);
             this.goldadvLabel.Name = "goldadvLabel";
             this.goldadvLabel.Size = new System.Drawing.Size(16, 18);
-            this.goldadvLabel.TabIndex = 28;
+            this.goldadvLabel.TabIndex = 30;
             this.goldadvLabel.Tag = "";
             this.goldadvLabel.Text = "0";
+            // 
+            // h30advLabel
+            // 
+            this.h30advLabel.AutoSize = true;
+            this.h30advLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.h30advLabel.ForeColor = System.Drawing.Color.MediumPurple;
+            this.h30advLabel.Location = new System.Drawing.Point(60, 28);
+            this.h30advLabel.Name = "h30advLabel";
+            this.h30advLabel.Size = new System.Drawing.Size(16, 18);
+            this.h30advLabel.TabIndex = 28;
+            this.h30advLabel.Tag = "";
+            this.h30advLabel.Text = "0";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 20);
+            this.label9.Location = new System.Drawing.Point(6, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 13);
             this.label9.TabIndex = 27;
             this.label9.Text = "Hero 30:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // groupBox4
             // 
@@ -1312,7 +1397,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(104, 22);
+            this.label25.Location = new System.Drawing.Point(101, 22);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(12, 13);
             this.label25.TabIndex = 24;
@@ -2817,6 +2902,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
@@ -3393,7 +3481,7 @@
         private System.Windows.Forms.Label itemslotLabel;
         private System.Windows.Forms.Label heroslotLabel;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Label goldadvLabel;
+        private System.Windows.Forms.Label h30advLabel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PictureBox pictureBox11;
@@ -3420,5 +3508,11 @@
         private System.Windows.Forms.TextBox ST_EmulatorNameTextBox;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Label itemadvLabel;
+        private System.Windows.Forms.Label heroadvLabel;
+        private System.Windows.Forms.Label goldadvLabel;
     }
 }

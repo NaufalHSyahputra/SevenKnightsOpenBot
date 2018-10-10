@@ -686,6 +686,9 @@ namespace SevenKnightsAI
                         int num3 = (int)dictionary["count"];
                         string text = string.Format("x" + num3);
                         string text2 = "";
+                        string text3 = "";
+                        string text4 = "";
+                        string text5 = "";
                         if (objective == Objective.CHECK_SLOT_HERO)
                         {
                             string t1 = "" + dictionary["hc"];
@@ -695,14 +698,18 @@ namespace SevenKnightsAI
                         else if (objective == Objective.ADVENTURE)
                         {
                             text2 = "" + dictionary["h30"]; //hero30
+                            text3 = "x" + dictionary["goldadv"]; //goldadv 
+                            text4 = "x" + dictionary["heroadv"]; //heroadv
+                            text5 = "x" + dictionary["itemadv"]; //itemadv
                         }
                         switch (objective)
                         {
                             case Objective.ADVENTURE:
                                 this.adventureCountLabel.Text = text;
-                                //this.heroadvLabel.Text = text5;
-                                this.goldadvLabel.Text = text2; //hero30
-                                //this.itemadvLabel.Text = text4;
+                                this.h30advLabel.Text = text2; //hero30
+                                this.goldadvLabel.Text = text3;
+                                this.heroadvLabel.Text = text4;
+                                this.itemadvLabel.Text = text5;
                                 return;
 
                             case Objective.ARENA:
@@ -2048,6 +2055,11 @@ ts.Hours, ts.Minutes, ts.Seconds);
         private void button4_Click_2(object sender, EventArgs e)
         {
             this.AppendLog(this.AI.BlueStacks.ValidateResolution());
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class AutoClosingMessageBox

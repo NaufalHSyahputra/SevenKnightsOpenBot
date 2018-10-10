@@ -6,33 +6,33 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping Borderleft = new PixelMapping
         {
-            X = 48,
-            Y = 111,
-            Color = 15256155,
+            X = 39,
+            Y = 93,
+            Color = 15190106,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BoderRight = new PixelMapping
         {
-            X = 49,
-            Y = 184,
-            Color = 16049282,
+            X = 39,
+            Y = 413,
+            Color = 16049281,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BoderCompair1 = new PixelMapping
         {
-            X = 49,
-            Y = 347,
-            Color = 13017155,
+            X = 70,
+            Y = 63,
+            Color = 11759108,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BoderCompair2 = new PixelMapping
         {
-            X = 46,
-            Y = 267,
-            Color = 12030533,
+            X = 67,
+            Y = 64,
+            Color = 1707014,
             Type = MappingType.ANCHOR
         };
 
@@ -46,25 +46,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CommonShop = new PixelMapping
         {
-            X = 453,
-            Y = 390,
+            X = 392,
+            Y = 332,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping ShopCommon = new PixelMapping
         {
-            X = 453,
-            Y = 390,
-            Color = 8667183,
+            X = 378,
+            Y = 305,
+            Color = 11816233,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ShopPackge = new PixelMapping
         {
-            X = 238,
-            Y = 386,
-            Color = 13274198,
+            X = 211,
+            Y = 303,
+            Color = 6307446,
             Type = MappingType.ANCHOR
         };
 
@@ -91,8 +91,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Key1Honor10 = new PixelMapping
         {
-            X = 249,
-            Y = 134,
+            X = 228,
+            Y = 113,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -107,8 +107,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Key10Honor100 = new PixelMapping
         {
-            X = 386,
-            Y = 117,
+            X = 375,
+            Y = 113,
             Color = 0,
             Type = MappingType.BUTTON
         };
