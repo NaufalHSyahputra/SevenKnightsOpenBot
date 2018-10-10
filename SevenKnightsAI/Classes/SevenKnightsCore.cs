@@ -596,8 +596,8 @@ namespace SevenKnightsAI.Classes
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
-                    string text = page.GetText().ToLower().Replace("[", "").Trim();
-                    bitmap.Save("MapNumber2.png"); this.Log("MapText: " + page.GetText().ToLower().Trim());
+                    string text = page.GetText().ToLower().Replace("[", "").Replace("l", "]").Replace("s", "5").Trim();
+                    bitmap.Save("MapNumber2.png"); this.Log("MapText: " + page.GetText().ToLower().Trim()); this.Log("MapText final: " + text);
                     int num3 = -1;
                     int num4 = -1;
                     string[] array = text.Split(new char[]
