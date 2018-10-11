@@ -108,6 +108,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "RS_BuyKeyHonors")]
         public bool RS_BuyKeyHonors;
 
+        [XmlElement(ElementName = "RS_SellGoldOre")]
+        public bool RS_SellGoldOre;
+
         [XmlElement(ElementName = "RS_BuyKeyHonorsAmount")]
         public int RS_BuyKeyHonorsAmount;
 
@@ -285,6 +288,7 @@ namespace SevenKnightsAI.Classes
             this.RS_SendHonorsFacebook = false;
             this.RS_SendHonorsInGame = false;
             this.RS_BuyKeyHonors = false;
+            this.RS_SellGoldOre = false;
             this.RS_BuyKeyHonorsType = BuyKeyHonorsType.Key1Honor10;
             this.RS_BuyKeyHonorsAmount = 0;
             this.RS_BuyKeyRubies = false;
@@ -685,6 +689,12 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
+                    aISettings.RS_SellGoldOre = (bool)dictionary["RS_SellGoldOre"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
                     aISettings.RS_BuyKeyHonorsType = (BuyKeyHonorsType)Convert.ToInt32(dictionary["RS_BuyKeyHonorsType"]);
                 }
                 catch (Exception)
@@ -950,6 +960,10 @@ namespace SevenKnightsAI.Classes
                 {
                     "RS_BuyKeyHonors",
                     this.RS_BuyKeyHonors
+                },
+                {
+                    "RS_BuyKeyHonors",
+                    this.RS_SellGoldOre
                 },
                 {
                     "RS_BuyKeyHonorsType",

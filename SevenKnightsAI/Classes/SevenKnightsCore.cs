@@ -596,7 +596,7 @@ namespace SevenKnightsAI.Classes
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
-                    string text = page.GetText().ToLower().Replace("[", "").Replace("l", "]").Replace("s", "5").Trim();
+                    string text = page.GetText().ToLower().Replace("l", "]").Replace(".", "").Replace(" ", "").Replace("s", "5").Replace("o", "0").Replace("i", "1").Replace("z", "2").Replace(")", "").Replace("j", "").Replace("_", "").Replace("‘", "").Replace("'", "").Replace(":", "").Replace("f", "").Replace("[", "").Replace("#", "").Replace("$", "5").Replace("e", "").Replace("q", "2").Replace("§", "3").Trim();
                     bitmap.Save("MapNumber2.png"); this.Log("MapText: " + page.GetText().ToLower().Trim()); this.Log("MapText final: " + text);
                     int num3 = -1;
                     int num4 = -1;
@@ -2891,7 +2891,6 @@ namespace SevenKnightsAI.Classes
                                             {
                                                 this.SellItems();
                                             }
-
                                             else
                                             {
                                                 this.Escape();
@@ -4161,7 +4160,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.ARENA_FIGHT);
                     return result;
                 }
-                if (this.MatchMapping(SharedPM.Fight_PauseButton, 2) || this.MatchMapping(SharedPM.Fight_ChatButton, 2))
+                if (this.MatchMapping(SharedPM.Fight_PauseButton, 2) && this.MatchMapping(SharedPM.Fight_ChatButton, 2))
                 {
                     Scene result = new Scene(SceneType.ADVENTURE_FIGHT);
                     return result;
@@ -5078,7 +5077,7 @@ namespace SevenKnightsAI.Classes
                 return;
             }
             this.WeightedClick(array[team - Team.A], 1.0, 1.0, 1, 0, "left");
-            SevenKnightsCore.Sleep(500);
+            SevenKnightsCore.Sleep(1000);
         }
 
         private void SelectTeamHero()
@@ -5096,7 +5095,7 @@ namespace SevenKnightsAI.Classes
                 return;
             }
             this.WeightedClick(array[team - Team.A], 1.0, 1.0, 1, 0, "left");
-            SevenKnightsCore.Sleep(500);
+            SevenKnightsCore.Sleep(1000);
         }
 
         private void SellHeroes()
@@ -5338,15 +5337,8 @@ namespace SevenKnightsAI.Classes
                 SellItemsLobbyPM.Star2,
                 SellItemsLobbyPM.Star3,
                 SellItemsLobbyPM.Star4,
-                SellItemsLobbyPM.Star5
-            };
-            PixelMapping[] StartExists = new PixelMapping[]
-            {
-                SellItemsLobbyPM.Star1Exists,
-                SellItemsLobbyPM.Star2Exists,
-                SellItemsLobbyPM.Star3Exists,
-                SellItemsLobbyPM.Star4Exists,
-                SellItemsLobbyPM.Star5Exists
+                SellItemsLobbyPM.Star5,
+                SellItemsLobbyPM.GoldOre
             };
             string[] array2 = new string[]
             {
@@ -5354,7 +5346,8 @@ namespace SevenKnightsAI.Classes
                 "2 Star Item",
                 "3 Star Item",
                 "4 Star Item",
-                "5 Star Item"
+                "5 Star Item",
+                "Gold Ore"
             };
             int test = this.AISettings.RS_SellItemStars;
             Scene scene = this.SceneSearch();
@@ -5386,9 +5379,9 @@ namespace SevenKnightsAI.Classes
                 SevenKnightsCore.Sleep(1000);
                 this.CaptureFrame();
                 scene = this.SceneSearch();
-                if (this.MatchMapping(StartExists[current], 2))
+                if (!this.MatchMapping(SellItemsLobbyPM.Item1Exist, 5) && !this.MatchMapping(SellItemsLobbyPM.Item2Exist, 5))
                 {
-                    this.Log(string.Format("{0} Exists ", array2[current]), this.COLOR_HONOR);
+                    this.Log("Item Exist", this.COLOR_HONOR);
                     this.WeightedClick(SellItemsLobbyPM.SellButton, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(1000);
                     this.CaptureFrame();
@@ -5409,6 +5402,41 @@ namespace SevenKnightsAI.Classes
                 else
                 {
                     this.Log(string.Format("{0} Doesn't Exists ", array2[current]), this.COLOR_HONOR);
+                }
+            }
+            if (this.AISettings.RS_SellGoldOre)
+            {
+                SevenKnightsCore.Sleep(500);
+                this.Log("Selling Gold Ore", this.COLOR_HONOR);
+                this.WeightedClick(SellItemsLobbyPM.BulkButton, 1.0, 1.0, 1, 0, "left");
+                SevenKnightsCore.Sleep(1000);
+                this.WeightedClick(BulkButton[5], 1.0, 1.0, 1, 0, "left");
+                SevenKnightsCore.Sleep(1000);
+                this.CaptureFrame();
+                scene = this.SceneSearch();
+                if (!this.MatchMapping(SellItemsLobbyPM.Item1Exist, 5) && !this.MatchMapping(SellItemsLobbyPM.Item2Exist, 5))
+                {
+                    this.Log("Gold Ore Exist", this.COLOR_HONOR);
+                    this.WeightedClick(SellItemsLobbyPM.SellButton, 1.0, 1.0, 1, 0, "left");
+                    SevenKnightsCore.Sleep(1000);
+                    this.CaptureFrame();
+                    scene = this.SceneSearch();
+                    if (this.ExpectingScene(SceneType.SELL_ITEM_CONFIRM_POPUP, 10, 1000)) // SELL_ITEM_CONFIRM_POPUP
+                    {
+                        this.WeightedClick(SellItemConfirmPopupPM.SellButton, 1.0, 1.0, 1, 0, "left");
+                        SevenKnightsCore.Sleep(3000);
+                        this.CaptureFrame();
+                        scene = this.SceneSearch();
+                        if (this.ExpectingScene(SceneType.SELL_ITEM_SUCCESS_POPUP, 10, 2000)) // SELL_ITEM_SUCCESS_POPUP
+                        {
+                            this.Escape();
+                            SevenKnightsCore.Sleep(1000);
+                        }
+                    }
+                }
+                else
+                {
+                    this.Log("Gold Ore Doesn't Exist", this.COLOR_HONOR);
                 }
             }
             this.DoneSellItems();

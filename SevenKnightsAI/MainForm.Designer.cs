@@ -70,8 +70,6 @@
             this.topheaderPictureBox = new System.Windows.Forms.PictureBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.RS_sellHeroesCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_sendHonorsFacebook = new System.Windows.Forms.CheckBox();
-            this.RS_sendHonorsInGame = new System.Windows.Forms.CheckBox();
             this.AD_difficultyComboBox = new System.Windows.Forms.ComboBox();
             this.AD_difficultyComboBox2nd = new System.Windows.Forms.ComboBox();
             this.GB_WaitForKeys = new System.Windows.Forms.CheckBox();
@@ -184,45 +182,15 @@
             this.GC_teamComboBox = new System.Windows.Forms.ComboBox();
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.RS_buyKeysGroupBox = new System.Windows.Forms.GroupBox();
-            this.RS_buyKeyRubiesLabel = new System.Windows.Forms.Label();
-            this.RS_buyKeyRubiesNumericBox = new System.Windows.Forms.NumericUpDown();
-            this.RS_buyKeyRubiesComboBox = new System.Windows.Forms.ComboBox();
-            this.RS_buyKeyRubiesCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_buyKeyHonorsLabel = new System.Windows.Forms.Label();
-            this.RS_buyKeyHonorsNumericBox = new System.Windows.Forms.NumericUpDown();
-            this.RS_buyKeyHonorsComboBox = new System.Windows.Forms.ComboBox();
             this.RS_buyKeyHonorsCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_sendHonorsGroupBox = new System.Windows.Forms.GroupBox();
-            this.RS_giftsGroupBox = new System.Windows.Forms.GroupBox();
-            this.RS_luckyBoxCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_luckyChestCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_collectQuestsGroupBox = new System.Windows.Forms.GroupBox();
-            this.RS_questsSocialCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_questsItemCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_questsHeroCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_questsBattleCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_specialQuestsMonthlyCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_specialQuestsWeeklyCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_specialQuestsDailyCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_questsNormalLabel = new System.Windows.Forms.Label();
-            this.RS_questsSpecialLabel = new System.Windows.Forms.Label();
             this.RS_sellingGroupBox = new System.Windows.Forms.GroupBox();
-            this.RS_itemRadioPanel = new System.Windows.Forms.Panel();
-            this.RS_itemAmountRadioButton = new System.Windows.Forms.RadioButton();
-            this.RS_itemAllRadioButton = new System.Windows.Forms.RadioButton();
             this.RS_heroRadioPanel = new System.Windows.Forms.Panel();
             this.RS_heroAmountRadioButton = new System.Windows.Forms.RadioButton();
             this.RS_heroAllRadioButton = new System.Windows.Forms.RadioButton();
-            this.RS_itemAmountNumericBox = new System.Windows.Forms.NumericUpDown();
             this.RS_heroAmountNumericBox = new System.Windows.Forms.NumericUpDown();
             this.RS_itemStarsComboBox = new System.Windows.Forms.ComboBox();
             this.RS_heroStarsComboBox = new System.Windows.Forms.ComboBox();
             this.RS_sellItemsCheckBox = new System.Windows.Forms.CheckBox();
-            this.RS_inboxGroupBox = new System.Windows.Forms.GroupBox();
-            this.RS_InboxCurrency = new System.Windows.Forms.CheckBox();
-            this.RS_InboxKeys = new System.Windows.Forms.CheckBox();
-            this.RS_inboxMaterials = new System.Windows.Forms.CheckBox();
-            this.RS_inboxHonors = new System.Windows.Forms.CheckBox();
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage19 = new System.Windows.Forms.TabPage();
@@ -239,6 +207,7 @@
             this.ST_EmulatorNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -295,17 +264,9 @@
             this.GC_formationPanel.SuspendLayout();
             this.tabPage17.SuspendLayout();
             this.RS_buyKeysGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RS_buyKeyRubiesNumericBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RS_buyKeyHonorsNumericBox)).BeginInit();
-            this.RS_sendHonorsGroupBox.SuspendLayout();
-            this.RS_giftsGroupBox.SuspendLayout();
-            this.RS_collectQuestsGroupBox.SuspendLayout();
             this.RS_sellingGroupBox.SuspendLayout();
-            this.RS_itemRadioPanel.SuspendLayout();
             this.RS_heroRadioPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RS_itemAmountNumericBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RS_heroAmountNumericBox)).BeginInit();
-            this.RS_inboxGroupBox.SuspendLayout();
             this.tabPage18.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage19.SuspendLayout();
@@ -836,32 +797,6 @@
             this.toolTip.SetToolTip(this.RS_sellHeroesCheckBox, "BETA Function");
             this.RS_sellHeroesCheckBox.UseVisualStyleBackColor = true;
             this.RS_sellHeroesCheckBox.CheckedChanged += new System.EventHandler(this.RS_sellCheckBox_CheckedChanged);
-            // 
-            // RS_sendHonorsFacebook
-            // 
-            this.RS_sendHonorsFacebook.AutoSize = true;
-            this.RS_sendHonorsFacebook.Location = new System.Drawing.Point(7, 20);
-            this.RS_sendHonorsFacebook.Name = "RS_sendHonorsFacebook";
-            this.RS_sendHonorsFacebook.Size = new System.Drawing.Size(127, 17);
-            this.RS_sendHonorsFacebook.TabIndex = 0;
-            this.RS_sendHonorsFacebook.Tag = "0";
-            this.RS_sendHonorsFacebook.Text = "To Facebook Friends";
-            this.toolTip.SetToolTip(this.RS_sendHonorsFacebook, "BETA Function");
-            this.RS_sendHonorsFacebook.UseVisualStyleBackColor = true;
-            this.RS_sendHonorsFacebook.CheckedChanged += new System.EventHandler(this.RS_sendHonorsCheckBox_CheckedChanged);
-            // 
-            // RS_sendHonorsInGame
-            // 
-            this.RS_sendHonorsInGame.AutoSize = true;
-            this.RS_sendHonorsInGame.Location = new System.Drawing.Point(7, 44);
-            this.RS_sendHonorsInGame.Name = "RS_sendHonorsInGame";
-            this.RS_sendHonorsInGame.Size = new System.Drawing.Size(119, 17);
-            this.RS_sendHonorsInGame.TabIndex = 1;
-            this.RS_sendHonorsInGame.Tag = "1";
-            this.RS_sendHonorsInGame.Text = "To In-Game Friends";
-            this.toolTip.SetToolTip(this.RS_sendHonorsInGame, "BETA Function");
-            this.RS_sendHonorsInGame.UseVisualStyleBackColor = true;
-            this.RS_sendHonorsInGame.CheckedChanged += new System.EventHandler(this.RS_sendHonorsCheckBox_CheckedChanged);
             // 
             // AD_difficultyComboBox
             // 
@@ -2180,10 +2115,7 @@
             // tabPage17
             // 
             this.tabPage17.Controls.Add(this.RS_buyKeysGroupBox);
-            this.tabPage17.Controls.Add(this.RS_sendHonorsGroupBox);
-            this.tabPage17.Controls.Add(this.RS_collectQuestsGroupBox);
             this.tabPage17.Controls.Add(this.RS_sellingGroupBox);
-            this.tabPage17.Controls.Add(this.RS_inboxGroupBox);
             this.tabPage17.Location = new System.Drawing.Point(4, 22);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Size = new System.Drawing.Size(500, 403);
@@ -2192,284 +2124,30 @@
             // 
             // RS_buyKeysGroupBox
             // 
-            this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyRubiesLabel);
-            this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyRubiesNumericBox);
-            this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyRubiesComboBox);
-            this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyRubiesCheckBox);
-            this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyHonorsLabel);
-            this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyHonorsNumericBox);
-            this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyHonorsComboBox);
             this.RS_buyKeysGroupBox.Controls.Add(this.RS_buyKeyHonorsCheckBox);
-            this.RS_buyKeysGroupBox.Location = new System.Drawing.Point(169, 267);
+            this.RS_buyKeysGroupBox.Location = new System.Drawing.Point(9, 104);
             this.RS_buyKeysGroupBox.Name = "RS_buyKeysGroupBox";
-            this.RS_buyKeysGroupBox.Size = new System.Drawing.Size(325, 80);
+            this.RS_buyKeysGroupBox.Size = new System.Drawing.Size(485, 51);
             this.RS_buyKeysGroupBox.TabIndex = 5;
             this.RS_buyKeysGroupBox.TabStop = false;
             this.RS_buyKeysGroupBox.Text = "Buy Keys";
-            // 
-            // RS_buyKeyRubiesLabel
-            // 
-            this.RS_buyKeyRubiesLabel.Location = new System.Drawing.Point(256, 49);
-            this.RS_buyKeyRubiesLabel.Name = "RS_buyKeyRubiesLabel";
-            this.RS_buyKeyRubiesLabel.Size = new System.Drawing.Size(35, 13);
-            this.RS_buyKeyRubiesLabel.TabIndex = 7;
-            this.RS_buyKeyRubiesLabel.Text = "times";
-            // 
-            // RS_buyKeyRubiesNumericBox
-            // 
-            this.RS_buyKeyRubiesNumericBox.Location = new System.Drawing.Point(213, 45);
-            this.RS_buyKeyRubiesNumericBox.Name = "RS_buyKeyRubiesNumericBox";
-            this.RS_buyKeyRubiesNumericBox.Size = new System.Drawing.Size(37, 20);
-            this.RS_buyKeyRubiesNumericBox.TabIndex = 6;
-            this.RS_buyKeyRubiesNumericBox.Tag = "1";
-            this.RS_buyKeyRubiesNumericBox.ValueChanged += new System.EventHandler(this.RS_buyKeysNumericBox_ValueChanged);
-            // 
-            // RS_buyKeyRubiesComboBox
-            // 
-            this.RS_buyKeyRubiesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RS_buyKeyRubiesComboBox.FormattingEnabled = true;
-            this.RS_buyKeyRubiesComboBox.Items.AddRange(new object[] {
-            "5 Keys with 10 Rubies",
-            "10 Keys with 20 Rubies",
-            "20 Keys with 35 Rubies",
-            "40 Keys with 45 Rubies",
-            "100 Keys with 100 Rubbies"});
-            this.RS_buyKeyRubiesComboBox.Location = new System.Drawing.Point(57, 44);
-            this.RS_buyKeyRubiesComboBox.Name = "RS_buyKeyRubiesComboBox";
-            this.RS_buyKeyRubiesComboBox.Size = new System.Drawing.Size(150, 21);
-            this.RS_buyKeyRubiesComboBox.TabIndex = 5;
-            this.RS_buyKeyRubiesComboBox.Tag = "1";
-            this.RS_buyKeyRubiesComboBox.SelectedIndexChanged += new System.EventHandler(this.RS_buyKeysComboBox_SelectedIndexChanged);
-            // 
-            // RS_buyKeyRubiesCheckBox
-            // 
-            this.RS_buyKeyRubiesCheckBox.AutoSize = true;
-            this.RS_buyKeyRubiesCheckBox.Location = new System.Drawing.Point(7, 48);
-            this.RS_buyKeyRubiesCheckBox.Name = "RS_buyKeyRubiesCheckBox";
-            this.RS_buyKeyRubiesCheckBox.Size = new System.Drawing.Size(44, 17);
-            this.RS_buyKeyRubiesCheckBox.TabIndex = 4;
-            this.RS_buyKeyRubiesCheckBox.Tag = "1";
-            this.RS_buyKeyRubiesCheckBox.Text = "Buy";
-            this.RS_buyKeyRubiesCheckBox.UseVisualStyleBackColor = true;
-            this.RS_buyKeyRubiesCheckBox.CheckedChanged += new System.EventHandler(this.RS_buyKeysCheckBox_CheckedChanged);
-            // 
-            // RS_buyKeyHonorsLabel
-            // 
-            this.RS_buyKeyHonorsLabel.Location = new System.Drawing.Point(256, 21);
-            this.RS_buyKeyHonorsLabel.Name = "RS_buyKeyHonorsLabel";
-            this.RS_buyKeyHonorsLabel.Size = new System.Drawing.Size(35, 13);
-            this.RS_buyKeyHonorsLabel.TabIndex = 3;
-            this.RS_buyKeyHonorsLabel.Text = "times";
-            // 
-            // RS_buyKeyHonorsNumericBox
-            // 
-            this.RS_buyKeyHonorsNumericBox.Location = new System.Drawing.Point(213, 17);
-            this.RS_buyKeyHonorsNumericBox.Name = "RS_buyKeyHonorsNumericBox";
-            this.RS_buyKeyHonorsNumericBox.Size = new System.Drawing.Size(37, 20);
-            this.RS_buyKeyHonorsNumericBox.TabIndex = 2;
-            this.RS_buyKeyHonorsNumericBox.Tag = "0";
-            this.RS_buyKeyHonorsNumericBox.ValueChanged += new System.EventHandler(this.RS_buyKeysNumericBox_ValueChanged);
-            // 
-            // RS_buyKeyHonorsComboBox
-            // 
-            this.RS_buyKeyHonorsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RS_buyKeyHonorsComboBox.FormattingEnabled = true;
-            this.RS_buyKeyHonorsComboBox.Items.AddRange(new object[] {
-            "1 Key with 10 Honors",
-            "10 Keys with 100 Honors"});
-            this.RS_buyKeyHonorsComboBox.Location = new System.Drawing.Point(57, 16);
-            this.RS_buyKeyHonorsComboBox.Name = "RS_buyKeyHonorsComboBox";
-            this.RS_buyKeyHonorsComboBox.Size = new System.Drawing.Size(150, 21);
-            this.RS_buyKeyHonorsComboBox.TabIndex = 1;
-            this.RS_buyKeyHonorsComboBox.Tag = "0";
-            this.RS_buyKeyHonorsComboBox.SelectedIndexChanged += new System.EventHandler(this.RS_buyKeysComboBox_SelectedIndexChanged);
             // 
             // RS_buyKeyHonorsCheckBox
             // 
             this.RS_buyKeyHonorsCheckBox.AutoSize = true;
             this.RS_buyKeyHonorsCheckBox.Location = new System.Drawing.Point(7, 20);
             this.RS_buyKeyHonorsCheckBox.Name = "RS_buyKeyHonorsCheckBox";
-            this.RS_buyKeyHonorsCheckBox.Size = new System.Drawing.Size(44, 17);
+            this.RS_buyKeyHonorsCheckBox.Size = new System.Drawing.Size(128, 17);
             this.RS_buyKeyHonorsCheckBox.TabIndex = 0;
             this.RS_buyKeyHonorsCheckBox.Tag = "0";
-            this.RS_buyKeyHonorsCheckBox.Text = "Buy";
+            this.RS_buyKeyHonorsCheckBox.Text = "Buy keys with Honors";
             this.RS_buyKeyHonorsCheckBox.UseVisualStyleBackColor = true;
             this.RS_buyKeyHonorsCheckBox.CheckedChanged += new System.EventHandler(this.RS_buyKeysCheckBox_CheckedChanged);
             // 
-            // RS_sendHonorsGroupBox
-            // 
-            this.RS_sendHonorsGroupBox.Controls.Add(this.RS_giftsGroupBox);
-            this.RS_sendHonorsGroupBox.Controls.Add(this.RS_sendHonorsInGame);
-            this.RS_sendHonorsGroupBox.Controls.Add(this.RS_sendHonorsFacebook);
-            this.RS_sendHonorsGroupBox.Location = new System.Drawing.Point(9, 267);
-            this.RS_sendHonorsGroupBox.Name = "RS_sendHonorsGroupBox";
-            this.RS_sendHonorsGroupBox.Size = new System.Drawing.Size(146, 80);
-            this.RS_sendHonorsGroupBox.TabIndex = 4;
-            this.RS_sendHonorsGroupBox.TabStop = false;
-            this.RS_sendHonorsGroupBox.Text = "Send Honors";
-            // 
-            // RS_giftsGroupBox
-            // 
-            this.RS_giftsGroupBox.Controls.Add(this.RS_luckyBoxCheckBox);
-            this.RS_giftsGroupBox.Controls.Add(this.RS_luckyChestCheckBox);
-            this.RS_giftsGroupBox.Enabled = false;
-            this.RS_giftsGroupBox.Location = new System.Drawing.Point(62, 86);
-            this.RS_giftsGroupBox.Name = "RS_giftsGroupBox";
-            this.RS_giftsGroupBox.Size = new System.Drawing.Size(168, 18);
-            this.RS_giftsGroupBox.TabIndex = 2;
-            this.RS_giftsGroupBox.TabStop = false;
-            this.RS_giftsGroupBox.Text = "Gifts";
-            this.RS_giftsGroupBox.Visible = false;
-            // 
-            // RS_luckyBoxCheckBox
-            // 
-            this.RS_luckyBoxCheckBox.AutoSize = true;
-            this.RS_luckyBoxCheckBox.Location = new System.Drawing.Point(7, 44);
-            this.RS_luckyBoxCheckBox.Name = "RS_luckyBoxCheckBox";
-            this.RS_luckyBoxCheckBox.Size = new System.Drawing.Size(111, 17);
-            this.RS_luckyBoxCheckBox.TabIndex = 1;
-            this.RS_luckyBoxCheckBox.Tag = "1";
-            this.RS_luckyBoxCheckBox.Text = "Collect Lucky Box";
-            this.RS_luckyBoxCheckBox.UseVisualStyleBackColor = true;
-            this.RS_luckyBoxCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectGiftCheckBox_CheckedChanged);
-            // 
-            // RS_luckyChestCheckBox
-            // 
-            this.RS_luckyChestCheckBox.AutoSize = true;
-            this.RS_luckyChestCheckBox.Location = new System.Drawing.Point(7, 20);
-            this.RS_luckyChestCheckBox.Name = "RS_luckyChestCheckBox";
-            this.RS_luckyChestCheckBox.Size = new System.Drawing.Size(150, 17);
-            this.RS_luckyChestCheckBox.TabIndex = 0;
-            this.RS_luckyChestCheckBox.Tag = "0";
-            this.RS_luckyChestCheckBox.Text = "Collect May\'s Lucky Chest";
-            this.RS_luckyChestCheckBox.UseVisualStyleBackColor = true;
-            this.RS_luckyChestCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectGiftCheckBox_CheckedChanged);
-            // 
-            // RS_collectQuestsGroupBox
-            // 
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_questsSocialCheckBox);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_questsItemCheckBox);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_questsHeroCheckBox);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_questsBattleCheckBox);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_specialQuestsMonthlyCheckBox);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_specialQuestsWeeklyCheckBox);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_specialQuestsDailyCheckBox);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_questsNormalLabel);
-            this.RS_collectQuestsGroupBox.Controls.Add(this.RS_questsSpecialLabel);
-            this.RS_collectQuestsGroupBox.Location = new System.Drawing.Point(9, 165);
-            this.RS_collectQuestsGroupBox.Name = "RS_collectQuestsGroupBox";
-            this.RS_collectQuestsGroupBox.Size = new System.Drawing.Size(485, 96);
-            this.RS_collectQuestsGroupBox.TabIndex = 3;
-            this.RS_collectQuestsGroupBox.TabStop = false;
-            this.RS_collectQuestsGroupBox.Text = "Collect Quests";
-            // 
-            // RS_questsSocialCheckBox
-            // 
-            this.RS_questsSocialCheckBox.AutoSize = true;
-            this.RS_questsSocialCheckBox.Location = new System.Drawing.Point(406, 57);
-            this.RS_questsSocialCheckBox.Name = "RS_questsSocialCheckBox";
-            this.RS_questsSocialCheckBox.Size = new System.Drawing.Size(55, 17);
-            this.RS_questsSocialCheckBox.TabIndex = 8;
-            this.RS_questsSocialCheckBox.Tag = "6";
-            this.RS_questsSocialCheckBox.Text = "Social";
-            this.RS_questsSocialCheckBox.UseVisualStyleBackColor = true;
-            this.RS_questsSocialCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectQuestsCheckBox_CheckedChanged);
-            // 
-            // RS_questsItemCheckBox
-            // 
-            this.RS_questsItemCheckBox.AutoSize = true;
-            this.RS_questsItemCheckBox.Location = new System.Drawing.Point(294, 58);
-            this.RS_questsItemCheckBox.Name = "RS_questsItemCheckBox";
-            this.RS_questsItemCheckBox.Size = new System.Drawing.Size(46, 17);
-            this.RS_questsItemCheckBox.TabIndex = 7;
-            this.RS_questsItemCheckBox.Tag = "5";
-            this.RS_questsItemCheckBox.Text = "Item";
-            this.RS_questsItemCheckBox.UseVisualStyleBackColor = true;
-            this.RS_questsItemCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectQuestsCheckBox_CheckedChanged);
-            // 
-            // RS_questsHeroCheckBox
-            // 
-            this.RS_questsHeroCheckBox.AutoSize = true;
-            this.RS_questsHeroCheckBox.Location = new System.Drawing.Point(170, 54);
-            this.RS_questsHeroCheckBox.Name = "RS_questsHeroCheckBox";
-            this.RS_questsHeroCheckBox.Size = new System.Drawing.Size(49, 17);
-            this.RS_questsHeroCheckBox.TabIndex = 6;
-            this.RS_questsHeroCheckBox.Tag = "4";
-            this.RS_questsHeroCheckBox.Text = "Hero";
-            this.RS_questsHeroCheckBox.UseVisualStyleBackColor = true;
-            this.RS_questsHeroCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectQuestsCheckBox_CheckedChanged);
-            // 
-            // RS_questsBattleCheckBox
-            // 
-            this.RS_questsBattleCheckBox.AutoSize = true;
-            this.RS_questsBattleCheckBox.Location = new System.Drawing.Point(62, 57);
-            this.RS_questsBattleCheckBox.Name = "RS_questsBattleCheckBox";
-            this.RS_questsBattleCheckBox.Size = new System.Drawing.Size(53, 17);
-            this.RS_questsBattleCheckBox.TabIndex = 5;
-            this.RS_questsBattleCheckBox.Tag = "3";
-            this.RS_questsBattleCheckBox.Text = "Battle";
-            this.RS_questsBattleCheckBox.UseVisualStyleBackColor = true;
-            this.RS_questsBattleCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectQuestsCheckBox_CheckedChanged);
-            // 
-            // RS_specialQuestsMonthlyCheckBox
-            // 
-            this.RS_specialQuestsMonthlyCheckBox.AutoSize = true;
-            this.RS_specialQuestsMonthlyCheckBox.Location = new System.Drawing.Point(336, 20);
-            this.RS_specialQuestsMonthlyCheckBox.Name = "RS_specialQuestsMonthlyCheckBox";
-            this.RS_specialQuestsMonthlyCheckBox.Size = new System.Drawing.Size(63, 17);
-            this.RS_specialQuestsMonthlyCheckBox.TabIndex = 4;
-            this.RS_specialQuestsMonthlyCheckBox.Tag = "2";
-            this.RS_specialQuestsMonthlyCheckBox.Text = "Monthly";
-            this.RS_specialQuestsMonthlyCheckBox.UseVisualStyleBackColor = true;
-            this.RS_specialQuestsMonthlyCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectQuestsCheckBox_CheckedChanged);
-            // 
-            // RS_specialQuestsWeeklyCheckBox
-            // 
-            this.RS_specialQuestsWeeklyCheckBox.AutoSize = true;
-            this.RS_specialQuestsWeeklyCheckBox.Location = new System.Drawing.Point(221, 19);
-            this.RS_specialQuestsWeeklyCheckBox.Name = "RS_specialQuestsWeeklyCheckBox";
-            this.RS_specialQuestsWeeklyCheckBox.Size = new System.Drawing.Size(62, 17);
-            this.RS_specialQuestsWeeklyCheckBox.TabIndex = 3;
-            this.RS_specialQuestsWeeklyCheckBox.Tag = "1";
-            this.RS_specialQuestsWeeklyCheckBox.Text = "Weekly";
-            this.RS_specialQuestsWeeklyCheckBox.UseVisualStyleBackColor = true;
-            this.RS_specialQuestsWeeklyCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectQuestsCheckBox_CheckedChanged);
-            // 
-            // RS_specialQuestsDailyCheckBox
-            // 
-            this.RS_specialQuestsDailyCheckBox.AutoSize = true;
-            this.RS_specialQuestsDailyCheckBox.Location = new System.Drawing.Point(119, 20);
-            this.RS_specialQuestsDailyCheckBox.Name = "RS_specialQuestsDailyCheckBox";
-            this.RS_specialQuestsDailyCheckBox.Size = new System.Drawing.Size(49, 17);
-            this.RS_specialQuestsDailyCheckBox.TabIndex = 2;
-            this.RS_specialQuestsDailyCheckBox.Tag = "0";
-            this.RS_specialQuestsDailyCheckBox.Text = "Daily";
-            this.RS_specialQuestsDailyCheckBox.UseVisualStyleBackColor = true;
-            this.RS_specialQuestsDailyCheckBox.CheckedChanged += new System.EventHandler(this.RS_collectQuestsCheckBox_CheckedChanged);
-            // 
-            // RS_questsNormalLabel
-            // 
-            this.RS_questsNormalLabel.AutoSize = true;
-            this.RS_questsNormalLabel.Location = new System.Drawing.Point(7, 58);
-            this.RS_questsNormalLabel.Name = "RS_questsNormalLabel";
-            this.RS_questsNormalLabel.Size = new System.Drawing.Size(43, 13);
-            this.RS_questsNormalLabel.TabIndex = 1;
-            this.RS_questsNormalLabel.Text = "Normal:";
-            // 
-            // RS_questsSpecialLabel
-            // 
-            this.RS_questsSpecialLabel.AutoSize = true;
-            this.RS_questsSpecialLabel.Location = new System.Drawing.Point(7, 20);
-            this.RS_questsSpecialLabel.Name = "RS_questsSpecialLabel";
-            this.RS_questsSpecialLabel.Size = new System.Drawing.Size(45, 13);
-            this.RS_questsSpecialLabel.TabIndex = 0;
-            this.RS_questsSpecialLabel.Text = "Special:";
-            // 
             // RS_sellingGroupBox
             // 
-            this.RS_sellingGroupBox.Controls.Add(this.RS_itemRadioPanel);
+            this.RS_sellingGroupBox.Controls.Add(this.checkBox2);
             this.RS_sellingGroupBox.Controls.Add(this.RS_heroRadioPanel);
-            this.RS_sellingGroupBox.Controls.Add(this.RS_itemAmountNumericBox);
             this.RS_sellingGroupBox.Controls.Add(this.RS_heroAmountNumericBox);
             this.RS_sellingGroupBox.Controls.Add(this.RS_itemStarsComboBox);
             this.RS_sellingGroupBox.Controls.Add(this.RS_heroStarsComboBox);
@@ -2481,45 +2159,6 @@
             this.RS_sellingGroupBox.TabIndex = 0;
             this.RS_sellingGroupBox.TabStop = false;
             this.RS_sellingGroupBox.Text = "Selling";
-            // 
-            // RS_itemRadioPanel
-            // 
-            this.RS_itemRadioPanel.Controls.Add(this.RS_itemAmountRadioButton);
-            this.RS_itemRadioPanel.Controls.Add(this.RS_itemAllRadioButton);
-            this.RS_itemRadioPanel.Enabled = false;
-            this.RS_itemRadioPanel.Location = new System.Drawing.Point(310, 52);
-            this.RS_itemRadioPanel.Name = "RS_itemRadioPanel";
-            this.RS_itemRadioPanel.Size = new System.Drawing.Size(108, 25);
-            this.RS_itemRadioPanel.TabIndex = 11;
-            this.RS_itemRadioPanel.Tag = "1";
-            // 
-            // RS_itemAmountRadioButton
-            // 
-            this.RS_itemAmountRadioButton.Enabled = false;
-            this.RS_itemAmountRadioButton.Location = new System.Drawing.Point(46, 4);
-            this.RS_itemAmountRadioButton.Name = "RS_itemAmountRadioButton";
-            this.RS_itemAmountRadioButton.Size = new System.Drawing.Size(61, 17);
-            this.RS_itemAmountRadioButton.TabIndex = 10;
-            this.RS_itemAmountRadioButton.TabStop = true;
-            this.RS_itemAmountRadioButton.Tag = "1";
-            this.RS_itemAmountRadioButton.Text = "Amount";
-            this.RS_itemAmountRadioButton.UseVisualStyleBackColor = true;
-            this.RS_itemAmountRadioButton.Visible = false;
-            // 
-            // RS_itemAllRadioButton
-            // 
-            this.RS_itemAllRadioButton.AutoSize = true;
-            this.RS_itemAllRadioButton.Enabled = false;
-            this.RS_itemAllRadioButton.Location = new System.Drawing.Point(3, 4);
-            this.RS_itemAllRadioButton.Name = "RS_itemAllRadioButton";
-            this.RS_itemAllRadioButton.Size = new System.Drawing.Size(36, 17);
-            this.RS_itemAllRadioButton.TabIndex = 9;
-            this.RS_itemAllRadioButton.TabStop = true;
-            this.RS_itemAllRadioButton.Tag = "1";
-            this.RS_itemAllRadioButton.Text = "All";
-            this.RS_itemAllRadioButton.UseVisualStyleBackColor = true;
-            this.RS_itemAllRadioButton.Visible = false;
-            this.RS_itemAllRadioButton.CheckedChanged += new System.EventHandler(this.RS_sellAllRadioButton_CheckedChanged);
             // 
             // RS_heroRadioPanel
             // 
@@ -2554,17 +2193,6 @@
             this.RS_heroAllRadioButton.Text = "All";
             this.RS_heroAllRadioButton.UseVisualStyleBackColor = true;
             this.RS_heroAllRadioButton.CheckedChanged += new System.EventHandler(this.RS_sellAllRadioButton_CheckedChanged);
-            // 
-            // RS_itemAmountNumericBox
-            // 
-            this.RS_itemAmountNumericBox.Enabled = false;
-            this.RS_itemAmountNumericBox.Location = new System.Drawing.Point(427, 52);
-            this.RS_itemAmountNumericBox.Name = "RS_itemAmountNumericBox";
-            this.RS_itemAmountNumericBox.Size = new System.Drawing.Size(37, 20);
-            this.RS_itemAmountNumericBox.TabIndex = 8;
-            this.RS_itemAmountNumericBox.Tag = "1";
-            this.RS_itemAmountNumericBox.Visible = false;
-            this.RS_itemAmountNumericBox.ValueChanged += new System.EventHandler(this.RS_sellAmountNumericBox_ValueChanged);
             // 
             // RS_heroAmountNumericBox
             // 
@@ -2616,67 +2244,6 @@
             this.RS_sellItemsCheckBox.Text = "Every item with ★ less than or equal to";
             this.RS_sellItemsCheckBox.UseVisualStyleBackColor = true;
             this.RS_sellItemsCheckBox.CheckedChanged += new System.EventHandler(this.RS_sellCheckBox_CheckedChanged);
-            // 
-            // RS_inboxGroupBox
-            // 
-            this.RS_inboxGroupBox.Controls.Add(this.RS_InboxCurrency);
-            this.RS_inboxGroupBox.Controls.Add(this.RS_InboxKeys);
-            this.RS_inboxGroupBox.Controls.Add(this.RS_inboxMaterials);
-            this.RS_inboxGroupBox.Controls.Add(this.RS_inboxHonors);
-            this.RS_inboxGroupBox.Location = new System.Drawing.Point(9, 104);
-            this.RS_inboxGroupBox.Name = "RS_inboxGroupBox";
-            this.RS_inboxGroupBox.Size = new System.Drawing.Size(485, 55);
-            this.RS_inboxGroupBox.TabIndex = 1;
-            this.RS_inboxGroupBox.TabStop = false;
-            this.RS_inboxGroupBox.Text = "Collect Inbox";
-            // 
-            // RS_InboxCurrency
-            // 
-            this.RS_InboxCurrency.AutoSize = true;
-            this.RS_InboxCurrency.Location = new System.Drawing.Point(242, 23);
-            this.RS_InboxCurrency.Name = "RS_InboxCurrency";
-            this.RS_InboxCurrency.Size = new System.Drawing.Size(68, 17);
-            this.RS_InboxCurrency.TabIndex = 3;
-            this.RS_InboxCurrency.Tag = "2";
-            this.RS_InboxCurrency.Text = "Currency";
-            this.RS_InboxCurrency.UseVisualStyleBackColor = true;
-            this.RS_InboxCurrency.CheckedChanged += new System.EventHandler(this.RS_collectInboxCheckBox_CheckedChanged);
-            // 
-            // RS_InboxKeys
-            // 
-            this.RS_InboxKeys.AutoSize = true;
-            this.RS_InboxKeys.Location = new System.Drawing.Point(119, 23);
-            this.RS_InboxKeys.Name = "RS_InboxKeys";
-            this.RS_InboxKeys.Size = new System.Drawing.Size(49, 17);
-            this.RS_InboxKeys.TabIndex = 2;
-            this.RS_InboxKeys.Tag = "1";
-            this.RS_InboxKeys.Text = "Keys";
-            this.RS_InboxKeys.UseVisualStyleBackColor = true;
-            this.RS_InboxKeys.CheckedChanged += new System.EventHandler(this.RS_collectInboxCheckBox_CheckedChanged);
-            // 
-            // RS_inboxMaterials
-            // 
-            this.RS_inboxMaterials.AutoSize = true;
-            this.RS_inboxMaterials.Location = new System.Drawing.Point(387, 23);
-            this.RS_inboxMaterials.Name = "RS_inboxMaterials";
-            this.RS_inboxMaterials.Size = new System.Drawing.Size(68, 17);
-            this.RS_inboxMaterials.TabIndex = 1;
-            this.RS_inboxMaterials.Tag = "3";
-            this.RS_inboxMaterials.Text = "Materials";
-            this.RS_inboxMaterials.UseVisualStyleBackColor = true;
-            this.RS_inboxMaterials.CheckedChanged += new System.EventHandler(this.RS_collectInboxCheckBox_CheckedChanged);
-            // 
-            // RS_inboxHonors
-            // 
-            this.RS_inboxHonors.AutoSize = true;
-            this.RS_inboxHonors.Location = new System.Drawing.Point(7, 23);
-            this.RS_inboxHonors.Name = "RS_inboxHonors";
-            this.RS_inboxHonors.Size = new System.Drawing.Size(60, 17);
-            this.RS_inboxHonors.TabIndex = 0;
-            this.RS_inboxHonors.Tag = "0";
-            this.RS_inboxHonors.Text = "Honors";
-            this.RS_inboxHonors.UseVisualStyleBackColor = true;
-            this.RS_inboxHonors.CheckedChanged += new System.EventHandler(this.RS_collectInboxCheckBox_CheckedChanged);
             // 
             // tabPage18
             // 
@@ -2854,6 +2421,17 @@
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 0;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(313, 56);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(88, 17);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "Sell Gold Ore";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AcceptButton = this.aiButton;
@@ -2949,24 +2527,11 @@
             this.tabPage17.ResumeLayout(false);
             this.RS_buyKeysGroupBox.ResumeLayout(false);
             this.RS_buyKeysGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RS_buyKeyRubiesNumericBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RS_buyKeyHonorsNumericBox)).EndInit();
-            this.RS_sendHonorsGroupBox.ResumeLayout(false);
-            this.RS_sendHonorsGroupBox.PerformLayout();
-            this.RS_giftsGroupBox.ResumeLayout(false);
-            this.RS_giftsGroupBox.PerformLayout();
-            this.RS_collectQuestsGroupBox.ResumeLayout(false);
-            this.RS_collectQuestsGroupBox.PerformLayout();
             this.RS_sellingGroupBox.ResumeLayout(false);
             this.RS_sellingGroupBox.PerformLayout();
-            this.RS_itemRadioPanel.ResumeLayout(false);
-            this.RS_itemRadioPanel.PerformLayout();
             this.RS_heroRadioPanel.ResumeLayout(false);
             this.RS_heroRadioPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RS_itemAmountNumericBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RS_heroAmountNumericBox)).EndInit();
-            this.RS_inboxGroupBox.ResumeLayout(false);
-            this.RS_inboxGroupBox.PerformLayout();
             this.tabPage18.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
             this.tabPage19.ResumeLayout(false);
@@ -3418,48 +2983,16 @@
         private System.Windows.Forms.ComboBox GC_teamComboBox;
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.GroupBox RS_buyKeysGroupBox;
-        private System.Windows.Forms.Label RS_buyKeyRubiesLabel;
-        private System.Windows.Forms.NumericUpDown RS_buyKeyRubiesNumericBox;
-        private System.Windows.Forms.ComboBox RS_buyKeyRubiesComboBox;
-        private System.Windows.Forms.CheckBox RS_buyKeyRubiesCheckBox;
-        private System.Windows.Forms.Label RS_buyKeyHonorsLabel;
-        private System.Windows.Forms.NumericUpDown RS_buyKeyHonorsNumericBox;
-        private System.Windows.Forms.ComboBox RS_buyKeyHonorsComboBox;
         private System.Windows.Forms.CheckBox RS_buyKeyHonorsCheckBox;
-        private System.Windows.Forms.GroupBox RS_sendHonorsGroupBox;
-        private System.Windows.Forms.GroupBox RS_giftsGroupBox;
-        private System.Windows.Forms.CheckBox RS_luckyBoxCheckBox;
-        private System.Windows.Forms.CheckBox RS_luckyChestCheckBox;
-        private System.Windows.Forms.CheckBox RS_sendHonorsInGame;
-        private System.Windows.Forms.CheckBox RS_sendHonorsFacebook;
-        private System.Windows.Forms.GroupBox RS_collectQuestsGroupBox;
-        private System.Windows.Forms.CheckBox RS_questsSocialCheckBox;
-        private System.Windows.Forms.CheckBox RS_questsItemCheckBox;
-        private System.Windows.Forms.CheckBox RS_questsHeroCheckBox;
-        private System.Windows.Forms.CheckBox RS_questsBattleCheckBox;
-        private System.Windows.Forms.CheckBox RS_specialQuestsMonthlyCheckBox;
-        private System.Windows.Forms.CheckBox RS_specialQuestsWeeklyCheckBox;
-        private System.Windows.Forms.CheckBox RS_specialQuestsDailyCheckBox;
-        private System.Windows.Forms.Label RS_questsNormalLabel;
-        private System.Windows.Forms.Label RS_questsSpecialLabel;
         private System.Windows.Forms.GroupBox RS_sellingGroupBox;
-        private System.Windows.Forms.Panel RS_itemRadioPanel;
-        private System.Windows.Forms.RadioButton RS_itemAmountRadioButton;
-        private System.Windows.Forms.RadioButton RS_itemAllRadioButton;
         private System.Windows.Forms.Panel RS_heroRadioPanel;
         private System.Windows.Forms.RadioButton RS_heroAmountRadioButton;
         private System.Windows.Forms.RadioButton RS_heroAllRadioButton;
-        private System.Windows.Forms.NumericUpDown RS_itemAmountNumericBox;
         private System.Windows.Forms.NumericUpDown RS_heroAmountNumericBox;
         private System.Windows.Forms.ComboBox RS_itemStarsComboBox;
         private System.Windows.Forms.ComboBox RS_heroStarsComboBox;
         private System.Windows.Forms.CheckBox RS_sellHeroesCheckBox;
         private System.Windows.Forms.CheckBox RS_sellItemsCheckBox;
-        private System.Windows.Forms.GroupBox RS_inboxGroupBox;
-        private System.Windows.Forms.CheckBox RS_InboxCurrency;
-        private System.Windows.Forms.CheckBox RS_InboxKeys;
-        private System.Windows.Forms.CheckBox RS_inboxMaterials;
-        private System.Windows.Forms.CheckBox RS_inboxHonors;
         private System.Windows.Forms.PictureBox SmartModePictureBox;
         private System.Windows.Forms.Label SmartModeCountLabel;
         private System.Windows.Forms.CheckBox SM_EnableCheckBox;
@@ -3514,5 +3047,6 @@
         private System.Windows.Forms.Label itemadvLabel;
         private System.Windows.Forms.Label heroadvLabel;
         private System.Windows.Forms.Label goldadvLabel;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

@@ -1038,29 +1038,7 @@ namespace SevenKnightsAI
             this.RS_heroAmountRadioButton.Checked = !this.AISettings.RS_SellHeroAll;
             this.RS_sellItemsCheckBox.Checked = this.AISettings.RS_SellItems;
             this.RS_itemStarsComboBox.SelectedIndex = this.AISettings.RS_SellItemStars - 1;
-            this.RS_itemAmountNumericBox.Value = this.AISettings.RS_SellItemAmount;
-            this.RS_itemAllRadioButton.Checked = this.AISettings.RS_SellItemAll;
-            this.RS_itemAmountRadioButton.Checked = !this.AISettings.RS_SellItemAll;
-            this.RS_inboxHonors.Checked = this.AISettings.RS_InboxHonors;
-            this.RS_inboxMaterials.Checked = this.AISettings.RS_InboxKeys;
-            this.RS_InboxKeys.Checked = this.AISettings.RS_InboxGold;
-            this.RS_luckyBoxCheckBox.Checked = this.AISettings.RS_CollectLuckyBox;
-            this.RS_luckyChestCheckBox.Checked = this.AISettings.RS_CollectLuckyChest;
-            this.RS_specialQuestsDailyCheckBox.Checked = this.AISettings.RS_SpecialQuestsDaily;
-            this.RS_specialQuestsWeeklyCheckBox.Checked = this.AISettings.RS_SpecialQuestsWeekly;
-            this.RS_specialQuestsMonthlyCheckBox.Checked = this.AISettings.RS_SpecialQuestsMonthly;
-            this.RS_questsBattleCheckBox.Checked = this.AISettings.RS_QuestsBattle;
-            this.RS_questsHeroCheckBox.Checked = this.AISettings.RS_QuestsHero;
-            this.RS_questsItemCheckBox.Checked = this.AISettings.RS_QuestsItem;
-            this.RS_questsSocialCheckBox.Checked = this.AISettings.RS_QuestsSocial;
-            this.RS_sendHonorsFacebook.Checked = this.AISettings.RS_SendHonorsFacebook;
-            this.RS_sendHonorsInGame.Checked = this.AISettings.RS_SendHonorsInGame;
             this.RS_buyKeyHonorsCheckBox.Checked = this.AISettings.RS_BuyKeyHonors;
-            this.RS_buyKeyHonorsComboBox.SelectedIndex = (int)this.AISettings.RS_BuyKeyHonorsType;
-            this.RS_buyKeyHonorsNumericBox.Value = this.AISettings.RS_BuyKeyHonorsAmount;
-            this.RS_buyKeyRubiesCheckBox.Checked = this.AISettings.RS_BuyKeyRubies;
-            this.RS_buyKeyRubiesComboBox.SelectedIndex = (int)this.AISettings.RS_BuyKeyRubiesType;
-            this.RS_buyKeyRubiesNumericBox.Value = this.AISettings.RS_BuyKeyRubiesAmount;
         }
 
         private void InitSettingsTab()
@@ -1098,6 +1076,7 @@ namespace SevenKnightsAI
 
         private void LG_exportButton_Click(object sender, EventArgs e)
         {
+            
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.FileName = string.Format("{0}.log", "sevenknights-".AppendTimeStamp());
             saveFileDialog.Filter = "Log files (*.log)|*.log|All files (*.*)|*.*";
@@ -1448,11 +1427,6 @@ namespace SevenKnightsAI
                 this.RS_heroAmountNumericBox.Enabled = !@checked;
                 this.AISettings.RS_SellHeroAll = @checked;
                 return;
-            }
-            if (num == 1)
-            {
-                this.RS_itemAmountNumericBox.Enabled = !@checked;
-                this.AISettings.RS_SellItemAll = @checked;
             }
         }
 
@@ -2060,6 +2034,13 @@ ts.Hours, ts.Minutes, ts.Seconds);
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            bool @checked = checkBox.Checked;
+            this.AISettings.RS_SellGoldOre = @checked;
         }
     }
     public class AutoClosingMessageBox

@@ -7,9 +7,9 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping ArenaButton = new PixelMapping
         {
-            X = 738,
-            Y = 303,
-            Color = 11697461,
+            X = 751,
+            Y = 337,
+            Color = 14204499,
             Type = MappingType.BOTH
         };
 
@@ -39,9 +39,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping QuickStartButton = new PixelMapping
         {
-            X = 750,
-            Y = 128,
-            Color = 15124070,
+            X = 749,
+            Y = 166,
+            Color = 6567170,
             Type = MappingType.BOTH
         };
 
