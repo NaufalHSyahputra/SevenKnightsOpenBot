@@ -197,6 +197,13 @@ namespace SevenKnightsAI.Classes
             this.LDConsole("launch --name LDPlayer");
         }
 
+        public void LaunchADB()
+        {
+            Process process = this.CreateProcess("cmd.exe", this.AdbPath);
+            process.Start();
+            process.WaitForExit();
+        }
+
         public void MainWindowOpacity(int value)
         {
             this.MainWindowAS.Opacity(value);
@@ -234,6 +241,13 @@ namespace SevenKnightsAI.Classes
             Thread.Sleep(2000);
             this.LaunchEmulator();
             return true;
+        }
+
+        public void RestartADB()
+        {
+            this.KillADB();
+            Thread.Sleep(500);
+            this.LaunchADB();
         }
 
         public bool RestartGame(int maxAttempts = 5)

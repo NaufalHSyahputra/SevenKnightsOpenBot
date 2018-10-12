@@ -22,12 +22,19 @@ namespace SevenKnightsAI.Classes
 
         public static readonly int DELAY_BS_START = 60000;
 
-        RegistryKey HKLM = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
+        RegistryKey HKCU = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64);
 
         private string Adb(string command)
         {
-            string str = string.Format("-s localhost:{0} ", this.AdbPort);
             Process process = this.CreateProcess(this.AdbPath, command);
+            process.Start();
+            process.WaitForExit();
+            return process.StandardOutput.ReadToEnd();
+        }
+
+        private string LDConsole(string command)
+        {
+            Process process = this.CreateProcess(this.LDConsolePath, command);
             process.Start();
             process.WaitForExit();
             return process.StandardOutput.ReadToEnd();
@@ -35,7 +42,7 @@ namespace SevenKnightsAI.Classes
 
         public void KillADB()
         {
-            Process process = this.CreateProcess("cmd.exe", "taskkill /IM HD-Adb.exe /F");
+            Process process = this.CreateProcess("cmd.exe", "taskkill /IM adb.exe /F");
             process.Start();
             process.WaitForExit();
         }
@@ -71,9 +78,7 @@ namespace SevenKnightsAI.Classes
 
         public void Kill()
         {
-            Process process = this.CreateProcess(this.QuitPath, null);
-            process.Start();
-            process.WaitForExit();
+            this.LDConsole("quit --name LDPlayer --packagename");
         }
 
         public void LaunchGame()
@@ -81,20 +86,38 @@ namespace SevenKnightsAI.Classes
             this.Adb("shell am start -n " + ControlBluestacks.ACTIVITY_NAME);
         }
 
+        public void LaunchADB()
+        {
+            Process process = this.CreateProcess("cmd.exe", this.AdbPath);
+            process.Start();
+            process.WaitForExit();
+        }
+
         public void RestartBluestacks()
         {
             this.Kill();
-            Thread.Sleep(ControlBluestacks.DELAY_BS_EXIT);
+            Thread.Sleep(12000);
+            this.RunLDPlayer();
+            Thread.Sleep(12000);
             this.RunApp();
-            Thread.Sleep(ControlBluestacks.DELAY_BS_START);
+            Thread.Sleep(5000);
         }
 
         public void RunApp()
         {
-            string arguments = string.Format("-p {0} -a {1}", ControlBluestacks.PACKAGE_NAME, ControlBluestacks.ACTIVITY_NAME_2);
-            Process process = this.CreateProcess(this.RunAppPath, arguments);
-            process.Start();
-            process.WaitForExit();
+            this.LDConsole("runapp --name LDPlayer --packagename "+ ControlBluestacks.ACTIVITY_NAME);
+        }
+
+        public void RunLDPlayer()
+        {
+            this.LDConsole("launch --name LDPlayer");
+        }
+
+        public void RestartADB()
+        {
+            this.KillADB();
+            Thread.Sleep(500);
+            this.LaunchADB();
         }
 
         public bool RestartGame(int maxAttempts = 5)
@@ -134,39 +157,23 @@ namespace SevenKnightsAI.Classes
         {
             get
             {
-                return this.InstallPath + "HD-Adb.exe";
+                return this.InstallPath + "adb.exe";
             }
         }
 
-        private string QuitPath
+        private string LDConsolePath
         {
             get
             {
-                return this.InstallPath + "HD-Quit.exe";
+                return this.InstallPath + "dnconsole.exe";
             }
         }
 
-        private string RunAppPath
+        private string LauncherPath
         {
             get
             {
-                return this.InstallPath + "HD-RunApp.exe";
-            }
-        }
-
-        private string AdbPort
-        {
-            get
-            {
-                return this.ConfigRegistryKey.GetValue("BstAdbPort").ToString();
-            }
-        }
-
-        private RegistryKey ConfigRegistryKey
-        {
-            get
-            {
-                return this.RegistryKey.OpenSubKey("Guests\\Android\\Config", true);
+                return this.InstallPath + "dnplayer.exe";
             }
         }
 
@@ -182,7 +189,7 @@ namespace SevenKnightsAI.Classes
         {
             get
             {
-                return HKLM.OpenSubKey("SOFTWARE\\BlueStacks", true);
+                return HKCU.OpenSubKey("SOFTWARE\\Changzhi\\dnplayer-en", true);
             }
         }
     }

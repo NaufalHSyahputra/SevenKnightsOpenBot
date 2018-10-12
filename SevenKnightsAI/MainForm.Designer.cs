@@ -184,6 +184,7 @@
             this.RS_buyKeysGroupBox = new System.Windows.Forms.GroupBox();
             this.RS_buyKeyHonorsCheckBox = new System.Windows.Forms.CheckBox();
             this.RS_sellingGroupBox = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.RS_heroRadioPanel = new System.Windows.Forms.Panel();
             this.RS_heroAmountRadioButton = new System.Windows.Forms.RadioButton();
             this.RS_heroAllRadioButton = new System.Windows.Forms.RadioButton();
@@ -194,6 +195,10 @@
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.ST_blueStacksGroupBox = new System.Windows.Forms.GroupBox();
+            this.ST_forceActiveCheckBox = new System.Windows.Forms.CheckBox();
+            this.ST_toggleBlueStacksButton = new System.Windows.Forms.Button();
+            this.ST_foregroundMode = new System.Windows.Forms.CheckBox();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
             this.label79 = new System.Windows.Forms.Label();
             this.tabPage20 = new System.Windows.Forms.TabPage();
@@ -207,7 +212,6 @@
             this.ST_EmulatorNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -270,6 +274,7 @@
             this.tabPage18.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage19.SuspendLayout();
+            this.ST_blueStacksGroupBox.SuspendLayout();
             this.groupBox38.SuspendLayout();
             this.tabPage20.SuspendLayout();
             this.groupBox39.SuspendLayout();
@@ -2160,6 +2165,17 @@
             this.RS_sellingGroupBox.TabStop = false;
             this.RS_sellingGroupBox.Text = "Selling";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(313, 56);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(88, 17);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "Sell Gold Ore";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
             // RS_heroRadioPanel
             // 
             this.RS_heroRadioPanel.Controls.Add(this.RS_heroAmountRadioButton);
@@ -2268,6 +2284,7 @@
             // 
             // tabPage19
             // 
+            this.tabPage19.Controls.Add(this.ST_blueStacksGroupBox);
             this.tabPage19.Controls.Add(this.groupBox38);
             this.tabPage19.Location = new System.Drawing.Point(4, 22);
             this.tabPage19.Name = "tabPage19";
@@ -2275,6 +2292,51 @@
             this.tabPage19.Size = new System.Drawing.Size(500, 407);
             this.tabPage19.TabIndex = 0;
             this.tabPage19.Text = "Option";
+            // 
+            // ST_blueStacksGroupBox
+            // 
+            this.ST_blueStacksGroupBox.Controls.Add(this.ST_forceActiveCheckBox);
+            this.ST_blueStacksGroupBox.Controls.Add(this.ST_toggleBlueStacksButton);
+            this.ST_blueStacksGroupBox.Controls.Add(this.ST_foregroundMode);
+            this.ST_blueStacksGroupBox.Location = new System.Drawing.Point(8, 131);
+            this.ST_blueStacksGroupBox.Name = "ST_blueStacksGroupBox";
+            this.ST_blueStacksGroupBox.Size = new System.Drawing.Size(485, 52);
+            this.ST_blueStacksGroupBox.TabIndex = 8;
+            this.ST_blueStacksGroupBox.TabStop = false;
+            this.ST_blueStacksGroupBox.Text = "LD Player";
+            // 
+            // ST_forceActiveCheckBox
+            // 
+            this.ST_forceActiveCheckBox.AutoSize = true;
+            this.ST_forceActiveCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.ST_forceActiveCheckBox.Name = "ST_forceActiveCheckBox";
+            this.ST_forceActiveCheckBox.Size = new System.Drawing.Size(92, 17);
+            this.ST_forceActiveCheckBox.TabIndex = 1;
+            this.ST_forceActiveCheckBox.Text = "Always on top";
+            this.ST_forceActiveCheckBox.UseVisualStyleBackColor = true;
+            this.ST_forceActiveCheckBox.CheckedChanged += new System.EventHandler(this.ST_forceActiveCheckBox_CheckedChanged_1);
+            // 
+            // ST_toggleBlueStacksButton
+            // 
+            this.ST_toggleBlueStacksButton.Enabled = false;
+            this.ST_toggleBlueStacksButton.Location = new System.Drawing.Point(157, 15);
+            this.ST_toggleBlueStacksButton.Name = "ST_toggleBlueStacksButton";
+            this.ST_toggleBlueStacksButton.Size = new System.Drawing.Size(153, 23);
+            this.ST_toggleBlueStacksButton.TabIndex = 0;
+            this.ST_toggleBlueStacksButton.Text = "Hide LD Player";
+            this.ST_toggleBlueStacksButton.UseVisualStyleBackColor = true;
+            this.ST_toggleBlueStacksButton.Click += new System.EventHandler(this.ST_toggleBlueStacksButton_Click);
+            // 
+            // ST_foregroundMode
+            // 
+            this.ST_foregroundMode.AutoSize = true;
+            this.ST_foregroundMode.Location = new System.Drawing.Point(369, 19);
+            this.ST_foregroundMode.Name = "ST_foregroundMode";
+            this.ST_foregroundMode.Size = new System.Drawing.Size(110, 17);
+            this.ST_foregroundMode.TabIndex = 9;
+            this.ST_foregroundMode.Text = "Foreground Mode";
+            this.ST_foregroundMode.UseVisualStyleBackColor = true;
+            this.ST_foregroundMode.CheckedChanged += new System.EventHandler(this.ST_foregroundMode_CheckedChanged_1);
             // 
             // groupBox38
             // 
@@ -2421,17 +2483,6 @@
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 0;
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(313, 56);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(88, 17);
-            this.checkBox2.TabIndex = 8;
-            this.checkBox2.Text = "Sell Gold Ore";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AcceptButton = this.aiButton;
@@ -2535,6 +2586,8 @@
             this.tabPage18.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
             this.tabPage19.ResumeLayout(false);
+            this.ST_blueStacksGroupBox.ResumeLayout(false);
+            this.ST_blueStacksGroupBox.PerformLayout();
             this.groupBox38.ResumeLayout(false);
             this.groupBox38.PerformLayout();
             this.tabPage20.ResumeLayout(false);
@@ -3048,5 +3101,9 @@
         private System.Windows.Forms.Label heroadvLabel;
         private System.Windows.Forms.Label goldadvLabel;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.GroupBox ST_blueStacksGroupBox;
+        private System.Windows.Forms.CheckBox ST_forceActiveCheckBox;
+        private System.Windows.Forms.Button ST_toggleBlueStacksButton;
+        private System.Windows.Forms.CheckBox ST_foregroundMode;
     }
 }

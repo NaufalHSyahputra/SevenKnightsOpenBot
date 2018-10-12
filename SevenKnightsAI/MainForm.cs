@@ -179,11 +179,12 @@ namespace SevenKnightsAI
                 {
                     bot.sendKeyboard.keyboard_R1_1 = "ControlBot";
                     bot.sendKeyboard.keyboard_R1_2 = "ControlPC";
-                    bot.sendKeyboard.keyboard_R1_3 = "ControlBluestacks";
+                    bot.sendKeyboard.keyboard_R1_3 = "ControlLDPlayer";
                     bot.sendKeyboard.keyboard_R2_1 = "EnableMode";
                     bot.sendKeyboard.keyboard_R2_2 = "DisableMode";
                     bot.sendKeyboard.keyboard_R3_1 = "GetReport";
                     bot.sendKeyboard.keyboard_R3_2 = "ResetTelegram";
+                    bot.sendKeyboard.keyboard_R3_3 = "SyncCounter";
                     bot.sendKeyboard.send(bot.chat_id, "Welcome to Seven Knights OpenBot Telegram Bot.\nYour ChatID will automatically added to your bot.");
                     ST_TelegramChatIDTextBox.Text = bot.chat_id;
                 }
@@ -303,27 +304,27 @@ namespace SevenKnightsAI
                     SendCommand("Disable Smart Mode");
                     bot.sendMessage.send(bot.chat_id, "Smart Mode Disabled");
                 }
-                if (bot.message_text == "ControlBluestacks")
+                if (bot.message_text == "ControlLDPlayer")
                 {
-                    bot.send_inline_keyboard.keyboard_R1_1 = "Kill Bluestacks";
-                    bot.send_inline_keyboard.keyboard_R1_1_callback_data = "KillBS";
-                    bot.send_inline_keyboard.keyboard_R1_2 = "Restart Bluestacks";
-                    bot.send_inline_keyboard.keyboard_R1_2_callback_data = "RestartBS";
+                    bot.send_inline_keyboard.keyboard_R1_1 = "Kill LDPlayer";
+                    bot.send_inline_keyboard.keyboard_R1_1_callback_data = "KillLDP";
+                    bot.send_inline_keyboard.keyboard_R1_2 = "Restart LDPlayer";
+                    bot.send_inline_keyboard.keyboard_R1_2_callback_data = "RestartLDP";
                     bot.send_inline_keyboard.keyboard_R2_1 = "Kill 7K";
                     bot.send_inline_keyboard.keyboard_R2_1_callback_data = "Kill7K";
                     bot.send_inline_keyboard.keyboard_R2_2 = "Restart 7K";
                     bot.send_inline_keyboard.keyboard_R2_2_callback_data = "Restat7K";
                     bot.send_inline_keyboard.send(bot.chat_id, "Select your choice : ");
                 }
-                if (bot.data == "KillBS")
+                if (bot.data == "KillLDP")
                 {
-                    SendCommand("KillBS");
-                    bot.sendMessage.send(bot.chat_id, "Bluestacks will be killed");
+                    SendCommand("KillLDP");
+                    bot.sendMessage.send(bot.chat_id, "LD Player will be killed");
                 }
-                if (bot.data == "RestartBS")
+                if (bot.data == "RestartLDP")
                 {
-                    SendCommand("RestartBS");
-                    bot.sendMessage.send(bot.chat_id, "Bluestacks will restart, and automatically run Seven Knights");
+                    SendCommand("RestartLDP");
+                    bot.sendMessage.send(bot.chat_id, "LD Player will restart, and automatically run Seven Knights");
                 }
                 if (bot.data == "Kill7K")
                 {
@@ -362,6 +363,10 @@ namespace SevenKnightsAI
                 {
                     bot.sendMessage.send(bot.chat_id, "PC will Restart Now!");
                     Process.Start("shutdown", "/r /t 0");
+                }
+                if(bot.message_text == "SyncCounter")
+                {
+                    this.AI.SyncSequenceCount();
                 }
             }
         }
@@ -609,6 +614,7 @@ namespace SevenKnightsAI
             this.aiButton.Text = "Start Bot";
             this.statusToolStripLabel.Text = "Status: Bot Stopped";
             this.botstatusLabel.Text = "Bot Stopped";
+            this.ST_toggleBlueStacksButton.Enabled = false;
             this.botstatusLabel.ForeColor = Color.Red;
             try
             {
@@ -1051,6 +1057,8 @@ namespace SevenKnightsAI
             this.ST_TelegramTokenTextBox.Text = this.AIProfiles.ST_TelegramToken;
             this.ST_TelegramChatIDTextBox.Text = this.AIProfiles.ST_TelegramChatID;
             this.ST_EmulatorNameTextBox.Text = this.AIProfiles.ST_EmulatorNameTextBox;
+            this.ST_foregroundMode.Checked = this.AIProfiles.ST_ForegroundMode;
+            this.ST_forceActiveCheckBox.Checked = this.AIProfiles.ST_BlueStacksForceActive;
         }
 
         private void InitOtherTab()
@@ -1525,16 +1533,12 @@ namespace SevenKnightsAI
 
         private void ST_forceActiveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkBox = sender as CheckBox;
-            bool @checked = checkBox.Checked;
-            this.AIProfiles.ST_BlueStacksForceActive = @checked;
+
         }
 
         private void ST_foregroundMode_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox checkBox = sender as CheckBox;
-            bool @checked = checkBox.Checked;
-            this.AIProfiles.ST_ForegroundMode = @checked;
+
         }
 
         private void ST_hotTimeProfileCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -1656,7 +1660,7 @@ namespace SevenKnightsAI
             this.aiButton.Text = "Stop Bot";
             this.botstatusLabel.Text = "Bot Running";
             this.botstatusLabel.ForeColor = Color.Green;
-
+            this.ST_toggleBlueStacksButton.Enabled = true;
             this.tabControl1.SelectedTab = tabPage4;
             this.EnablePause(true);
             this.button2.Enabled = true;
@@ -1885,11 +1889,11 @@ namespace SevenKnightsAI
                         {
                             this.AI.ChangeMode(Objective.ARENA);
                         }
-                        else if ((string)progressArgsT.Message == "RestartBS")
+                        else if ((string)progressArgsT.Message == "RestartLDP")
                         {
                             cb.RestartBluestacks();
                         }
-                        else if ((string)progressArgsT.Message == "KillBS")
+                        else if ((string)progressArgsT.Message == "KillLDP")
                         {
                             cb.Kill();
                         }
@@ -1922,8 +1926,7 @@ namespace SevenKnightsAI
         private void timer2_Tick(object sender, EventArgs e)
         {
             TimeSpan ts = timer1.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}",
-ts.Hours, ts.Minutes, ts.Seconds);
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds);
             timer.Text = elapsedTime;
         }
 
@@ -1946,10 +1949,6 @@ ts.Hours, ts.Minutes, ts.Seconds);
             CheckBox checkBox = sender as CheckBox;
             bool @checked = checkBox.Checked;
             this.AISettings.SM_CollectTartarus = @checked;
-        }
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            cb.RunApp();
         }
         private void SM_EnableCheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -2041,6 +2040,44 @@ ts.Hours, ts.Minutes, ts.Seconds);
             CheckBox checkBox = sender as CheckBox;
             bool @checked = checkBox.Checked;
             this.AISettings.RS_SellGoldOre = @checked;
+        }
+
+        private void ST_forceActiveCheckBox_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            bool @checked = checkBox.Checked;
+            this.AIProfiles.ST_BlueStacksForceActive = @checked;
+        }
+        private void ST_ToggleBlueStacks(bool force = false, bool show = true)
+        {
+            if (this.AI.BlueStacks == null || this.AI.BlueStacks.MainWindowAS == null)
+            {
+                return;
+            }
+            string arg;
+            if (this.AI.BlueStacks.IsHidden || (force && show))
+            {
+                this.AI.BlueStacks.Show(true);
+                arg = "Hide";
+            }
+            else
+            {
+                this.AI.BlueStacks.Hide(true);
+                arg = "Show";
+            }
+            this.ST_toggleBlueStacksButton.Text = string.Format("{0} LD Player", arg);
+        }
+        private void ST_toggleBlueStacksButton_Click(object sender, EventArgs e)
+        {
+            this.ST_ToggleBlueStacks(false, true);
+        }
+
+        private void ST_foregroundMode_CheckedChanged_1(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            bool @checked = checkBox.Checked;
+            this.ST_ToggleBlueStacks(true, true);
+            this.AIProfiles.ST_ForegroundMode = @checked;
         }
     }
     public class AutoClosingMessageBox

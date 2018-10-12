@@ -303,6 +303,11 @@ namespace SevenKnightsAI.Classes
             this.ReportSmartCount();
         }
 
+        public void SyncSequenceCount()
+        {
+            this.CurrentSequenceCount2 = this.CurrentSequenceCount;
+        }
+
         private void EndAutoRepeat()
         {
             this.AdventureLimitCount2++;
@@ -1873,7 +1878,7 @@ namespace SevenKnightsAI.Classes
                                                 {
                                                     this.SynchronizationContext.Send(delegate (object callback)
                                                     {
-                                                        MessageBox.Show("BlueStacks restart failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                                        MessageBox.Show("LD Player restart failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                                                     }, null);
                                                     return;
                                                 }
@@ -2717,6 +2722,7 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.ARENA_END:
+                                            this.CheckArenaScore();
                                             if (this.MatchMapping(ArenaEndPM.GetStrongerButton, 2))
                                             {
                                                 this.Log("Arena Lose", this.COLOR_ARENA);
@@ -2727,7 +2733,6 @@ namespace SevenKnightsAI.Classes
                                                 this.Log("Arena Victory", this.COLOR_ARENA);
                                                 this.ArenaAfterFight(true);
                                             }
-                                            this.CheckArenaScore();
                                             if (this.CurrentObjective == Objective.ARENA)
                                             {
                                                 this.WeightedClick(ArenaEndPM.QuickStartButton, 1.0, 1.0, 1, 0, "left");
@@ -3271,8 +3276,7 @@ namespace SevenKnightsAI.Classes
             }
             else
             {
-                this.Log("7K ga keinstall");
-                errorMessage = "Seven Knights not installed in BlueStacks";
+                errorMessage = "Seven Knights not installed in LD Player";
                 this.LogError(errorMessage);
                 this.SynchronizationContext.Send(delegate (object callback)
                 {
