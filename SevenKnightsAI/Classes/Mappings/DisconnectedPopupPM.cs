@@ -1,54 +1,36 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class DisconnectedPopupPM
     {
-        public static readonly PixelMapping LeftBorder = new PixelMapping
+        public static readonly PixelMapping Title3 = new PixelMapping
         {
-            X = 288,
-            Y = 142,
-            Color = 16298771,
+            X = 503,
+            Y = 145,
+            Color = 13423323,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping OkButton = new PixelMapping
+        public static readonly PixelMapping OKTick = new PixelMapping
         {
-            X = 363,
-            Y = 357,
-            Color = 0,
-            Type = MappingType.BUTTON
+            X = 429,
+            Y = 400,
+            Color = 12238017,
+            Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping OkButtonBorderLeft = new PixelMapping
+        public static readonly PixelMapping Title1 = new PixelMapping
         {
-            X = 343,
-            Y = 347,
-            Color = 15060112,
+            X = 350,
+            Y = 145,
+            Color = 12831185,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping OkButtonBorderRight = new PixelMapping
+        public static readonly PixelMapping Title2 = new PixelMapping
         {
-            X = 485,
-            Y = 350,
-            Color = 11047009,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping RightBorder = new PixelMapping
-        {
-            X = 517,
-            Y = 142,
-            Color = 15049745,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping YellowTick = new PixelMapping
-        {
-            X = 363,
-            Y = 357,
-            Color = 16759067,
+            X = 426,
+            Y = 148,
+            Color = 10528948,
             Type = MappingType.ANCHOR
         };
     }

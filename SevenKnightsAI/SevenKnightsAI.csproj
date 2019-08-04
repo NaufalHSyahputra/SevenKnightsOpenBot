@@ -8,10 +8,10 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SevenKnightsAI</RootNamespace>
-    <AssemblyName>Seven Knights OpenBot</AssemblyName>
+    <AssemblyName>Seven Knights AI Black</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>icon_kagura.ico</ApplicationIcon>
+    <ApplicationIcon>shane_icon.ico</ApplicationIcon>
     <StartupObject>SevenKnightsAI.Program</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
@@ -30,6 +30,8 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -72,7 +74,34 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseFB|x86'">
+    <OutputPath>bin\ReleaseFB\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseFB|AnyCPU'">
+    <OutputPath>bin\ReleaseFB\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseFB|x64'">
+    <OutputPath>bin\x64\ReleaseFB\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Emgu.CV.UI, Version=3.4.3.3016, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.3.4.3.3016\lib\net35\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.4.3.3016, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>..\packages\EMGU.CV.3.4.3.3016\lib\net35\Emgu.CV.World.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>External Files\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -91,11 +120,14 @@
     <Reference Include="AutoItX3.Assembly">
       <HintPath>External Files\AutoItX3.Assembly.dll</HintPath>
     </Reference>
-    <Reference Include="Telegram, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telegram.dll.6.3.0\lib\Telegram.dll</HintPath>
+    <Reference Include="Telegram, Version=6.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.dll.6.5.0\lib\Telegram.dll</HintPath>
     </Reference>
-    <Reference Include="Tesseract, Version=3.0.2.0, Culture=neutral, PublicKeyToken=ebeb3d86bef60cbe, processorArchitecture=MSIL">
-      <HintPath>..\packages\Tesseract.3.0.2.0\lib\net45\Tesseract.dll</HintPath>
+    <Reference Include="Tesseract, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tesseract.3.3.0\lib\net45\Tesseract.dll</HintPath>
+    </Reference>
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +153,11 @@
     <Compile Include="Classes\Formation.cs" />
     <Compile Include="Classes\HotTimeHelper.cs" />
     <Compile Include="Classes\Imaging\ImageHashing.cs" />
+    <Compile Include="Classes\Imaging\ImageSearch.cs" />
     <Compile Include="Classes\Imaging\LockBitmap.cs" />
+    <Compile Include="Classes\Mappings\ForceClosePopupPM.cs" />
+    <Compile Include="Classes\Mappings\AresCupPM.cs" />
+    <Compile Include="Classes\Mappings\AhriConnectingPM.cs" />
     <Compile Include="Classes\Mappings\ArenaSeasonEndPM.cs" />
     <Compile Include="Classes\Mappings\AutoRepeatStopPM.cs" />
     <Compile Include="Classes\Mappings\AutoRepeatPopupPM.cs" />
@@ -141,10 +177,19 @@
     <Compile Include="Classes\Mappings\BattleModesPM.cs" />
     <Compile Include="Classes\Mappings\CheckInPM.cs" />
     <Compile Include="Classes\Mappings\DialogPM.cs" />
+    <Compile Include="Classes\Mappings\ExitPopupPM.cs" />
     <Compile Include="Classes\Mappings\DisconnectedPopupPM.cs" />
     <Compile Include="Classes\Mappings\FriendsPM.cs" />
     <Compile Include="Classes\Mappings\FullHeroPopupPM.cs" />
     <Compile Include="Classes\Mappings\FullItemPopupPM.cs" />
+    <Compile Include="Classes\Mappings\FuseLobbyPM.cs" />
+    <Compile Include="Classes\Mappings\LeaderIconDialogPM.cs" />
+    <Compile Include="Classes\Mappings\LoadingPM.cs" />
+    <Compile Include="Classes\Mappings\NoMoreRubyOfferPM.cs" />
+    <Compile Include="Classes\Mappings\NoMoreRubyPopupPM.cs" />
+    <Compile Include="Classes\Mappings\TemporaryStoragePM.cs" />
+    <Compile Include="Classes\Mappings\UnknownPopupSuccessPM.cs" />
+    <Compile Include="Classes\Mappings\UnknownPopupPM.cs" />
     <Compile Include="Classes\Mappings\NoMoreHeroPopupPM.cs" />
     <Compile Include="Classes\Mappings\ItemsPM.cs" />
     <Compile Include="Classes\Mappings\HeroesPM.cs" />
@@ -155,15 +200,12 @@
     <Compile Include="Classes\Mappings\InboxCollectFailedPopupPM.cs" />
     <Compile Include="Classes\Mappings\InboxPM.cs" />
     <Compile Include="Classes\Mappings\InboxRewardsPopupPM.cs" />
-    <Compile Include="Classes\Mappings\InboxSelectHeroPM.cs" />
     <Compile Include="Classes\Mappings\LandingPM.cs" />
     <Compile Include="Classes\Mappings\Level30DialogPM.cs" />
     <Compile Include="Classes\Mappings\Level30MaxDialogPM.cs" />
     <Compile Include="Classes\Mappings\LevelUpDialogPM.cs" />
     <Compile Include="Classes\Mappings\LobbyPM.cs" />
     <Compile Include="Classes\Mappings\LoginPM.cs" />
-    <Compile Include="Classes\Mappings\LootHeroPM.cs" />
-    <Compile Include="Classes\Mappings\LootItemPM.cs" />
     <Compile Include="Classes\Mappings\MapSelectPM.cs" />
     <Compile Include="Classes\Mappings\MapSelectPopupPM.cs" />
     <Compile Include="Classes\Mappings\MasteryPopupPM.cs" />
@@ -172,14 +214,17 @@
     <Compile Include="Classes\Mappings\OutOfKeysOfferPM.cs" />
     <Compile Include="Classes\Mappings\OutOfKeysPopupPM.cs" />
     <Compile Include="Classes\Mappings\OutOfSwordsPopupPM.cs" />
+    <Compile Include="Classes\Mappings\FuseConfirmPM.cs" />
+    <Compile Include="Classes\Mappings\PowerUpFailedPopupPM.cs" />
+    <Compile Include="Classes\Mappings\PowerUpProcessPM.cs" />
+    <Compile Include="Classes\Mappings\FuseSuccessPM.cs" />
+    <Compile Include="Classes\Mappings\PowerUpSuccessPM.cs" />
+    <Compile Include="Classes\Mappings\PowerUpConfirmPM.cs" />
+    <Compile Include="Classes\Mappings\PowerUpLobbyPM.cs" />
+    <Compile Include="Classes\Mappings\UpdatePM.cs" />
     <Compile Include="Classes\Mappings\PatchUpdatePM.cs" />
-    <Compile Include="Classes\Mappings\Popup1PM.cs" />
-    <Compile Include="Classes\Mappings\Popup2PM.cs" />
     <Compile Include="Classes\Mappings\Popup3PM.cs" />
-    <Compile Include="Classes\Mappings\QuestCollectFailedPopupPM.cs" />
-    <Compile Include="Classes\Mappings\QuestPM.cs" />
     <Compile Include="Classes\Mappings\QuestRewardsPopupPM.cs" />
-    <Compile Include="Classes\Mappings\QuestSelectPM.cs" />
     <Compile Include="Classes\Mappings\SmartLootCollectPM.cs" />
     <Compile Include="Classes\Mappings\SmartSelectPM.cs" />
     <Compile Include="Classes\Mappings\SmartLobbyPM.cs" />
@@ -190,25 +235,14 @@
     <Compile Include="Classes\Mappings\SellHeroesSuccessPopupPM.cs" />
     <Compile Include="Classes\Mappings\SellItemSuccessPopupPM.cs" />
     <Compile Include="Classes\Mappings\SellItemsLobbyPM.cs" />
-    <Compile Include="Classes\Mappings\SendHonorConfirmPopupPM.cs" />
-    <Compile Include="Classes\Mappings\SendHonorEndPM.cs" />
-    <Compile Include="Classes\Mappings\SendHonorFailedPopupPM.cs" />
-    <Compile Include="Classes\Mappings\SendHonorFullPopupPM.cs" />
-    <Compile Include="Classes\Mappings\SendHonorSendingPopupPM.cs" />
     <Compile Include="Classes\Mappings\SharedPM.cs" />
     <Compile Include="Classes\Mappings\ShopBuyFailedPopupPM.cs" />
     <Compile Include="Classes\Mappings\ShopBuyPopupPM.cs" />
     <Compile Include="Classes\Mappings\ShopPM.cs" />
     <Compile Include="Classes\Mappings\ShopPurchaseCompletePopupPM.cs" />
-    <Compile Include="Classes\Mappings\SocialSelectPM.cs" />
-    <Compile Include="Classes\Mappings\SpecialQuestPM.cs" />
     <Compile Include="Classes\Mappings\StatusBoardPM.cs" />
     <Compile Include="Classes\Mappings\PausePM.cs" />
     <Compile Include="Classes\Mappings\TapToPlayPM.cs" />
-    <Compile Include="Classes\Mappings\TowerFightPM.cs" />
-    <Compile Include="Classes\Mappings\TowerLostPM.cs" />
-    <Compile Include="Classes\Mappings\TowerSelectPM.cs" />
-    <Compile Include="Classes\Mappings\TowerStartPM.cs" />
     <Compile Include="Classes\Mappings\VictoryPM.cs" />
     <Compile Include="Classes\Mappings\WifiWarningPopupPM.cs" />
     <Compile Include="Classes\MappingType.cs" />
@@ -311,11 +345,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Delone.ico" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="dellon2.ico" />
+    <None Include="Resources\myth_cover3.jpg" />
+    <Content Include="shane_icon.ico" />
+    <Content Include="yeon.jpg.ico" />
+    <Content Include="yeon_jpg_TvG_icon.ico" />
+    <Content Include="yeon_test.ico" />
     <None Include="icons\icon_adv.png" />
     <Content Include="icons\icon_adventure.png" />
     <None Include="icons\icon_advkey.png" />
@@ -344,43 +382,14 @@
     <Content Include="icons\icon_topaz.png" />
     <Content Include="icons\icon_uac.png" />
     <Content Include="icons\SevenKnights.png" />
-    <None Include="Resources\2017-09-22 17_22_55-Bluestacks App Player.png" />
-    <None Include="Resources\amelia_title.png" />
-    <None Include="Resources\1513314656005_131578995572303453.ico" />
     <Content Include="icon_kagura.ico" />
-    <Content Include="Resources\arenaIcon.png" />
-    <None Include="Resources\dellon2.ico" />
-    <None Include="Resources\awk_rachel_cover.png" />
-    <Content Include="Resources\goldmineIcon.png" />
-    <None Include="Resources\kriss.ico" />
-    <None Include="Resources\title_ingrid.png" />
-    <None Include="Resources\title_spike.png" />
-    <None Include="Resources\test_cover.jpg" />
-    <None Include="Resources\test_cover_504x90.jpg" />
-    <None Include="Resources\title_kagura.png" />
-    <None Include="Resources\title_aquila.png" />
-    <None Include="Resources\title_aquila2.png" />
-    <None Include="Resources\lubu_cover.png" />
-    <Content Include="x64\liblept172.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x64\libtesseract304.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\liblept172.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\libtesseract304.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\title_karl2.png" />
-    <None Include="Resources\icon3.jpg" />
-    <Content Include="Resources\raidIcon.png" />
-    <None Include="Resources\title_karl.jpg" />
-    <Content Include="Resources\towerIcon.png" />
+    <Content Include="License-LGPL.txt" />
+    <None Include="Resources\soulIcon.png" />
+    <None Include="Resources\cards_icon.png" />
+    <None Include="Resources\hero_icon.png" />
+    <None Include="Resources\lv30_icon.png" />
+    <Content Include="spike_icon.ico" />
     <None Include="icons\telegramLogo.png" />
-    <None Include="Resources\TitleSeason2.jpg" />
-    <None Include="Resources\icon_hero_356.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -388,4 +397,13 @@
 
 </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\EMGU.CV.3.4.3.3016\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.3.4.3.3016\build\EMGU.CV.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EMGU.CV.3.4.3.3016\build\EMGU.CV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EMGU.CV.3.4.3.3016\build\EMGU.CV.targets'))" />
+    <Error Condition="!Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tesseract.3.3.0\build\Tesseract.targets'))" />
+  </Target>
+  <Import Project="..\packages\Tesseract.3.3.0\build\Tesseract.targets" Condition="Exists('..\packages\Tesseract.3.3.0\build\Tesseract.targets')" />
 </Project>

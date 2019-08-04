@@ -1,54 +1,52 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class SellItemConfirmPopupPM
     {
         public static readonly PixelMapping DimmedBG_1 = new PixelMapping
         {
-            X = 64,
-            Y = 389,
-            Color = 3613455,
+            X = 392,
+            Y = 65,
+            Color = 4141843,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping DimmedBG_2 = new PixelMapping
         {
-            X = 406,
-            Y = 79,
-            Color = 4273941,
+            X = 31,
+            Y = 28,
+            Color = 4206105,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping NoButton = new PixelMapping
         {
-            X = 274,
-            Y = 353,
+            X = 265,
+            Y = 333,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping RedCross = new PixelMapping
         {
-            X = 274,
-            Y = 353,
-            Color = 14105865,
+            X = 265,
+            Y = 333,
+            Color = 15350534,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping SellButton = new PixelMapping
         {
-            X = 458,
-            Y = 352,
+            X = 442,
+            Y = 337,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping YellowTick = new PixelMapping
         {
-            X = 458,
-            Y = 352,
-            Color = 16767291,
+            X = 442,
+            Y = 337,
+            Color = 16765234,
             Type = MappingType.ANCHOR
         };
     }

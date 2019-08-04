@@ -1,78 +1,76 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class OutOfSwordsPopupPM
     {
         public static readonly PixelMapping DimmedBGEnd = new PixelMapping
         {
-            X = 773,
-            Y = 418,
-            Color = 4868669,
+            X = 313,
+            Y = 405,
+            Color = 14012881,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping DimmedBGStart = new PixelMapping
         {
-            X = 224,
-            Y = 78,
-            Color = 4799518,
+            X = 585,
+            Y = 484,
+            Color = 4801847,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping DimmedBG2End = new PixelMapping
         {
-            X = 765,
-            Y = 410,
-            Color = 2234372,
+            X = 522,
+            Y = 403,
+            Color = 16748189,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping DimmedBG2Start = new PixelMapping
         {
-            X = 757,
-            Y = 336,
-            Color = 4734752,
+            X = 206,
+            Y = 487,
+            Color = 2895151,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping EnterButton = new PixelMapping
         {
-            X = 586,
-            Y = 397,
-            Color = 0,
+            X = 558,
+            Y = 398,
+            Color = 13008900,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping NoButton = new PixelMapping
         {
-            X = 375,
-            Y = 397,
+            X = 380,
+            Y = 402,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping PopupBorderLeft = new PixelMapping
         {
-            X = 422,
-            Y = 225,
-            Color = 10037003,
+            X = 442,
+            Y = 142,
+            Color = 15067370,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping PopupBorderRight = new PixelMapping
         {
-            X = 699,
-            Y = 198,
-            Color = 16244898,
+            X = 697,
+            Y = 245,
+            Color = 12165231,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RubyIcon = new PixelMapping
         {
-            X = 448,
-            Y = 353,
-            Color = 16749216,
+            X = 524,
+            Y = 399,
+            Color = 16745877,
             Type = MappingType.ANCHOR
         };
     }

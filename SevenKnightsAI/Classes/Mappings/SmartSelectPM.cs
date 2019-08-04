@@ -1,45 +1,43 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class SmartSelectPM
     {
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 143,
-            Y = 147,
-            Color = 6110761,
+            X = 224,
+            Y = 196,
+            Color = 2824458,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 262,
-            Y = 198,
-            Color = 3218702,
+            X = 197,
+            Y = 368,
+            Color = 16118506,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CelestialTowerButton = new PixelMapping
         {
-            X = 199,
-            Y = 241,
+            X = 204,
+            Y = 275,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping RaidButton = new PixelMapping
         {
-            X = 417,
-            Y = 230,
+            X = 402,
+            Y = 194,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping TartarusButton = new PixelMapping
         {
-            X = 637,
-            Y = 229,
+            X = 610,
+            Y = 240,
             Color = 0,
             Type = MappingType.BUTTON
         };

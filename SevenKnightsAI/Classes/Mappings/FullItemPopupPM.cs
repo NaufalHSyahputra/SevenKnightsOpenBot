@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class FullItemPopupPM
     {
@@ -8,9 +6,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SellButtonIcon = new PixelMapping
         {
-            X = 502,
-            Y = 354,
-            Color = 15983233,
+            X = 484,
+            Y = 343,
+            Color = 15189850,
             Type = MappingType.ANCHOR
         };
 

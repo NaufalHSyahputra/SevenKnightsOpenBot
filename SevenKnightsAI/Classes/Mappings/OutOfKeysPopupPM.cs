@@ -1,45 +1,43 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class OutOfKeysPopupPM
     {
-        public static readonly PixelMapping DimmedBG = new PixelMapping
+        public static readonly PixelMapping DimmedBGEnd = new PixelMapping
         {
-            X = 564,
-            Y = 79,
-            Color = 3222044,
+            X = 836,
+            Y = 77,
+            Color = 3871236,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping NoButton = new PixelMapping
+        public static readonly PixelMapping DimmedBGStart = new PixelMapping
         {
-            X = 322,
-            Y = 349,
-            Color = 0,
-            Type = MappingType.BUTTON
+            X = 836,
+            Y = 77,
+            Color = 3871236,
+            Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping NoButtonBorder = new PixelMapping
+        public static readonly PixelMapping PopupBorder2 = new PixelMapping
         {
-            X = 393,
-            Y = 348,
-            Color = 13612671,
+            X = 625,
+            Y = 276,
+            Color = 10654053,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping PopupBorder = new PixelMapping
         {
-            X = 440,
-            Y = 239,
-            Color = 13709580,
+            X = 292,
+            Y = 274,
+            Color = 12562297,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping ShopButton = new PixelMapping
+        public static readonly PixelMapping TapArea = new PixelMapping
         {
-            X = 457,
-            Y = 355,
+            X = 466,
+            Y = 423,
             Color = 0,
             Type = MappingType.BUTTON
         };

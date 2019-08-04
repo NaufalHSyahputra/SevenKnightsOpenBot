@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class InboxPM
     {
@@ -22,32 +20,48 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CharacterBody = new PixelMapping
         {
-            X = 186,
-            Y = 179,
-            Color = 6379102,
+            X = 194,
+            Y = 324,
+            Color = 16777215,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping CharacterBody2 = new PixelMapping
+        {
+            X = 195,
+            Y = 143,
+            Color = 16510381,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CollectAllButton = new PixelMapping
         {
-            X = 717,
-            Y = 447,
+            X = 855,
+            Y = 514,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping CollectAllButtonBackground = new PixelMapping
         {
-            X = 717,
-            Y = 447,
-            Color = 15118595,
+            X = 775,
+            Y = 502,
+            Color = 1003439,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping CollectAllButtonBackground2 = new PixelMapping
+        {
+            X = 926,
+            Y = 492,
+            Color = 1003439,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CurrencyTab = new PixelMapping //currency tab
         {
-            X = 550,
-            Y = 130,
+            X = 622,
+            Y = 100,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -65,9 +79,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping HonorsTab = new PixelMapping
         {
-            X = 314,
-            Y = 126,
-            Color = 0,
+            X = 385,
+            Y = 102,
+            Color = 10726330,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping HonorsTabRedIcon = new PixelMapping
@@ -82,15 +96,15 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly int HONOR_OFFSET_Y = 0;
 
-        public static readonly PixelMapping KeysTab = new PixelMapping 
+        public static readonly PixelMapping KeysTab = new PixelMapping
         {
-            X = 437,
-            Y = 133,
+            X = 515,
+            Y = 100,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
-        public static readonly PixelMapping KeysTabRedIcon = new PixelMapping 
+        public static readonly PixelMapping KeysTabRedIcon = new PixelMapping
         {
             X = 394,
             Y = 104,
@@ -112,20 +126,20 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping MailIcon = new PixelMapping
         {
-            X = 77,
-            Y = 442,
-            Color = 11287102,
+            X = 100,
+            Y = 497,
+            Color = 15460325,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MaterialTab = new PixelMapping
         {
-            X = 656,
-            Y = 135,
+            X = 641,
+            Y = 139,
             Color = 0,
             Type = MappingType.BUTTON
         };
-        
+
         public static readonly PixelMapping MaterialTabRedIcon = new PixelMapping
         {
             X = 610,
@@ -140,8 +154,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping TicketTab = new PixelMapping
         {
-            X = 895,
-            Y = 135,
+            X = 751,
+            Y = 101,
             Color = 0,
             Type = MappingType.BUTTON
         };

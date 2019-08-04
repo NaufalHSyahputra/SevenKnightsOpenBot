@@ -1,37 +1,43 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class NoMoreHeroPopupPM
     {
         public static readonly PixelMapping DimmedBG = new PixelMapping
         {
-            X = 549,
-            Y = 418,
-            Color = 4868155,
+            X = 450,
+            Y = 61,
+            Color = 3816509,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping DimmedBGStart = new PixelMapping
+        {
+            X = 289,
+            Y = 489,
+            Color = 4671562,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping PopupBorderLeft = new PixelMapping
         {
-            X = 337,
-            Y = 237,
-            Color = 13840908,
+            X = 410,
+            Y = 268,
+            Color = 14672096,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping PopupBorderRight = new PixelMapping
         {
-            X = 498,
-            Y = 238,
-            Color = 14562316,
+            X = 542,
+            Y = 291,
+            Color = 14013910,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping TapArea = new PixelMapping
         {
-            X = 399,
-            Y = 371,
+            X = 479,
+            Y = 423,
             Color = 0,
             Type = MappingType.BUTTON
         };

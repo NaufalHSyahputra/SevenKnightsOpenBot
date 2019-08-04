@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class BattleModesPM
     {
@@ -8,110 +6,83 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping ArenaButton = new PixelMapping
         {
-            X = 574,
-            Y = 362,
+            X = 650,
+            Y = 422,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping HottimeButton = new PixelMapping
+        {
+            X = 845,
+            Y = 36,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping AdventureButton = new PixelMapping
         {
-            X = 682,
-            Y = 422,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
-
-        public static readonly PixelMapping CelestialTowerButton = new PixelMapping
-        {
-            X = 764,
-            Y = 90,
+            X = 860,
+            Y = 501,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SpecialDungeonButton = new PixelMapping
         {
-            X = 225,
-            Y = 199,
+            X = 216,
+            Y = 184,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
-        public static readonly PixelMapping RaidButton = new PixelMapping
-        {
-            X = 534,
-            Y = 105,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
         public static readonly PixelMapping BorderBottomRight = new PixelMapping //Adventure Button
         {
-            X = 777,
-            Y = 437,
-            Color = 13480576,
+            X = 30,
+            Y = 24,
+            Color = 3422267,
             Type = MappingType.ANCHOR
-        };
+        };  
 
         public static readonly PixelMapping BorderTopLeft = new PixelMapping //Back Button
         {
-            X = 33,
-            Y = 43,
-            Color = 13385996,
+            X = 752,
+            Y = 485,
+            Color = 7195133,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BossFightButton = new PixelMapping
         {
-            X = 618,
-            Y = 203,
+            X = 398,
+            Y = 197,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping CastleRushButton = new PixelMapping
         {
-            X = 363,
-            Y = 212,
+            X = 654,
+            Y = 186,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
-        public static readonly int GOLD_OFFSET_X = 218;
-
-        public static readonly int GOLD_OFFSET_Y = 0;
-
-        public static readonly PixelMapping GoldPlusButton = new PixelMapping
-        {
-            X = 550,
-            Y = 29,
-            Color = 11573327,
-            Type = MappingType.ANCHOR
-        };
-
         public static readonly PixelMapping QuestRedScroll = new PixelMapping
         {
-            X = 85,
-            Y = 431,
-            Color = 12102274,
+            X = 924,
+            Y = 507,
+            Color = 15396095,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping GuildWarButton = new PixelMapping
         {
-            X = 260,
-            Y = 400,
+            X = 422,
+            Y = 310,
             Color = 0,
             Type = MappingType.BUTTON
         };
-
-        public static readonly int HONOR_OFFSET_X = 227;
-
-        public static readonly int HONOR_OFFSET_Y = 0;
-
-        public static readonly int RUBY_OFFSET_X = 223;
-
-        public static readonly int RUBY_OFFSET_Y = 0;
 
         #endregion Public Fields
     }

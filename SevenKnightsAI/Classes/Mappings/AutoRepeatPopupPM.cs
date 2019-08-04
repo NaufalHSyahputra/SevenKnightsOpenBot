@@ -1,67 +1,68 @@
-﻿using System;
-using System.Drawing;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class AutoRepeatPopupPM
     {
-        public static readonly PixelMapping GoldIcon = new PixelMapping
-        {
-            X = 366,
-            Y = 269,
-            Color = 16440198,
-            Type = MappingType.ANCHOR
-        };
-        public static readonly PixelMapping TopLeftBorder = new PixelMapping
-        {
-            X = 204,
-            Y = 168,
-            Color = 15784605,
-            Type = MappingType.ANCHOR
-        };
         public static readonly PixelMapping NoButton = new PixelMapping
         {
-            X = 271,
-            Y = 369,
-            Color = 15088647,
-            Type = MappingType.BOTH
-        };
-
-        public static readonly PixelMapping YesButton = new PixelMapping
-        {
-            X = 468,
-            Y = 375,
-            Color = 16759838,
-            Type = MappingType.BOTH
-        };
-
-        public static readonly PixelMapping GoldIcon_NoHotTime = new PixelMapping
-        {
-            X = 377,
-            Y = 264,
-            Color = 15581795,
+            X = 316,
+            Y = 427,
+            Color = 14078930,
             Type = MappingType.ANCHOR
         };
-        public static readonly PixelMapping TopLeftBorder_NoHotTime = new PixelMapping
+
+        public static readonly PixelMapping PopupBorder = new PixelMapping
         {
-            X = 205,
-            Y = 169,
-            Color = 16047520,
+            X = 415,
+            Y = 302,
+            Color = 10119971,
             Type = MappingType.ANCHOR
         };
-        public static readonly PixelMapping NoButton_NoHotTime = new PixelMapping
+
+        public static readonly PixelMapping ManageBtnBackgroun = new PixelMapping
         {
-            X = 270,
-            Y = 371,
-            Color = 14499080,
+            X = 280,
+            Y = 479,
+            Color = 3291459,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping OkBtn = new PixelMapping
+        {
+            X = 543,
+            Y = 420,
+            Color = 12106430,
             Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping YesButton_NoHotTime = new PixelMapping
+        public static readonly PixelMapping RedText_HT = new PixelMapping
         {
-            X = 472,
-            Y = 370,
-            Color = 16768576,
+            X = 423,
+            Y = 308,
+            Color = 16311451,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping PopupBorder_HT = new PixelMapping
+        {
+            X = 232,
+            Y = 184,
+            Color = 15915934,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping ManageBtnBackgroun_HT = new PixelMapping
+        {
+            X = 374,
+            Y = 469,
+            Color = 4470812,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping OkBtn_HT = new PixelMapping
+        {
+            X = 546,
+            Y = 421,
+            Color = 16768833,
             Type = MappingType.BOTH
         };
 

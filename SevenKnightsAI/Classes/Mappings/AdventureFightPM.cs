@@ -1,184 +1,247 @@
-﻿using System;
-using System.Drawing;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class AdventureFightPM
     {
         #region Public Fields
 
-        public static readonly PixelMapping AtTurn1Of2 = new PixelMapping
+        public static readonly PixelMapping HottimeNoActive1 = new PixelMapping
+        {
+            X = 903,
+            Y = 60,
+            Color = 11308400,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping HottimeNoActive2 = new PixelMapping
+        {
+            X = 864,
+            Y = 57,
+            Color = 12496775,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping FightButtonHidden = new PixelMapping
+        {
+            X = 6,
+            Y = 490,
+            Color = 15790320,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping FightButtonHidden2 = new PixelMapping
+        {
+            X = 10,
+            Y = 521,
+            Color = 3161424,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping FightButtonShown = new PixelMapping
+        {
+            X = 6,
+            Y = 490,
+            Color = 2635080,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping FightButtonShown2 = new PixelMapping
+        {
+            X = 10,
+            Y = 521,
+            Color = 9804450,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping AutoSkillOn = new PixelMapping
+        {
+            X = 161,
+            Y = 495,
+            Color = 16777215,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping AutoSkillOff = new PixelMapping
+        {
+            X = 161,
+            Y = 495,
+            Color = 10256982,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping TurnYellowBar = new PixelMapping
+        {
+            X = 403,
+            Y = 24,
+            Color = 2472447,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping ShowFightButton = new PixelMapping
+        {
+            X = 13,
+            Y = 520,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping StopButton = new PixelMapping
+        {
+            X = 274,
+            Y = 502,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping AtTurn1Of1_1 = new PixelMapping
+        {
+            X = 557,
+            Y = 16,
+            Color = 16580607,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping AtTurn1Of1_2 = new PixelMapping
+        {
+            X = 558,
+            Y = 25,
+            Color = 15269631,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping AtTurn1Of2_1 = new PixelMapping
         {
             X = 475,
-            Y = 27,
-            Color = 4662552,
+            Y = 24,
+            Color = 15466239,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping AtTurn1Of2_2 = new PixelMapping
+        {
+            X = 475,
+            Y = 24,
+            Color = 15466239,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AtTurn1Of3_1 = new PixelMapping
         {
-            X = 443,
-            Y = 29,
-            Color = 2103881,
+            X = 448,
+            Y = 16,
+            Color = 16580607,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AtTurn1Of3_2 = new PixelMapping
         {
-            X = 457,
-            Y = 23,
-            Color = 16117499,
+            X = 448,
+            Y = 24,
+            Color = 15466239,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping AtTurn2Of2 = new PixelMapping
+        public static readonly PixelMapping AtTurn2Of2_1 = new PixelMapping
         {
-            X = 563,
-            Y = 17,
-            Color = 16711166,
+            X = 557,
+            Y = 16,
+            Color = 16580607,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping AtTurn2Of2_2 = new PixelMapping
+        {
+            X = 557,
+            Y = 24,
+            Color = 15466239,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AtTurn2Of3_1 = new PixelMapping
         {
-            X = 498,
-            Y = 29,
-            Color = 2300738,
+            X = 503,
+            Y = 17,
+            Color = 16449535,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AtTurn2Of3_2 = new PixelMapping
         {
-            X = 512,
-            Y = 23,
-            Color = 16315132,
+            X = 502,
+            Y = 24,
+            Color = 15466239,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AtTurn3Of3_1 = new PixelMapping
         {
-            X = 552,
-            Y = 29,
-            Color = 2104148,
+            X = 558,
+            Y = 16,
+            Color = 16580607,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AtTurn3Of3_2 = new PixelMapping
         {
-            X = 567,
-            Y = 23,
-            Color = 16249339,
+            X = 558,
+            Y = 25,
+            Color = 15269631,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 559,
-            Y = 36,
-            Color = 16772487,
+            X = 825,
+            Y = 25,
+            Color = 3552323,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Turn1Of1 = new PixelMapping
         {
-            X = 563,
-            Y = 21,
-            Color = 3875857,
+            X = 555,
+            Y = 26,
+            Color = 4735820,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Turn1Of2 = new PixelMapping
         {
             X = 480,
-            Y = 21,
-            Color = 4402197,
+            Y = 26,
+            Color = 10938623,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Turn1Of3 = new PixelMapping
         {
-            X = 450,
-            Y = 21,
-            Color = 4204819,
+            X = 485,
+            Y = 24,
+            Color = 2472447,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Turn2Of2 = new PixelMapping
         {
-            X = 566,
-            Y = 21,
-            Color = 15855080,
+            X = 422,
+            Y = 24,
+            Color = 2472447,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Turn2Of3 = new PixelMapping
         {
             X = 508,
-            Y = 19,
-            Color = 16382456,
+            Y = 26,
+            Color = 9560831,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Turn3Of3 = new PixelMapping
         {
-            X = 563,
-            Y = 21,
-            Color = 4205337,
+            X = 507,
+            Y = 27,
+            Color = 10927043,
             Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Fight_AweakButton = new PixelMapping
-        {
-            X = 924,
-            Y = 233,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
-
-        public static readonly PixelMapping Fight_AweakOff = new PixelMapping
-        {
-            X = 924,
-            Y = 233,
-            Color = 4599579,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Fight_AweakOn = new PixelMapping
-        {
-            X = 924,
-            Y = 233,
-            Color = 8539426,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly Rectangle LootHero = new Rectangle
-        {
-            X = 837,
-            Y = 7,
-            Width = 44,
-            Height = 39
-        };
-        public static readonly Rectangle LootItem = new Rectangle
-        {
-            X = 916,
-            Y = 8,
-            Width = 44,
-            Height = 39
-        };
-        public static readonly Rectangle LootGold = new Rectangle
-        {
-            X = 673,
-            Y = 4,
-            Width = 95,
-            Height = 44
-        };
-
-        public static readonly PixelMapping StopButton = new PixelMapping
-        {
-            X = 238,
-            Y = 430,
-            Color = 0,
-            Type = MappingType.BUTTON
         };
 
         #endregion Public Fields

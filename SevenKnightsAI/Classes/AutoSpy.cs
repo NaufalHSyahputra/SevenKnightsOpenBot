@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
-using System.Windows.Forms;
 
 namespace SevenKnightsAI.Classes
 {
@@ -100,10 +99,10 @@ namespace SevenKnightsAI.Classes
         public AutoSpy(IntPtr handle, IntPtr controlHandle)
         {
             WindowSnap.ForceMDICapturing = false;
-            this.Handle = handle;
-            this.ControlHandle = controlHandle;
-            this.random = new Random();
-            this.CaptureFrame(true, true);
+            Handle = handle;
+            ControlHandle = controlHandle;
+            random = new Random();
+            CaptureFrame(true, true);
         }
 
         #endregion Public Constructors
@@ -121,6 +120,9 @@ namespace SevenKnightsAI.Classes
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern IntPtr FindWindowEx(IntPtr parentHWnd, IntPtr childAfterHWnd, string className, string windowTitle);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
 
         public static IntPtr GetControlHandle(string title, string control)
         {
@@ -171,134 +173,146 @@ namespace SevenKnightsAI.Classes
 
         public void BringToFront()
         {
-            AutoSpy.SetForegroundWindow(this.Handle);
+            AutoSpy.SetForegroundWindow(Handle);
             Thread.Sleep(50);
         }
 
         public Bitmap CaptureFrame(bool backgroundMode = true, bool cache = true)
         {
-            if (this.CurrentFrame != null && cache)
+            if (CurrentFrame != null && cache)
             {
-                this.CurrentFrame.Dispose();
+                CurrentFrame.Dispose();
             }
             Bitmap bitmap;
             if (backgroundMode)
             {
-                WindowSnap windowSnap = WindowSnap.GetWindowSnap(this.Handle, true);
+                WindowSnap windowSnap = WindowSnap.GetWindowSnap(Handle, true);
                 bitmap = windowSnap.Image;
             }
             else
             {
-                bitmap = ForegroundCapture.CaptureWindow(this.Handle);
+                bitmap = ForegroundCapture.CaptureWindow(Handle);
             }
             if (cache)
             {
-                this.CurrentFrame = bitmap;
+                CurrentFrame = bitmap;
             }
             return bitmap;
         }
 
         public void Click(int x, int y, int numClicks = 1, int delay = 0, string button = "left")
         {
-            uint num = this.MakeButtonMessage(button);
-            uint lParam = this.MakeLong(x, y);
+            uint num = MakeButtonMessage(button);
+            uint lParam = MakeLong(x, y);
             for (int i = 0; i < numClicks; i++)
             {
-                AutoSpy.PostMessage(this.ControlHandle, num, 0u, lParam);
-                AutoSpy.PostMessage(this.ControlHandle, num + 1u, 0u, lParam);
+                AutoSpy.PostMessage(ControlHandle, num, 0u, lParam);
+                AutoSpy.PostMessage(ControlHandle, num + 1u, 0u, lParam);
                 Thread.Sleep(delay);
             }
         }
 
         public void ClickDrag(int startX, int startY, int endX, int endY, int delay = 0, string button = "left")
         {
-            uint num = this.MakeButtonMessage(button);
-            uint wParam = this.MakeButtonPressedMessage(button);
-            AutoSpy.PostMessage(this.ControlHandle, num, 0u, this.MakeLong(startX, startY));
+            uint num = MakeButtonMessage(button);
+            uint wParam = MakeButtonPressedMessage(button);
+            AutoSpy.PostMessage(ControlHandle, num, 0u, MakeLong(startX, startY));
             Thread.Sleep(delay / 2);
-            AutoSpy.PostMessage(this.ControlHandle, 512u, wParam, this.MakeLong(endX, endY));
+            AutoSpy.PostMessage(ControlHandle, 512u, wParam, MakeLong(endX, endY));
             Thread.Sleep(delay / 2);
-            AutoSpy.PostMessage(this.ControlHandle, num + 1u, 0u, this.MakeLong(endX, endY));
+            AutoSpy.PostMessage(ControlHandle, num + 1u, 0u, MakeLong(endX, endY));
         }
 
         public void ClickHold(int x, int y, int delay = 0, string button = "left")
         {
-            uint num = this.MakeButtonMessage(button);
-            AutoSpy.PostMessage(this.ControlHandle, num, 0u, this.MakeLong(x, y));
+            uint num = MakeButtonMessage(button);
+            AutoSpy.PostMessage(ControlHandle, num, 0u, MakeLong(x, y));
             Thread.Sleep(delay);
-            AutoSpy.PostMessage(this.ControlHandle, num + 1u, 0u, this.MakeLong(x, y));
+            AutoSpy.PostMessage(ControlHandle, num + 1u, 0u, MakeLong(x, y));
         }
 
         public void FocusWindow()
         {
-            AutoSpy.SwitchToThisWindow(this.Handle, false);
+            AutoSpy.SwitchToThisWindow(Handle, false);
             Thread.Sleep(50);
         }
 
         public Point GetMousePos()
         {
-            Rectangle windowPos = AutoItX.WinGetPos(this.Handle);
+            Rectangle windowPos = AutoItX.WinGetPos(Handle);
             Point mousePos = AutoItX.MouseGetPos();
             return new Point(mousePos.X - windowPos.X, mousePos.Y - windowPos.Y);
         }
 
         public int GetPixel(int x, int y)
         {
-            return AutoSpy.ColorToInt(this.CurrentFrame.GetPixel(x, y));
+            return AutoSpy.ColorToInt(CurrentFrame.GetPixel(x, y));
         }
 
         public string[] GetText()
         {
-            return AutoItX.WinGetText(this.Handle, 65535).Split("\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            return AutoItX.WinGetText(Handle, 65535).Split("\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
         }
 
         public void Hide()
         {
             int nCmdShow = 0;
-            AutoSpy.ShowWindow(this.Handle, nCmdShow);
+            AutoSpy.ShowWindow(Handle, nCmdShow);
         }
 
         public void HoldKey(uint key, int times = 1, int delay = 0)
         {
-            AutoSpy.PostMessage(this.ControlHandle, 256u, key, 0u);
+            AutoSpy.PostMessage(ControlHandle, 256u, key, 0u);
             Thread.Sleep(delay);
-            AutoSpy.PostMessage(this.ControlHandle, 257u, key, 0u);
+            AutoSpy.PostMessage(ControlHandle, 257u, key, 0u);
         }
 
         public void Opacity(int value)
         {
-            AutoSpy.SetWindowLong(this.Handle, -20, AutoSpy.GetWindowLong(this.Handle, -20) ^ 524288);
-            AutoSpy.SetLayeredWindowAttributes(this.Handle, 0u, (byte)value, 2u);
+            AutoSpy.SetWindowLong(Handle, -20, AutoSpy.GetWindowLong(Handle, -20) ^ 524288);
+            AutoSpy.SetLayeredWindowAttributes(Handle, 0u, (byte)value, 2u);
         }
 
         public void PressKey(uint key, int times = 1, int delay = 0)
         {
             for (int i = 0; i < times; i++)
             {
-                AutoSpy.PostMessage(this.ControlHandle, 256u, key, 0u);
-                AutoSpy.PostMessage(this.ControlHandle, 257u, key, 0u);
+                AutoSpy.PostMessage(ControlHandle, 256u, key, 0u);
+                AutoSpy.PostMessage(ControlHandle, 257u, key, 0u);
                 Thread.Sleep(delay);
             }
         }
 
         public void ResizeWindow(int width, int height, bool fixedSize = false)
         {
-            if (fixedSize)
+            /*if (fixedSize)
             {
                 int nIndex = -16;
                 long num = (long)AutoSpy.GetWindowLong(this.Handle, nIndex);
                 num &= -13303809L;
                 AutoSpy.SetWindowLong(this.Handle, nIndex, (int)num);
             }
-            AutoSpy.SetWindowPos(this.Handle, IntPtr.Zero, 0, 0, width, height, 2u);
+            AutoSpy.SetWindowPos(this.Handle, IntPtr.Zero, 0, 0, width, height, 2u);*/
+            MoveWindow(ControlHandle, 0, 0, 828, 494, true);
+            MoveWindow(Handle, 0, 0, 830, 533, true);
         }
 
         public Size GetControlSize()
         {
-            RECT pRect;
             Size cSize = new Size();
             // get coordinates relative to window
-            GetWindowRect(this.Handle, out pRect);
+            GetWindowRect(Handle, out RECT pRect);
+
+            cSize.Width = pRect.Right - pRect.Left;
+            cSize.Height = pRect.Bottom - pRect.Top;
+
+            return cSize;
+        }
+        public Size GetControlSize2()
+        {
+            Size cSize = new Size();
+            // get coordinates relative to window
+            GetWindowRect(ControlHandle, out RECT pRect);
 
             cSize.Width = pRect.Right - pRect.Left;
             cSize.Height = pRect.Bottom - pRect.Top;
@@ -308,19 +322,19 @@ namespace SevenKnightsAI.Classes
 
         public void Scroll(int x, int y, int scrolls = -1, int wheelDelta = 120)
         {
-            AutoSpy.PostMessage(this.ControlHandle, 522u, (uint)((uint)(wheelDelta * scrolls) << 16), this.MakeLong(x, y));
+            AutoSpy.PostMessage(ControlHandle, 522u, (uint)(wheelDelta * scrolls) << 16, MakeLong(x, y));
         }
 
         public void Show()
         {
             int nCmdShow = 5;
-            AutoSpy.ShowWindow(this.Handle, nCmdShow);
+            AutoSpy.ShowWindow(Handle, nCmdShow);
         }
 
         public void WeightedClick(int x, int y, double scale = 1.0, double density = 1.0, int numClicks = 1, int delay = 0, string button = "left")
         {
-            Point point = this.RandomWeightedCoords(x, y, scale, density);
-            this.Click(point.X, point.Y, numClicks, delay, button);
+            Point point = RandomWeightedCoords(x, y, scale, density);
+            Click(point.X, point.Y, numClicks, delay, button);
         }
 
         #endregion Public Methods
@@ -414,13 +428,13 @@ namespace SevenKnightsAI.Classes
 
         private double RandomWeight()
         {
-            return (double)((float)this.random.NextDouble());
+            return (float)random.NextDouble();
         }
 
         private Point RandomWeightedCoords(int x, int y, double scale = 1.0, double density = 1.0)
         {
-            double num = this.RandomWeight() * 2.0 * 3.1415926535897931;
-            double num2 = this.RandomWeight();
+            double num = RandomWeight() * 2.0 * 3.1415926535897931;
+            double num2 = RandomWeight();
             if (density == 0.0)
             {
                 density = 1.0;
@@ -430,7 +444,7 @@ namespace SevenKnightsAI.Classes
                 num2 = 1E-07;
             }
             double num3 = scale * (Math.Pow(num2, -1.0 / density) - 1.0);
-            return new Point((int)((double)x + num3 * Math.Sin(num)), (int)((double)y + num3 * Math.Cos(num)));
+            return new Point((int)(x + num3 * Math.Sin(num)), (int)(y + num3 * Math.Cos(num)));
         }
 
         #endregion Private Methods

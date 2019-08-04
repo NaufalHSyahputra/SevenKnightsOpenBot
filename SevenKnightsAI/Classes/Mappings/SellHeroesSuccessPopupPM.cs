@@ -1,7 +1,4 @@
-﻿using System;
-using System.Drawing;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class SellHeroesSuccessPopupPM
     {

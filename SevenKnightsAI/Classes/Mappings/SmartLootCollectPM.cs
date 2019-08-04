@@ -1,45 +1,27 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class SmartLootCollectPM
     {
         public static readonly PixelMapping Point1 = new PixelMapping //dimmed
         {
-            X = 593,
-            Y = 419,
-            Color = 12107204,
+            X = 889,
+            Y = 148,
+            Color = 3355961,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 609,
-            Y = 70,
-            Color = 13750994,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Card = new PixelMapping
-        {
-            X = 93,
-            Y = 423,
-            Color = 5065801,
+            X = 601,
+            Y = 205,
+            Color = 11966056,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping OpenAllButton = new PixelMapping
         {
-            X = 616,
-            Y = 422, 
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
-
-        public static readonly PixelMapping CrossButton = new PixelMapping
-        {
-            X = 681,
-            Y = 71,
+            X = 459,
+            Y = 511,
             Color = 0,
             Type = MappingType.BUTTON
         };

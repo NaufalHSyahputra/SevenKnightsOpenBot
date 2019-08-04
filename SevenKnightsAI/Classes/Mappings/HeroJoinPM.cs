@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class HeroJoinPM
     {
@@ -16,20 +14,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping JoinButtonIcon = new PixelMapping
         {
-            //X = 861,
-            //Y = 456,
-            //Color = 15058003,
-            X = 761,
-            Y = 409,
-            Color = 15058003,
+            X = 890,
+            Y = 495,
+            Color = 9738141,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping SellButton = new PixelMapping
         {
-            X = 536,
-            Y = 422,
-            Color = 14726729,
+            X = 579,
+            Y = 502,
+            Color = 12959421,
             Type = MappingType.BOTH
         };
         public static readonly PixelMapping KeyLockButton = new PixelMapping
@@ -42,8 +37,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping ItemButton = new PixelMapping
         {
-            X = 707,
-            Y = 244,
+            X = 832,
+            Y = 279,
             Color = 0,
             Type = MappingType.BUTTON
         };

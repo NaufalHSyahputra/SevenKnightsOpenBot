@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes
 {
@@ -10,9 +9,9 @@ namespace SevenKnightsAI.Classes
 
         public ProgressArgs(ProgressType type, object message, Color color)
         {
-            this.Type = type;
-            this.Message = message;
-            this.Color = color;
+            Type = type;
+            Message = message;
+            Color = color;
         }
 
         public Color Color

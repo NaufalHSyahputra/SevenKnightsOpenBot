@@ -1,29 +1,27 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class NetmarbleSplashPM
     {
         public static readonly PixelMapping Mascot_1 = new PixelMapping
         {
-            X = 432,
-            Y = 203,
-            Color = 16766472,
+            X = 459,
+            Y = 274,
+            Color = 16635404,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping Mascot_2 = new PixelMapping
         {
-            X = 399,
-            Y = 250,
-            Color = 16766472,
+            X = 496,
+            Y = 305,
+            Color = 16431106,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping WhiteBackground = new PixelMapping
         {
-            X = 649,
-            Y = 190,
+            X = 760,
+            Y = 280,
             Color = 16777215,
             Type = MappingType.BOTH
         };

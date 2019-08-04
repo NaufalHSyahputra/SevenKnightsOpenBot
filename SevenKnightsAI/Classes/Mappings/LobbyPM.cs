@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -9,24 +8,24 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping StatusBoard = new PixelMapping //evan hair
         {
-            X = 55,
-            Y = 237,
+            X = 52,
+            Y = 256,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping MasteryButton = new PixelMapping
         {
-            X = 49,
-            Y = 88,
+            X = 52,
+            Y = 93,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping AdventureButton = new PixelMapping
         {
-            X = 725,
-            Y = 438,
+            X = 911,
+            Y = 470,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -37,16 +36,16 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping GuildButton = new PixelMapping
         {
-            X = 251,
-            Y = 423,
+            X = 258,
+            Y = 494,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroButton = new PixelMapping
         {
-            X = 34,
-            Y = 424,
+            X = 39,
+            Y = 481,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -57,16 +56,16 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping InboxAvailable = new PixelMapping
         {
-            X = 711,
-            Y = 26,
+            X = 690,
+            Y = 15,
             Color = 13116423,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping InboxButton = new PixelMapping
         {
-            X = 724,
-            Y = 39,
+            X = 846,
+            Y = 32,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -77,37 +76,35 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping MenuButtonYellowLeft = new PixelMapping //Chest
         {
-            X = 667,
-            Y = 40,
-            Color = 12289079,
+            X = 920,
+            Y = 32,
+            Color = 16711422,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MenuButtonYellowRight = new PixelMapping //Chest
         {
-            X = 695,
-            Y = 42,
-            Color = 12223286,
+            X = 947,
+            Y = 31,
+            Color = 16777215,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping QuestAvailable = new PixelMapping
         {
-            X = 86,
-            Y = 401,
+            X = 76,
+            Y = 389,
             Color = 13116423,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping QuestButton = new PixelMapping
         {
-            X = 108,
-            Y = 440,
+            X = 90,
+            Y = 411,
             Color = 0,
             Type = MappingType.BUTTON
         };
-
-        //public static readonly int RUBY_OFFSET_X = 10;
         public static readonly int RUBY_OFFSET_X = 0;
 
         public static readonly int RUBY_OFFSET_Y = 0;
@@ -122,24 +119,24 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping ShopButton = new PixelMapping
         {
-            X = 736,
-            Y = 516,
+            X = 621,
+            Y = 495,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SocialAvailable = new PixelMapping
         {
-            X = 158,
-            Y = 400,
+            X = 138,
+            Y = 391,
             Color = 13116423,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping SocialButton = new PixelMapping
         {
-            X = 184,
-            Y = 427,
+            X = 159,
+            Y = 411,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -150,9 +147,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle OwnerLocation = new Rectangle
         {
-            X = 181,
-            Y = 156,
-            Width = 180,
+            X = 208,
+            Y = 171,
+            Width = 190,
             Height = 30
         };
 
@@ -184,59 +181,83 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_GoldBase = new Rectangle
         {
-            X = 371,
-            Y = 31,
-            Width = 73,
-            Height = 21
+            X = 479,
+            Y = 21,
+            Width = 109,
+            Height = 23
         };
 
         public static readonly Rectangle R_HonorBase = new Rectangle
         {
-            X = 591,
-            Y = 31,
-            Width = 67,
-            Height = 21
+            X = 687,
+            Y = 22,
+            Width = 77,
+            Height = 23
         };
 
         public static readonly Rectangle R_KeyNormalBase = new Rectangle
         {
-            X = 259,
-            Y = 28,
-            Width = 60,
-            Height = 25
+            X = 338,
+            Y = 19,
+            Width = 79,
+            Height = 26
         };
 
         public static readonly Rectangle R_KeyTopBase = new Rectangle
         {
-            X = 258,
-            Y = 30,
-            Width = 60,
-            Height = 22
+            X = 327,
+            Y = 17,
+            Width = 38,
+            Height = 15
+        };
+
+        public static readonly Rectangle R_KeyTime = new Rectangle
+        {
+            X = 315,
+            Y = 31,
+            Width = 52,
+            Height = 16
         };
 
         public static readonly Rectangle R_RubyBase = new Rectangle
         {
-            X = 495,
-            Y = 33,
-            Width = 49,
-            Height = 20
+            X = 656,
+            Y = 21,
+            Width = 75,
+            Height = 22
         };
 
         /* Smart Mode */
 
         public static readonly PixelMapping SmartAvailable = new PixelMapping
         {
-            X = 583,
-            Y = 408,
-            Color = 12526598,
+            X = 569,
+            Y = 385,
+            Color = 12919558,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping SmartButton = new PixelMapping
         {
-            X = 611,
-            Y = 430,
+            X = 822,
+            Y = 486,
             Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping UnknownAvailable = new PixelMapping
+        {
+            X = 31,
+            Y = 326,
+            Color = 13116423,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping UnknownBtn = new PixelMapping
+        {
+            X = 67,
+            Y = 347,
+            Color = 8942952,
             Type = MappingType.BUTTON
         };
 

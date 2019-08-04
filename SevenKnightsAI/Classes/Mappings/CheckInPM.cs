@@ -1,28 +1,26 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class CheckInPM
     {
         public static readonly PixelMapping CloseButton = new PixelMapping
         {
-            X = 899,
-            Y = 52,
-            Color = 13254668,
+            X = 901,
+            Y = 57,
+            Color = 13452044,
             Type = MappingType.BOTH
         };
         public static readonly PixelMapping BorderTopLeft = new PixelMapping
         {
-            X = 41,
-            Y = 29,
+            X = 38,
+            Y = 36,
             Color = 12890515,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping BorderRightBottom = new PixelMapping
         {
-            X = 918,
-            Y = 510,
-            Color = 9400921,
+            X = 925,
+            Y = 514,
+            Color = 4601385,
             Type = MappingType.ANCHOR
         };
     }

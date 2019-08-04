@@ -13,6 +13,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
+		ReleaseFB|Any CPU = ReleaseFB|Any CPU
+		ReleaseFB|Mixed Platforms = ReleaseFB|Mixed Platforms
+		ReleaseFB|x86 = ReleaseFB|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.Debug|Any CPU.ActiveCfg = Debug|x86
@@ -27,6 +30,12 @@ Global
 		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.Release|Mixed Platforms.Build.0 = Release|x86
 		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.Release|x86.ActiveCfg = Release|x86
 		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.Release|x86.Build.0 = Release|x86
+		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.ReleaseFB|Any CPU.ActiveCfg = ReleaseFB|Any CPU
+		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.ReleaseFB|Any CPU.Build.0 = ReleaseFB|Any CPU
+		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.ReleaseFB|Mixed Platforms.ActiveCfg = ReleaseFB|x86
+		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.ReleaseFB|Mixed Platforms.Build.0 = ReleaseFB|x86
+		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.ReleaseFB|x86.ActiveCfg = ReleaseFB|x86
+		{3685EE23-CE32-483F-B632-6ABBDF7071AF}.ReleaseFB|x86.Build.0 = ReleaseFB|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,13 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes
+﻿namespace SevenKnightsAI.Classes
 {
     internal enum SceneType
     {
+        NOT_FOUND,
+        _NOT_RESPONDING_POPUP,
         _ANDROID_POPUP,
+        _FORCE_CLOSE,
         _DIALOG,
+        ARES_CUP_CONTESTANTS,
         NETMARBLE_SPLASH,
         LANDING,
         LOGIN,
@@ -67,22 +69,9 @@ namespace SevenKnightsAI.Classes
         INBOX,
         INBOX_REWARDS_POPUP,
         INBOX_COLLECT_FAILED_POPUP,
-        INBOX_SELECT_HERO,
-        QUEST_SELECT,
-        SPECIAL_QUEST,
-        QUEST,
-        QUEST_REWARDS_POPUP,
-        QUEST_COLLECT_FAILED_POPUP,
-        SOCIAL_SELECT,
-        FRIENDS,
-        SEND_HONOR_SENDING_POPUP,
-        SEND_HONOR_END_POPUP,
-        SEND_HONOR_FAILED_POPUP,
-        SEND_HONOR_CONFIRM_POPUP,
-        SEND_HONOR_FULL_POPUP,
-        SEND_HONOR_NO_FRIEND_TO_SEND,
-        BLUESTACK_HOME,
-        STATUS_BOARD,
+        INBOX_COLLECT_FAILED_POPUP_2,
+        EMULATOR_HOME,
+        HOTTIME_POPUP,
         HOTTIME_CONFIRM_POPUP,
         EVENT_PACKAGE_POPUP,
         EVENT_PACKAGE_CLOSE_POPUP,
@@ -96,13 +85,28 @@ namespace SevenKnightsAI.Classes
         LOADING,
         CLOSE_POPUP,
         ONE_DOLLAR_SHOP_POPUP,
-        SPECIAL_QUEST_POPUP,
         OUT_OF_TICKET_POPUP,
         SELL_ITEM_LOBBY,
         PAUSE,
         SMART_SELECT,
         SMART_LOBBY,
         SMART_LOOT_COLLECT_LOBBY,
-        NO_MORE_HERO_POPUP
+        NO_MORE_HERO_POPUP,
+        UPDATE,
+        POWER_UP_LOBBY,
+        POWER_UP_FAILED_POPUP,
+        POWER_UP_CONFIRM,
+        POWER_UP_PROCESS,
+        POWER_UP_SUCCESS,
+        FUSE_LOBBY,
+        FUSE_SUCCESS,
+        FUSE_CONFIRM,
+        UNKNOWN_AREA,
+        UNKNOWN_AREA_SUCCESS,
+        LEADER_ICON,
+        AHRI_CONNECTING,
+        NO_MORE_RUBY_POPUP,
+        NO_MORE_RUBY_OFFER,
+        TEMPORARY_STORAGE
     }
 }

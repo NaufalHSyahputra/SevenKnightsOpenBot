@@ -1,30 +1,52 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class BluestackPM
     {
-        public static readonly PixelMapping SevenKnightIconTop = new PixelMapping
+        public static readonly PixelMapping LDStoreIcon1 = new PixelMapping
         {
-            X = 274,
-            Y = 2,
-            Color = 1842209,
+            X = 290,
+            Y = 83,
+            Color = 16749077,
             Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping SevenKnightIcon = new PixelMapping
+        public static readonly PixelMapping LDStoreIcon2 = new PixelMapping
         {
-            X = 250,
-            Y = 59,
-            Color = 3561840,
+            X = 683,
+            Y = 70,
+            Color = 4103412,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping Background = new PixelMapping
         {
-            X = 136,
-            Y = 425,
-            Color = 16646140,
+            X = 678,
+            Y = 85,
+            Color = 16777215,
+            Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping LDStoreIcon1_2 = new PixelMapping
+        {
+            X = 320,
+            Y = 60,
+            Color = 2171169,
+            Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping LDStoreIcon2_2 = new PixelMapping
+        {
+            X = 371,
+            Y = 57,
+            Color = 8289918,
+            Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping Background_2 = new PixelMapping
+        {
+            X = 642,
+            Y = 58,
+            Color = 2171169,
             Type = MappingType.BOTH
         };
     }

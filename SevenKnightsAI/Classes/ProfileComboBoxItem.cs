@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SevenKnightsAI.Classes
 {
@@ -7,14 +6,14 @@ namespace SevenKnightsAI.Classes
     {
         public ProfileComboBoxItem(KeyValuePair<string, AISettings> entry)
         {
-            this.Key = entry.Key;
-            this.Text = this.Key.Substring(this.Key.IndexOf('\\') + 1).Replace(AIProfiles.FILE_EXTENSION, "");
-            this.Value = entry.Value;
+            Key = entry.Key;
+            Text = Key.Substring(Key.IndexOf('\\') + 1).Replace(AIProfiles.FILE_EXTENSION, "");
+            Value = entry.Value;
         }
 
         public override string ToString()
         {
-            return this.Text;
+            return Text;
         }
 
         public string Key;

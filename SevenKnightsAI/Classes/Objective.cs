@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes
+﻿namespace SevenKnightsAI.Classes
 {
     internal enum Objective
     {
@@ -27,5 +25,11 @@ namespace SevenKnightsAI.Classes
         COLLECT_QUESTS, //12
 
         SEND_HONORS, //13
+
+        POWER_UP_HEROES, //14
+
+        FUSE_HEROES, //15
+
+        CHANGE_PROFILE, //16
     }
 }

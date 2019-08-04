@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -9,88 +8,82 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping BackButton = new PixelMapping //Red Back button
         {
-            X = 31,
-            Y = 38,
-            Color = 13846028,
+            X = 26,
+            Y = 55,
+            Color = 16053492,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping BackButtonAnchor = new PixelMapping //Red Back button
         {
-            X = 31,
-            Y = 38,
-            Color = 13846028,
+            X = 26,
+            Y = 55,
+            Color = 1065600,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BackButton2 = new PixelMapping //yellow back button
         {
-            X = 21,
-            Y = 35,
-            Color = 16776629,
+            X = 20,
+            Y = 37,
+            Color = 16251645,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping BackButtonAnchor2 = new PixelMapping //yellow back button
         {
-            X = 21,
-            Y = 35,
-            Color = 16776629,
+            X = 20,
+            Y = 37,
+            Color = 16251645,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping Fight_AutoSkillButton = new PixelMapping
+        public static readonly PixelMapping XButton = new PixelMapping //yellow back button
         {
-            X = 128,
-            Y = 496,
-            Color = 0,
-            Type = MappingType.BUTTON
+            X = 927,
+            Y = 38,
+            Color = 12991755,
+            Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping Fight_AutoSkillOff = new PixelMapping
+        public static readonly PixelMapping XButtonAnchor = new PixelMapping //yellow back button
         {
-            X = 127,
-            Y = 524,
-            Color = 7033650,
+            X = 917,
+            Y = 25,
+            Color = 12797195,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping Fight_AutoSkillOnBottom = new PixelMapping
+        public static readonly PixelMapping MiniXButton = new PixelMapping //yellow back button
         {
-            //X = 128,
-            //Y = 525,
-            //Color = 7481611,
-            X = 130,
-            Y = 496,
-            Color = 7748889,
-            Type = MappingType.ANCHOR
+            X = 725,
+            Y = 56,
+            Color = 12860171,
+            Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping Fight_AutoSkillOnTop = new PixelMapping
+        public static readonly PixelMapping MiniXButtonAnchor = new PixelMapping //yellow back button
         {
-            //X = 128,
-            //Y = 466,
-            //Color = 3547410,
-            X = 120,
-            Y = 496,
-            Color = 8866079,
+            X = 725,
+            Y = 56,
+            Color = 12860171,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Fight_ChatButton = new PixelMapping
         {
-            X = 785,
-            Y = 169,
-            Color = 14009213,
+            X = 936,
+            Y = 113,
+            Color = 6178347,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping Fight_PauseButton = new PixelMapping
         {
-            X = 790,
-            Y = 121,
-            Color = 13811577,
-            Type = MappingType.BOTH
+            X = 394,
+            Y = 29,
+            Color = 4991502,
+            Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Fight_Skill1 = new PixelMapping
@@ -308,7 +301,7 @@ namespace SevenKnightsAI.Classes.Mappings
             Color = 15453565,
             Type = MappingType.ANCHOR
         };
-        
+
         public static readonly PixelMapping Fight_Skill10 = new PixelMapping
         {
             X = 919,
@@ -526,33 +519,33 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Full_DimmedBG = new PixelMapping
         {
-            X = 424,
-            Y = 39,
-            Color = 4076316,
+            X = 306,
+            Y = 391,
+            Color = 4668704,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Full_NoButton = new PixelMapping
         {
-            X = 293,
-            Y = 352,
-            Color = 0,
+            X = 239,
+            Y = 335,
+            Color = 14761223,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Full_ProceedButton = new PixelMapping
         {
-            X = 380,
-            Y = 350,
-            Color = 0,
+            X = 405,
+            Y = 335,
+            Color = 13337092,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Full_SellButton = new PixelMapping
         {
-            X = 536,
-            Y = 350,
-            Color = 0,
+            X = 484,
+            Y = 343,
+            Color = 15189850,
             Type = MappingType.BUTTON
         };
 
@@ -588,28 +581,70 @@ namespace SevenKnightsAI.Classes.Mappings
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping Hero_BlackBar = new PixelMapping
+        public static readonly PixelMapping Hero_BlackBar = new PixelMapping //preview button
         {
-            X = 814,
-            Y = 47,
-            Color = 0,
+            X = 473,
+            Y = 474,
+            Color = 6840921,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping Hero_BottomLeftBorder = new PixelMapping //preview button
+        public static readonly PixelMapping Hero_LevelUpBtn1 = new PixelMapping
         {
-            X = 26,
-            Y = 429,
-            Color = 6774872,
+            X = 780,
+            Y = 81,
+            Color = 16770464,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping Hero_LeaderButton = new PixelMapping
+        public static readonly PixelMapping Hero_LevelUpBtn2 = new PixelMapping
         {
-            X = 710,
-            Y = 479,
-            Color = 13999149,
+            X = 779,
+            Y = 94,
+            Color = 10256459,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping Hero_BottomLeftBorder = new PixelMapping //Leader button
+        {
+            X = 470,
+            Y = 79,
+            Color = 13583440,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping Hero_Locked = new PixelMapping //Locked button
+        {
+            X = 199,
+            Y = 473,
+            Color = 15980693,
+            Type = MappingType.ANCHOR
+        };
+
+
+        public static readonly PixelMapping Hero_UnLocked = new PixelMapping //Unlocked button
+        {
+            X = 199,
+            Y = 473,
+            Color = 4391424,
+            Type = MappingType.ANCHOR
+        };
+
+
+        public static readonly PixelMapping Hero_PowerUpButton = new PixelMapping
+        {
+            X = 882,
+            Y = 109,
+            Color = 13027274,
             Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping Hero_RankUpButton = new PixelMapping
+        {
+            X = 882,
+            Y = 109,
+            Color = 3028033,
+            Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Hero_Level30_1 = new PixelMapping
@@ -638,10 +673,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle Hero_R_Level_30 = new Rectangle
         {
-            X = 624,
-            Y = 90,
-            Width = 125,
-            Height = 33
+            X = 665,
+            Y = 78,
+            Width = 93,
+            Height = 30
             //X = 636,
             //Y = 63,
             //Width = 134,
@@ -658,8 +693,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Loot_LobbyButton = new PixelMapping
         {
-            X = 766,
-            Y = 419,
+            X = 895,
+            Y = 487,
             Color = 16242800,
             Type = MappingType.BOTH
         };
@@ -730,23 +765,23 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping PrepareFight_StartButton = new PixelMapping
         {
-            X = 548,
-            Y = 424,
-            Color = 5973262,
+            X = 608,
+            Y = 484,
+            Color = 16312246,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping PrepareFight_TeamAButton = new PixelMapping
         {
-            X = 144,
-            Y = 78,
+            X = 165,
+            Y = 74,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping PrepareFight_TeamBButton = new PixelMapping
         {
-            X = 229,
+            X = 264,
             Y = 75,
             Color = 0,
             Type = MappingType.BUTTON
@@ -754,8 +789,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping PrepareFight_TeamCButton = new PixelMapping
         {
-            X = 314,
-            Y = 78,
+            X = 364,
+            Y = 76,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -834,33 +869,41 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Rewards_OkButton = new PixelMapping
         {
-            X = 486,
-            Y = 396,
+            X = 426,
+            Y = 398,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Rewards_PopupBorder = new PixelMapping
         {
-            X = 260,
-            Y = 200,
-            Color = 16639654,
+            X = 429,
+            Y = 155,
+            Color = 16495891,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Rewards_YellowTick = new PixelMapping
         {
-            X = 421,
-            Y = 401,
-            Color = 16756754,
+            X = 426,
+            Y = 398,
+            Color = 16770375,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ShopPopup_DimmedBG = new PixelMapping
         {
-            X = 97,
-            Y = 76,
-            Color = 3547649,
+            X = 86,
+            Y = 75,
+            Color = 3547393,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping ShopPopup_DimmedBG2 = new PixelMapping
+        {
+            X = 86,
+            Y = 75,
+            Color = 7751939,
             Type = MappingType.ANCHOR
         };
 
@@ -882,25 +925,57 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping HelpFriendOK = new PixelMapping
         {
-            X = 361,
-            Y = 375,
+            X = 475,
+            Y = 403,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HelpFriendTik = new PixelMapping
         {
-            X = 361,
-            Y = 375,
-            Color = 16760609,
+            X = 424,
+            Y = 404,
+            Color = 13882583,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping HelpFriendBorder = new PixelMapping
         {
-            X = 336,
-            Y = 285,
-            Color = 12922891,
+            X = 351,
+            Y = 146,
+            Color = 14410219,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping HeroSkill_Cake1 = new PixelMapping
+        {
+            X = 741,
+            Y = 402,
+            Color = 16375975,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping HeroSkill_Cake2 = new PixelMapping
+        {
+            X = 632,
+            Y = 426,
+            Color = 8337772,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping HeroSkill_Crystal1 = new PixelMapping
+        {
+            X = 763,
+            Y = 364,
+            Color = 8546106,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping HeroSkill_Crystal2 = new PixelMapping
+        {
+            X = 763,
+            Y = 364,
+            Color = 8546106,
             Type = MappingType.ANCHOR
         };
         #endregion Public Fields

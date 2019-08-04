@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace SevenKnightsAI.Classes
 {
     internal class Utility
     {
         [DllImport("wininet.dll")]
-        public extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+        public static extern bool InternetGetConnectedState(out int Description, int ReservedValue);
 
         public static string FilterAscii(string input)
         {

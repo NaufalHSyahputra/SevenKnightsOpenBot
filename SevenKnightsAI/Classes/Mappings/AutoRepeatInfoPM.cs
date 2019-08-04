@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -7,63 +6,63 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 434,
-            Y = 212,
-            Color = 16640930,
+            X = 538,
+            Y = 226,
+            Color = 9654545,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping CardIcon = new PixelMapping
         {
-            X = 436,
-            Y = 165,
-            Color = 15186275,
+            X = 532,
+            Y = 161,
+            Color = 16711159,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping ChestIcon = new PixelMapping
         {
-            X = 599,
-            Y = 162,
-            Color = 9535081,
+            X = 714,
+            Y = 163,
+            Color = 4071435,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CloseBtn = new PixelMapping
         {
-            X = 716,
-            Y = 77,
-            Color = 13254668,
+            X = 836,
+            Y = 63,
+            Color = 7238011,
             Type = MappingType.BOTH
-        };
-
-        public static readonly Rectangle RaidGauge = new Rectangle
-        {
-            X = 523,
-            Y = 268,
-            Width = 103,
-            Height = 25
         };
 
         public static readonly Rectangle Gold = new Rectangle
         {
-            X = 463,
-            Y = 209, 
-            Width = 110,
-            Height = 30
+            X = 553,
+            Y = 218,
+            Width = 135,
+            Height = 23
         };
 
         public static readonly Rectangle Hero = new Rectangle
         {
-            X = 464,
-            Y = 159,
-            Width = 97,
-            Height = 26
+            X = 553,
+            Y = 158,
+            Width = 120,
+            Height = 27
         };
 
         public static readonly Rectangle Item = new Rectangle
         {
-            X = 620,
+            X = 726,
             Y = 159,
-            Width = 97,
+            Width = 103,
+            Height = 23
+        };
+
+        public static readonly Rectangle Soul = new Rectangle
+        {
+            X = 554,
+            Y = 279,
+            Width = 110,
             Height = 26
         };
     }

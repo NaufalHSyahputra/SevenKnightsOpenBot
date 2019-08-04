@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes
+﻿namespace SevenKnightsAI.Classes
 {
     internal enum ResourceType
     {
@@ -20,6 +18,8 @@ namespace SevenKnightsAI.Classes
 
         STAR,
 
-        ESSENCE
+        ESSENCE,
+
+        SOUL
     }
 }

@@ -1,38 +1,36 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class HeroRemovePM
     {
         public static readonly PixelMapping PositionButton = new PixelMapping
         {
-            X = 448,
-            Y = 422,
-            Color = 15123797,
+            X = 736,
+            Y = 496,
+            Color = 12566723,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping RemoveAllButton = new PixelMapping
         {
-            X = 536,
-            Y = 410,
-            Color = 16049284,
+            X = 531,
+            Y = 496,
+            Color = 5780016,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping RemoveButton = new PixelMapping
         {
-            X = 748,
-            Y = 411,
-            Color = 16049284,
-            Type = MappingType.BOTH
+            X = 927,
+            Y = 498,
+            Color = 7360847,
+            Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RemoveButtonIcon = new PixelMapping
         {
-            X = 748,
-            Y = 411,
-            Color = 16049284,
+            X = 867,
+            Y = 499,
+            Color = 12497843,
             Type = MappingType.ANCHOR
         };
     }

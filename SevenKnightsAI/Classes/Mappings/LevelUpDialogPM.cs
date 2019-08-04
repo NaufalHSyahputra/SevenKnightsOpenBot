@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class LevelUpDialogPM
     {
         public static readonly PixelMapping CharacterEye = new PixelMapping
         {
-            X = 173,
-            Y = 124,
-            Color = 9919535,
+            X = 162,
+            Y = 115,
+            Color = 12161357,
             Type = MappingType.ANCHOR
         };
 
@@ -22,17 +20,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping OkButton = new PixelMapping
         {
-            X = 711,
-            Y = 425,
+            X = 880,
+            Y = 484,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping YellowTick = new PixelMapping
         {
-            X = 711,
-            Y = 425,
-            Color = 16768319,
+            X = 202,
+            Y = 390,
+            Color = 15980450,
             Type = MappingType.ANCHOR
         };
     }

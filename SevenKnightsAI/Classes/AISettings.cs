@@ -15,6 +15,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "AD_AmountSequence")]
         public int[] AD_AmountSequence;
 
+        [XmlElement(ElementName = "AD_BoostSequence")]
+        public int[] AD_BoostSequence;
+
         [XmlElement(ElementName = "AD_Continuous")]
         public bool AD_Continuous;
 
@@ -72,6 +75,15 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "AD_BootMode")]
         public bool AD_BootMode;
 
+        [XmlElement(ElementName = "AD_BoostAsgar")]
+        public bool AD_BoostAsgar;
+
+        [XmlElement(ElementName = "AD_BoostModeSequence")]
+        public bool AD_BoostModeSequence;
+
+        [XmlElement(ElementName = "AD_BoostAllMap")]
+        public bool AD_BoostAllMap;
+
         [XmlElement(ElementName = "AR_Enable")]
         public bool AR_Enable;
 
@@ -102,6 +114,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "RS_BuyKeyHonors")]
         public bool RS_BuyKeyHonors;
 
+        [XmlElement(ElementName = "RS_SellGoldOre")]
+        public bool RS_SellGoldOre;
+
         [XmlElement(ElementName = "RS_BuyKeyHonorsAmount")]
         public int RS_BuyKeyHonorsAmount;
 
@@ -120,6 +135,30 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "RS_CollectLuckyBox")]
         public bool RS_CollectLuckyBox;
 
+        [XmlElement(ElementName = "RS_CollectInbox")]
+        public bool RS_CollectInbox;
+
+        [XmlElement(ElementName = "RS_EnableCI")]
+        public bool RS_EnableCI;
+
+        [XmlElement(ElementName = "RS_CIOnlyHonor")]
+        public bool RS_CIOnlyHonor;
+
+        [XmlElement(ElementName = "RS_CIOnlyKey")]
+        public bool RS_CIOnlyKey;
+
+        [XmlElement(ElementName = "RS_CIOnlyCurrency")]
+        public bool RS_CIOnlyCurrency;
+
+        [XmlElement(ElementName = "RS_CIOnlyTicket")]
+        public bool RS_CIOnlyTicket;
+
+        [XmlElement(ElementName = "RS_EnableCINoRuby")]
+        public bool RS_EnableCINoRuby;
+
+        [XmlElement(ElementName = "RS_CollectInboxActive")]
+        public int RS_CollectInboxActive;
+
         [XmlElement(ElementName = "RS_CollectLuckyChest")]
         public bool RS_CollectLuckyChest;
 
@@ -137,18 +176,6 @@ namespace SevenKnightsAI.Classes
 
         [XmlElement(ElementName = "RS_InboxTickets")]
         public bool RS_InboxTickets;
-
-        [XmlElement(ElementName = "RS_QuestsBattle")]
-        public bool RS_QuestsBattle;
-
-        [XmlElement(ElementName = "RS_QuestsHero")]
-        public bool RS_QuestsHero;
-
-        [XmlElement(ElementName = "RS_QuestsItem")]
-        public bool RS_QuestsItem;
-
-        [XmlElement(ElementName = "RS_QuestsSocial")]
-        public bool RS_QuestsSocial;
 
         [XmlElement(ElementName = "RS_SellHeroAll")]
         public bool RS_SellHeroAll;
@@ -174,35 +201,8 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "RS_SellItemStars")]
         public int RS_SellItemStars;
 
-        [XmlElement(ElementName = "RS_SendHonorsFacebook")]
-        public bool RS_SendHonorsFacebook;
-
-        [XmlElement(ElementName = "RS_SendHonorsInGame")]
-        public bool RS_SendHonorsInGame;
-
-        [XmlElement(ElementName = "RS_SpecialQuestsDaily")]
-        public bool RS_SpecialQuestsDaily;
-
-        [XmlElement(ElementName = "RS_SpecialQuestsMonthly")]
-        public bool RS_SpecialQuestsMonthly;
-
-        [XmlElement(ElementName = "RS_SpecialQuestsWeekly")]
-        public bool RS_SpecialQuestsWeekly;
-
         [XmlElement(ElementName = "AD_CurrH30")]
         public int AD_CurrH30;
-
-        [XmlElement(ElementName = "ST_Stop100")]
-        public bool ST_Stop100;
-
-        [XmlElement(ElementName = "EX_Enable")]
-        public bool EX_Enable;
-
-        [XmlElement(ElementName = "EX_Send")]
-        public bool EX_Send;
-
-        [XmlElement(ElementName = "AD_SummonAuto")]
-        public bool AD_SummonAuto;
 
         [XmlElement(ElementName = "SM_CollectTower")]
         public bool SM_CollectTower;
@@ -216,6 +216,131 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "SM_Enable")]
         public bool SM_Enable;
 
+        [XmlElement(ElementName = "PU_Enable")]
+        public bool PU_Enable;
+
+        [XmlElement(ElementName = "PU_enableActive1")]
+        public bool PU_enableActive1;
+
+        [XmlElement(ElementName = "PU_Active1")]
+        public int PU_Active1;
+
+        [XmlElement(ElementName = "PU_enableActive2")]
+        public bool PU_enableActive2;
+
+        [XmlElement(ElementName = "PU_enableActive3")]
+        public bool PU_enableActive3;
+
+        [XmlElement(ElementName = "PU_1Star")]
+        public bool PU_1Star;
+
+        [XmlElement(ElementName = "PU_2Star")]
+        public bool PU_2Star;
+
+        [XmlElement(ElementName = "PU_3Star")]
+        public bool PU_3Star;
+
+        [XmlElement(ElementName = "PU_4Star")]
+        public bool PU_4Star;
+
+        [XmlElement(ElementName = "PU_1OnlyLv30")]
+        public bool PU_1OnlyLv30;
+
+        [XmlElement(ElementName = "PU_2OnlyLv30")]
+        public bool PU_2OnlyLv30;
+
+        [XmlElement(ElementName = "PU_3OnlyLv30")]
+        public bool PU_3OnlyLv30;
+
+        [XmlElement(ElementName = "PU_4OnlyLv30")]
+        public bool PU_4OnlyLv30;
+
+        [XmlElement(ElementName = "PU_1MOnlyLv30")]
+        public bool PU_1MOnlyLv30;
+
+        [XmlElement(ElementName = "PU_2MOnlyLv30")]
+        public bool PU_2MOnlyLv30;
+
+        [XmlElement(ElementName = "PU_3MOnlyLv30")]
+        public bool PU_3MOnlyLv30;
+
+        [XmlElement(ElementName = "PU_4MOnlyLv30")]
+        public bool PU_4MOnlyLv30;
+
+        [XmlElement(ElementName = "PU_1Material")]
+        public int PU_1Material;
+
+        [XmlElement(ElementName = "PU_1Condition")]
+        public int PU_1Condition;
+
+        [XmlElement(ElementName = "PU_2Condition")]
+        public int PU_2Condition;
+
+        [XmlElement(ElementName = "PU_3Condition")]
+        public int PU_3Condition;
+
+        [XmlElement(ElementName = "PU_2Material")]
+        public int PU_2Material;
+
+        [XmlElement(ElementName = "PU_3Material")]
+        public int PU_3Material;
+
+        [XmlElement(ElementName = "PU_4Material")]
+        public int PU_4Material;
+
+        [XmlElement(ElementName = "PU_1Order")]
+        public int PU_1Order;
+
+        [XmlElement(ElementName = "PU_2Order")]
+        public int PU_2Order;
+
+        [XmlElement(ElementName = "PU_3Order")]
+        public int PU_3Order;
+
+        [XmlElement(ElementName = "BF_Enable")]
+        public bool BF_Enable;
+
+        [XmlElement(ElementName = "BF_EnableActivate1")]
+        public bool BF_EnableActivate1;
+
+        [XmlElement(ElementName = "BF_EnableActivate2")]
+        public bool BF_EnableActivate2;
+
+        [XmlElement(ElementName = "BF_OnlyLv30")]
+        public bool BF_OnlyLv30;
+
+        [XmlElement(ElementName = "BF_Rank")]
+        public int BF_Rank;
+
+        [XmlElement(ElementName = "BF_Active2")]
+        public int BF_Active2;
+
+        [XmlElement(ElementName = "CS_EnableActive1")]
+        public bool CS_EnableActive1;
+
+        [XmlElement(ElementName = "CS_Enable1")]
+        public int CS_Enable1;
+
+        [XmlElement(ElementName = "AD_Profile1")]
+        public string AD_Profile1;
+
+        [XmlElement(ElementName = "AD_Profile2")]
+        public string AD_Profile2;
+
+        [XmlElement(ElementName = "AD_Profile3")]
+        public string AD_Profile3;
+
+        [XmlElement(ElementName = "AD_EnableProfile1")]
+        public bool AD_EnableProfile1;
+
+        [XmlElement(ElementName = "AD_EnableProfile2")]
+        public bool AD_EnableProfile2;
+
+        [XmlElement(ElementName = "AD_EnableProfile3")]
+        public bool AD_EnableProfile3;
+
+        [XmlElement(ElementName = "AD_NoChangeMode")]
+        public bool AD_NoChangeMode; 
 
         public string Version = Application.ProductVersion;
 
@@ -225,65 +350,100 @@ namespace SevenKnightsAI.Classes
 
         public AISettings()
         {
-            this.EX_Enable = true;
-            this.EX_Send = true;
-            this.AD_SummonAuto = true;
-            this.SM_CollectRaid = false;
-            this.SM_CollectTartarus = false;
-            this.SM_Enable = false;
-            this.SM_CollectTower = false;
-            this.AD_Enable = true;
-            this.AD_HottimeEnable = false;
-            this.AD_EnableLimit = false;
-            this.AD_Limit = 0;
-            this.AD_Stage = 0;
-            this.AD_Continuous = false;
-            this.AD_StopOnFullHeroes = false;
-            this.AD_StopOnFullItems = true;
-            this.AD_CheckSlot = true;
-            this.AD_CheckingHeroes = true;
-            this.AD_UseFriend = false;
-            this.AD_BootMode = false;
-            this.GB_WaitForKeys = false;
-            this.AR_Enable = true;
-            this.AR_EnableLimit = false;
-            this.AR_Limit = 0;
-            this.AR_UseRuby = false;
-            this.AR_LimitArena = false;
-            this.AR_LimitScore = 4300;
-            this.AR_UseRubyAmount = 0;
-            this.RS_SellHeroes = false;
-            this.RS_SellHeroStars = 1;
-            this.RS_SellHeroAmount = 0;
-            this.RS_SellHeroAll = true;
-            this.RS_SellItems = false;
-            this.RS_SellItemStars = 1;
-            this.RS_SellItemAmount = 0;
-            this.RS_SellItemAll = true;
-            this.RS_InboxHonors = false;
-            this.RS_InboxKeys = false;
-            this.RS_InboxGold = false;
-            this.RS_InboxRubies = false;
-            this.RS_InboxTickets = false;
-            this.RS_CollectLuckyChest = false;
-            this.RS_CollectLuckyBox = false;
-            this.RS_SpecialQuestsDaily = false;
-            this.RS_SpecialQuestsWeekly = false;
-            this.RS_SpecialQuestsMonthly = false;
-            this.RS_QuestsBattle = false;
-            this.RS_QuestsHero = false;
-            this.RS_QuestsItem = false;
-            this.RS_QuestsSocial = false;
-            this.RS_SendHonorsFacebook = false;
-            this.RS_SendHonorsInGame = false;
-            this.RS_BuyKeyHonors = false;
-            this.RS_BuyKeyHonorsType = BuyKeyHonorsType.Key1Honor10;
-            this.RS_BuyKeyHonorsAmount = 0;
-            this.RS_BuyKeyRubies = false;
-            this.RS_BuyKeyRubiesType = BuyKeyRubiesType.Key5Ruby10;
-            this.RS_BuyKeyRubiesAmount = 0;
-            this.AD_CurrH30 = 0;
-            this.ST_Stop100 = true;
+            SM_CollectRaid = false;
+            SM_CollectTartarus = false;
+            SM_Enable = false;
+            PU_Enable = false;
+            PU_enableActive1 = false;
+            PU_enableActive2 = false;
+            PU_enableActive3 = false;
+            PU_1Star = false;
+            PU_2Star = false;
+            PU_3Star = false;
+            PU_4Star = false;
+            PU_1OnlyLv30 = false;
+            PU_2OnlyLv30 = false;
+            PU_3OnlyLv30 = false;
+            PU_4OnlyLv30 = false;
+            PU_1MOnlyLv30 = false;
+            PU_2MOnlyLv30 = false;
+            PU_3MOnlyLv30 = false;
+            PU_4MOnlyLv30 = false;
+            BF_Enable = false;
+            BF_EnableActivate1 = false;
+            BF_EnableActivate2 = false;
+            BF_OnlyLv30 = false;
+            BF_Rank = 1;
+            BF_Active2 = 1;
+            PU_1Material = 1;
+            PU_2Material = 1;
+            PU_3Material = 1;
+            PU_4Material = 1;
+            CS_EnableActive1 = false;
+            CS_Enable1 = 1;
+            SM_CollectTower = false;
+            AD_Enable = true;
+            AD_HottimeEnable = false;
+            AD_EnableLimit = false;
+            AD_Limit = 0;
+            AD_Stage = 0;
+            AD_Continuous = false;
+            AD_StopOnFullHeroes = false;
+            AD_StopOnFullItems = true;
+            AD_CheckSlot = false;
+            AD_CheckingHeroes = false;
+            AD_UseFriend = false;
+            AD_BootMode = false;
+            AD_BoostAsgar = false;
+            AD_BoostModeSequence = false;
+            AD_BoostAllMap = false;
+            GB_WaitForKeys = false;
+            AR_Enable = true;
+            AR_EnableLimit = false;
+            AR_Limit = 0;
+            AR_UseRuby = false;
+            AR_LimitArena = false;
+            AR_LimitScore = 4300;
+            AR_UseRubyAmount = 0;
+            RS_SellHeroes = false;
+            RS_SellHeroStars = 1;
+            RS_SellHeroAmount = 0;
+            RS_SellHeroAll = true;
+            RS_SellItems = false;
+            RS_SellItemStars = 1;
+            RS_SellItemAmount = 0;
+            RS_SellItemAll = true;
+            RS_InboxHonors = false;
+            RS_InboxKeys = false;
+            RS_InboxGold = false;
+            RS_InboxRubies = false;
+            RS_InboxTickets = false;
+            RS_CollectLuckyChest = false;
+            RS_CollectLuckyBox = false;
+            RS_CollectInbox = false;
+            RS_EnableCINoRuby = false;
+            RS_CIOnlyHonor = false;
+            RS_CIOnlyKey = false;
+            RS_CIOnlyCurrency = false;
+            RS_CIOnlyTicket = false;
+            RS_EnableCI = false;
+            RS_CollectInboxActive = 0;
+            RS_BuyKeyHonors = false;
+            RS_SellGoldOre = false;
+            RS_BuyKeyHonorsType = BuyKeyHonorsType.Key1Honor10;
+            RS_BuyKeyHonorsAmount = 0;
+            RS_BuyKeyRubies = false;
+            RS_BuyKeyRubiesType = BuyKeyRubiesType.Key5Ruby10;
+            RS_BuyKeyRubiesAmount = 0;
+            AD_CurrH30 = 0;
+            PU_Active1 = 0;
+            AD_Profile1 = null;
+            AD_Profile2 = null;
+            AD_Profile3 = null;
+            AD_EnableProfile1 = false;
+            AD_EnableProfile2 = false;
+            AD_EnableProfile3 = false;
+            AD_NoChangeMode = false;
         }
 
         #endregion Public Constructors
@@ -297,12 +457,6 @@ namespace SevenKnightsAI.Classes
                 string value = File.ReadAllText(filePath);
                 Dictionary<string, object> dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(value);
                 AISettings aISettings = new AISettings();
-                try
-                {
-                    aISettings.AD_SummonAuto = (bool)dictionary["AD_SummonAuto"];
-                }
-                catch (Exception)
-                { }
                 try
                 {
                     aISettings.SM_CollectRaid = (bool)dictionary["SM_CollectRaid"];
@@ -323,19 +477,217 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
+                    aISettings.PU_Enable = (bool)dictionary["PU_Enable"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_enableActive1 = (bool)dictionary["PU_enableActive1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_enableActive2 = (bool)dictionary["PU_enableActive2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_enableActive3 = (bool)dictionary["PU_enableActive3"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_1Star = (bool)dictionary["PU_1Star"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_2Star = (bool)dictionary["PU_2Star"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_3Star = (bool)dictionary["PU_3Star"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_4Star = (bool)dictionary["PU_4Star"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_1OnlyLv30 = (bool)dictionary["PU_1OnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_2OnlyLv30 = (bool)dictionary["PU_2OnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_3OnlyLv30 = (bool)dictionary["PU_3OnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_4OnlyLv30 = (bool)dictionary["PU_4OnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_1MOnlyLv30 = (bool)dictionary["PU_1MOnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_2MOnlyLv30 = (bool)dictionary["PU_2MOnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_3MOnlyLv30 = (bool)dictionary["PU_3MOnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_4MOnlyLv30 = (bool)dictionary["PU_4MOnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.BF_Enable = (bool)dictionary["BF_Enable"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.BF_EnableActivate1 = (bool)dictionary["BF_EnableActivate1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.BF_EnableActivate2 = (bool)dictionary["BF_EnableActivate2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.BF_OnlyLv30 = (bool)dictionary["BF_OnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_Active1 = Convert.ToInt32(dictionary["PU_Active1"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.BF_Active2 = Convert.ToInt32(dictionary["BF_Active2"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.BF_Rank = Convert.ToInt32(dictionary["BF_Rank"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_1Material = Convert.ToInt32(dictionary["PU_1Material"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_1Condition = Convert.ToInt32(dictionary["PU_1Condition"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_2Condition = Convert.ToInt32(dictionary["PU_2Condition"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_3Condition = Convert.ToInt32(dictionary["PU_3Condition"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_1Order = Convert.ToInt32(dictionary["PU_1Order"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_2Order = Convert.ToInt32(dictionary["PU_2Order"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_3Order = Convert.ToInt32(dictionary["PU_3Order"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_2Material = Convert.ToInt32(dictionary["PU_2Material"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_3Material = Convert.ToInt32(dictionary["PU_3Material"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.PU_4Material = Convert.ToInt32(dictionary["PU_4Material"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.CS_EnableActive1 = (bool)dictionary["CS_EnableActive1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.CS_Enable1 = Convert.ToInt32(dictionary["CS_Enable1"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
                     aISettings.SM_CollectTower = (bool)dictionary["SM_CollectTower"];
-                }
-                catch (Exception)
-                { }
-                try
-                {
-                    aISettings.EX_Enable = (bool)dictionary["EX_Enable"];
-                }
-                catch (Exception)
-                { }
-                try
-                {
-                    aISettings.EX_Send = (bool)dictionary["EX_Send"];
                 }
                 catch (Exception)
                 { }
@@ -407,6 +759,12 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
+                    aISettings.AD_BoostSequence = ((dictionary["AD_BoostSequence"] == null) ? null : ((JArray)dictionary["AD_BoostSequence"]).ToObject<int[]>());
+                }
+                catch (Exception)
+                { }
+                try
+                {
                     aISettings.AD_Continuous = (bool)dictionary["AD_Continuous"];
                 }
                 catch (Exception)
@@ -450,6 +808,24 @@ namespace SevenKnightsAI.Classes
                 try
                 {
                     aISettings.AD_BootMode = (bool)dictionary["AD_BootMode"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_BoostAsgar = (bool)dictionary["AD_BoostAsgar"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_BoostModeSequence = (bool)dictionary["AD_BoostModeSequence"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_BoostAllMap = (bool)dictionary["AD_BoostAllMap"];
                 }
                 catch (Exception)
                 { }
@@ -605,61 +981,61 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
-                    aISettings.RS_SpecialQuestsDaily = (bool)dictionary["RS_SpecialQuestsDaily"];
+                    aISettings.RS_CollectInbox = (bool)dictionary["RS_CollectInbox"];
                 }
                 catch (Exception)
                 { }
                 try
                 {
-                    aISettings.RS_SpecialQuestsWeekly = (bool)dictionary["RS_SpecialQuestsWeekly"];
+                    aISettings.RS_EnableCINoRuby = (bool)dictionary["RS_EnableCINoRuby"];
                 }
                 catch (Exception)
                 { }
                 try
                 {
-                    aISettings.RS_SpecialQuestsMonthly = (bool)dictionary["RS_SpecialQuestsMonthly"];
+                    aISettings.RS_CIOnlyHonor = (bool)dictionary["RS_CIOnlyHonor"];
                 }
                 catch (Exception)
                 { }
                 try
                 {
-                    aISettings.RS_QuestsBattle = (bool)dictionary["RS_QuestsBattle"];
+                    aISettings.RS_CIOnlyKey = (bool)dictionary["RS_CIOnlyKey"];
                 }
                 catch (Exception)
                 { }
                 try
                 {
-                    aISettings.RS_QuestsHero = (bool)dictionary["RS_QuestsHero"];
+                    aISettings.RS_CIOnlyCurrency = (bool)dictionary["RS_CIOnlyCurrency"];
                 }
                 catch (Exception)
                 { }
                 try
                 {
-                    aISettings.RS_QuestsItem = (bool)dictionary["RS_QuestsItem"];
+                    aISettings.RS_CIOnlyTicket = (bool)dictionary["RS_CIOnlyTicket"];
                 }
                 catch (Exception)
                 { }
                 try
                 {
-                    aISettings.RS_QuestsSocial = (bool)dictionary["RS_QuestsSocial"];
+                    aISettings.RS_EnableCI = (bool)dictionary["RS_EnableCI"];
                 }
                 catch (Exception)
                 { }
                 try
                 {
-                    aISettings.RS_SendHonorsFacebook = (bool)dictionary["RS_SendHonorsFacebook"];
-                }
-                catch (Exception)
-                { }
-                try
-                {
-                    aISettings.RS_SendHonorsInGame = (bool)dictionary["RS_SendHonorsInGame"];
+                    aISettings.RS_CollectInboxActive = Convert.ToInt32(dictionary["RS_CollectInboxActive"]);
                 }
                 catch (Exception)
                 { }
                 try
                 {
                     aISettings.RS_BuyKeyHonors = (bool)dictionary["RS_BuyKeyHonors"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RS_SellGoldOre = (bool)dictionary["RS_SellGoldOre"];
                 }
                 catch (Exception)
                 { }
@@ -695,7 +1071,43 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
-                    aISettings.ST_Stop100 = (bool)dictionary["ST_Stop100"];
+                    aISettings.AD_Profile1 = (string)dictionary["AD_Profile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_Profile2 = (string)dictionary["AD_Profile2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_Profile3 = (string)dictionary["AD_Profile3"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_EnableProfile1 = (bool)dictionary["AD_EnableProfile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_EnableProfile2 = (bool)dictionary["AD_EnableProfile2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_EnableProfile3 = (bool)dictionary["AD_EnableProfile3"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_NoChangeMode = (bool)dictionary["AD_NoChangeMode"];
                 }
                 catch (Exception)
                 { }
@@ -710,262 +1122,442 @@ namespace SevenKnightsAI.Classes
             {
                 {
                     "SM_CollectTower",
-                    this.SM_CollectTower
+                    SM_CollectTower
                 },
                 {
                     "SM_Enable",
-                    this.SM_Enable
+                    SM_Enable
+                },
+                {
+                    "PU_Enable",
+                    PU_Enable
+                },
+                {
+                    "PU_enableActive1",
+                    PU_enableActive1
+                },
+                {
+                    "PU_enableActive2",
+                    PU_enableActive2
+                },
+                {
+                    "PU_enableActive3",
+                    PU_enableActive3
+                },
+                {
+                    "PU_Active1",
+                    PU_Active1
+                },
+                {
+                    "PU_1Star",
+                    PU_1Star
+                },
+                {
+                    "PU_2Star",
+                    PU_2Star
+                },
+                {
+                    "PU_3Star",
+                    PU_3Star
+                },
+                {
+                    "PU_4Star",
+                    PU_4Star
+                },
+                {
+                    "PU_1OnlyLv30",
+                    PU_1OnlyLv30
+                },
+                {
+                    "PU_2OnlyLv30",
+                    PU_2OnlyLv30
+                },
+                {
+                    "PU_3OnlyLv30",
+                    PU_3OnlyLv30
+                },
+                {
+                    "PU_4OnlyLv30",
+                    PU_4OnlyLv30
+                },
+                {
+                    "PU_1MOnlyLv30",
+                    PU_1MOnlyLv30
+                },
+                {
+                    "PU_2MOnlyLv30",
+                    PU_2MOnlyLv30
+                },
+                {
+                    "PU_3MOnlyLv30",
+                    PU_3MOnlyLv30
+                },
+                {
+                    "PU_4MOnlyLv30",
+                    PU_4MOnlyLv30
+                },
+                {
+                    "PU_1Material",
+                    PU_1Material
+                },
+                {
+                    "PU_1Condition",
+                    PU_1Condition
+                },
+                {
+                    "PU_2Condition",
+                    PU_2Condition
+                },
+                {
+                    "PU_3Condition",
+                    PU_3Condition
+                },
+                {
+                    "PU_1Order",
+                    PU_1Order
+                },
+                {
+                    "PU_2Order",
+                    PU_2Order
+                },
+                {
+                    "PU_3Order",
+                    PU_3Order
+                },
+                {
+                    "PU_2Material",
+                    PU_2Material
+                },
+                {
+                    "PU_3Material",
+                    PU_3Material
+                },
+                {
+                    "PU_4Material",
+                    PU_4Material
+                },
+                {
+                    "BF_Enable",
+                    BF_Enable
+                },
+                {
+                    "BF_EnableActivate1",
+                    BF_EnableActivate1
+                },
+                {
+                    "BF_EnableActivate2",
+                    BF_EnableActivate2
+                },
+                {
+                    "BF_Active2",
+                    BF_Active2
+                },
+                {
+                    "BF_OnlyLv30",
+                    BF_OnlyLv30
+                },
+                {
+                    "BF_Rank",
+                    BF_Rank
+                },
+                {
+                    "CS_Enable1",
+                    CS_Enable1
+                },
+                {
+                    "CS_EnableActive1",
+                    CS_EnableActive1
                 },
                 {
                     "SM_CollectRaid",
-                    this.SM_CollectRaid
+                    SM_CollectRaid
                 },
                 {
                     "SM_CollectTartarus",
-                    this.SM_CollectTartarus
+                    SM_CollectTartarus
                 },
                 {
                     "AD_Enable",
-                    this.AD_Enable
+                    AD_Enable
                 },
                 {
                     "AD_EnableLimit",
-                    this.AD_EnableLimit
+                    AD_EnableLimit
                 },
                 {
                     "AD_Limit",
-                    this.AD_Limit
+                    AD_Limit
                 },
                 {
                     "AD_Difficulty",
-                    this.AD_Difficulty
+                    AD_Difficulty
                 },
                 {
                     "AD_Difficulty2nd",
-                    this.AD_Difficulty2nd
+                    AD_Difficulty2nd
                 },
                 {
                     "AD_World",
-                    this.AD_World
+                    AD_World
                 },
                 {
                     "AD_Stage",
-                    this.AD_Stage
+                    AD_Stage
                 },
                 {
                     "AD_WorldSequence",
-                    this.AD_WorldSequence
+                    AD_WorldSequence
                 },
                 {
                     "AD_StageSequence",
-                    this.AD_StageSequence
+                    AD_StageSequence
                 },
                 {
                     "AD_AmountSequence",
-                    this.AD_AmountSequence
+                    AD_AmountSequence
+                },
+                {
+                    "AD_BoostSequence",
+                    AD_BoostSequence
                 },
                 {
                     "AD_Continuous",
-                    this.AD_Continuous
+                    AD_Continuous
                 },
                 {
                     "AD_Team",
-                    this.AD_Team
+                    AD_Team
                 },
                 {
                     "AD2_Team",
-                    this.AD2_Team
+                    AD2_Team
                 },
                 {
                     "AD_StopOnFullHeroes",
-                    this.AD_StopOnFullHeroes
+                    AD_StopOnFullHeroes
                 },
                 {
                     "AD_StopOnFullItems",
-                    this.AD_StopOnFullItems
+                    AD_StopOnFullItems
                 },
                 {
                     "AD_CheckSlot",
-                    this.AD_CheckSlot
+                    AD_CheckSlot
                 },
                 {
                     "AD_CheckingHeroes",
-                    this.AD_CheckingHeroes
+                    AD_CheckingHeroes
                 },
 
                 {
                     "GB_WaitForKeys",
-                    this.GB_WaitForKeys
+                    GB_WaitForKeys
                 },
 
                 {
                     "AR_Enable",
-                    this.AR_Enable
+                    AR_Enable
                 },
                 {
                     "AR_EnableLimit",
-                    this.AR_EnableLimit
+                    AR_EnableLimit
                 },
                 {
                     "AR_Limit",
-                    this.AR_Limit
+                    AR_Limit
                 },
                 {
                     "AR_UseRuby",
-                    this.AR_UseRuby
+                    AR_UseRuby
                 },
                 {
                     "AR_UseRubyAmount",
-                    this.AR_UseRubyAmount
+                    AR_UseRubyAmount
                 },
                 {
                     "AR_Mastery",
-                    this.AR_Mastery
+                    AR_Mastery
                 },
                 {
                     "AR_LimitArena",
-                    this.AR_LimitArena
+                    AR_LimitArena
                 },
                 {
                     "AR_LimitScore",
-                    this.AR_LimitScore
+                    AR_LimitScore
                 },
 
                 {
                     "RS_SellHeroes",
-                    this.RS_SellHeroes
+                    RS_SellHeroes
                 },
                 {
                     "RS_SellHeroStars",
-                    this.RS_SellHeroStars
+                    RS_SellHeroStars
                 },
                 {
                     "RS_SellHeroAmount",
-                    this.RS_SellHeroAmount
+                    RS_SellHeroAmount
                 },
                 {
                     "RS_SellHeroAll",
-                    this.RS_SellHeroAll
+                    RS_SellHeroAll
                 },
                 {
                     "RS_SellItems",
-                    this.RS_SellItems
+                    RS_SellItems
                 },
                 {
                     "RS_SellItemStars",
-                    this.RS_SellItemStars
+                    RS_SellItemStars
                 },
                 {
                     "RS_SellItemAmount",
-                    this.RS_SellItemAmount
+                    RS_SellItemAmount
                 },
                 {
                     "RS_SellItemAll",
-                    this.RS_SellItemAll
+                    RS_SellItemAll
                 },
                 {
                     "RS_InboxHonors",
-                    this.RS_InboxHonors
+                    RS_InboxHonors
                 },
                 {
                     "RS_InboxKeys",
-                    this.RS_InboxKeys
+                    RS_InboxKeys
                 },
                 {
                     "RS_InboxGold",
-                    this.RS_InboxGold
+                    RS_InboxGold
                 },
                 {
                     "RS_InboxRubies",
-                    this.RS_InboxRubies
+                    RS_InboxRubies
                 },
                 {
                     "RS_InboxTickets",
-                    this.RS_InboxTickets
+                    RS_InboxTickets
                 },
                 {
                     "RS_CollectLuckyChest",
-                    this.RS_CollectLuckyChest
+                    RS_CollectLuckyChest
                 },
                 {
                     "RS_CollectLuckyBox",
-                    this.RS_CollectLuckyBox
+                    RS_CollectLuckyBox
                 },
                 {
-                    "RS_SpecialQuestsDaily",
-                    this.RS_SpecialQuestsDaily
+                    "RS_CollectInbox",
+                    RS_CollectInbox
                 },
                 {
-                    "RS_SpecialQuestsWeekly",
-                    this.RS_SpecialQuestsWeekly
+                    "RS_EnableCINoRuby",
+                    RS_EnableCINoRuby
                 },
                 {
-                    "RS_SpecialQuestsMonthly",
-                    this.RS_SpecialQuestsMonthly
+                    "RS_CIOnlyHonor",
+                    RS_CIOnlyHonor
                 },
                 {
-                    "RS_QuestsBattle",
-                    this.RS_QuestsBattle
+                    "RS_CIOnlyKey",
+                    RS_CIOnlyKey
                 },
                 {
-                    "RS_QuestsHero",
-                    this.RS_QuestsHero
+                    "RS_CIOnlyCurrency",
+                    RS_CIOnlyCurrency
                 },
                 {
-                    "RS_QuestsItem",
-                    this.RS_QuestsItem
+                    "RS_CIOnlyTicket",
+                    RS_CIOnlyTicket
                 },
                 {
-                    "RS_QuestsSocial",
-                    this.RS_QuestsSocial
+                    "RS_EnableCI",
+                    RS_EnableCI
                 },
                 {
-                    "RS_SendHonorsFacebook",
-                    this.RS_SendHonorsFacebook
-                },
-                {
-                    "RS_SendHonorsInGame",
-                    this.RS_SendHonorsInGame
+                    "RS_CollectInboxActive",
+                    RS_CollectInboxActive
                 },
                 {
                     "RS_BuyKeyHonors",
-                    this.RS_BuyKeyHonors
+                    RS_BuyKeyHonors
+                },
+                {
+                    "RS_SellGoldOre",
+                    RS_SellGoldOre
                 },
                 {
                     "RS_BuyKeyHonorsType",
-                    this.RS_BuyKeyHonorsType
+                    RS_BuyKeyHonorsType
                 },
                 {
                     "RS_BuyKeyHonorsAmount",
-                    this.RS_BuyKeyHonorsAmount
+                    RS_BuyKeyHonorsAmount
                 },
                 {
                     "RS_BuyKeyRubies",
-                    this.RS_BuyKeyRubies
+                    RS_BuyKeyRubies
                 },
                 {
                     "RS_BuyKeyRubiesType",
-                    this.RS_BuyKeyRubiesType
+                    RS_BuyKeyRubiesType
                 },
                 {
                     "RS_BuyKeyRubiesAmount",
-                    this.RS_BuyKeyRubiesAmount
+                    RS_BuyKeyRubiesAmount
                 },
                 {
                     "AD_HottimeEnable",
-                    this.AD_HottimeEnable
+                    AD_HottimeEnable
                 },
                 {
                     "AD_UseFriend",
-                    this.AD_UseFriend
+                    AD_UseFriend
                 },
                 {
                     "AD_BootMode",
-                    this.AD_BootMode
+                    AD_BootMode
                 },
                 {
-                    "ST_Stop100",
-                    this.ST_Stop100
+                    "AD_BoostAsgar",
+                    AD_BoostAsgar
+                },
+                {
+                    "AD_BoostModeSequence",
+                    AD_BoostModeSequence
+                },
+                {
+                    "AD_BoostAllMap",
+                    AD_BoostAllMap
+                },
+                {
+                    "AD_Profile1",
+                    AD_Profile1
+                },
+                {
+                    "AD_Profile2",
+                    AD_Profile2
+                },
+                {
+                    "AD_Profile3",
+                    AD_Profile3
+                },
+                {
+                    "AD_EnableProfile1",
+                    AD_EnableProfile1
+                },
+                {
+                    "AD_EnableProfile2",
+                    AD_EnableProfile2
+                },
+                {
+                    "AD_EnableProfile3",
+                    AD_EnableProfile3
+                },
+                {
+                    "AD_NoChangeMode",
+                    AD_NoChangeMode
                 }
             };
             string data = JsonConvert.SerializeObject(value);
