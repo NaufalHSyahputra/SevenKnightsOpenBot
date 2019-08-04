@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes
+﻿namespace SevenKnightsAI.Classes
 {
     internal struct PixelMapping
     {

@@ -1,448 +1,545 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
-    class HeroStar
+    internal class HeroStar
     {
         public static readonly PixelMapping Star1Loca1 = new PixelMapping
         {
-            //X = 405,
-            //Y = 253,
-            //Color = 7295547,
-            //Type = MappingType.ANCHOR
-            X = 385,
-            Y = 227,
-            Color = 16167986,
+            X = 384,
+            Y = 224,
+            Color = 16162069,
             Type = MappingType.ANCHOR
         };
-
         public static readonly PixelMapping Star1Loca2 = new PixelMapping
         {
-            //X = 555,
-            //Y = 253,
-            //Color = 7295547,
-            //Type = MappingType.ANCHOR
-            X = 504,
-            Y = 229,
-            Color = 14784798,
+            X = 503,
+            Y = 223,
+            Color = 16775006,
             Type = MappingType.ANCHOR
         };
-
         public static readonly PixelMapping Star1Loca3 = new PixelMapping
         {
-            //X = 705,
-            //Y = 253,
-            //Color = 7295547,
-            //Type = MappingType.ANCHOR
-            X = 622,
-            Y = 229,
-            Color = 16501577,
+            X = 621,
+            Y = 223,
+            Color = 16775254,
             Type = MappingType.ANCHOR
         };
-
         public static readonly PixelMapping Star1Loca4 = new PixelMapping
         {
-            //X = 855,
-            //Y = 253,
-            //Color = 7295547,
-            //Type = MappingType.ANCHOR
-            X = 741,
-            Y = 229,
-            Color = 14784798,
+            X = 740,
+            Y = 223,
+            Color = 16772958,
             Type = MappingType.ANCHOR
         };
-
         public static readonly PixelMapping Star1Loca5 = new PixelMapping
         {
-            //X = 855,
+            X = 859,
+            Y = 223,
+            Color = 15575074,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star1Loca6 = new PixelMapping
+        {
+            X = 385,
+            Y = 395,
+            Color = 15709752,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star1Loca7 = new PixelMapping
+        {
+            X = 504,
+            Y = 393,
+            Color = 15376155,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star1Loca8 = new PixelMapping
+        {
+            X = 623,
+            Y = 394,
+            Color = 15445547,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star1Loca9 = new PixelMapping
+        {
+            X = 741,
+            Y = 393,
+            Color = 16036644,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star1Loca10 = new PixelMapping
+        {
+            X = 858,
+            Y = 394,
+            Color = 16298275,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca1 = new PixelMapping
+        {
+            X = 378,
+            Y = 227,
+            Color = 14587165,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca2 = new PixelMapping
+        {
+            X = 495,
+            Y = 224,
+            Color = 16775274,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca3 = new PixelMapping
+        {
+            X = 615,
+            Y = 226,
+            Color = 15378982,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca4 = new PixelMapping
+        {
+            X = 733,
+            Y = 225,
+            Color = 15837990,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca5 = new PixelMapping
+        {
+            X = 851,
+            Y = 225,
+            Color = 16173121,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca6 = new PixelMapping
+        {
+            X = 378,
+            Y = 396,
+            Color = 15970856,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca7 = new PixelMapping
+        {
+            X = 496,
+            Y = 397,
+            Color = 15444523,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca8 = new PixelMapping
+        {
+            X = 616,
+            Y = 396,
+            Color = 15114015,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca9 = new PixelMapping
+        {
+            X = 734,
+            Y = 396,
+            Color = 15641378,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca10 = new PixelMapping
+        {
+            X = 851,
+            Y = 397,
+            Color = 15642157,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca1_2 = new PixelMapping
+        {
+            X = 391,
+            Y = 226,
+            Color = 16768322,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca2_2 = new PixelMapping
+        {
+            X = 509,
+            Y = 224,
+            Color = 16777070,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca3_2 = new PixelMapping
+        {
+            X = 628,
+            Y = 224,
+            Color = 16771421,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca4_2 = new PixelMapping
+        {
+            X = 747,
+            Y = 225,
+            Color = 15972917,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca5_2 = new PixelMapping
+        {
+            X = 866,
+            Y = 226,
+            Color = 15378982,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca6_2 = new PixelMapping
+        {
+            X = 393,
+            Y = 396,
+            Color = 15772963,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca7_2 = new PixelMapping
+        {
+            X = 510,
+            Y = 397,
+            Color = 15905840,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca8_2 = new PixelMapping
+        {
+            X = 629,
+            Y = 397,
+            Color = 15313448,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca9_2 = new PixelMapping
+        {
+            X = 747,
+            Y = 396,
+            Color = 16105015,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star2Loca10_2 = new PixelMapping
+        {
+            X = 866,
+            Y = 397,
+            Color = 15445800,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping Star3Loca1 = new PixelMapping
+        {
+            //X = 405,
             //Y = 253,
             //Color = 7295547,
             //Type = MappingType.ANCHOR
-            X = 860,
-            Y = 230,
-            Color = 14718235,
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star1Loca1R1 = new PixelMapping
+        public static readonly PixelMapping Star3Loca2 = new PixelMapping
         {
-
             //X = 405,
             //Y = 253,
-            //Color = 7229754,
+            //Color = 7295547,
             //Type = MappingType.ANCHOR
             X = 385,
             Y = 227,
             Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star1Loca2R1 = new PixelMapping
+        public static readonly PixelMapping Star3Loca3 = new PixelMapping
         {
-            //X = 555,
-            //Y = 253,
-            //Color = 7229754,
-            //Type = MappingType.ANCHOR
-            X = 504,
-            Y = 229,
-            Color = 14784798,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star1Loca3R1 = new PixelMapping
-        {
-            //X = 705,
-            //Y = 253,
-            //Color = 7229754,
-            //Type = MappingType.ANCHOR
-            X = 622,
-            Y = 229,
-            Color = 16501577,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star1Loca4R1 = new PixelMapping
-        {
-            //X = 855,
-            //Y = 253,
-            //Color = 7229754,
-            //Type = MappingType.ANCHOR
-            X = 741,
-            Y = 229,
-            Color = 14784798,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star1Loca5R1 = new PixelMapping
-        {
-            //X = 855,
-            //Y = 253,
-            //Color = 7229754,
-            //Type = MappingType.ANCHOR
-            X = 860,
-            Y = 230,
-            Color = 14718235,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star1Loca1R2 = new PixelMapping
-        {
-
             //X = 405,
             //Y = 253,
-            //Color = 7163961,
+            //Color = 7295547,
             //Type = MappingType.ANCHOR
             X = 385,
             Y = 227,
             Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star1Loca2R2 = new PixelMapping
+        public static readonly PixelMapping Star3Loca4 = new PixelMapping
         {
-            //X = 555,
+            //X = 405,
             //Y = 253,
-            //Color = 7163961,
+            //Color = 7295547,
             //Type = MappingType.ANCHOR
-            X = 504,
-            Y = 229,
-            Color = 14784798,
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star1Loca3R2 = new PixelMapping
+        public static readonly PixelMapping Star3Loca5 = new PixelMapping
         {
-            //X = 705,
+            //X = 405,
             //Y = 253,
-            //Color = 7163961,
+            //Color = 7295547,
             //Type = MappingType.ANCHOR
-            X = 622,
-            Y = 229,
-            Color = 16501577,
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star1Loca4R2 = new PixelMapping
+        public static readonly PixelMapping Star3Loca6 = new PixelMapping
         {
-            //X = 855,
+            //X = 405,
             //Y = 253,
-            //Color = 7163961,
+            //Color = 7295547,
             //Type = MappingType.ANCHOR
-            X = 741,
-            Y = 229,
-            Color = 14784798,
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star1Loca5R2 = new PixelMapping
+        public static readonly PixelMapping Star3Loca7 = new PixelMapping
         {
-            //X = 855,
+            //X = 405,
             //Y = 253,
-            //Color = 7163961,
+            //Color = 7295547,
             //Type = MappingType.ANCHOR
-            X = 860,
-            Y = 230,
-            Color = 14718235,
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca1 = new PixelMapping
+        public static readonly PixelMapping Star3Loca8 = new PixelMapping
         {
-
-            X = 378,
-            Y = 230,
-            Color = 14322200,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca2 = new PixelMapping
+        public static readonly PixelMapping Star3Loca9 = new PixelMapping
         {
-            X = 497,
-            Y = 228,
-            Color = 15838755,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca3 = new PixelMapping
+        public static readonly PixelMapping Star3Loca10 = new PixelMapping
         {
-            X = 712,
-            Y = 254,
-            Color = 7032633,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca4 = new PixelMapping
+        public static readonly PixelMapping Star3Loca1_2 = new PixelMapping
         {
-            X = 732,
-            Y = 228,
-            Color = 16707677,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca5 = new PixelMapping
+        public static readonly PixelMapping Star3Loca2_2 = new PixelMapping
         {
-            X = 850,
-            Y = 228,
-            Color = 16774492,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca1R3 = new PixelMapping
+        public static readonly PixelMapping Star3Loca3_2 = new PixelMapping
         {
-            X = 378,
-            Y = 230,
-            Color = 14322200,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca2R3 = new PixelMapping
+        public static readonly PixelMapping Star3Loca4_2 = new PixelMapping
         {
-            X = 497,
-            Y = 228,
-            Color = 15838755,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca3R3 = new PixelMapping
+        public static readonly PixelMapping Star3Loca5_2 = new PixelMapping
         {
-            X = 615,
-            Y = 229,
-            Color = 15379497,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca4R3 = new PixelMapping
+        public static readonly PixelMapping Star3Loca6_2 = new PixelMapping
         {
-            X = 732,
-            Y = 228,
-            Color = 16707677,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca5R3 = new PixelMapping
+        public static readonly PixelMapping Star3Loca7_2 = new PixelMapping
         {
-            X = 850,
-            Y = 228,
-            Color = 16774492,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca1R4 = new PixelMapping
+        public static readonly PixelMapping Star3Loca8_2 = new PixelMapping
         {
-            X = 378,
-            Y = 230,
-            Color = 14322200,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca2R4 = new PixelMapping
+        public static readonly PixelMapping Star3Loca9_2 = new PixelMapping
         {
-            X = 497,
-            Y = 228,
-            Color = 15838755,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca3R4 = new PixelMapping
+        public static readonly PixelMapping Star3Loca10_2 = new PixelMapping
         {
-            X = 615,
-            Y = 229,
-            Color = 15379497,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca4R4 = new PixelMapping
+        public static readonly PixelMapping Star3Loca1_3 = new PixelMapping
         {
-            X = 732,
-            Y = 228,
-            Color = 16707677,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca5R4 = new PixelMapping
+        public static readonly PixelMapping Star3Loca2_3 = new PixelMapping
         {
-            X = 850,
-            Y = 228,
-            Color = 16774492,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca1R5 = new PixelMapping
+        public static readonly PixelMapping Star3Loca3_3 = new PixelMapping
         {
-            X = 378,
-            Y = 230,
-            Color = 14322200,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca2R5 = new PixelMapping
+        public static readonly PixelMapping Star3Loca4_3 = new PixelMapping
         {
-            X = 497,
-            Y = 228,
-            Color = 15838755,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca3R5 = new PixelMapping
+        public static readonly PixelMapping Star3Loca5_3 = new PixelMapping
         {
-            X = 615,
-            Y = 229,
-            Color = 15379497,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca4R5 = new PixelMapping
+        public static readonly PixelMapping Star3Loca6_3 = new PixelMapping
         {
-            X = 732,
-            Y = 228,
-            Color = 16707677,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star2Loca5R5 = new PixelMapping
+        public static readonly PixelMapping Star3Loca7_3 = new PixelMapping
         {
-            X = 850,
-            Y = 228,
-            Color = 16774492,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star3Loca1R1 = new PixelMapping
+        public static readonly PixelMapping Star3Loca8_3 = new PixelMapping
         {
-            X = 420,
-            Y = 254,
-            Color = 6769461,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star3Loca2R1 = new PixelMapping
+        public static readonly PixelMapping Star3Loca9_3 = new PixelMapping
         {
-            X = 570,
-            Y = 254,
-            Color = 6769461,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
-
-        public static readonly PixelMapping Star3Loca3R1 = new PixelMapping
+        public static readonly PixelMapping Star3Loca10_3 = new PixelMapping
         {
-            X = 720,
-            Y = 254,
-            Color = 6769461,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca4R1 = new PixelMapping
-        {
-            X = 870,
-            Y = 254,
-            Color = 6769461,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca1R2 = new PixelMapping
-        {
-            X = 420,
-            Y = 254,
-            Color = 6703668,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca2R2 = new PixelMapping
-        {
-            X = 570,
-            Y = 254,
-            Color = 6703668,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca3R2 = new PixelMapping
-        {
-            X = 720,
-            Y = 254,
-            Color = 6703668,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca4R2 = new PixelMapping
-        {
-            X = 870,
-            Y = 254,
-            Color = 6703668,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca1R3 = new PixelMapping
-        {
-            X = 420,
-            Y = 254,
-            Color = 6637875,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca2R3 = new PixelMapping
-        {
-            X = 570,
-            Y = 254,
-            Color = 6637875,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca3R3 = new PixelMapping
-        {
-            X = 720,
-            Y = 254,
-            Color = 6637875,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping Star3Loca4R3 = new PixelMapping
-        {
-            X = 870,
-            Y = 254,
-            Color = 6637875,
+            //X = 405,
+            //Y = 253,
+            //Color = 7295547,
+            //Type = MappingType.ANCHOR
+            X = 385,
+            Y = 227,
+            Color = 16167986,
             Type = MappingType.ANCHOR
         };
     }

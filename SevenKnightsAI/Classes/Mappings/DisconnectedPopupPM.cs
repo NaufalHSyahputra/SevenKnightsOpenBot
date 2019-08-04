@@ -1,70 +1,36 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class DisconnectedPopupPM
     {
-        public static readonly PixelMapping TitleBorder1 = new PixelMapping
+        public static readonly PixelMapping Title3 = new PixelMapping
         {
-            X = 291,
-            Y = 131,
-            Color = 15444242,
+            X = 503,
+            Y = 145,
+            Color = 13423323,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping TitleBorder2 = new PixelMapping
+        public static readonly PixelMapping OKTick = new PixelMapping
         {
-            X = 509,
-            Y = 129,
-            Color = 16167442,
-            Type = MappingType.ANCHOR
+            X = 429,
+            Y = 400,
+            Color = 12238017,
+            Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping LeftBorder = new PixelMapping
-        {
-            X = 358,
-            Y = 332,
-            Color = 16774230,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping OkButton = new PixelMapping
-        {
-            X = 401,
-            Y = 333,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
-
-        public static readonly PixelMapping OkButtonBorderLeft = new PixelMapping
-        {
-            X = 330,
-            Y = 329,
-            Color = 16772266,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping OkButtonBorderRight = new PixelMapping
-        {
-            X = 469,
-            Y = 341,
-            Color = 6115618,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping RightBorder = new PixelMapping
-        {
-            X = 517,
-            Y = 142,
-            Color = 15049745,
-            Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping YellowTick = new PixelMapping
+        public static readonly PixelMapping Title1 = new PixelMapping
         {
             X = 350,
-            Y = 340,
-            Color = 16760095,
+            Y = 145,
+            Color = 12831185,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping Title2 = new PixelMapping
+        {
+            X = 426,
+            Y = 148,
+            Color = 10528948,
             Type = MappingType.ANCHOR
         };
     }

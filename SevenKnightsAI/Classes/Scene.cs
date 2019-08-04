@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes
+﻿namespace SevenKnightsAI.Classes
 {
     internal class Scene
     {
         public Scene(SceneType sceneType)
         {
-            this.SceneType = sceneType;
+            SceneType = sceneType;
         }
 
         public SceneType SceneType

@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes
+﻿namespace SevenKnightsAI.Classes
 {
     internal class ProgressArgsTelegram
     {
 
         public ProgressArgsTelegram(ProgressType type, object message)
         {
-            this.Type = type;
-            this.Message = message;
+            Type = type;
+            Message = message;
         }
 
         public object Message

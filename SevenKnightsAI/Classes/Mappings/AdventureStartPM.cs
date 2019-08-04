@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -9,107 +8,148 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping KeyPlusButton = new PixelMapping
         {
-            X = 411,
-            Y = 27,
-            Color = 14727532,
+            X = 269,
+            Y = 491,
+            Color = 14804203,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping LvFriendBorder = new PixelMapping
+        {
+            X = 839,
+            Y = 466,
+            Color = 16047530,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Auto_KeyPlusButton = new PixelMapping
         {
-            X = 413,
-            Y = 23,
-            Color = 1445895,
+            X = 890,
+            Y = 475,
+            Color = 15000803,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Auto_StopButton = new PixelMapping
         {
-            X = 719,
-            Y = 402,
-            Color = 4661776,
+            X = 857,
+            Y = 471,
+            Color = 12894914,
+            Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping Auto_BlackBorder = new PixelMapping
+        {
+            X = 872,
+            Y = 469,
+            Color = 12631998,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping AutoRepeatOn = new PixelMapping
         {
-            X = 381,
-            Y = 354,
-            Color = 16699958,
+            X = 446,
+            Y = 425,
+            Color = 5690879,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping AutoRepeatOff = new PixelMapping
         {
-            X = 381,
-            Y = 354,
-            Color = 2562579,
+            X = 447,
+            Y = 426,
+            Color = 0,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping AutoRepeatButton = new PixelMapping
         {
-            X = 376,
-            Y = 356,
+            X = 447,
+            Y = 426,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
-        public static readonly Rectangle R_MapNumber = new Rectangle
-        {
-            X = 39,
-            Y = 15,
-            Width = 281,
-            Height = 30
-        };
-
         public static readonly PixelMapping UseFriendOn = new PixelMapping
         {
-            X = 643,
-            Y = 125,
-            Color = 12529677,
+            X = 772,
+            Y = 137,
+            Color = 13422031,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping UseFriendOff = new PixelMapping
         {
-            X = 643,
-            Y = 125,
-            Color = 3677456,
+            X = 772,
+            Y = 137,
+            Color = 2501690,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping BootmodeOn = new PixelMapping
         {
-            X = 524,
-            Y = 357,
-            Color = 16705090,
+            X = 641,
+            Y = 427,
+            Color = 3980797,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping BootmodeOff = new PixelMapping
         {
-            X = 524,
-            Y = 357,
-            Color = 2891286,
+            X = 641,
+            Y = 427,
+            Color = 0,
+            Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping BoostmodeFull = new PixelMapping
+        {
+            X = 616,
+            Y = 419,
+            Color = 10236175,
+            Type = MappingType.BOTH
+        };
+
+        public static readonly PixelMapping BoostmodeFull2 = new PixelMapping
+        {
+            X = 623,
+            Y = 424,
+            Color = 10106129,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping UsedBootModeButton = new PixelMapping
         {
-            X = 524,
-            Y = 357,
+            X = 641,
+            Y = 427,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping AutoSettingsBTN = new PixelMapping
         {
-            X = 315,
-            Y = 320,
-            Color = 0,
+            X = 289,
+            Y = 481,
+            Color = 11847910,
             Type = MappingType.BUTTON
         };
+
+        public static readonly Rectangle R_MapNumber = new Rectangle
+        {
+            X = 302,
+            Y = 18,
+            Width = 79,
+            Height = 29
+        };
+
+        public static readonly Rectangle R_Boost = new Rectangle
+        {
+            X = 709,
+            Y = 433,
+            Width = 85,
+            Height = 24
+        };
+
 
         #endregion Public Fields
     }

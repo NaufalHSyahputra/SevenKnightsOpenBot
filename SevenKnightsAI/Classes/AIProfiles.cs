@@ -47,8 +47,17 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "ST_TelegramToken")]
         public string ST_TelegramToken;
 
+        [XmlElement(ElementName = "ST_LDTitle")]
+        public string ST_LDTitle;
+
         [XmlElement(ElementName = "ST_TelegramChatID")]
         public string ST_TelegramChatID;
+
+        [XmlElement(ElementName = "ST_TelegramWarnHT")]
+        public bool ST_TelegramWarnHT;
+
+        [XmlElement(ElementName = "ST_TelegramWarnBoost")]
+        public bool ST_TelegramWarnBoost;
 
         [XmlElement(ElementName = "ST_ReconnectInterruptEnable")]
         public bool ST_ReconnectInterruptEnable;
@@ -56,8 +65,8 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "ST_ReconnectInterruptInterval")]
         public int ST_ReconnectInterruptInterval;
 
-        [XmlElement(ElementName = "ST_EmulatorNameTextBox")]
-        public string ST_EmulatorNameTextBox;
+        [XmlElement(ElementName = "ST_EnableTelegramMsg1")]
+        public bool ST_EnableTelegramMsg1;
 
         public string TMP_NormalProfile;
         public bool TMP_LogPixel;
@@ -73,33 +82,36 @@ namespace SevenKnightsAI.Classes
 
         public AIProfiles()
         {
-            this.Settings = new Dictionary<string, AISettings>();
-            this.CurrentKey = null;
-            this.ST_Delay = 1800;
-            this.ST_ReconnectInterruptEnable = true;
-            this.ST_ReconnectInterruptInterval = 10;
-            this.ST_EnableHotTimeProfile = false;
-            this.ST_EnableAutoProfile = false;
-            this.ST_EnableAutoShutdown = false;
-            this.AD_Pause100 = false;
-            this.AD_NoHeroUp = false;
-            this.ST_EnableTelegram = false;
-            this.ST_HotTimeProfile = null;
-            this.ST_BlueStacksForceActive = false;
-            this.ST_ForegroundMode = false;
+            Settings = new Dictionary<string, AISettings>();
+            CurrentKey = null;
+            ST_Delay = 1800;
+            ST_ReconnectInterruptEnable = true;
+            ST_ReconnectInterruptInterval = 10;
+            ST_EnableHotTimeProfile = false;
+            ST_EnableAutoProfile = false;
+            ST_EnableAutoShutdown = false;
+            AD_Pause100 = false;
+            AD_NoHeroUp = false;
+            ST_EnableTelegram = false;
+            ST_TelegramWarnBoost = false;
+            ST_TelegramWarnHT = false;
+            ST_HotTimeProfile = null;
+            ST_BlueStacksForceActive = false;
+            ST_ForegroundMode = false;
+            ST_EnableTelegramMsg1 = false;
         }
 
         public AIProfiles(AISettings initSettings) : this()
         {
-            this.CurrentKey = AIProfiles.PATH + "\\Default" + AIProfiles.FILE_EXTENSION;
-            this.Settings.Add(this.CurrentKey, initSettings);
+            CurrentKey = AIProfiles.PATH + "\\Default" + AIProfiles.FILE_EXTENSION;
+            Settings.Add(CurrentKey, initSettings);
         }
 
         public void ChangeProfile(string key)
         {
-            if (key != null && this.Settings.ContainsKey(key))
+            if (key != null && Settings.ContainsKey(key))
             {
-                this.CurrentKey = key;
+                CurrentKey = key;
             }
         }
 
@@ -170,6 +182,24 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
+                    aIProfiles.ST_EnableTelegramMsg1 = (bool)dictionary["ST_EnableTelegramMsg1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aIProfiles.ST_TelegramWarnBoost = (bool)dictionary["ST_TelegramWarnBoost"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aIProfiles.ST_TelegramWarnHT = (bool)dictionary["ST_TelegramWarnHT"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
                     aIProfiles.ST_HotTimeProfile = (string)dictionary["ST_HotTimeProfile"];
                 }
                 catch (Exception)
@@ -183,6 +213,12 @@ namespace SevenKnightsAI.Classes
                 try
                 {
                     aIProfiles.ST_TelegramToken = ((dictionary["ST_TelegramToken"] == null) ? null : dictionary["ST_TelegramToken"].ToString());
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aIProfiles.ST_LDTitle = ((dictionary["ST_LDTitle"] == null) ? "LDPlayer" : dictionary["ST_LDTitle"].ToString());
                 }
                 catch (Exception)
                 { }
@@ -230,79 +266,95 @@ namespace SevenKnightsAI.Classes
             {
                 {
                     "ST_Delay",
-                    this.ST_Delay
+                    ST_Delay
                 },
                 {
                     "ST_ReconnectInterruptEnable",
-                    this.ST_ReconnectInterruptEnable
+                    ST_ReconnectInterruptEnable
                 },
                 {
                     "ST_ReconnectInterruptInterval",
-                    this.ST_ReconnectInterruptInterval
+                    ST_ReconnectInterruptInterval
                 },
                 {
                     "ST_EnableHotTimeProfile",
-                    this.ST_EnableHotTimeProfile
+                    ST_EnableHotTimeProfile
                 },
                 {
                     "ST_EnableAutoProfile",
-                    this.ST_EnableAutoProfile
+                    ST_EnableAutoProfile
                 },
                 {
                     "ST_EnableAutoShutdown",
-                    this.ST_EnableAutoShutdown
+                    ST_EnableAutoShutdown
                 },
                 {
                     "AD_Pause100",
-                    this.AD_Pause100
+                    AD_Pause100
                 },
                 {
                     "AD_NoHeroUp",
-                    this.AD_NoHeroUp
+                    AD_NoHeroUp
                 },
                 {
                     "ST_EnableTelegram",
-                    this.ST_EnableTelegram
+                    ST_EnableTelegram
+                },
+                {
+                    "ST_EnableTelegramMsg1",
+                    ST_EnableTelegramMsg1
+                },
+                {
+                    "ST_TelegramWarnHT",
+                    ST_TelegramWarnHT
+                },
+                {
+                    "ST_TelegramWarnBoost",
+                    ST_TelegramWarnBoost
                 },
                 {
                     "ST_HotTimeProfile",
-                    this.ST_HotTimeProfile
+                    ST_HotTimeProfile
                 },
                 {
                     "ST_BlueStacksForceActive",
-                    this.ST_BlueStacksForceActive
+                    ST_BlueStacksForceActive
                 },
                 {
                     "ST_TelegramToken",
-                    this.ST_TelegramToken
+                    ST_TelegramToken
+                },
+                {
+                    "ST_LDTitle",
+                    ST_LDTitle
                 },
                 {
                     "ST_TelegramChatID",
-                    this.ST_TelegramChatID
+                    ST_TelegramChatID
                 },
                 {
                     "ST_ForegroundMode",
-                    this.ST_ForegroundMode
+                    ST_ForegroundMode
                 }
             };
             string data = JsonConvert.SerializeObject(value);
             File.WriteAllText(AIProfiles.FILE_PATH, data);
-            this.CurrentProfile.Save(this.CurrentKey);
+            CurrentProfile.Save(CurrentKey);
         }
 
         public void ToggleHotTimeProfile()
         {
-            if (!this.TMP_UsingHotTimeProfile)
+            if (!TMP_UsingHotTimeProfile)
             {
-                this.TMP_NormalProfile = this.CurrentKey;
-                this.ChangeProfile(this.ST_HotTimeProfile);
+                TMP_NormalProfile = CurrentKey;
+                ChangeProfile(ST_HotTimeProfile);
             }
             else
             {
-                this.ChangeProfile(this.TMP_NormalProfile);
-                this.TMP_NormalProfile = null;
+                ChangeProfile(TMP_NormalProfile);
+                TMP_NormalProfile = null;
             }
-            this.TMP_UsingHotTimeProfile = !this.TMP_UsingHotTimeProfile;
+            TMP_UsingHotTimeProfile = !TMP_UsingHotTimeProfile;
         }
 
         public string CurrentKey
@@ -311,20 +363,8 @@ namespace SevenKnightsAI.Classes
             private set;
         }
 
-        public AISettings CurrentProfile
-        {
-            get
-            {
-                return this.Settings[this.CurrentKey];
-            }
-        }
+        public AISettings CurrentProfile => Settings[CurrentKey];
 
-        public string CurrentProfileName
-        {
-            get
-            {
-                return this.CurrentKey.Substring(this.CurrentKey.IndexOf('\\') + 1).Replace(AIProfiles.FILE_EXTENSION, "");
-            }
-        }
+        public string CurrentProfileName => CurrentKey.Substring(CurrentKey.IndexOf('\\') + 1).Replace(AIProfiles.FILE_EXTENSION, "");
     }
 }

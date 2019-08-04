@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
-    class StatusBoardPM
+    internal class StatusBoardPM
     {
         public static readonly PixelMapping LeftTabCon = new PixelMapping
         {
-            X = 321,
-            Y = 25,
-            Color = 14791764,
+            X = 405,
+            Y = 79,
+            Color = 9608105,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping RightTabCol = new PixelMapping
         {
-            X = 480,
-            Y = 28,
-            Color = 13869388,
+            X = 549,
+            Y = 78,
+            Color = 12502739,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping ContentsTab = new PixelMapping
@@ -30,9 +25,9 @@ namespace SevenKnightsAI.Classes.Mappings
         };
         public static readonly PixelMapping ContentsTabSelect = new PixelMapping
         {
-            X = 262,
-            Y = 102,
-            Color = 11364356,
+            X = 293,
+            Y = 118,
+            Color = 11759108,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping HottimeTabSelect = new PixelMapping
@@ -44,8 +39,8 @@ namespace SevenKnightsAI.Classes.Mappings
         };
         public static readonly PixelMapping HottimeTab = new PixelMapping
         {
-            X = 397,
-            Y = 99,
+            X = 476,
+            Y = 115,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -58,25 +53,33 @@ namespace SevenKnightsAI.Classes.Mappings
         };
         public static readonly PixelMapping HottimeRedIcon = new PixelMapping
         {
-            X = 309,
-            Y = 78,
-            Color = 12526598,
+            X = 364,
+            Y = 102,
+            Color = 14750211,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ActiveButtonColor = new PixelMapping
         {
-            X = 663,
-            Y = 415,
-            Color = 11303523,
+            X = 649,
+            Y = 472,
+            Color = 13487824,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping ActiveButtonColor2 = new PixelMapping
+        {
+            X = 712,
+            Y = 471,
+            Color = 14145496,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ActiveBG = new PixelMapping
         {
-            X = 651,
-            Y = 413,
-            Color = 1247749,
+            X = 693,
+            Y = 470,
+            Color = 4276545,
             Type = MappingType.ANCHOR
         };
 
@@ -90,25 +93,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping ActiveHottimeButton = new PixelMapping
         {
-            X = 663,
-            Y = 415,
-            Color = 0,
+            X = 683,
+            Y = 471,
+            Color = 13948118,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping ConfirmOKtick = new PixelMapping
         {
-            X = 436,
-            Y = 337,
-            Color = 16765235,
+            X = 526,
+            Y = 407,
+            Color = 14540769,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping NoRedCloss = new PixelMapping
         {
-            X = 261,
-            Y = 336,
-            Color = 14433544,
+            X = 316,
+            Y = 403,
+            Color = 13945545,
             Type = MappingType.ANCHOR
         };
 
@@ -122,8 +125,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping OKButton = new PixelMapping
         {
-            X = 436,
-            Y = 337,
+            X = 607,
+            Y = 404,
             Color = 0,
             Type = MappingType.BUTTON
         };

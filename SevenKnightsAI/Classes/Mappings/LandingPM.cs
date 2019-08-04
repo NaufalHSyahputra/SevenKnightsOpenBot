@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class LandingPM
     {
@@ -20,11 +18,19 @@ namespace SevenKnightsAI.Classes.Mappings
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping Shield = new PixelMapping
+        public static readonly PixelMapping LoadingLanding1 = new PixelMapping
         {
-            X = 744,
-            Y = 442,
-            Color = 3615505,
+            X = 910,
+            Y = 514,
+            Color = 723723,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping LoadingLanding2 = new PixelMapping
+        {
+            X = 81,
+            Y = 515,
+            Color = 51455,
             Type = MappingType.ANCHOR
         };
 

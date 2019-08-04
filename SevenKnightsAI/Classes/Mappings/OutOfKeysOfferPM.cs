@@ -1,46 +1,44 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class OutOfKeysOfferPM
     {
         public static readonly PixelMapping BuyButton = new PixelMapping
         {
-            X = 448,
-            Y = 335,
+            X = 579,
+            Y = 401,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping BuyButtonBorder = new PixelMapping
         {
-            X = 448,
-            Y = 335,
-            Color = 16769090,
+            X = 579,
+            Y = 401,
+            Color = 13402884,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping StartBG = new PixelMapping
         {
-            X = 532,
-            Y = 401,
-            Color = 4868155,
+            X = 372,
+            Y = 480,
+            Color = 4009748,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping NoButton = new PixelMapping
         {
-            X = 262,
-            Y = 337,
+            X = 315,
+            Y = 402,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping RedCross = new PixelMapping
         {
-            X = 262,
-            Y = 337,
-            Color = 14105865,
+            X = 315,
+            Y = 402,
+            Color = 13909257,
             Type = MappingType.ANCHOR
         };
     }

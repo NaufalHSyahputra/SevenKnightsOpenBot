@@ -72,7 +72,8 @@
             this.Name = "CreateNewProfiles";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "CreateNewProfiles";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Create New Profile";
             this.ResumeLayout(false);
             this.PerformLayout();
 

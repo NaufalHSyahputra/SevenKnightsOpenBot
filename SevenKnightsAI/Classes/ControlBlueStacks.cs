@@ -4,7 +4,6 @@
 using Microsoft.Win32;
 using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -16,17 +15,22 @@ namespace SevenKnightsAI.Classes
 
         private static readonly string ACTIVITY_NAME = ControlBluestacks.PACKAGE_NAME + "/com.netmarble.sknightsgb.MainActivity";
 
-        private static readonly string ACTIVITY_NAME_2 = "com.netmarble.sknightsgb.MainActivity";
-
         public static readonly int DELAY_BS_EXIT = 12000;
 
         public static readonly int DELAY_BS_START = 60000;
 
-        RegistryKey HKCU = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64);
+        private readonly string LD_TITLE;
+
+        private RegistryKey HKCU = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64);
+
+        public ControlBluestacks(string title)
+        {
+            LD_TITLE = title;
+        }
 
         private string Adb(string command)
         {
-            Process process = this.CreateProcess(this.AdbPath, command);
+            Process process = CreateProcess(AdbPath, command);
             process.Start();
             process.WaitForExit();
             return process.StandardOutput.ReadToEnd();
@@ -34,7 +38,7 @@ namespace SevenKnightsAI.Classes
 
         private string LDConsole(string command)
         {
-            Process process = this.CreateProcess(this.LDConsolePath, command);
+            Process process = CreateProcess(LDConsolePath, command);
             process.Start();
             process.WaitForExit();
             return process.StandardOutput.ReadToEnd();
@@ -42,7 +46,7 @@ namespace SevenKnightsAI.Classes
 
         public void KillADB()
         {
-            Process process = this.CreateProcess("cmd.exe", "taskkill /IM adb.exe /F");
+            Process process = CreateProcess("cmd.exe", "taskkill /IM adb.exe /F");
             process.Start();
             process.WaitForExit();
         }
@@ -68,129 +72,120 @@ namespace SevenKnightsAI.Classes
 
         public bool IsGameActive()
         {
-            return this.Adb("shell dumpsys window windows | grep mCurrentFocus").Contains(ControlBluestacks.ACTIVITY_NAME);
+            return Adb("shell dumpsys window windows | grep mCurrentFocus").Contains(ControlBluestacks.ACTIVITY_NAME);
         }
 
         public bool IsGameInstalled()
         {
-            return this.Adb("shell pm list packages " + ControlBluestacks.PACKAGE_NAME).Contains(ControlBluestacks.PACKAGE_NAME);
+            return Adb("shell pm list packages " + ControlBluestacks.PACKAGE_NAME).Contains(ControlBluestacks.PACKAGE_NAME);
         }
 
         public void Kill()
         {
-            this.LDConsole("quit --name LDPlayer --packagename");
+            LDConsole(string.Format("quit --name {0}", LD_TITLE));
         }
 
         public void LaunchGame()
         {
-            this.Adb("shell am start -n " + ControlBluestacks.ACTIVITY_NAME);
+            Adb("shell am start -n " + ControlBluestacks.ACTIVITY_NAME);
         }
 
         public void LaunchADB()
         {
-            Process process = this.CreateProcess("cmd.exe", this.AdbPath);
+            Process process = CreateProcess("cmd.exe", AdbPath);
             process.Start();
             process.WaitForExit();
         }
 
-        public void RestartBluestacks()
+        public void RestartLDPlayer()
         {
-            this.Kill();
-            Thread.Sleep(12000);
-            this.RunLDPlayer();
-            Thread.Sleep(12000);
-            this.RunApp();
-            Thread.Sleep(5000);
-        }
-
-        public void RunApp()
-        {
-            this.LDConsole("runapp --name LDPlayer --packagename "+ ControlBluestacks.ACTIVITY_NAME);
+            LDConsole(String.Format("reboot --name {0}", LD_TITLE));
         }
 
         public void RunLDPlayer()
         {
-            this.LDConsole("launch --name LDPlayer");
+            LDConsole(String.Format("launch --name {0}", LD_TITLE));
         }
 
-        public void RestartADB()
+        public void RunApp()
         {
-            this.KillADB();
-            Thread.Sleep(500);
-            this.LaunchADB();
+            LDConsole(string.Format("runapp --name {0} --packagename {1}", LD_TITLE, ControlBluestacks.PACKAGE_NAME));
+        }
+
+        public void KillApp()
+        {
+            LDConsole(string.Format("killapp --name {0} --packagename {1}", LD_TITLE, ControlBluestacks.PACKAGE_NAME));
+        }
+
+        public bool CheckLDPlayer()
+        {
+            return LDConsole("runninglist").Contains(LD_TITLE);
+        }
+
+        public void KillServerAdb()
+        {
+            Process process = CreateProcess(AdbPath, "kill-server");
+            process.Start();
+            process.WaitForExit();
+        }
+
+        public void DevicesAdb()
+        {
+            Process process = CreateProcess(AdbPath, "devices");
+            process.Start();
+            process.WaitForExit();
+        }
+
+        public bool RestartADB()
+        {
+            if (CheckLDPlayer())
+            {
+                KillServerAdb();
+                DevicesAdb();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool RestartGame(int maxAttempts = 5)
         {
-            this.TerminateGame();
-            Thread.Sleep(200);
-            this.LaunchGame();
+            KillApp();
+            Thread.Sleep(1000);
+            RunApp();
             Thread.Sleep(2000);
             int i = 0;
             while (i <= maxAttempts)
             {
-                bool flag = this.IsGameActive();
+                bool flag = IsGameActive();
                 if (flag)
                 {
                     return true;
                 }
                 i++;
                 Thread.Sleep(800);
-                this.LaunchGame();
+                LaunchGame();
             }
             return false;
         }
 
         public void Screenshot()
         {
-            this.Adb("shell /system/bin/screencap -p /sdcard/screen.png");
+            Adb("shell /system/bin/screencap -p /sdcard/screen.png");
             Thread.Sleep(3000);
-            this.Adb("pull /sdcard/screen.png C:\\screen.png");
+            Adb("pull /sdcard/screen.png C:\\screen.png");
         }
 
-        public void TerminateGame()
-        {
-            this.Adb("shell am force-stop " + ControlBluestacks.PACKAGE_NAME);
-        }
+        private string AdbPath => InstallPath + "adb.exe";
 
-        private string AdbPath
-        {
-            get
-            {
-                return this.InstallPath + "adb.exe";
-            }
-        }
+        private string LDConsolePath => InstallPath + "ldconsole.exe";
 
-        private string LDConsolePath
-        {
-            get
-            {
-                return this.InstallPath + "dnconsole.exe";
-            }
-        }
+        private string LauncherPath => InstallPath + "dnplayer.exe";
 
-        private string LauncherPath
-        {
-            get
-            {
-                return this.InstallPath + "dnplayer.exe";
-            }
-        }
+        private string InstallPath => RegistryKey.GetValue("InstallDir") as string;
 
-        private string InstallPath
-        {
-            get
-            {
-                return this.RegistryKey.GetValue("InstallDir") as string;
-            }
-        }
-
-        private RegistryKey RegistryKey
-        {
-            get
-            {
-                return HKCU.OpenSubKey("SOFTWARE\\Changzhi\\dnplayer-en", true);
-            }
-        }
+        private RegistryKey RegistryKey => HKCU.OpenSubKey("SOFTWARE\\Changzhi\\LDPlayer", true);
     }
 }

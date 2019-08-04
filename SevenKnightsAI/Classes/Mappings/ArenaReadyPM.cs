@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -9,58 +8,58 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping ReadyButton = new PixelMapping
         {
-            X = 664,
-            Y = 408,
+            X = 685,
+            Y = 495,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping ReadyButtonBackground = new PixelMapping //Letter R in "READY" Button
         {
-            X = 664,
-            Y = 408,
-            Color = 13483157,
+            X = 735,
+            Y = 488,
+            Color = 16113580,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RecordBorder = new PixelMapping //Letter R in "RECORD" word
         {
-            X = 585,
-            Y = 72,
-            Color = 14327058,
+            X = 838,
+            Y = 77,
+            Color = 13027273,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RewardBackground = new PixelMapping //Reward Button
         {
-            X = 580,
-            Y = 327,
-            Color = 3415313,
+            X = 869,
+            Y = 119,
+            Color = 1383467,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CollectBorder = new PixelMapping //Collect Button "Yellow"
         {
-            X = 751,
-            Y = 324,
-            Color = 13204484,
+            X = 868,
+            Y = 166,
+            Color = 28395,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping RubyPlus = new PixelMapping
         {
-            X = 569,
-            Y = 26,
-            Color = 16503945,
+            X = 652,
+            Y = 31,
+            Color = 16777215,
             Type = MappingType.ANCHOR
         };
 
         public static readonly Rectangle ArenaScore = new Rectangle
         {
-            X = 711,
-            Y = 158,
-            Width = 52,
-            Height = 22
+            X = 618,
+            Y = 144,
+            Width = 64,
+            Height = 25
         };
 
         #endregion Public Fields

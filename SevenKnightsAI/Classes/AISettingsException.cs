@@ -9,12 +9,12 @@ namespace SevenKnightsAI.Classes
 
         public AISettingsException(string message, int code) : base(message)
         {
-            this.ErrorCode = code;
+            ErrorCode = code;
         }
 
         public AISettingsException(string message, Exception inner, int code) : base(message, inner)
         {
-            this.ErrorCode = code;
+            ErrorCode = code;
         }
 
         public int ErrorCode;

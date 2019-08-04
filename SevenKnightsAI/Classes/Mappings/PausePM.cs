@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class PausePM
     {
@@ -8,25 +6,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Point1 = new PixelMapping //Red Ruby in "V"
         {
-            X = 338,
-            Y = 150,
-            Color = 9784327,
+            X = 439,
+            Y = 149,
+            Color = 9346490,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping //Anywhere
         {
-            X = 460,
-            Y = 145,
-            Color = 8537094,
+            X = 406,
+            Y = 257,
+            Color = 13290187,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ContinueButton = new PixelMapping //Anywhere
         {
-            X = 243,
-            Y = 235,
-            Color = 0,
+            X = 287,
+            Y = 274,
+            Color = 15329770,
             Type = MappingType.BUTTON
         };
 

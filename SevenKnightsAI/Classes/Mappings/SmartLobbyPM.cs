@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -7,98 +6,74 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 277,
-            Y = 61,
-            Color = 8487554,
+            X = 889,
+            Y = 144,
+            Color = 13619671,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 525,
-            Y = 66,
-            Color = 4474181,
+            X = 354,
+            Y = 78,
+            Color = 2302755,
             Type = MappingType.ANCHOR
-        };
-
-        public static readonly PixelMapping CelestialTowerButton = new PixelMapping
-        {
-            X = 114,
-            Y = 82,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
-
-        public static readonly PixelMapping RaidButton = new PixelMapping
-        {
-            X = 158,
-            Y = 85,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
-
-        public static readonly PixelMapping TartarusButton = new PixelMapping
-        {
-            X = 204,
-            Y = 83,
-            Color = 0,
-            Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping CollectButton = new PixelMapping
         {
-            X = 267,
-            Y = 410,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
-
-        public static readonly PixelMapping LootButton = new PixelMapping
-        {
-            X = 391,
-            Y = 412,
+            X = 395,
+            Y = 487,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly Rectangle R_GoldenCrystal = new Rectangle
         {
-            X = 662,
-            Y = 18,
-            Width = 88,
-            Height = 21
+            X = 230,
+            Y = 100,
+            Width = 96,
+            Height = 29
+        };
+
+        public static readonly Rectangle R_Gold = new Rectangle
+        {
+            X = 250,
+            Y = 139,
+            Width = 79,
+            Height = 25
         };
 
         public static readonly Rectangle R_Horn = new Rectangle
         {
-            X = 407,
-            Y = 18,
-            Width = 89,
-            Height = 21
+            X = 487,
+            Y = 102,
+            Width = 85,
+            Height = 27
         };
 
         public static readonly Rectangle R_Scale = new Rectangle
         {
-            X = 533,
-            Y = 17,
-            Width = 90,
-            Height = 22
+            X = 484,
+            Y = 136,
+            Width = 88,
+            Height = 29
         };
 
         public static readonly Rectangle R_Essecense = new Rectangle
         {
-            X = 663,
-            Y = 19,
-            Width = 87,
-            Height = 21
+            X = 496,
+            Y = 174,
+            Width = 75,
+            Height = 24
         };
 
         public static readonly Rectangle R_Star = new Rectangle
         {
-            X = 668,
-            Y = 17,
+            X = 723,
+            Y = 101,
             Width = 82,
-            Height = 24
+            Height = 29
         };
     }
 }

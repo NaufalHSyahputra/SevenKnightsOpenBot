@@ -1,6 +1,5 @@
 ﻿using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
-using System;
 using System.IO;
 
 namespace SevenKnightsAI.Classes

@@ -1,46 +1,44 @@
-﻿using System;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class Level30MaxDialogPM
     {
         public static readonly PixelMapping CharacterEye = new PixelMapping
         {
-            X = 107,
-            Y = 104,
-            Color = 9129251,
+            X = 164,
+            Y = 115,
+            Color = 8279102,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping InboxButton = new PixelMapping
         {
-            X = 517,
-            Y = 416,
-            Color = 13410361,
+            X = 821,
+            Y = 488,
+            Color = 13619152,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping NecklaceCharacter = new PixelMapping
         {
-            X = 134,
-            Y = 185,
-            Color = 5738683,
+            X = 198,
+            Y = 212,
+            Color = 7645392,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping OkButton = new PixelMapping
         {
-            X = 663,
-            Y = 415,
-            Color = 0,
+            X = 906,
+            Y = 491,
+            Color = 14277082,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping YellowTick = new PixelMapping
         {
-            X = 663,
-            Y = 415,
-            Color = 16767034,
+            X = 906,
+            Y = 491,
+            Color = 14277082,
             Type = MappingType.ANCHOR
         };
     }

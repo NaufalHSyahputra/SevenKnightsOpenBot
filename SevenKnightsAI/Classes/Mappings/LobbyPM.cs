@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -9,24 +8,24 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping StatusBoard = new PixelMapping //evan hair
         {
-            X = 48,
-            Y = 212,
+            X = 52,
+            Y = 256,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping MasteryButton = new PixelMapping
         {
-            X = 48,
-            Y = 73,
+            X = 52,
+            Y = 93,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping AdventureButton = new PixelMapping
         {
-            X = 735,
-            Y = 416,
+            X = 911,
+            Y = 470,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -37,16 +36,16 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping GuildButton = new PixelMapping
         {
-            X = 219,
-            Y = 405,
+            X = 258,
+            Y = 494,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroButton = new PixelMapping
         {
-            X = 32,
-            Y = 414,
+            X = 39,
+            Y = 481,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -65,8 +64,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping InboxButton = new PixelMapping
         {
-            X = 703,
-            Y = 25,
+            X = 846,
+            Y = 32,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -77,17 +76,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping MenuButtonYellowLeft = new PixelMapping //Chest
         {
-            X = 647,
-            Y = 22,
-            Color = 12223286,
+            X = 920,
+            Y = 32,
+            Color = 16711422,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MenuButtonYellowRight = new PixelMapping //Chest
         {
-            X = 675,
-            Y = 36,
-            Color = 9987110,
+            X = 947,
+            Y = 31,
+            Color = 16777215,
             Type = MappingType.ANCHOR
         };
 
@@ -120,8 +119,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping ShopButton = new PixelMapping
         {
-            X = 515,
-            Y = 415,
+            X = 621,
+            Y = 495,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -148,10 +147,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle OwnerLocation = new Rectangle
         {
-            X = 167,
-            Y = 138,
-            Width = 185,
-            Height = 35
+            X = 208,
+            Y = 171,
+            Width = 190,
+            Height = 30
         };
 
         /* Exploration */
@@ -182,42 +181,50 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_GoldBase = new Rectangle
         {
-            X = 355,
-            Y = 18,
-            Width = 72,
-            Height = 21
+            X = 479,
+            Y = 21,
+            Width = 109,
+            Height = 23
         };
 
         public static readonly Rectangle R_HonorBase = new Rectangle
         {
-            X = 573,
-            Y = 18,
-            Width = 64,
-            Height = 21
+            X = 687,
+            Y = 22,
+            Width = 77,
+            Height = 23
         };
 
         public static readonly Rectangle R_KeyNormalBase = new Rectangle
         {
-            X = 248,
-            Y = 15, 
-            Width = 56,
-            Height = 25
+            X = 338,
+            Y = 19,
+            Width = 79,
+            Height = 26
         };
 
         public static readonly Rectangle R_KeyTopBase = new Rectangle
         {
-            X = 258,
-            Y = 30,
-            Width = 60,
-            Height = 22
+            X = 327,
+            Y = 17,
+            Width = 38,
+            Height = 15
+        };
+
+        public static readonly Rectangle R_KeyTime = new Rectangle
+        {
+            X = 315,
+            Y = 31,
+            Width = 52,
+            Height = 16
         };
 
         public static readonly Rectangle R_RubyBase = new Rectangle
         {
-            X = 476,
-            Y = 18,
-            Width = 50,
-            Height = 23
+            X = 656,
+            Y = 21,
+            Width = 75,
+            Height = 22
         };
 
         /* Smart Mode */
@@ -232,9 +239,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SmartButton = new PixelMapping
         {
-            X = 595,
-            Y = 415,
+            X = 822,
+            Y = 486,
             Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping UnknownAvailable = new PixelMapping
+        {
+            X = 31,
+            Y = 326,
+            Color = 13116423,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping UnknownBtn = new PixelMapping
+        {
+            X = 67,
+            Y = 347,
+            Color = 8942952,
             Type = MappingType.BUTTON
         };
 

@@ -82,7 +82,7 @@ namespace SevenKnightsAI
 
         private void dataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 int num;
                 if (!int.TryParse(Convert.ToString(e.FormattedValue), out num))
@@ -162,25 +162,28 @@ namespace SevenKnightsAI
             this.DataTable.Columns.Add("Index", typeof(int));
             this.DataTable.Columns.Add("World", typeof(string));
             this.DataTable.Columns.Add("Stage", typeof(string));
+            this.DataTable.Columns.Add("Boost", typeof(string));
             this.DataTable.Columns.Add("Amount", typeof(int));
             this.LoadSettings();
         }
 
         private void LoadSettings()
         {
-            if (this.AISettings.AD_WorldSequence != null && this.AISettings.AD_StageSequence != null && this.AISettings.AD_AmountSequence != null)
+            if (this.AISettings.AD_WorldSequence != null && this.AISettings.AD_StageSequence != null && this.AISettings.AD_AmountSequence != null && this.AISettings.AD_BoostSequence != null)
             {
                 int num = this.AISettings.AD_WorldSequence.Length;
                 for (int i = 0; i < num; i++)
                 {
                     string text = this.worldConverter[this.AISettings.AD_WorldSequence[i] - 2];
                     string text2 = this.stageConverter[this.AISettings.AD_StageSequence[i]];
+                    string text3 = this.boostConverter[this.AISettings.AD_BoostSequence[i]];
                     int num2 = this.AISettings.AD_AmountSequence[i];
                     this.DataTable.Rows.Add(new object[]
                     {
                         i + 1,
                         text,
                         text2,
+                        text3,
                         num2
                     });
                 }
@@ -194,20 +197,24 @@ namespace SevenKnightsAI
             int[] array = new int[count];
             int[] array2 = new int[count];
             int[] array3 = new int[count];
+            int[] array4 = new int[count];
             int num = 0;
             foreach (DataRow dataRow in this.DataTable.Rows)
             {
                 int num2 = Array.IndexOf<string>(this.worldConverter, dataRow["World"].ToString()) + 2;
                 int num3 = Array.IndexOf<string>(this.stageConverter, dataRow["Stage"].ToString());
+                int num5 = Array.IndexOf<string>(this.boostConverter, dataRow["Boost"].ToString());
                 int num4 = Convert.ToInt32(dataRow["Amount"]);
                 array[num] = num2;
                 array2[num] = num3;
                 array3[num] = num4;
+                array4[num] = num5;
                 num++;
             }
             this.AISettings.AD_WorldSequence = array;
             this.AISettings.AD_StageSequence = array2;
             this.AISettings.AD_AmountSequence = array3;
+            this.AISettings.AD_BoostSequence = array4;
         }
 
         private void StageSequencerForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -246,6 +253,10 @@ namespace SevenKnightsAI
                 if (dataRow["Stage"] == DBNull.Value)
                 {
                     dataRow["Stage"] = this.stageConverter[0];
+                }
+                if (dataRow["Boost"] == DBNull.Value)
+                {
+                    dataRow["Boost"] = this.boostConverter[0];
                 }
                 if (dataRow["Amount"] == DBNull.Value)
                 {
@@ -303,5 +314,11 @@ namespace SevenKnightsAI
             "12 - Shadows Eye", //11
             "13 - Heavenly Stairs" //12
         };
+
+        private string[] boostConverter = new string[]
+{
+            "No", //0
+            "Yes", //1
+};
     }
 }

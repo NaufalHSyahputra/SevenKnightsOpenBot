@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace SevenKnightsAI.Classes.Mappings
 {
@@ -37,6 +36,14 @@ namespace SevenKnightsAI.Classes.Mappings
             Y = 539,
             Color = 14391811,
             Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping BulkFuseBtn = new PixelMapping
+        {
+            X = 600,
+            Y = 508,
+            Color = 0,
+            Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping F1B4_1 = new PixelMapping
@@ -90,7 +97,7 @@ namespace SevenKnightsAI.Classes.Mappings
         public static readonly PixelMapping F1B4_Finger_2 = new PixelMapping
         {
             X = 81,
-            Y = 138, 
+            Y = 138,
             Color = 16777215,
             Type = MappingType.ANCHOR
         };
@@ -359,111 +366,207 @@ namespace SevenKnightsAI.Classes.Mappings
             Type = MappingType.ANCHOR
         };
 
+        public static readonly PixelMapping HeroCard1Red1 = new PixelMapping
+        {
+            X = 428,
+            Y = 115,
+            Color = 15932676,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping HeroCard1Red2 = new PixelMapping
+        {
+            X = 428,
+            Y = 121,
+            Color = 11672330,
+            Type = MappingType.ANCHOR
+        };
+
         public static readonly int GOLD_OFFSET_X = 357;
 
         public static readonly int GOLD_OFFSET_Y = 0;
 
         public static readonly PixelMapping HeroCard1 = new PixelMapping
         {
-            X = 337,
-            Y = 163,
+            X = 384,
+            Y = 178,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard2 = new PixelMapping
         {
-            X = 537,
-            Y = 207,
+            X = 496,
+            Y = 170,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard3 = new PixelMapping
         {
-            X = 633,
-            Y = 204,
+            X = 617,
+            Y = 172,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard4 = new PixelMapping
         {
-            X = 776,
-            Y = 187,
+            X = 732,
+            Y = 173,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard5 = new PixelMapping
         {
-            X = 888,
-            Y = 201,
+            X = 855,
+            Y = 174,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard6 = new PixelMapping
         {
-            X = 397,
-            Y = 377,
+            X = 389,
+            Y = 345,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard7 = new PixelMapping
         {
-            X = 524,
-            Y = 376,
+            X = 506,
+            Y = 343,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard8 = new PixelMapping
         {
-            X = 656,
-            Y = 374,
+            X = 616,
+            Y = 332,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard9 = new PixelMapping
         {
-            X = 784,
-            Y = 378,
+            X = 746,
+            Y = 331,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping HeroCard10 = new PixelMapping
         {
-            X = 884,
-            Y = 367,
+            X = 859,
+            Y = 328,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
+        public static readonly Rectangle HeroCard1Frame = new Rectangle
+        {
+            X = 328,
+            Y = 106,
+            Width = 118,
+            Height = 168
+        };
+
+        public static readonly Rectangle HeroCard2Frame = new Rectangle
+        {
+            X = 447,
+            Y = 107,
+            Width = 115,
+            Height = 165
+        };
+
+        public static readonly Rectangle HeroCard3Frame = new Rectangle
+        {
+            X = 564,
+            Y = 106,
+            Width = 117,
+            Height = 170
+        };
+
+        public static readonly Rectangle HeroCard4Frame = new Rectangle
+        {
+            X = 683,
+            Y = 106,
+            Width = 117,
+            Height = 170
+        };
+
+        public static readonly Rectangle HeroCard5Frame = new Rectangle
+        {
+            X = 801,
+            Y = 105,
+            Width = 117,
+            Height = 170
+        };
+
+        public static readonly Rectangle HeroCard6Frame = new Rectangle
+        {
+            X = 327,
+            Y = 277,
+            Width = 117,
+            Height = 170
+        };
+
+        public static readonly Rectangle HeroCard7Frame = new Rectangle
+        {
+            X = 446,
+            Y = 275,
+            Width = 117,
+            Height = 170
+        };
+
+        public static readonly Rectangle HeroCard8Frame = new Rectangle
+        {
+            X = 563,
+            Y = 274,
+            Width = 119,
+            Height = 170
+        };
+
+        public static readonly Rectangle HeroCard9Frame = new Rectangle
+        {
+            X = 681,
+            Y = 275,
+            Width = 118,
+            Height = 170
+        };
+
+        public static readonly Rectangle HeroCard10Frame = new Rectangle
+        {
+            X = 799,
+            Y = 274,
+            Width = 117,
+            Height = 170
+        };
+
         public static readonly PixelMapping IconLeft = new PixelMapping //3 Yellow Card Icon 
         {
-            X = 63,
-            Y = 26,
-            Color = 16049092,
+            X = 810,
+            Y = 515,
+            Color = 9033,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping IconMiddle = new PixelMapping //R Char in HEROES Word
         {
-            X = 328,
-            Y = 70,
-            Color = 12356916,
+            X = 686,
+            Y = 504,
+            Color = 2501690,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping IconRight = new PixelMapping //border formation
         {
-            X = 535,
-            Y = 66,
-            Color = 12033644,
+            X = 658,
+            Y = 514,
+            Color = 7488,
             Type = MappingType.ANCHOR
         };
 
@@ -489,9 +592,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping OptimizeBorder = new PixelMapping
         {
-            X = 242,
-            Y = 386,
-            Color = 13348218,
+            X = 282,
+            Y = 500,
+            Color = 12501188,
             Type = MappingType.ANCHOR
         };
 
@@ -511,47 +614,47 @@ namespace SevenKnightsAI.Classes.Mappings
         public static readonly int RUBY_OFFSET_X = 360;
 
         public static readonly int RUBY_OFFSET_Y = 0;
-        public static readonly int SCROLL_DELTA = 228;
+        public static readonly int SCROLL_DELTA = 225;
 
         public static readonly int SCROLL_DOUBLE_DELTA = 275;
 
         public static readonly PixelMapping ScrollAreaDown = new PixelMapping
         {
-            X = 951,
-            Y = 495,
+            X = 619,
+            Y = 241,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping ScrollAreaUp = new PixelMapping
         {
-            X = 953,
-            Y = 139,
+            X = 619,
+            Y = 353,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SortButton = new PixelMapping
         {
-            X = 914,
-            Y = 107,
+            X = 898,
+            Y = 77,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SortButtonAscending = new PixelMapping
         {
-            X = 921,
-            Y = 103,
-            Color = 4530192,
+            X = 898,
+            Y = 77,
+            Color = 15462136,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping SortButtonDescending = new PixelMapping
         {
-            X = 921,
-            Y = 103,
-            Color = 11697768,
+            X = 898,
+            Y = 77,
+            Color = 2764596,
             Type = MappingType.ANCHOR
         };
 
@@ -565,32 +668,32 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SortByBox = new PixelMapping
         {
-            X = 843,
-            Y = 106,
+            X = 822,
+            Y = 83,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SortByBoxExpanded = new PixelMapping
         {
-            X = 807,
-            Y = 348,
-            Color = 9008455,
+            X = 753,
+            Y = 371,
+            Color = 2699317,
             Type = MappingType.ANCHOR
         };
 
-        public static readonly PixelMapping SortByDefense = new PixelMapping
+        public static readonly PixelMapping SortByNormal = new PixelMapping
         {
-            X = 845,
-            Y = 211,
-            Color = 0,
+            X = 810,
+            Y = 242,
+            Color = 12895686,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SortByGeneral = new PixelMapping
         {
-            X = 847,
-            Y = 144,
+            X = 789,
+            Y = 117,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -661,14 +764,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_HeroCount = new Rectangle
         {
-            X = 382,
-            Y = 62,
-            Width = 77,
-            Height = 21
-            //X = 456,
-            //Y = 78,
-            //Width = 56,
-            //Height = 20
+            X = 605,
+            Y = 68,
+            Width = 114,
+            Height = 28
         };
 
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
@@ -34,7 +33,7 @@ namespace SevenKnightsAI.Classes.Imaging
             ulong num4 = 0uL;
             for (int k = 0; k < 64; k++)
             {
-                if ((uint)array[k] >= num)
+                if (array[k] >= num)
                 {
                     num4 |= 1uL << 63 - k;
                 }
@@ -53,7 +52,7 @@ namespace SevenKnightsAI.Classes.Imaging
             uint num2 = 0u;
             while (num > 0uL)
             {
-                num2 += (uint)ImageHashing.bitCounts[(int)(checked((IntPtr)(num & 255uL)))];
+                num2 += ImageHashing.bitCounts[(int)(checked(num & 255uL))];
                 num >>= 8;
             }
             return num2;

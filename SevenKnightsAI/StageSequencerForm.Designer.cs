@@ -1,21 +1,21 @@
 ﻿namespace SevenKnightsAI
 {
-	
-	public partial class StageSequencerForm : global::System.Windows.Forms.Form
-	{
-		
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing && this.components != null)
-			{
-				this.components.Dispose();
-			}
-			base.Dispose(disposing);
-		}
 
-		
-		private void InitializeComponent()
-		{
+    public partial class StageSequencerForm : global::System.Windows.Forms.Form
+    {
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && this.components != null)
+            {
+                this.components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+
+        private void InitializeComponent()
+        {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.doneButton = new System.Windows.Forms.Button();
@@ -24,6 +24,7 @@
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.World = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Stage = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Boost = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -39,15 +40,16 @@
             this.Index,
             this.World,
             this.Stage,
+            this.Boost,
             this.Amount,
             this.Delete});
-            this.dataGridView.Location = new System.Drawing.Point(15, 12);
+            this.dataGridView.Location = new System.Drawing.Point(12, 12);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(339, 148);
-            this.dataGridView.TabIndex = 4;
+            this.dataGridView.Size = new System.Drawing.Size(391, 148);
+            this.dataGridView.TabIndex = 5;
             this.dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView_CellBeginEdit);
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
@@ -60,7 +62,7 @@
             // 
             // doneButton
             // 
-            this.doneButton.Location = new System.Drawing.Point(231, 169);
+            this.doneButton.Location = new System.Drawing.Point(269, 169);
             this.doneButton.Name = "doneButton";
             this.doneButton.Size = new System.Drawing.Size(123, 31);
             this.doneButton.TabIndex = 6;
@@ -70,7 +72,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(156, 169);
+            this.clearButton.Location = new System.Drawing.Point(185, 169);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(69, 31);
             this.clearButton.TabIndex = 5;
@@ -153,6 +155,18 @@
             this.Stage.Name = "Stage";
             this.Stage.Width = 70;
             // 
+            // Boost
+            // 
+            this.Boost.DataPropertyName = "Boost";
+            this.Boost.FillWeight = 70F;
+            this.Boost.HeaderText = "Boost";
+            this.Boost.Items.AddRange(new object[] {
+            "No",
+            "Yes",});
+            this.Boost.MinimumWidth = 70;
+            this.Boost.Name = "Boost";
+            this.Boost.Width = 70;
+            // 
             // Amount
             // 
             this.Amount.DataPropertyName = "Amount";
@@ -182,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 204);
+            this.ClientSize = new System.Drawing.Size(404, 204);
             this.Controls.Add(this.runningWarningLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.doneButton);
@@ -201,25 +215,26 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
-		}
+        }
 
-		
-		private global::System.Windows.Forms.Button clearButton;
 
-		
-		private global::System.ComponentModel.IContainer components;
+        private global::System.Windows.Forms.Button clearButton;
 
-		
-		private global::System.Windows.Forms.DataGridView dataGridView;
 
-		
-		private global::System.Windows.Forms.Button doneButton;
+        private global::System.ComponentModel.IContainer components;
 
-		
-		private global::System.Windows.Forms.Label runningWarningLabel;
+
+        private global::System.Windows.Forms.DataGridView dataGridView;
+
+
+        private global::System.Windows.Forms.Button doneButton;
+
+
+        private global::System.Windows.Forms.Label runningWarningLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewComboBoxColumn World;
         private System.Windows.Forms.DataGridViewComboBoxColumn Stage;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Boost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }

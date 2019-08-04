@@ -1,46 +1,43 @@
-﻿using System;
-using System.Drawing;
-
-namespace SevenKnightsAI.Classes.Mappings
+﻿namespace SevenKnightsAI.Classes.Mappings
 {
     internal static class AutoRepeatStopPM
     {
         public static readonly PixelMapping x2Icon = new PixelMapping
         {
-            X = 41,
-            Y = 405,
-            Color = 4539201,
+            X = 671,
+            Y = 410,
+            Color = 2567998,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 543,
-            Y = 28,
-            Color = 4931618,
+            X = 5,
+            Y = 503,
+            Color = 4737096,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping PopupBorder = new PixelMapping
         {
-            X = 217,
-            Y = 154,
-            Color = 15587227,
+            X = 287,
+            Y = 410,
+            Color = 12339767,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping NoButton = new PixelMapping
         {
-            X = 262,
-            Y = 354,
-            Color = 14695688,
-            Type = MappingType.BOTH
+            X = 384,
+            Y = 426,
+            Color = 0,
+            Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping YesButton = new PixelMapping
         {
-            X = 455,
-            Y = 355,
-            Color = 16766006,
-            Type = MappingType.BOTH
+            X = 597,
+            Y = 420,
+            Color = 0,
+            Type = MappingType.BUTTON
         };
 
     }
