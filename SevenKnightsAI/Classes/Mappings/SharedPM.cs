@@ -6,19 +6,19 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         #region Public Fields
 
-        public static readonly PixelMapping BackButton = new PixelMapping //Red Back button
+        public static readonly PixelMapping BackButton = new PixelMapping //White Back Button
         {
-            X = 26,
-            Y = 55,
-            Color = 16053492,
+            X = 28,
+            Y = 26,
+            Color = 16777215,
             Type = MappingType.BOTH
         };
 
-        public static readonly PixelMapping BackButtonAnchor = new PixelMapping //Red Back button
+        public static readonly PixelMapping BackButtonAnchor = new PixelMapping //White Back Button
         {
-            X = 26,
-            Y = 55,
-            Color = 1065600,
+            X = 28,
+            Y = 26,
+            Color = 16777215,
             Type = MappingType.ANCHOR
         };
 
@@ -56,17 +56,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping MiniXButton = new PixelMapping //yellow back button
         {
-            X = 725,
-            Y = 56,
-            Color = 12860171,
+            X = 723,
+            Y = 54,
+            Color = 14211288,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping MiniXButtonAnchor = new PixelMapping //yellow back button
         {
-            X = 725,
-            Y = 56,
-            Color = 12860171,
+            X = 723,
+            Y = 54,
+            Color = 14211288,
             Type = MappingType.ANCHOR
         };
 

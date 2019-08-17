@@ -77,18 +77,11 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.LG_logTextBox = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -104,22 +97,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.timerHour = new System.Windows.Forms.Label();
             this.botstatusLabel = new System.Windows.Forms.Label();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.itemslotLabel = new System.Windows.Forms.Label();
-            this.heroslotLabel = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.soulLabel = new System.Windows.Forms.Label();
             this.itemadvLabel = new System.Windows.Forms.Label();
             this.heroadvLabel = new System.Windows.Forms.Label();
             this.goldadvLabel = new System.Windows.Forms.Label();
             this.h30advLabel = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.soulLabel = new System.Windows.Forms.Label();
-            this.essenceLabel = new System.Windows.Forms.Label();
-            this.scaleLabel = new System.Windows.Forms.Label();
-            this.starLabel = new System.Windows.Forms.Label();
-            this.goldencrystalLabel = new System.Windows.Forms.Label();
-            this.hornLabel = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.rankArenaLabel = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -168,12 +152,6 @@
             this.AD_stageComboBox = new System.Windows.Forms.ComboBox();
             this.AD_sequenceButton = new System.Windows.Forms.Button();
             this.AD_continuousCheckBox = new System.Windows.Forms.CheckBox();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.SM_EnableCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.SM_CollectTartarusCheckBox = new System.Windows.Forms.CheckBox();
-            this.SM_CollectRaidCheckBox = new System.Windows.Forms.CheckBox();
-            this.SM_CollectTowerCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox29 = new System.Windows.Forms.GroupBox();
             this.AR_enableCheckBox = new System.Windows.Forms.CheckBox();
@@ -287,6 +265,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.topheaderPictureBox = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -302,25 +281,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -335,8 +305,6 @@
             this.ADCH_ChangeHeroGroupBox.SuspendLayout();
             this.groupBox26.SuspendLayout();
             this.groupBox27.SuspendLayout();
-            this.tabPage11.SuspendLayout();
-            this.groupBox11.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox29.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AR_limitNumericBox)).BeginInit();
@@ -785,13 +753,14 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(237, 193);
+            this.checkBox1.Location = new System.Drawing.Point(240, 304);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox1.Size = new System.Drawing.Size(77, 17);
             this.checkBox1.TabIndex = 26;
             this.checkBox1.Text = "Auto Scroll";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // aiPause
             // 
@@ -946,7 +915,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(156, 193);
+            this.button1.Location = new System.Drawing.Point(155, 298);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 22);
             this.button1.TabIndex = 28;
@@ -959,7 +928,7 @@
             // 
             this.button2.Enabled = false;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(76, 193);
+            this.button2.Location = new System.Drawing.Point(75, 298);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 22);
             this.button2.TabIndex = 27;
@@ -1001,28 +970,6 @@
             this.pictureBox9.TabIndex = 14;
             this.pictureBox9.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBox9, "Honor");
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::SevenKnightsAI.Properties.Resources.icon_item;
-            this.pictureBox4.Location = new System.Drawing.Point(6, 67);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(37, 36);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 28;
-            this.pictureBox4.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox4, "Arena Keys");
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SevenKnightsAI.Properties.Resources.lv30_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 36);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox1, "Arena Keys");
             // 
             // pictureBox18
             // 
@@ -1071,68 +1018,13 @@
             // pictureBox16
             // 
             this.pictureBox16.Image = global::SevenKnightsAI.Properties.Resources.soulIcon;
-            this.pictureBox16.Location = new System.Drawing.Point(355, 60);
+            this.pictureBox16.Location = new System.Drawing.Point(6, 197);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(32, 34);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox16.TabIndex = 20;
             this.pictureBox16.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBox16, "Gold");
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::SevenKnightsAI.Properties.Resources.icon_ess;
-            this.pictureBox11.Location = new System.Drawing.Point(357, 19);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(30, 32);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox11.TabIndex = 18;
-            this.pictureBox11.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox11, "Gold");
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Image = global::SevenKnightsAI.Properties.Resources.icon_golden;
-            this.pictureBox14.Location = new System.Drawing.Point(6, 19);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(30, 32);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox14.TabIndex = 14;
-            this.pictureBox14.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox14, "Gold");
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Image = global::SevenKnightsAI.Properties.Resources.icon_star;
-            this.pictureBox17.Location = new System.Drawing.Point(194, 19);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(30, 32);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox17.TabIndex = 14;
-            this.pictureBox17.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox17, "Gold");
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = global::SevenKnightsAI.Properties.Resources.icon_scale;
-            this.pictureBox10.Location = new System.Drawing.Point(194, 60);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(30, 32);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 16;
-            this.pictureBox10.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox10, "Gold");
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::SevenKnightsAI.Properties.Resources.icon_horn;
-            this.pictureBox7.Location = new System.Drawing.Point(6, 60);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(30, 32);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 14;
-            this.pictureBox7.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox7, "Gold");
             // 
             // LG_logTextBox
             // 
@@ -1161,11 +1053,10 @@
             // tabPage4
             // 
             this.tabPage4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Controls.Add(this.groupBox6);
             this.tabPage4.Controls.Add(this.groupBox1);
-            this.tabPage4.Controls.Add(this.groupBox9);
             this.tabPage4.Controls.Add(this.groupBox10);
-            this.tabPage4.Controls.Add(this.groupBox4);
             this.tabPage4.Controls.Add(this.groupBox8);
             this.tabPage4.ImageKey = "icon_report.png";
             this.tabPage4.Location = new System.Drawing.Point(4, 23);
@@ -1182,9 +1073,9 @@
             this.groupBox6.Controls.Add(this.button3);
             this.groupBox6.Controls.Add(this.checkBox1);
             this.groupBox6.Controls.Add(this.button2);
-            this.groupBox6.Location = new System.Drawing.Point(9, 203);
+            this.groupBox6.Location = new System.Drawing.Point(8, 94);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(320, 220);
+            this.groupBox6.Size = new System.Drawing.Size(323, 330);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Log";
@@ -1196,14 +1087,14 @@
             this.logsBox.Location = new System.Drawing.Point(6, 19);
             this.logsBox.Name = "logsBox";
             this.logsBox.ReadOnly = true;
-            this.logsBox.Size = new System.Drawing.Size(308, 168);
+            this.logsBox.Size = new System.Drawing.Size(308, 273);
             this.logsBox.TabIndex = 24;
             this.logsBox.Text = "";
             // 
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(6, 193);
+            this.button3.Location = new System.Drawing.Point(5, 298);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(64, 23);
             this.button3.TabIndex = 25;
@@ -1220,7 +1111,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.timerHour);
             this.groupBox1.Controls.Add(this.botstatusLabel);
-            this.groupBox1.Location = new System.Drawing.Point(174, 115);
+            this.groupBox1.Location = new System.Drawing.Point(176, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(155, 82);
             this.groupBox1.TabIndex = 30;
@@ -1303,42 +1194,12 @@
             this.botstatusLabel.TabIndex = 20;
             this.botstatusLabel.Text = "AI Stopped";
             // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.pictureBox4);
-            this.groupBox9.Controls.Add(this.pictureBox1);
-            this.groupBox9.Controls.Add(this.itemslotLabel);
-            this.groupBox9.Controls.Add(this.heroslotLabel);
-            this.groupBox9.Location = new System.Drawing.Point(335, 310);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(159, 114);
-            this.groupBox9.TabIndex = 34;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Slot";
-            // 
-            // itemslotLabel
-            // 
-            this.itemslotLabel.AutoSize = true;
-            this.itemslotLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemslotLabel.Location = new System.Drawing.Point(64, 76);
-            this.itemslotLabel.Name = "itemslotLabel";
-            this.itemslotLabel.Size = new System.Drawing.Size(13, 18);
-            this.itemslotLabel.TabIndex = 26;
-            this.itemslotLabel.Text = "-";
-            // 
-            // heroslotLabel
-            // 
-            this.heroslotLabel.AutoSize = true;
-            this.heroslotLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heroslotLabel.Location = new System.Drawing.Point(64, 28);
-            this.heroslotLabel.Name = "heroslotLabel";
-            this.heroslotLabel.Size = new System.Drawing.Size(13, 18);
-            this.heroslotLabel.TabIndex = 5;
-            this.heroslotLabel.Text = "-";
-            // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.label13);
+            this.groupBox10.Controls.Add(this.soulLabel);
             this.groupBox10.Controls.Add(this.pictureBox18);
+            this.groupBox10.Controls.Add(this.pictureBox16);
             this.groupBox10.Controls.Add(this.pictureBox15);
             this.groupBox10.Controls.Add(this.pictureBox13);
             this.groupBox10.Controls.Add(this.pictureBox12);
@@ -1346,12 +1207,34 @@
             this.groupBox10.Controls.Add(this.heroadvLabel);
             this.groupBox10.Controls.Add(this.goldadvLabel);
             this.groupBox10.Controls.Add(this.h30advLabel);
-            this.groupBox10.Location = new System.Drawing.Point(335, 115);
+            this.groupBox10.Location = new System.Drawing.Point(335, 6);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(158, 195);
+            this.groupBox10.Size = new System.Drawing.Size(158, 242);
             this.groupBox10.TabIndex = 33;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Adventure";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label13.Location = new System.Drawing.Point(98, 205);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 18);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "/ 1000";
+            // 
+            // soulLabel
+            // 
+            this.soulLabel.AutoSize = true;
+            this.soulLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.soulLabel.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.soulLabel.Location = new System.Drawing.Point(61, 205);
+            this.soulLabel.Name = "soulLabel";
+            this.soulLabel.Size = new System.Drawing.Size(16, 18);
+            this.soulLabel.TabIndex = 19;
+            this.soulLabel.Text = "0";
             // 
             // itemadvLabel
             // 
@@ -1401,105 +1284,6 @@
             this.h30advLabel.Tag = "";
             this.h30advLabel.Text = "0";
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.pictureBox16);
-            this.groupBox4.Controls.Add(this.soulLabel);
-            this.groupBox4.Controls.Add(this.pictureBox11);
-            this.groupBox4.Controls.Add(this.essenceLabel);
-            this.groupBox4.Controls.Add(this.pictureBox14);
-            this.groupBox4.Controls.Add(this.pictureBox17);
-            this.groupBox4.Controls.Add(this.pictureBox10);
-            this.groupBox4.Controls.Add(this.scaleLabel);
-            this.groupBox4.Controls.Add(this.starLabel);
-            this.groupBox4.Controls.Add(this.goldencrystalLabel);
-            this.groupBox4.Controls.Add(this.pictureBox7);
-            this.groupBox4.Controls.Add(this.hornLabel);
-            this.groupBox4.Location = new System.Drawing.Point(6, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(488, 103);
-            this.groupBox4.TabIndex = 31;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Resources:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label13.Location = new System.Drawing.Point(434, 65);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 18);
-            this.label13.TabIndex = 21;
-            this.label13.Text = "/ 1000";
-            // 
-            // soulLabel
-            // 
-            this.soulLabel.AutoSize = true;
-            this.soulLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.soulLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.soulLabel.Location = new System.Drawing.Point(396, 64);
-            this.soulLabel.Name = "soulLabel";
-            this.soulLabel.Size = new System.Drawing.Size(16, 18);
-            this.soulLabel.TabIndex = 19;
-            this.soulLabel.Text = "0";
-            // 
-            // essenceLabel
-            // 
-            this.essenceLabel.AutoSize = true;
-            this.essenceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.essenceLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.essenceLabel.Location = new System.Drawing.Point(396, 25);
-            this.essenceLabel.Name = "essenceLabel";
-            this.essenceLabel.Size = new System.Drawing.Size(16, 18);
-            this.essenceLabel.TabIndex = 17;
-            this.essenceLabel.Text = "0";
-            // 
-            // scaleLabel
-            // 
-            this.scaleLabel.AutoSize = true;
-            this.scaleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scaleLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.scaleLabel.Location = new System.Drawing.Point(230, 64);
-            this.scaleLabel.Name = "scaleLabel";
-            this.scaleLabel.Size = new System.Drawing.Size(16, 18);
-            this.scaleLabel.TabIndex = 15;
-            this.scaleLabel.Text = "0";
-            // 
-            // starLabel
-            // 
-            this.starLabel.AutoSize = true;
-            this.starLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.starLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.starLabel.Location = new System.Drawing.Point(230, 24);
-            this.starLabel.Name = "starLabel";
-            this.starLabel.Size = new System.Drawing.Size(16, 18);
-            this.starLabel.TabIndex = 13;
-            this.starLabel.Text = "0";
-            // 
-            // goldencrystalLabel
-            // 
-            this.goldencrystalLabel.AutoSize = true;
-            this.goldencrystalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goldencrystalLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.goldencrystalLabel.Location = new System.Drawing.Point(42, 25);
-            this.goldencrystalLabel.Name = "goldencrystalLabel";
-            this.goldencrystalLabel.Size = new System.Drawing.Size(16, 18);
-            this.goldencrystalLabel.TabIndex = 13;
-            this.goldencrystalLabel.Text = "0";
-            // 
-            // hornLabel
-            // 
-            this.hornLabel.AutoSize = true;
-            this.hornLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hornLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.hornLabel.Location = new System.Drawing.Point(42, 64);
-            this.hornLabel.Name = "hornLabel";
-            this.hornLabel.Size = new System.Drawing.Size(16, 18);
-            this.hornLabel.TabIndex = 13;
-            this.hornLabel.Text = "0";
-            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.rankArenaLabel);
@@ -1508,7 +1292,7 @@
             this.groupBox8.Controls.Add(this.arenaLoseLabel2);
             this.groupBox8.Controls.Add(this.arenaWinLabel2);
             this.groupBox8.Controls.Add(this.label45);
-            this.groupBox8.Location = new System.Drawing.Point(6, 115);
+            this.groupBox8.Location = new System.Drawing.Point(8, 6);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(162, 82);
             this.groupBox8.TabIndex = 29;
@@ -1531,9 +1315,9 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(4, 49);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(42, 13);
+            this.label26.Size = new System.Drawing.Size(44, 13);
             this.label26.TabIndex = 25;
-            this.label26.Text = "Rank : ";
+            this.label26.Text = "Score : ";
             // 
             // label25
             // 
@@ -1589,7 +1373,6 @@
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Controls.Add(this.tabPage11);
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage17);
             this.tabControl2.Location = new System.Drawing.Point(2, 0);
@@ -1699,9 +1482,9 @@
             this.AD_NoChangeModeCheckBox.AutoSize = true;
             this.AD_NoChangeModeCheckBox.Location = new System.Drawing.Point(6, 67);
             this.AD_NoChangeModeCheckBox.Name = "AD_NoChangeModeCheckBox";
-            this.AD_NoChangeModeCheckBox.Size = new System.Drawing.Size(233, 17);
+            this.AD_NoChangeModeCheckBox.Size = new System.Drawing.Size(223, 17);
             this.AD_NoChangeModeCheckBox.TabIndex = 28;
-            this.AD_NoChangeModeCheckBox.Text = "No Change Mode After Adv Sequence Limit";
+            this.AD_NoChangeModeCheckBox.Text = "No change mode after adv sequence limit";
             this.AD_NoChangeModeCheckBox.UseVisualStyleBackColor = true;
             this.AD_NoChangeModeCheckBox.CheckedChanged += new System.EventHandler(this.AD_NoChangeModeCheckBox_CheckedChanged);
             // 
@@ -1784,6 +1567,7 @@
             this.AD_StopOnFullItems_Checkbox.TabIndex = 25;
             this.AD_StopOnFullItems_Checkbox.Text = "Pause On Full Items";
             this.AD_StopOnFullItems_Checkbox.UseVisualStyleBackColor = true;
+            this.AD_StopOnFullItems_Checkbox.Visible = false;
             this.AD_StopOnFullItems_Checkbox.CheckedChanged += new System.EventHandler(this.AD_StopOnFullItems_Checkbox_CheckedChanged);
             // 
             // AD_StopOnFullHeroes_Checkbox
@@ -1795,6 +1579,7 @@
             this.AD_StopOnFullHeroes_Checkbox.TabIndex = 25;
             this.AD_StopOnFullHeroes_Checkbox.Text = "Pause Full Heroes";
             this.AD_StopOnFullHeroes_Checkbox.UseVisualStyleBackColor = true;
+            this.AD_StopOnFullHeroes_Checkbox.Visible = false;
             this.AD_StopOnFullHeroes_Checkbox.CheckedChanged += new System.EventHandler(this.AD_StopOnFullHeroes_Checkbox_CheckedChanged);
             // 
             // tabPage15
@@ -2080,76 +1865,6 @@
             this.AD_continuousCheckBox.Text = "Progress to next zone";
             this.AD_continuousCheckBox.UseVisualStyleBackColor = true;
             this.AD_continuousCheckBox.CheckedChanged += new System.EventHandler(this.AD_continuousCheckBox_CheckedChanged);
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.Controls.Add(this.SM_EnableCheckBox);
-            this.tabPage11.Controls.Add(this.groupBox11);
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(500, 403);
-            this.tabPage11.TabIndex = 8;
-            this.tabPage11.Text = "Smart Mode";
-            // 
-            // SM_EnableCheckBox
-            // 
-            this.SM_EnableCheckBox.AutoSize = true;
-            this.SM_EnableCheckBox.Location = new System.Drawing.Point(6, 15);
-            this.SM_EnableCheckBox.Name = "SM_EnableCheckBox";
-            this.SM_EnableCheckBox.Size = new System.Drawing.Size(119, 17);
-            this.SM_EnableCheckBox.TabIndex = 4;
-            this.SM_EnableCheckBox.Text = "Enable Smart Mode";
-            this.SM_EnableCheckBox.UseVisualStyleBackColor = true;
-            this.SM_EnableCheckBox.CheckedChanged += new System.EventHandler(this.SM_EnableCheckBox_CheckedChanged);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.SM_CollectTartarusCheckBox);
-            this.groupBox11.Controls.Add(this.SM_CollectRaidCheckBox);
-            this.groupBox11.Controls.Add(this.SM_CollectTowerCheckBox);
-            this.groupBox11.Location = new System.Drawing.Point(6, 140);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(486, 68);
-            this.groupBox11.TabIndex = 2;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Visible = false;
-            // 
-            // SM_CollectTartarusCheckBox
-            // 
-            this.SM_CollectTartarusCheckBox.AutoSize = true;
-            this.SM_CollectTartarusCheckBox.Location = new System.Drawing.Point(6, 34);
-            this.SM_CollectTartarusCheckBox.Name = "SM_CollectTartarusCheckBox";
-            this.SM_CollectTartarusCheckBox.Size = new System.Drawing.Size(100, 17);
-            this.SM_CollectTartarusCheckBox.TabIndex = 3;
-            this.SM_CollectTartarusCheckBox.Tag = "1";
-            this.SM_CollectTartarusCheckBox.Text = "Collect Tartarus";
-            this.SM_CollectTartarusCheckBox.UseVisualStyleBackColor = true;
-            this.SM_CollectTartarusCheckBox.CheckedChanged += new System.EventHandler(this.SM_CollectTartarusCheckBox_CheckedChanged);
-            // 
-            // SM_CollectRaidCheckBox
-            // 
-            this.SM_CollectRaidCheckBox.AutoSize = true;
-            this.SM_CollectRaidCheckBox.Location = new System.Drawing.Point(252, 34);
-            this.SM_CollectRaidCheckBox.Name = "SM_CollectRaidCheckBox";
-            this.SM_CollectRaidCheckBox.Size = new System.Drawing.Size(83, 17);
-            this.SM_CollectRaidCheckBox.TabIndex = 2;
-            this.SM_CollectRaidCheckBox.Tag = "1";
-            this.SM_CollectRaidCheckBox.Text = "Collect Raid";
-            this.SM_CollectRaidCheckBox.UseVisualStyleBackColor = true;
-            this.SM_CollectRaidCheckBox.CheckedChanged += new System.EventHandler(this.SM_CollectRaidCheckBox_CheckedChanged);
-            // 
-            // SM_CollectTowerCheckBox
-            // 
-            this.SM_CollectTowerCheckBox.AutoSize = true;
-            this.SM_CollectTowerCheckBox.Location = new System.Drawing.Point(112, 34);
-            this.SM_CollectTowerCheckBox.Name = "SM_CollectTowerCheckBox";
-            this.SM_CollectTowerCheckBox.Size = new System.Drawing.Size(133, 17);
-            this.SM_CollectTowerCheckBox.TabIndex = 1;
-            this.SM_CollectTowerCheckBox.Tag = "1";
-            this.SM_CollectTowerCheckBox.Text = "Collect Celestial Tower";
-            this.SM_CollectTowerCheckBox.UseVisualStyleBackColor = true;
-            this.SM_CollectTowerCheckBox.CheckedChanged += new System.EventHandler(this.SM_CollectTowerCheckBox_CheckedChanged);
             // 
             // tabPage7
             // 
@@ -3401,7 +3116,7 @@
             this.groupBox20.Controls.Add(this.ST_EnableTelegramMsg1CheckBox);
             this.groupBox20.Location = new System.Drawing.Point(8, 162);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(486, 142);
+            this.groupBox20.Size = new System.Drawing.Size(486, 48);
             this.groupBox20.TabIndex = 15;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "Telegram Bot Setting";
@@ -3517,6 +3232,15 @@
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(337, 254);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(160, 169);
+            this.groupBox4.TabIndex = 34;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = ".....";
+            // 
             // MainForm
             // 
             this.AcceptButton = this.aiButton;
@@ -3557,30 +3281,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -3602,10 +3315,6 @@
             this.groupBox26.PerformLayout();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
-            this.tabPage11.ResumeLayout(false);
-            this.tabPage11.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.groupBox29.ResumeLayout(false);
             this.groupBox29.PerformLayout();
@@ -4069,11 +3778,6 @@
         private System.Windows.Forms.Label AD_teamLabel;
         private System.Windows.Forms.ComboBox AD_teamComboBox2;
         private System.Windows.Forms.ComboBox AD_teamComboBox;
-        private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.CheckBox SM_CollectTartarusCheckBox;
-        private System.Windows.Forms.CheckBox SM_CollectRaidCheckBox;
-        private System.Windows.Forms.CheckBox SM_CollectTowerCheckBox;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Label AR_limitLabel;
         private System.Windows.Forms.CheckBox AR_enableCheckBox;
@@ -4096,7 +3800,6 @@
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.PictureBox SmartModePictureBox;
         private System.Windows.Forms.Label SmartModeCountLabel;
-        private System.Windows.Forms.CheckBox SM_EnableCheckBox;
         private System.Windows.Forms.TableLayoutPanel resourcesTableLayoutPanel;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RichTextBox logsBox;
@@ -4107,24 +3810,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label botstatusLabel;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label itemslotLabel;
-        private System.Windows.Forms.Label heroslotLabel;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label h30advLabel;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.Label essenceLabel;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Label scaleLabel;
-        private System.Windows.Forms.Label starLabel;
-        private System.Windows.Forms.Label goldencrystalLabel;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label hornLabel;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label rankArenaLabel;
         private System.Windows.Forms.Label label26;
@@ -4232,7 +3919,6 @@
         private System.Windows.Forms.Label timerMinute;
         private System.Windows.Forms.Label timerHour;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.CheckBox AD_EnableProfile1CheckBox;
         private System.Windows.Forms.CheckBox AD_EnableProfile2CheckBox;
@@ -4240,5 +3926,7 @@
         private System.Windows.Forms.CheckBox AD_NoChangeModeCheckBox;
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.CheckBox ST_EnableTelegramMsg1CheckBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox4;
     }
 }

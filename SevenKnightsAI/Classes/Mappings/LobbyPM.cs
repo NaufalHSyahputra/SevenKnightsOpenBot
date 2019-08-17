@@ -24,8 +24,16 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping AdventureButton = new PixelMapping
         {
-            X = 911,
-            Y = 470,
+            X = 915,
+            Y = 480,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping ArenaButton = new PixelMapping
+        {
+            X = 751,
+            Y = 486,
             Color = 0,
             Type = MappingType.BUTTON
         };
@@ -197,9 +205,9 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_KeyNormalBase = new Rectangle
         {
-            X = 338,
+            X = 340,
             Y = 19,
-            Width = 79,
+            Width = 80,
             Height = 26
         };
 
