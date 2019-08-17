@@ -14,8 +14,8 @@
 
         public static readonly PixelMapping HottimeButton = new PixelMapping
         {
-            X = 845,
-            Y = 36,
+            X = 876,
+            Y = 70,
             Color = 0,
             Type = MappingType.BUTTON
         };

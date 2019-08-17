@@ -6,49 +6,49 @@
 
         public static readonly PixelMapping HottimeNoActive1 = new PixelMapping
         {
-            X = 903,
+            X = 838,
             Y = 60,
-            Color = 11308400,
+            Color = 11835253,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping HottimeNoActive2 = new PixelMapping
         {
-            X = 864,
-            Y = 57,
-            Color = 12496775,
+            X = 903,
+            Y = 58,
+            Color = 11043432,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FightButtonHidden = new PixelMapping
         {
-            X = 6,
-            Y = 490,
-            Color = 15790320,
+            X = 11,
+            Y = 485,
+            Color = 3031644,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FightButtonHidden2 = new PixelMapping
         {
             X = 10,
-            Y = 521,
-            Color = 3161424,
+            Y = 514,
+            Color = 3096406,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FightButtonShown = new PixelMapping
         {
-            X = 6,
-            Y = 490,
-            Color = 2635080,
+            X = 11,
+            Y = 485,
+            Color = 16448250,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FightButtonShown2 = new PixelMapping
         {
             X = 10,
-            Y = 521,
-            Color = 9804450,
+            Y = 515,
+            Color = 14737632,
             Type = MappingType.ANCHOR
         };
 

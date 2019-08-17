@@ -17,17 +17,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 747,
-            Y = 462,
-            Color = 4421292,
+            X = 761,
+            Y = 473,
+            Color = 10989763,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 838,
-            Y = 471,
-            Color = 11499318,
+            X = 841,
+            Y = 482,
+            Color = 11306331,
             Type = MappingType.BOTH
         };
 
@@ -41,25 +41,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Point4 = new PixelMapping
         {
-            X = 839,
-            Y = 493,
-            Color = 7424031,
+            X = 763,
+            Y = 504,
+            Color = 7294512,
             Type = MappingType.BOTH
         };
         /*Asgar Boat in Moonlit ++ */
         public static readonly PixelMapping AishaBoatLeft = new PixelMapping
         {
-            X = 904,
-            Y = 470,
-            Color = 15587752,
+            X = 900,
+            Y = 481,
+            Color = 12027224,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping AishaBoatRight = new PixelMapping
         {
-            X = 927,
-            Y = 483,
-            Color = 15455651,
+            X = 923,
+            Y = 491,
+            Color = 16576726,
             Type = MappingType.ANCHOR
         };
 
@@ -89,25 +89,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping DifficultyBox = new PixelMapping
         {
-            X = 90,
-            Y = 508,
-            Color = 2699317,
+            X = 892,
+            Y = 112,
+            Color = 12829893,
             Type = MappingType.BUTTON
         };
         /*MoonLit Isle Boat in Asgar*/
         public static readonly PixelMapping MoonBoatLitLeft = new PixelMapping
         {
-            X = 912,
-            Y = 482,
-            Color = 16378308,
+            X = 907,
+            Y = 471,
+            Color = 16710891,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MoonLitBoatRight = new PixelMapping
         {
-            X = 929,
-            Y = 469,
-            Color = 12892835,
+            X = 932,
+            Y = 492,
+            Color = 16246464,
             Type = MappingType.ANCHOR
         };
 
@@ -130,105 +130,105 @@ namespace SevenKnightsAI.Classes.Mappings
         /*Continent Button*/
         public static readonly PixelMapping Map1Button = new PixelMapping 
         {
-            X = 220,
-            Y = 504,
-            Color = 0,
+            X = 37,
+            Y = 508,
+            Color = 4282404,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map2Button = new PixelMapping
         {
-            X = 288,
-            Y = 497,
-            Color = 15457783,
+            X = 108,
+            Y = 506,
+            Color = 5191984,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map3Button = new PixelMapping
         {
-            X = 352,
-            Y = 500,
-            Color = 15457783,
+            X = 168,
+            Y = 502,
+            Color = 13492337,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map4Button = new PixelMapping
         {
-            X = 424,
-            Y = 500,
-            Color = 15457783,
+            X = 243,
+            Y = 501,
+            Color = 11048108,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map5Button = new PixelMapping
         {
-            X = 499,
-            Y = 497,
-            Color = 15457783,
+            X = 319,
+            Y = 501,
+            Color = 525829,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map6Button = new PixelMapping
         {
-            X = 568,
-            Y = 499,
-            Color = 15457783,
+            X = 381,
+            Y = 504,
+            Color = 9423328,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map7Button = new PixelMapping
         {
-            X = 631,
-            Y = 494,
-            Color = 15457783,
+            X = 453,
+            Y = 495,
+            Color = 16218640,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map8Button = new PixelMapping
         {
-            X = 233,
-            Y = 500,
-            Color = 15457783,
+            X = 41,
+            Y = 502,
+            Color = 16565695,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map9Button = new PixelMapping
         {
-            X = 315,
-            Y = 493,
-            Color = 15457783,
+            X = 127,
+            Y = 500,
+            Color = 3361125,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map10Button = new PixelMapping
         {
-            X = 397,
-            Y = 490,
-            Color = 15457783,
+            X = 206,
+            Y = 503,
+            Color = 13209133,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map11Button = new PixelMapping
         {
-            X = 469,
-            Y = 483,
-            Color = 15457783,
+            X = 280,
+            Y = 490,
+            Color = 16473610,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map12Button = new PixelMapping
         {
-            X = 548,
-            Y = 497,
-            Color = 15457783,
+            X = 353,
+            Y = 496,
+            Color = 526086,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping Map13Button = new PixelMapping
         {
-            X = 622,
-            Y = 494,
-            Color = 15457783,
+            X = 433,
+            Y = 502,
+            Color = 7035511,
             Type = MappingType.BUTTON
         };
 
@@ -243,41 +243,41 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping DifficultyBoxExpanded = new PixelMapping
         {
-            X = 151,
-            Y = 445,
-            Color = 331799,
+            X = 939,
+            Y = 189,
+            Color = 2699317,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping DifficultyBoxSelectEasy = new PixelMapping
         {
-            X = 93,
-            Y = 476,
-            Color = 11448497,
+            X = 885,
+            Y = 150,
+            Color = 14277338,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping DifficultyBoxSelectNormal = new PixelMapping
         {
-            X = 93,
-            Y = 440,
-            Color = 15066597,
+            X = 885,
+            Y = 188,
+            Color = 11645877,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping NextButton = new PixelMapping
         {
-            X = 935,
-            Y = 277,
-            Color = 10990792,
+            X = 933,
+            Y = 279,
+            Color = 13284521,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping PreviousButton = new PixelMapping
         {
-            X = 25,
-            Y = 275,
-            Color = 15461874,
+            X = 26,
+            Y = 276,
+            Color = 15263971,
             Type = MappingType.BUTTON
         };
 
@@ -1748,18 +1748,18 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle SoulShard_Asgar = new Rectangle
         {
-            X = 51,
-            Y = 506,
-            Width = 96,
+            X = 54,
+            Y = 93,
+            Width = 100,
             Height = 21
         };
 
         public static readonly Rectangle SoulShard_NAsgar = new Rectangle
         {
-            X = 51,
-            Y = 463,
-            Width = 90,
-            Height = 23
+            X = 54,
+            Y = 93,
+            Width = 100,
+            Height = 21
         };
 
         #endregion Public Fields

@@ -835,10 +835,10 @@ namespace SevenKnightsAI
 
                             case Objective.ARENA:
                                 break;
-
+                            /*
                             case Objective.CHECK_SLOT_HERO:
                                 this.heroslotLabel.Text = text; //??
-                                return;
+                                return;*/
 
                             default:
                                 return;
@@ -911,26 +911,6 @@ namespace SevenKnightsAI
                                 label = this.honorLabel2;
                                 label.Text = text2;
                                 break;
-                            case ResourceType.GOLDEN_CRYSTAL:
-                                label = this.goldencrystalLabel;
-                                label.Text = text2;
-                                break;
-                            case ResourceType.HORN:
-                                label = this.hornLabel;
-                                label.Text = text2;
-                                break;
-                            case ResourceType.SCALE:
-                                label = this.scaleLabel;
-                                label.Text = text2;
-                                break;
-                            case ResourceType.ESSENCE:
-                                label = this.essenceLabel;
-                                label.Text = text2;
-                                break;
-                            case ResourceType.STAR:
-                                label = this.starLabel;
-                                label.Text = text2;
-                                break;
                             case ResourceType.SOUL:
                                 label = this.soulLabel;
                                 label.Text = text2;
@@ -938,6 +918,7 @@ namespace SevenKnightsAI
                         }
                         break;
                     }
+                    /*
                 case ProgressType.CHECK_SLOT:
                     {
                         Dictionary<string, object> dictionary = progressArgs.Message as Dictionary<string, object>;
@@ -957,6 +938,7 @@ namespace SevenKnightsAI
                         }
                         break;
                     }
+                    */
                 case ProgressType.CURSORPOS:
                     {
                         Point curpos = (Point)progressArgs.Message;
@@ -1266,10 +1248,7 @@ namespace SevenKnightsAI
 
         private void InitSmartModeTab()
         {
-            this.SM_EnableCheckBox.Checked = this.AISettings.SM_Enable;
-            this.SM_CollectRaidCheckBox.Checked = this.AISettings.SM_CollectRaid;
-            this.SM_CollectTartarusCheckBox.Checked = this.AISettings.SM_CollectTartarus;
-            this.SM_CollectTowerCheckBox.Checked = this.AISettings.SM_CollectTower;
+
         }
 
         private string ConvertProfile(string profileName)
@@ -2827,6 +2806,17 @@ namespace SevenKnightsAI
         private void ST_EnableTelegramMsg1CheckBox_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            bool @checked = checkBox.Checked;
+            this.LG_autoScroll = @checked;
+            if (@checked)
+            {
+                this.LG_ScrollToEnd();
+            }
         }
 
         private void RS_CIOnlyTicketsCheckBox_CheckedChanged(object sender, EventArgs e)

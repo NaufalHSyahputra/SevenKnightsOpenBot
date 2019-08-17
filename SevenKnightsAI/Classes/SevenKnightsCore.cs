@@ -2241,7 +2241,7 @@ namespace SevenKnightsAI.Classes
                                             }
                                             else if (CurrentObjective == Objective.ARENA)
                                             {
-                                                WeightedClick(LobbyPM.AdventureButton, 1.0, 1.0, 1, 0, "left");
+                                                WeightedClick(LobbyPM.ArenaButton, 1.0, 1.0, 1, 0, "left");
                                             }
                                             else if (CurrentObjective == Objective.SMART_MODE)
                                             {
@@ -2286,6 +2286,12 @@ namespace SevenKnightsAI.Classes
 
                                                 SevenKnightsCore.Sleep(500);
 
+                                            }
+
+                                            if (AISettings.AD_HottimeEnable && Hottimeloop == true)
+                                            {
+                                                WeightedClick(BattleModesPM.HottimeButton, 1.0, 1.0, 1, 0, "left");
+                                                break;
                                             }
 
                                             else if (CurrentObjective == Objective.ADVENTURE)
@@ -2559,56 +2565,18 @@ namespace SevenKnightsAI.Classes
                                             SevenKnightsCore.Sleep(500);
                                             break;
 
-
                                         case SceneType.ADVENTURE_READY:
-                                            SevenKnightsCore.Sleep(600);
-                                            //CheckMapNumber2(World.BlazingDesert, 4);
-                                            
-                                            alreadyadvready = true;
-                                            World world3 = AISettings.AD_World;
-                                            int stage3 = AISettings.AD_Stage;
-                                            int boost3 = 0;
-                                            if (CurrentObjective == Objective.ADVENTURE)
+                                            if (this.CurrentObjective == Objective.ADVENTURE && ExpectingScene(SceneType.ADVENTURE_READY, 3, 500))
                                             {
-                                                if (AISettings.AD_World == World.Sequencer)
-                                                {
-                                                    Tuple<World, int, int> worldStageFromSequencer2 = GetWorldStageFromSequencer();
-                                                    if (worldStageFromSequencer2 == null)
-                                                    {
-                                                        LogError("Stage sequence is empty");
-                                                        NextPossibleObjective();
-                                                        break;
-                                                    }
-                                                    world3 = worldStageFromSequencer2.Item1;
-                                                    stage3 = worldStageFromSequencer2.Item2;
-                                                    boost3 = worldStageFromSequencer2.Item3;
-                                                }
-                                                if (CheckMapNumber2(world3, stage3) || MapCheckCount >= 3)
-                                                {
-                                                    currentworld = world3;
-                                                    currentStage = stage3;
-                                                    if (boost3 == 0)
-                                                    {
-                                                        isboostsequence = false;
-                                                    }
-                                                    else
-                                                    {
-                                                        isboostsequence = true;
-                                                    }
-                                                    WeightedClick(AdventureReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
-                                                }
-                                                else
-                                                {
-                                                    MapCheckCount++;
-                                                    WeightedClick(AdventureReadyPM.CloseButton, 1.0, 1.0, 1, 0, "left");
-                                                }
-                                                SevenKnightsCore.Sleep(500);
+                                                this.WeightedClick(AdventureReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
                                             }
                                             else
                                             {
-                                                Escape();
+                                                this.WeightedClick(AdventureReadyPM.CloseButton, 1.0, 1.0, 1, 0, "left");
                                             }
+                                            SevenKnightsCore.Sleep(500);
                                             break;
+
 
                                         case SceneType.ADVENTURE_START:
                                             SevenKnightsCore.Sleep(600);
@@ -2643,148 +2611,122 @@ namespace SevenKnightsAI.Classes
                                                         isboostsequence = true;
                                                     }
                                                 }
-                                                if (!(currentworld == world2 && currentStage == stage2))
+                                                if (currentworld == world2 && currentStage == stage2 && changemap == true)
                                                 {
-                                                    if (changemap == true)
+                                                    changemap = false;
+                                                }
+                                                if (changemap == true)
+                                                {
+                                                    changemap = false;
+                                                    Escape();
+                                                    SevenKnightsCore.Sleep(1500);
+                                                    break;
+                                                }
+                                                currentworld = world2;
+                                                currentStage = stage2;
+                                                if (this.AISettings.AD_Continuous || this.CheckMapNumber(world2, stage2) || this.MapCheckCount >= 3)
+                                                {
+                                                    SevenKnightsCore.Sleep(1000);
+                                                    SelectTeam(SceneType.ADVENTURE_START, world2);
+                                                    if (AISettings.AD_UseFriend)
                                                     {
-                                                        changemap = false;
-                                                        Escape();
-                                                        SevenKnightsCore.Sleep(1500);
-                                                        break;
+                                                        if (MatchMapping(AdventureStartPM.UseFriendOff, 2))
+                                                        {
+                                                            WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
+                                                            SevenKnightsCore.Sleep(1000);
+                                                        }
                                                     }
                                                     else
                                                     {
-                                                        Escape();
-                                                        SevenKnightsCore.Sleep(1500);
-                                                        break;
-                                                    }
-                                                    
-                                                }
-                                                else
-                                                {
-                                                    if ((currentworld == world2 && currentStage == stage2))
-                                                    {
-                                                        alreadyadvready = true;
-                                                    }
-                                                    if (!AISettings.AD_Continuous && alreadyadvready)
-                                                    {
-                                                        alreadyadvready = false;
-                                                        SevenKnightsCore.Sleep(1000);
-                                                        SelectTeam(SceneType.ADVENTURE_START, world2);
-                                                        if (AISettings.AD_UseFriend)
+                                                        if (MatchMapping(AdventureStartPM.UseFriendOn, 2))
                                                         {
-                                                            if (MatchMapping(AdventureStartPM.UseFriendOff, 2))
-                                                            {
-                                                                WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
-                                                                SevenKnightsCore.Sleep(1000);
-                                                            }
+                                                            WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
+                                                            SevenKnightsCore.Sleep(1000);
                                                         }
-                                                        else
+                                                    }
+                                                    if (AISettings.AD_BootMode && CheckBoost())
+                                                    {
+                                                        boost = true;
+                                                        CaptureFrame();
+                                                        if (MatchMapping(AdventureStartPM.BootmodeOff, 2))
                                                         {
-                                                            if (MatchMapping(AdventureStartPM.UseFriendOn, 2))
+                                                            Log("Boost Mode Off");
+                                                            if (AISettings.AD_BoostModeSequence && isboostsequence)
                                                             {
-                                                                WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
+                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
                                                                 SevenKnightsCore.Sleep(1000);
+                                                                boost = true;
                                                             }
-                                                        }
-                                                        if (AISettings.AD_BootMode && CheckBoost())
-                                                        {
-                                                            boost = true;
-                                                            if (MatchMapping(AdventureStartPM.BoostmodeFull) && MatchMapping(AdventureStartPM.BoostmodeFull2))
+                                                            else if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory) && AISettings.AD_BoostAsgar)
                                                             {
-                                                                Log("Boost Mode 100/100, bot will disable boost mode", Color.Orange);
-                                                                SendTelegram("Boost Mode limit");
-                                                                AISettings.AD_BootMode = false;
-                                                                if (!isboostalreadylimit && AIProfiles.ST_TelegramWarnBoost)
-                                                                {
-                                                                    isboostalreadylimit = true;
-                                                                    Alert("BoostLimit");
-                                                                }
-                                                                boost = false;
+                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
+                                                                boost = true;
+                                                            }
+                                                            else if (AISettings.AD_BoostAllMap)
+                                                            {
+                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
+                                                                boost = true;
                                                             }
                                                             else
                                                             {
-                                                                CaptureFrame();
-                                                                if (MatchMapping(AdventureStartPM.BootmodeOff, 2))
+                                                                if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
                                                                 {
-                                                                    Log("Boost Mode Off");
-                                                                    if (AISettings.AD_BoostModeSequence && isboostsequence)
-                                                                    {
-                                                                        WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                        SevenKnightsCore.Sleep(2000);
-                                                                        boost = true;
-                                                                    }
-                                                                    else if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory) && AISettings.AD_BoostAsgar)
-                                                                    {
-                                                                        WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                        SevenKnightsCore.Sleep(2000);
-                                                                        boost = true;
-                                                                    }
-                                                                    else if (AISettings.AD_BoostAllMap)
-                                                                    {
-                                                                        WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                        SevenKnightsCore.Sleep(2000);
-                                                                        boost = true;
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
-                                                                        {
-                                                                            WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                            SevenKnightsCore.Sleep(2000);
-                                                                            boost = false;
-                                                                        }
-                                                                    }
-                                                                }
-                                                                else if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
-                                                                {
-                                                                    Log("Boost Mode On");
-                                                                    if (AISettings.AD_BoostModeSequence && !isboostsequence)
-                                                                    {
-                                                                        WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                        SevenKnightsCore.Sleep(2000);
-                                                                        boost = false;
-                                                                    }
-                                                                    else if ((world2 > World.Purgatory) && AISettings.AD_BoostAsgar)
-                                                                    {
-                                                                        WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                        SevenKnightsCore.Sleep(2000);
-                                                                        boost = false;
-                                                                    }
+                                                                    WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                    SevenKnightsCore.Sleep(1000);
+                                                                    boost = false;
                                                                 }
                                                             }
                                                         }
-                                                        else
+                                                        else if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
                                                         {
-                                                            if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                            Log("Boost Mode On");
+                                                            if (AISettings.AD_BoostModeSequence && !isboostsequence)
                                                             {
                                                                 WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                SevenKnightsCore.Sleep(2000);
+                                                                SevenKnightsCore.Sleep(1000);
+                                                                boost = false;
+                                                            }
+                                                            else if ((world2 > World.Purgatory) && AISettings.AD_BoostAsgar)
+                                                            {
+                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
                                                                 boost = false;
                                                             }
                                                         }
-                                                        if (MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!itemfull || !herofull))
-                                                        {
-                                                            WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(3400);
-                                                        }
-                                                        if (MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (itemfull || herofull))
-                                                        {
-                                                            WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(3400);
-                                                        }
-                                                        this.world3 = world2;
-                                                        Countentrylv30(boost);
-                                                        SevenKnightsCore.Sleep(1000);
-                                                        WeightedClick(SharedPM.PrepareFight_StartButton, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(1000);
                                                     }
                                                     else
                                                     {
-                                                        this.Log("Back to Map Select");
-                                                        Escape();
-                                                        SevenKnightsCore.Sleep(300);
+                                                        if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                        {
+                                                            WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                            SevenKnightsCore.Sleep(1000);
+                                                            boost = false;
+                                                        }
                                                     }
+                                                    if (MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!itemfull || !herofull))
+                                                    {
+                                                        WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
+                                                        SevenKnightsCore.Sleep(3400);
+                                                    }
+                                                    if (MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (itemfull || herofull))
+                                                    {
+                                                        WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
+                                                        SevenKnightsCore.Sleep(3400);
+                                                    }
+                                                    this.world3 = world2;
+                                                    Countentrylv30(boost);
+                                                    SevenKnightsCore.Sleep(1000);
+                                                    WeightedClick(SharedPM.PrepareFight_StartButton, 1.0, 1.0, 1, 0, "left");
+                                                    SevenKnightsCore.Sleep(1500);
+
+                                                }
+                                                else
+                                                {
+                                                    MapCheckCount++;
+                                                    Escape();
+                                                    SevenKnightsCore.Sleep(300);
                                                 }
                                             }
                                             else if (CurrentObjective == Objective.CHECK_SLOT_HERO)
@@ -3007,11 +2949,6 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.BATTLE_MODES:
-                                            if (AISettings.AD_HottimeEnable && Hottimeloop == true)
-                                            {
-                                                WeightedClick(BattleModesPM.HottimeButton, 1.0, 1.0, 1, 0, "left");
-                                                break;
-                                            }
                                             if (CurrentObjective == Objective.ARENA)
                                             {
                                                 WeightedClick(BattleModesPM.ArenaButton, 1.0, 1.0, 1, 0, "left");
@@ -3266,7 +3203,6 @@ namespace SevenKnightsAI.Classes
 
                                         case SceneType.HERO_JOIN:
                                             SevenKnightsCore.Sleep(500);
-                                            Log(IsHeroLevel30().ToString());
                                             if (CurrentObjective == Objective.CHECK_SLOT_ITEM && checkslotitem == true && PreviousObjective == Objective.CHECK_SLOT_HERO)
                                             {
                                                 WeightedClick(HeroJoinPM.ItemButton, 1.0, 1.0, 1, 0, "left");
@@ -3282,7 +3218,6 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.HERO_REMOVE:
-                                            Log(IsHeroLevel30().ToString());
                                             if (CurrentObjective == Objective.CHECK_SLOT_ITEM && checkslotitem == true && PreviousObjective == Objective.CHECK_SLOT_HERO)
                                             {
                                                 WeightedClick(HeroJoinPM.ItemButton, 1.0, 1.0, 1, 0, "left");
@@ -4712,7 +4647,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.MASTERY_POPUP);
                     return result;
                 }
-                if (MatchMapping(MapSelectPM.Point1, 2) && (MatchMapping(MapSelectPM.Point2, 2) || MatchMapping(MapSelectPM.Point4, 2)) && MatchMapping(MapSelectPM.Point3, 2))
+                if (MatchMapping(MapSelectPM.Point1, 2) && MatchMapping(MapSelectPM.Point2, 2))
                 {
                     Scene result = new Scene(SceneType.MAP_SELECT);
                     return result;
@@ -5612,7 +5547,7 @@ namespace SevenKnightsAI.Classes
                 bool skipstar = false;
                 int skipto = 0;
                 int powerupsuccess = 0;
-                while (num3 < 100 && !Worker.CancellationPending)
+                while (num3 < 1000 && !Worker.CancellationPending)
                 {
                     if (ExpectingScene(SceneType.HEROES, 15, 1000))
                     {
@@ -5923,7 +5858,18 @@ namespace SevenKnightsAI.Classes
                     else
                     {
                         Log("Scene Error, Not in Heroes");
-                        Escape();
+                        List<SceneType> list = new List<SceneType>
+                                        {
+                                            SceneType.HERO_JOIN,
+                                            SceneType.HERO_REMOVE
+                                        };
+                        if (ExpectingScenes(list, 5, 500))
+                        {
+                            Escape();
+                        }else if (ExpectingScene(SceneType.LOBBY, 3, 500))
+                        {
+                            this.WeightedClick(LobbyPM.HeroButton, 1.0, 1.0, 1, 0, "left");
+                        }
                     }
                 }
             }

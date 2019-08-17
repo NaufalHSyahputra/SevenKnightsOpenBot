@@ -136,10 +136,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_MapNumber = new Rectangle
         {
-            X = 302,
-            Y = 18,
-            Width = 79,
-            Height = 29
+            X = 259,
+            Y = 19,
+            Width = 77,
+            Height = 28
         };
 
         public static readonly Rectangle R_Boost = new Rectangle
