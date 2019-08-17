@@ -5431,7 +5431,7 @@ namespace SevenKnightsAI.Classes
             while (num3 < 100 && !Worker.CancellationPending)
             {
                 CaptureFrame();
-                if (ExpectingScene(SceneType.FUSE_SUCCESS, 5, 500))
+                if (ExpectingScene(SceneType.FUSE_SUCCESS, 3, 500))
                 {
                     this.Escape();
                 }
@@ -5470,9 +5470,9 @@ namespace SevenKnightsAI.Classes
                                     {
                                         Sleep(1000);
                                         WeightedClick(FuseConfirmPM.OKbtn, 1.0, 1.0, 1, 0, "left");
-                                        SevenKnightsCore.Sleep(4800);
+                                        SevenKnightsCore.Sleep(6000);
                                         this.Escape();
-                                        SevenKnightsCore.Sleep(1500);
+                                        SevenKnightsCore.Sleep(2000);
                                         Log("Fuse Success", COLOR_FUSE);
                                         num3++;
                                         fusedone = true;
