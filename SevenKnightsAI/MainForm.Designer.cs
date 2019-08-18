@@ -86,6 +86,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.logsBox = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -265,7 +266,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.topheaderPictureBox = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BF_StopMileageCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -1065,6 +1066,15 @@
             this.tabPage4.Size = new System.Drawing.Size(505, 429);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Report";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(337, 254);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(160, 169);
+            this.groupBox4.TabIndex = 34;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = ".....";
             // 
             // groupBox6
             // 
@@ -2740,12 +2750,13 @@
             // 
             // groupBox16
             // 
+            this.groupBox16.Controls.Add(this.BF_StopMileageCheckBox);
             this.groupBox16.Controls.Add(this.label11);
             this.groupBox16.Controls.Add(this.BF_OnlyLv30CheckBox);
             this.groupBox16.Controls.Add(this.BF_rankComboBox);
             this.groupBox16.Location = new System.Drawing.Point(8, 54);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(486, 49);
+            this.groupBox16.Size = new System.Drawing.Size(486, 92);
             this.groupBox16.TabIndex = 22;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Auto Bulk Fusion Setting";
@@ -2754,7 +2765,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(263, 22);
+            this.label11.Location = new System.Drawing.Point(31, 59);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(39, 13);
             this.label11.TabIndex = 8;
@@ -2780,7 +2791,7 @@
             "★★★★",
             "★★★★★",
             "Register All"});
-            this.BF_rankComboBox.Location = new System.Drawing.Point(308, 19);
+            this.BF_rankComboBox.Location = new System.Drawing.Point(76, 56);
             this.BF_rankComboBox.Name = "BF_rankComboBox";
             this.BF_rankComboBox.Size = new System.Drawing.Size(103, 21);
             this.BF_rankComboBox.TabIndex = 8;
@@ -3232,14 +3243,16 @@
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;
             // 
-            // groupBox4
+            // BF_StopMileageCheckBox
             // 
-            this.groupBox4.Location = new System.Drawing.Point(337, 254);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(160, 169);
-            this.groupBox4.TabIndex = 34;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = ".....";
+            this.BF_StopMileageCheckBox.AutoSize = true;
+            this.BF_StopMileageCheckBox.Location = new System.Drawing.Point(239, 21);
+            this.BF_StopMileageCheckBox.Name = "BF_StopMileageCheckBox";
+            this.BF_StopMileageCheckBox.Size = new System.Drawing.Size(194, 17);
+            this.BF_StopMileageCheckBox.TabIndex = 10;
+            this.BF_StopMileageCheckBox.Text = "Stop Fuse when Mileage Points Full";
+            this.BF_StopMileageCheckBox.UseVisualStyleBackColor = true;
+            this.BF_StopMileageCheckBox.CheckedChanged += new System.EventHandler(this.BF_StopMileageCheckBox_CheckedChanged);
             // 
             // MainForm
             // 
@@ -3928,5 +3941,6 @@
         private System.Windows.Forms.CheckBox ST_EnableTelegramMsg1CheckBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox BF_StopMileageCheckBox;
     }
 }

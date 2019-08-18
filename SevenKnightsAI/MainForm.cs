@@ -1212,6 +1212,7 @@ namespace SevenKnightsAI
             this.BF_EnableCheckBox.Checked = this.AISettings.BF_Enable;
             this.BF_OnlyLv30CheckBox.Checked = this.AISettings.BF_OnlyLv30;
             this.BF_Active2NumericBox.Value = this.AISettings.BF_Active2;
+            this.BF_StopMileageCheckBox.Checked = this.AISettings.BF_StopMileage;
             /*Check Slot Tab*/
             /*this.AD_CheckSlot_CheckBox.Checked = this.AISettings.AD_CheckSlot;
             this.CS_Enable1CheckBox.Checked = this.AISettings.CS_EnableActive1;
@@ -2817,6 +2818,12 @@ namespace SevenKnightsAI
             {
                 this.LG_ScrollToEnd();
             }
+        }
+
+        private void BF_StopMileageCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            this.AISettings.BF_StopMileage = checkBox.Checked;
         }
 
         private void RS_CIOnlyTicketsCheckBox_CheckedChanged(object sender, EventArgs e)

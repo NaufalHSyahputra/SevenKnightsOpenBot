@@ -101,6 +101,7 @@
         FUSE_LOBBY,
         FUSE_SUCCESS,
         FUSE_CONFIRM,
+        FUSE_MILEAGE_FULL_POPUP,
         UNKNOWN_AREA,
         UNKNOWN_AREA_SUCCESS,
         LEADER_ICON,

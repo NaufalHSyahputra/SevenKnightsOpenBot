@@ -182,6 +182,7 @@
     <Compile Include="Classes\Mappings\FriendsPM.cs" />
     <Compile Include="Classes\Mappings\FullHeroPopupPM.cs" />
     <Compile Include="Classes\Mappings\FullItemPopupPM.cs" />
+    <Compile Include="Classes\Mappings\FuseFullMileagePopupPM.cs" />
     <Compile Include="Classes\Mappings\FuseLobbyPM.cs" />
     <Compile Include="Classes\Mappings\LeaderIconDialogPM.cs" />
     <Compile Include="Classes\Mappings\LoadingPM.cs" />

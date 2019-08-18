@@ -5477,6 +5477,31 @@ namespace SevenKnightsAI.Classes
                                         num3++;
                                         fusedone = true;
                                     }
+                                    else if (ExpectingScene(SceneType.FUSE_MILEAGE_FULL_POPUP, 10, 500))
+                                    {
+                                        if (AISettings.BF_StopMileage)
+                                        {
+                                            Log("Fuse Mileage Points Full, bot will not fusing heroes", COLOR_FUSE);
+                                            SendTelegram("[Bulk Fusion] Fuse Mileage Points is full, bot will not fusing heroes");
+                                            Sleep(1000);
+                                            this.WeightedClick(FuseFullMileagePopupPM.CancelBtn, 1.0, 1.0, 1, 0, "left");
+                                            DoneFuseHeroes();
+                                            return;
+                                        }
+                                        else
+                                        {
+                                            Log("Fuse Mileage Points Full", COLOR_FUSE);
+                                            SendTelegram("[Bulk Fusion] Fuse Mileage Points is full");
+                                            Sleep(1000);
+                                            this.WeightedClick(FuseFullMileagePopupPM.OKbtn, 1.0, 1.0, 1, 0, "left");
+                                            SevenKnightsCore.Sleep(6000);
+                                            this.Escape();
+                                            SevenKnightsCore.Sleep(2000);
+                                            Log("Fuse Success", COLOR_FUSE);
+                                            num3++;
+                                            fusedone = true;
+                                        }
+                                    }
                                 }
                                 else
                                 {
@@ -5573,6 +5598,12 @@ namespace SevenKnightsAI.Classes
                             }
                             else
                             {
+                                if (searchStar >= 4)
+                                {
+                                    Log("Hero more than 4 star detected, Done powering up heroes", COLOR_POWER_UP);
+                                    DonePowerUpHeroes(powerupsuccess);
+                                    return;
+                                }
                                 if (skipstar == true && searchStar != skipto)
                                 {
                                     heroclicked++;

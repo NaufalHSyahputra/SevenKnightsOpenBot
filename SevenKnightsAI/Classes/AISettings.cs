@@ -309,6 +309,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "BF_OnlyLv30")]
         public bool BF_OnlyLv30;
 
+        [XmlElement(ElementName = "BF_StopMileage")]
+        public bool BF_StopMileage;
+
         [XmlElement(ElementName = "BF_Rank")]
         public int BF_Rank;
 
@@ -373,6 +376,7 @@ namespace SevenKnightsAI.Classes
             BF_EnableActivate1 = false;
             BF_EnableActivate2 = false;
             BF_OnlyLv30 = false;
+            BF_StopMileage = false;
             BF_Rank = 1;
             BF_Active2 = 1;
             PU_1Material = 1;
@@ -592,6 +596,12 @@ namespace SevenKnightsAI.Classes
                 try
                 {
                     aISettings.BF_OnlyLv30 = (bool)dictionary["BF_OnlyLv30"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.BF_StopMileage = (bool)dictionary["BF_StopMileage"];
                 }
                 catch (Exception)
                 { }
@@ -1255,6 +1265,10 @@ namespace SevenKnightsAI.Classes
                 {
                     "BF_OnlyLv30",
                     BF_OnlyLv30
+                },
+                {
+                    "BF_StopMileage",
+                    BF_StopMileage
                 },
                 {
                     "BF_Rank",
