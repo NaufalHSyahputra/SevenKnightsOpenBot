@@ -268,16 +268,12 @@ namespace SevenKnightsAI
                         bot.send_inline_keyboard.keyboard_R1_1_callback_data = "EnableAdventure";
                         bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                         bot.send_inline_keyboard.keyboard_R1_2_callback_data = "EnableArena";
-                        bot.send_inline_keyboard.keyboard_R1_3 = "Smart Mode";
-                        bot.send_inline_keyboard.keyboard_R1_3_callback_data = "EnableSmartMode";
-                        bot.send_inline_keyboard.keyboard_R2_1 = "Smart Mode";
-                        bot.send_inline_keyboard.keyboard_R2_1_callback_data = "EnableSmartMode";
-                        bot.send_inline_keyboard.keyboard_R2_1 = "Power Up";
-                        bot.send_inline_keyboard.keyboard_R2_1_callback_data = "EnablePowerUp";
-                        bot.send_inline_keyboard.keyboard_R2_2 = "Bulk Fusion";
-                        bot.send_inline_keyboard.keyboard_R2_2_callback_data = "EnableBulkFusion";
-                        bot.send_inline_keyboard.keyboard_R2_3 = "Collect Inbox";
-                        bot.send_inline_keyboard.keyboard_R2_3_callback_data = "EnableCollectInbox";
+                        bot.send_inline_keyboard.keyboard_R1_3 = "Power Up";
+                        bot.send_inline_keyboard.keyboard_R1_3_callback_data = "EnablePowerUp";
+                        bot.send_inline_keyboard.keyboard_R2_1 = "Bulk Fusion";
+                        bot.send_inline_keyboard.keyboard_R2_1_callback_data = "EnableBulkFusion";
+                        bot.send_inline_keyboard.keyboard_R2_2 = "Collect Inbox";
+                        bot.send_inline_keyboard.keyboard_R2_2_callback_data = "EnableCollectInbox";
                         bot.send_inline_keyboard.send(bot.chat_id, "Select Mode You Want To Enable : ");
                     }
                     if (bot.data == "EnableAdventure")
@@ -289,11 +285,6 @@ namespace SevenKnightsAI
                     {
                         SendCommand("Enable Arena");
                         bot.sendMessage.send(bot.chat_id, "Adventure Enabled");
-                    }
-                    if (bot.data == "EnableSmartMode")
-                    {
-                        SendCommand("Enable Smart Mode");
-                        bot.sendMessage.send(bot.chat_id, "Smart Mode Enabled");
                     }
                     if (bot.data == "EnablePowerUp")
                     {
@@ -316,14 +307,12 @@ namespace SevenKnightsAI
                         bot.send_inline_keyboard.keyboard_R1_1_callback_data = "DisableAdventure";
                         bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                         bot.send_inline_keyboard.keyboard_R1_2_callback_data = "DisableArena";
-                        bot.send_inline_keyboard.keyboard_R1_3 = "Smart Mode";
-                        bot.send_inline_keyboard.keyboard_R1_3_callback_data = "DisableSmartMode";
-                        bot.send_inline_keyboard.keyboard_R2_1 = "Power Up";
-                        bot.send_inline_keyboard.keyboard_R2_1_callback_data = "DisablePowerUp";
-                        bot.send_inline_keyboard.keyboard_R2_2 = "Bulk Fusion";
-                        bot.send_inline_keyboard.keyboard_R2_2_callback_data = "DisableBulkFusion";
-                        bot.send_inline_keyboard.keyboard_R2_3 = "Collect Inbox";
-                        bot.send_inline_keyboard.keyboard_R2_3_callback_data = "DisableCollectInbox";
+                        bot.send_inline_keyboard.keyboard_R1_3 = "Power Up";
+                        bot.send_inline_keyboard.keyboard_R1_3_callback_data = "DisablePowerUp";
+                        bot.send_inline_keyboard.keyboard_R2_1 = "Bulk Fusion";
+                        bot.send_inline_keyboard.keyboard_R2_1_callback_data = "DisableBulkFusion";
+                        bot.send_inline_keyboard.keyboard_R2_2 = "Collect Inbox";
+                        bot.send_inline_keyboard.keyboard_R2_2_callback_data = "DisableCollectInbox";
                         bot.send_inline_keyboard.send(bot.chat_id, "Select Mode You Want To Disable : ");
                     }
                     if (bot.data == "DisableAdventure")
@@ -335,11 +324,6 @@ namespace SevenKnightsAI
                     {
                         SendCommand("Disable Arena");
                         bot.sendMessage.send(bot.chat_id, "Arena Disabled");
-                    }
-                    if (bot.data == "DisableSmartMode")
-                    {
-                        SendCommand("Disable Smart Mode");
-                        bot.sendMessage.send(bot.chat_id, "Smart Mode Disabled");
                     }
                     if (bot.data == "DisablePowerUp")
                     {
@@ -362,16 +346,14 @@ namespace SevenKnightsAI
                         bot.send_inline_keyboard.keyboard_R1_1_callback_data = "CMAdventure";
                         bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                         bot.send_inline_keyboard.keyboard_R1_2_callback_data = "CMArena";
-                        bot.send_inline_keyboard.keyboard_R1_3 = "Smart Mode";
-                        bot.send_inline_keyboard.keyboard_R1_3_callback_data = "CMSmartMode";
-                        bot.send_inline_keyboard.keyboard_R2_1 = "Power Up";
-                        bot.send_inline_keyboard.keyboard_R2_1_callback_data = "CMPowerUp";
-                        bot.send_inline_keyboard.keyboard_R2_2 = "Bulk Fusion";
-                        bot.send_inline_keyboard.keyboard_R2_2_callback_data = "CMBulkFusion";
-                        bot.send_inline_keyboard.keyboard_R2_3 = "Collect Inbox";
-                        bot.send_inline_keyboard.keyboard_R2_3_callback_data = "CMCollectInbox";
-                        bot.send_inline_keyboard.keyboard_R3_1 = "Change Profile";
-                        bot.send_inline_keyboard.keyboard_R3_1_callback_data = "CMChangeProfile";
+                        bot.send_inline_keyboard.keyboard_R1_3 = "Power Up";
+                        bot.send_inline_keyboard.keyboard_R1_3_callback_data = "CMPowerUp";
+                        bot.send_inline_keyboard.keyboard_R2_1 = "Bulk Fusion";
+                        bot.send_inline_keyboard.keyboard_R2_1_callback_data = "CMBulkFusion";
+                        bot.send_inline_keyboard.keyboard_R2_2 = "Collect Inbox";
+                        bot.send_inline_keyboard.keyboard_R2_2_callback_data = "CMCollectInbox";
+                        bot.send_inline_keyboard.keyboard_R2_3 = "Change Profile";
+                        bot.send_inline_keyboard.keyboard_R2_3_callback_data = "CMChangeProfile";
                         bot.send_inline_keyboard.send(bot.chat_id, "Select Mode You Want To Activate Right Now : ");
                     }
                     if (bot.data == "CMAdventure")
@@ -798,25 +780,13 @@ namespace SevenKnightsAI
                             this.rankArenaLabel.Text = numm2.ToString();
                             return;
                         }
-                        else if(objective == Objective.SMART_MODE)
-                        {
-                            int num = (int)dictionary["count"];
-                            this.SmartModeCountLabel.Text = "x" + num.ToString();
-                        }
-
                         int num3 = (int)dictionary["count"];
                         string text = string.Format("x" + num3);
                         string text2 = "";
                         string text3 = "";
                         string text4 = "";
                         string text5 = "";
-                        if (objective == Objective.CHECK_SLOT_HERO)
-                        {
-                            string t1 = "" + dictionary["hc"];
-                            string t2 = "" + dictionary["hm"];
-                            text = string.Format("{0}/{1}", t1, t2);
-                        }
-                        else if (objective == Objective.ADVENTURE)
+                        if (objective == Objective.ADVENTURE)
                         {
                             text2 = "" + dictionary["h30"]; //hero30
                             text3 = "x" + dictionary["goldadv"]; //goldadv 
@@ -835,10 +805,6 @@ namespace SevenKnightsAI
 
                             case Objective.ARENA:
                                 break;
-                            /*
-                            case Objective.CHECK_SLOT_HERO:
-                                this.heroslotLabel.Text = text; //??
-                                return;*/
 
                             default:
                                 return;
@@ -1149,6 +1115,7 @@ namespace SevenKnightsAI
             this.AD_EnableProfile3CheckBox.Checked = this.AISettings.AD_EnableProfile3;
             this.AD_NoChangeModeCheckBox.Checked = this.AISettings.AD_NoChangeMode;
             this.ST_EnableTelegramMsg1CheckBox.Checked = this.AIProfiles.ST_EnableTelegramMsg1;
+            this.AD_FarmOrderComboBox.SelectedIndex = this.AISettings.AD_FarmOrder;
         }
 
         private void InitArenaTab()
@@ -1245,16 +1212,6 @@ namespace SevenKnightsAI
         private void InitOtherTab()
         {
             this.AD_NoHeroUp_Checkbox.Checked = this.AIProfiles.AD_NoHeroUp;
-        }
-
-        private void InitSmartModeTab()
-        {
-
-        }
-
-        private string ConvertProfile(string profileName)
-        {
-            return "A";
         }
 
         private void LG_clearButton_Click(object sender, EventArgs e)
@@ -1371,10 +1328,6 @@ namespace SevenKnightsAI
                 case 2:
                     this.AISettings.AR_Limit = num2;
                     return;
-
-                case 6:
-                    this.AISettings.AD_CurrH30 = num2;
-                    return;
                 default:
                     return;
             }
@@ -1444,7 +1397,6 @@ namespace SevenKnightsAI
             this.InitResourcesTab();
             this.InitLogsTab();
             this.InitOtherTab();
-            this.InitSmartModeTab();
             if (refreshSettings)
             {
                 this.InitSettingsTab();
@@ -1645,6 +1597,14 @@ namespace SevenKnightsAI
         private void ST_currentProfileComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = sender as ComboBox;
+            short num = Convert.ToInt16(comboBox.Tag);
+            if (num == 1)
+            {
+                ST_currentProfile2ComboBox.SelectedItem = comboBox.SelectedItem;
+            }else if (num == 2)
+            {
+                ST_currentProfileComboBox.SelectedItem = comboBox.SelectedItem;
+            }
             ProfileComboBoxItem profileComboBoxItem = comboBox.SelectedItem as ProfileComboBoxItem;
             this.AIProfiles.ChangeProfile(profileComboBoxItem.Key);
             this.ReloadTabs(false);
@@ -1765,13 +1725,16 @@ namespace SevenKnightsAI
         {
             int num = 0;
             this.ST_currentProfileComboBox.Items.Clear();
+            this.ST_currentProfile2ComboBox.Items.Clear();
             foreach (KeyValuePair<string, AISettings> current in this.AIProfiles.Settings)
             {
                 ProfileComboBoxItem item = new ProfileComboBoxItem(current);
                 this.ST_currentProfileComboBox.Items.Add(item);
+                this.ST_currentProfile2ComboBox.Items.Add(item);
                 if (current.Key == this.AIProfiles.CurrentKey)
                 {
                     this.ST_currentProfileComboBox.SelectedIndex = num;
+                    this.ST_currentProfile2ComboBox.SelectedIndex = num;
                 }
                 num++;
             }
@@ -2040,10 +2003,6 @@ namespace SevenKnightsAI
                         {
                             this.AISettings.AR_Enable = true;
                         }
-                        else if ((string)progressArgsT.Message == "Enable Smart Mode")
-                        {
-                            this.AISettings.SM_Enable = true;
-                        }
                         else if ((string)progressArgsT.Message == "Enable PowerUp")
                         {
                             this.AISettings.PU_Enable = true;
@@ -2076,13 +2035,6 @@ namespace SevenKnightsAI
                             if (AISettings.AR_Enable)
                             {
                                 this.AI.ChangeMode(Objective.ARENA);
-                            }
-                        }
-                        else if ((string)progressArgsT.Message == "CM Smart Mode")
-                        {
-                            if (AISettings.SM_Enable)
-                            {
-                                this.AI.ChangeMode(Objective.SMART_MODE);
                             }
                         }
                         else if ((string)progressArgsT.Message == "CM PowerUp")
@@ -2824,6 +2776,12 @@ namespace SevenKnightsAI
         {
             CheckBox checkBox = sender as CheckBox;
             this.AISettings.BF_StopMileage = checkBox.Checked;
+        }
+
+        private void AD_FarmOrderComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = sender as ComboBox;
+            this.AISettings.AD_FarmOrder = comboBox.SelectedIndex;
         }
 
         private void RS_CIOnlyTicketsCheckBox_CheckedChanged(object sender, EventArgs e)

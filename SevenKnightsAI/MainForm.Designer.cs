@@ -48,10 +48,8 @@
             this.button8 = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.SmartModePictureBox = new System.Windows.Forms.PictureBox();
             this.arenaPictureBox = new System.Windows.Forms.PictureBox();
             this.adventurePictureBox = new System.Windows.Forms.PictureBox();
-            this.SmartModeCountLabel = new System.Windows.Forms.Label();
             this.arenaCountLabel = new System.Windows.Forms.Label();
             this.adventureCountLabel = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -82,11 +80,15 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.AD_FarmOrderComboBox = new System.Windows.Forms.ComboBox();
             this.LG_logTextBox = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.ST_currentProfile2ComboBox = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.logsBox = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -145,6 +147,7 @@
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.AD_UseFriendCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.AD_difficultyLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.AD_worldLabel = new System.Windows.Forms.Label();
@@ -224,6 +227,7 @@
             this.BF_EnableActivate2CheckBox = new System.Windows.Forms.CheckBox();
             this.BF_EnableActivate1CheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.BF_StopMileageCheckBox = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.BF_OnlyLv30CheckBox = new System.Windows.Forms.CheckBox();
             this.BF_rankComboBox = new System.Windows.Forms.ComboBox();
@@ -266,7 +270,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.topheaderPictureBox = new System.Windows.Forms.PictureBox();
-            this.BF_StopMileageCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -275,7 +278,6 @@
             this.summaryGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SmartModePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.adventurePictureBox)).BeginInit();
             this.statusStrip.SuspendLayout();
@@ -289,6 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -489,6 +492,7 @@
             this.ST_currentProfileComboBox.Name = "ST_currentProfileComboBox";
             this.ST_currentProfileComboBox.Size = new System.Drawing.Size(200, 21);
             this.ST_currentProfileComboBox.TabIndex = 1;
+            this.ST_currentProfileComboBox.Tag = "1";
             this.ST_currentProfileComboBox.SelectedIndexChanged += new System.EventHandler(this.ST_currentProfileComboBox_SelectedIndexChanged);
             // 
             // ST_currentProfileLabel
@@ -575,7 +579,7 @@
             this.arenaKeysLabel2.AutoSize = true;
             this.arenaKeysLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arenaKeysLabel2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.arenaKeysLabel2.Location = new System.Drawing.Point(247, 33);
+            this.arenaKeysLabel2.Location = new System.Drawing.Point(254, 37);
             this.arenaKeysLabel2.Name = "arenaKeysLabel2";
             this.arenaKeysLabel2.Size = new System.Drawing.Size(16, 18);
             this.arenaKeysLabel2.TabIndex = 10;
@@ -587,7 +591,7 @@
             this.adventureKeysLabel2.AutoSize = true;
             this.adventureKeysLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adventureKeysLabel2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.adventureKeysLabel2.Location = new System.Drawing.Point(85, 33);
+            this.adventureKeysLabel2.Location = new System.Drawing.Point(58, 33);
             this.adventureKeysLabel2.Name = "adventureKeysLabel2";
             this.adventureKeysLabel2.Size = new System.Drawing.Size(16, 18);
             this.adventureKeysLabel2.TabIndex = 8;
@@ -631,17 +635,15 @@
             this.summaryGroupBox.Controls.Add(this.button8);
             this.summaryGroupBox.Controls.Add(this.pictureBox5);
             this.summaryGroupBox.Controls.Add(this.pictureBox3);
-            this.summaryGroupBox.Controls.Add(this.SmartModePictureBox);
             this.summaryGroupBox.Controls.Add(this.arenaPictureBox);
             this.summaryGroupBox.Controls.Add(this.arenaKeysLabel2);
             this.summaryGroupBox.Controls.Add(this.adventurePictureBox);
-            this.summaryGroupBox.Controls.Add(this.SmartModeCountLabel);
             this.summaryGroupBox.Controls.Add(this.adventureKeysLabel2);
             this.summaryGroupBox.Controls.Add(this.arenaCountLabel);
             this.summaryGroupBox.Controls.Add(this.adventureCountLabel);
-            this.summaryGroupBox.Location = new System.Drawing.Point(8, 576);
+            this.summaryGroupBox.Location = new System.Drawing.Point(4, 523);
             this.summaryGroupBox.Name = "summaryGroupBox";
-            this.summaryGroupBox.Size = new System.Drawing.Size(349, 130);
+            this.summaryGroupBox.Size = new System.Drawing.Size(342, 130);
             this.summaryGroupBox.TabIndex = 4;
             this.summaryGroupBox.TabStop = false;
             this.summaryGroupBox.Text = "Modes && Keys";
@@ -662,7 +664,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::SevenKnightsAI.Properties.Resources.icon_key_arena;
-            this.pictureBox5.Location = new System.Drawing.Point(208, 29);
+            this.pictureBox5.Location = new System.Drawing.Point(211, 29);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(37, 36);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -673,7 +675,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::SevenKnightsAI.Properties.Resources.icon_advkey;
-            this.pictureBox3.Location = new System.Drawing.Point(43, 29);
+            this.pictureBox3.Location = new System.Drawing.Point(16, 29);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 36);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -681,21 +683,10 @@
             this.pictureBox3.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBox3, "Adventure Keys");
             // 
-            // SmartModePictureBox
-            // 
-            this.SmartModePictureBox.Image = global::SevenKnightsAI.Properties.Resources.icon_smart;
-            this.SmartModePictureBox.Location = new System.Drawing.Point(130, 82);
-            this.SmartModePictureBox.Name = "SmartModePictureBox";
-            this.SmartModePictureBox.Size = new System.Drawing.Size(37, 36);
-            this.SmartModePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.SmartModePictureBox.TabIndex = 10;
-            this.SmartModePictureBox.TabStop = false;
-            this.toolTip.SetToolTip(this.SmartModePictureBox, "Gold Chamber");
-            // 
             // arenaPictureBox
             // 
             this.arenaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("arenaPictureBox.Image")));
-            this.arenaPictureBox.Location = new System.Drawing.Point(246, 82);
+            this.arenaPictureBox.Location = new System.Drawing.Point(211, 82);
             this.arenaPictureBox.Name = "arenaPictureBox";
             this.arenaPictureBox.Size = new System.Drawing.Size(37, 36);
             this.arenaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -706,7 +697,7 @@
             // adventurePictureBox
             // 
             this.adventurePictureBox.Image = global::SevenKnightsAI.Properties.Resources.icon_adv;
-            this.adventurePictureBox.Location = new System.Drawing.Point(7, 82);
+            this.adventurePictureBox.Location = new System.Drawing.Point(14, 82);
             this.adventurePictureBox.Name = "adventurePictureBox";
             this.adventurePictureBox.Size = new System.Drawing.Size(37, 36);
             this.adventurePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -715,23 +706,12 @@
             this.toolTip.SetToolTip(this.adventurePictureBox, "Adventure");
             this.adventurePictureBox.Click += new System.EventHandler(this.adventurePictureBox_Click);
             // 
-            // SmartModeCountLabel
-            // 
-            this.SmartModeCountLabel.AutoSize = true;
-            this.SmartModeCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SmartModeCountLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.SmartModeCountLabel.Location = new System.Drawing.Point(173, 89);
-            this.SmartModeCountLabel.Name = "SmartModeCountLabel";
-            this.SmartModeCountLabel.Size = new System.Drawing.Size(25, 20);
-            this.SmartModeCountLabel.TabIndex = 3;
-            this.SmartModeCountLabel.Text = "x0";
-            // 
             // arenaCountLabel
             // 
             this.arenaCountLabel.AutoSize = true;
             this.arenaCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arenaCountLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.arenaCountLabel.Location = new System.Drawing.Point(289, 89);
+            this.arenaCountLabel.Location = new System.Drawing.Point(254, 89);
             this.arenaCountLabel.Name = "arenaCountLabel";
             this.arenaCountLabel.Size = new System.Drawing.Size(25, 20);
             this.arenaCountLabel.TabIndex = 2;
@@ -742,7 +722,7 @@
             this.adventureCountLabel.AutoSize = true;
             this.adventureCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adventureCountLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.adventureCountLabel.Location = new System.Drawing.Point(48, 89);
+            this.adventureCountLabel.Location = new System.Drawing.Point(55, 89);
             this.adventureCountLabel.Name = "adventureCountLabel";
             this.adventureCountLabel.Size = new System.Drawing.Size(25, 20);
             this.adventureCountLabel.TabIndex = 1;
@@ -754,7 +734,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(240, 304);
+            this.checkBox1.Location = new System.Drawing.Point(240, 235);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox1.Size = new System.Drawing.Size(77, 17);
@@ -767,7 +747,7 @@
             // 
             this.aiPause.Enabled = false;
             this.aiPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.aiPause.Location = new System.Drawing.Point(16, 51);
+            this.aiPause.Location = new System.Drawing.Point(26, 51);
             this.aiPause.Name = "aiPause";
             this.aiPause.Size = new System.Drawing.Size(102, 30);
             this.aiPause.TabIndex = 8;
@@ -778,7 +758,7 @@
             // aiButton
             // 
             this.aiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.aiButton.Location = new System.Drawing.Point(16, 15);
+            this.aiButton.Location = new System.Drawing.Point(26, 15);
             this.aiButton.Name = "aiButton";
             this.aiButton.Size = new System.Drawing.Size(102, 30);
             this.aiButton.TabIndex = 3;
@@ -796,7 +776,7 @@
             this.splitterStatusLabel,
             this.tsslCursorPosition,
             this.tsslBuildInfo});
-            this.statusStrip.Location = new System.Drawing.Point(0, 719);
+            this.statusStrip.Location = new System.Drawing.Point(0, 654);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(505, 22);
             this.statusStrip.SizingGrip = false;
@@ -872,7 +852,7 @@
             "Easy",
             "Normal",
             "Hard"});
-            this.AD_difficultyComboBox.Location = new System.Drawing.Point(70, 133);
+            this.AD_difficultyComboBox.Location = new System.Drawing.Point(121, 262);
             this.AD_difficultyComboBox.MaxDropDownItems = 3;
             this.AD_difficultyComboBox.Name = "AD_difficultyComboBox";
             this.AD_difficultyComboBox.Size = new System.Drawing.Size(60, 21);
@@ -916,7 +896,7 @@
             // button1
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(155, 298);
+            this.button1.Location = new System.Drawing.Point(155, 231);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 22);
             this.button1.TabIndex = 28;
@@ -929,7 +909,7 @@
             // 
             this.button2.Enabled = false;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(75, 298);
+            this.button2.Location = new System.Drawing.Point(75, 231);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 22);
             this.button2.TabIndex = 27;
@@ -1027,6 +1007,24 @@
             this.pictureBox16.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBox16, "Gold");
             // 
+            // AD_FarmOrderComboBox
+            // 
+            this.AD_FarmOrderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AD_FarmOrderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AD_FarmOrderComboBox.FormattingEnabled = true;
+            this.AD_FarmOrderComboBox.Items.AddRange(new object[] {
+            "Newest",
+            "Lowest",
+            "Highest",
+            "Material"});
+            this.AD_FarmOrderComboBox.Location = new System.Drawing.Point(69, 135);
+            this.AD_FarmOrderComboBox.MaxDropDownItems = 3;
+            this.AD_FarmOrderComboBox.Name = "AD_FarmOrderComboBox";
+            this.AD_FarmOrderComboBox.Size = new System.Drawing.Size(127, 21);
+            this.AD_FarmOrderComboBox.TabIndex = 29;
+            this.toolTip.SetToolTip(this.AD_FarmOrderComboBox, "For Map 1 to Map 7");
+            this.AD_FarmOrderComboBox.SelectedIndexChanged += new System.EventHandler(this.AD_FarmOrderComboBox_SelectedIndexChanged);
+            // 
             // LG_logTextBox
             // 
             this.LG_logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1048,7 +1046,7 @@
             this.tabControl1.Location = new System.Drawing.Point(-4, 91);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(513, 456);
+            this.tabControl1.Size = new System.Drawing.Size(513, 405);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage4
@@ -1063,18 +1061,53 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 23);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(505, 429);
+            this.tabPage4.Size = new System.Drawing.Size(505, 378);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Report";
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button9);
+            this.groupBox4.Controls.Add(this.ST_currentProfile2ComboBox);
+            this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Location = new System.Drawing.Point(337, 254);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(160, 169);
+            this.groupBox4.Size = new System.Drawing.Size(160, 114);
             this.groupBox4.TabIndex = 34;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = ".....";
+            this.groupBox4.Text = "Shortcut";
+            // 
+            // button9
+            // 
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(4, 71);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(152, 23);
+            this.button9.TabIndex = 11;
+            this.button9.Text = "Reset ADB";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // ST_currentProfile2ComboBox
+            // 
+            this.ST_currentProfile2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ST_currentProfile2ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ST_currentProfile2ComboBox.FormattingEnabled = true;
+            this.ST_currentProfile2ComboBox.Location = new System.Drawing.Point(6, 32);
+            this.ST_currentProfile2ComboBox.Name = "ST_currentProfile2ComboBox";
+            this.ST_currentProfile2ComboBox.Size = new System.Drawing.Size(150, 21);
+            this.ST_currentProfile2ComboBox.TabIndex = 3;
+            this.ST_currentProfile2ComboBox.Tag = "2";
+            this.ST_currentProfile2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ST_currentProfileComboBox_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Current Profile";
             // 
             // groupBox6
             // 
@@ -1085,7 +1118,7 @@
             this.groupBox6.Controls.Add(this.button2);
             this.groupBox6.Location = new System.Drawing.Point(8, 94);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(323, 330);
+            this.groupBox6.Size = new System.Drawing.Size(323, 274);
             this.groupBox6.TabIndex = 32;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Log";
@@ -1097,14 +1130,14 @@
             this.logsBox.Location = new System.Drawing.Point(6, 19);
             this.logsBox.Name = "logsBox";
             this.logsBox.ReadOnly = true;
-            this.logsBox.Size = new System.Drawing.Size(308, 273);
+            this.logsBox.Size = new System.Drawing.Size(308, 194);
             this.logsBox.TabIndex = 24;
             this.logsBox.Text = "";
             // 
             // button3
             // 
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(5, 298);
+            this.button3.Location = new System.Drawing.Point(5, 231);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(64, 23);
             this.button3.TabIndex = 25;
@@ -1376,7 +1409,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 23);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(505, 429);
+            this.tabPage5.Size = new System.Drawing.Size(505, 378);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Mode";
             // 
@@ -1388,7 +1421,7 @@
             this.tabControl2.Location = new System.Drawing.Point(2, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(508, 429);
+            this.tabControl2.Size = new System.Drawing.Size(508, 378);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage6
@@ -1397,7 +1430,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(500, 403);
+            this.tabPage6.Size = new System.Drawing.Size(500, 352);
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "Adventure";
             // 
@@ -1408,7 +1441,7 @@
             this.tabControl5.Location = new System.Drawing.Point(-3, 0);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(508, 404);
+            this.tabControl5.Size = new System.Drawing.Size(508, 356);
             this.tabControl5.TabIndex = 0;
             // 
             // tabPage1
@@ -1418,7 +1451,7 @@
             this.tabPage1.Controls.Add(this.GB_WaitForKeys);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(500, 378);
+            this.tabPage1.Size = new System.Drawing.Size(500, 330);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Control";
             // 
@@ -1597,11 +1630,13 @@
             this.tabPage15.Controls.Add(this.groupBox5);
             this.tabPage15.Controls.Add(this.ADCH_ChangeHeroGroupBox);
             this.tabPage15.Controls.Add(this.groupBox26);
+            this.tabPage15.Controls.Add(this.AD_difficultyLabel);
             this.tabPage15.Controls.Add(this.groupBox27);
+            this.tabPage15.Controls.Add(this.AD_difficultyComboBox);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(500, 378);
+            this.tabPage15.Size = new System.Drawing.Size(500, 330);
             this.tabPage15.TabIndex = 0;
             this.tabPage15.Text = "Adventure Option";
             // 
@@ -1755,10 +1790,10 @@
             // 
             // groupBox27
             // 
+            this.groupBox27.Controls.Add(this.label27);
+            this.groupBox27.Controls.Add(this.AD_FarmOrderComboBox);
             this.groupBox27.Controls.Add(this.AD_difficultyComboBox2nd);
-            this.groupBox27.Controls.Add(this.AD_difficultyLabel);
             this.groupBox27.Controls.Add(this.label1);
-            this.groupBox27.Controls.Add(this.AD_difficultyComboBox);
             this.groupBox27.Controls.Add(this.AD_worldLabel);
             this.groupBox27.Controls.Add(this.AD_stageLabel);
             this.groupBox27.Controls.Add(this.AD_worldComboBox);
@@ -1772,9 +1807,17 @@
             this.groupBox27.TabStop = false;
             this.groupBox27.Text = "Map Setting";
             // 
+            // label27
+            // 
+            this.label27.Location = new System.Drawing.Point(7, 128);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(54, 53);
+            this.label27.TabIndex = 28;
+            this.label27.Text = "Auto Replace Order";
+            // 
             // AD_difficultyLabel
             // 
-            this.AD_difficultyLabel.Location = new System.Drawing.Point(6, 139);
+            this.AD_difficultyLabel.Location = new System.Drawing.Point(57, 268);
             this.AD_difficultyLabel.Name = "AD_difficultyLabel";
             this.AD_difficultyLabel.Size = new System.Drawing.Size(54, 13);
             this.AD_difficultyLabel.TabIndex = 6;
@@ -1881,7 +1924,7 @@
             this.tabPage7.Controls.Add(this.groupBox29);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(500, 403);
+            this.tabPage7.Size = new System.Drawing.Size(500, 352);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Arena";
             // 
@@ -2130,7 +2173,7 @@
             this.tabPage17.Controls.Add(this.tabControl3);
             this.tabPage17.Location = new System.Drawing.Point(4, 22);
             this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Size = new System.Drawing.Size(500, 403);
+            this.tabPage17.Size = new System.Drawing.Size(500, 352);
             this.tabPage17.TabIndex = 5;
             this.tabPage17.Text = "Resources";
             // 
@@ -2212,7 +2255,7 @@
             this.groupBox7.Controls.Add(this.groupBox12);
             this.groupBox7.Location = new System.Drawing.Point(6, 53);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(486, 322);
+            this.groupBox7.Size = new System.Drawing.Size(486, 279);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Auto Power Up Setting";
@@ -2230,17 +2273,17 @@
             this.groupBox14.Controls.Add(this.PU_enableActive2CheckBox);
             this.groupBox14.Controls.Add(this.PU_4StarCheckBox);
             this.groupBox14.Enabled = false;
-            this.groupBox14.Location = new System.Drawing.Point(237, 173);
+            this.groupBox14.Location = new System.Drawing.Point(237, 143);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox14.Size = new System.Drawing.Size(242, 143);
+            this.groupBox14.Size = new System.Drawing.Size(242, 119);
             this.groupBox14.TabIndex = 10;
             this.groupBox14.TabStop = false;
             this.groupBox14.Visible = false;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(116, 107);
+            this.button6.Location = new System.Drawing.Point(129, 16);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(91, 24);
             this.button6.TabIndex = 21;
@@ -2273,9 +2316,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 102);
+            this.button5.Location = new System.Drawing.Point(132, 83);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 35);
+            this.button5.Size = new System.Drawing.Size(95, 25);
             this.button5.TabIndex = 20;
             this.button5.Text = "change to powerup";
             this.button5.UseVisualStyleBackColor = true;
@@ -2363,8 +2406,8 @@
             this.PU_3OrderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PU_3OrderComboBox.FormattingEnabled = true;
             this.PU_3OrderComboBox.Items.AddRange(new object[] {
-            "Ascending",
-            "Descending"});
+            "Low to High",
+            "High to Low"});
             this.PU_3OrderComboBox.Location = new System.Drawing.Point(97, 76);
             this.PU_3OrderComboBox.Name = "PU_3OrderComboBox";
             this.PU_3OrderComboBox.Size = new System.Drawing.Size(122, 21);
@@ -2475,8 +2518,8 @@
             this.PU_2OrderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PU_2OrderComboBox.FormattingEnabled = true;
             this.PU_2OrderComboBox.Items.AddRange(new object[] {
-            "Ascending",
-            "Descending"});
+            "Low to High",
+            "High to Low"});
             this.PU_2OrderComboBox.Location = new System.Drawing.Point(86, 79);
             this.PU_2OrderComboBox.Name = "PU_2OrderComboBox";
             this.PU_2OrderComboBox.Size = new System.Drawing.Size(149, 21);
@@ -2587,8 +2630,8 @@
             this.PU_1OrderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PU_1OrderComboBox.FormattingEnabled = true;
             this.PU_1OrderComboBox.Items.AddRange(new object[] {
-            "Ascending",
-            "Descending"});
+            "Low to High",
+            "High to Low"});
             this.PU_1OrderComboBox.Location = new System.Drawing.Point(97, 79);
             this.PU_1OrderComboBox.Name = "PU_1OrderComboBox";
             this.PU_1OrderComboBox.Size = new System.Drawing.Size(122, 21);
@@ -2761,6 +2804,17 @@
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Auto Bulk Fusion Setting";
             this.groupBox16.Enter += new System.EventHandler(this.groupBox16_Enter);
+            // 
+            // BF_StopMileageCheckBox
+            // 
+            this.BF_StopMileageCheckBox.AutoSize = true;
+            this.BF_StopMileageCheckBox.Location = new System.Drawing.Point(239, 21);
+            this.BF_StopMileageCheckBox.Name = "BF_StopMileageCheckBox";
+            this.BF_StopMileageCheckBox.Size = new System.Drawing.Size(194, 17);
+            this.BF_StopMileageCheckBox.TabIndex = 10;
+            this.BF_StopMileageCheckBox.Text = "Stop Fuse when Mileage Points Full";
+            this.BF_StopMileageCheckBox.UseVisualStyleBackColor = true;
+            this.BF_StopMileageCheckBox.CheckedChanged += new System.EventHandler(this.BF_StopMileageCheckBox_CheckedChanged);
             // 
             // label11
             // 
@@ -2957,7 +3011,7 @@
             this.tabPage18.ImageKey = "icon_setting.png";
             this.tabPage18.Location = new System.Drawing.Point(4, 23);
             this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Size = new System.Drawing.Size(505, 429);
+            this.tabPage18.Size = new System.Drawing.Size(505, 378);
             this.tabPage18.TabIndex = 2;
             this.tabPage18.Text = "Setting";
             // 
@@ -3164,16 +3218,16 @@
             this.groupBox2.Controls.Add(this.screenshotButton);
             this.groupBox2.Controls.Add(this.aiButton);
             this.groupBox2.Controls.Add(this.aiPause);
-            this.groupBox2.Location = new System.Drawing.Point(363, 576);
+            this.groupBox2.Location = new System.Drawing.Point(352, 523);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(134, 130);
+            this.groupBox2.Size = new System.Drawing.Size(148, 130);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
             // screenshotButton
             // 
             this.screenshotButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.screenshotButton.Location = new System.Drawing.Point(16, 87);
+            this.screenshotButton.Location = new System.Drawing.Point(26, 87);
             this.screenshotButton.Name = "screenshotButton";
             this.screenshotButton.Size = new System.Drawing.Size(102, 27);
             this.screenshotButton.TabIndex = 17;
@@ -3200,11 +3254,11 @@
             this.resourcesTableLayoutPanel.Controls.Add(this.honorLabel2, 6, 0);
             this.resourcesTableLayoutPanel.Controls.Add(this.rubyLabel2, 4, 0);
             this.resourcesTableLayoutPanel.Controls.Add(this.goldLabel2, 2, 0);
-            this.resourcesTableLayoutPanel.Location = new System.Drawing.Point(0, 544);
+            this.resourcesTableLayoutPanel.Location = new System.Drawing.Point(0, 493);
             this.resourcesTableLayoutPanel.Name = "resourcesTableLayoutPanel";
             this.resourcesTableLayoutPanel.RowCount = 1;
             this.resourcesTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.resourcesTableLayoutPanel.Size = new System.Drawing.Size(504, 24);
+            this.resourcesTableLayoutPanel.Size = new System.Drawing.Size(506, 24);
             this.resourcesTableLayoutPanel.TabIndex = 11;
             // 
             // ST_EmulatorNameTextBox
@@ -3243,24 +3297,13 @@
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;
             // 
-            // BF_StopMileageCheckBox
-            // 
-            this.BF_StopMileageCheckBox.AutoSize = true;
-            this.BF_StopMileageCheckBox.Location = new System.Drawing.Point(239, 21);
-            this.BF_StopMileageCheckBox.Name = "BF_StopMileageCheckBox";
-            this.BF_StopMileageCheckBox.Size = new System.Drawing.Size(194, 17);
-            this.BF_StopMileageCheckBox.TabIndex = 10;
-            this.BF_StopMileageCheckBox.Text = "Stop Fuse when Mileage Points Full";
-            this.BF_StopMileageCheckBox.UseVisualStyleBackColor = true;
-            this.BF_StopMileageCheckBox.CheckedChanged += new System.EventHandler(this.BF_StopMileageCheckBox_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AcceptButton = this.aiButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(505, 741);
+            this.ClientSize = new System.Drawing.Size(505, 676);
             this.Controls.Add(this.resourcesTableLayoutPanel);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip);
@@ -3286,7 +3329,6 @@
             this.summaryGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SmartModePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.adventurePictureBox)).EndInit();
             this.statusStrip.ResumeLayout(false);
@@ -3301,6 +3343,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -3811,8 +3855,6 @@
         private System.Windows.Forms.CheckBox GC_pos1CheckBox;
         private System.Windows.Forms.ComboBox GC_teamComboBox;
         private System.Windows.Forms.TabPage tabPage17;
-        private System.Windows.Forms.PictureBox SmartModePictureBox;
-        private System.Windows.Forms.Label SmartModeCountLabel;
         private System.Windows.Forms.TableLayoutPanel resourcesTableLayoutPanel;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RichTextBox logsBox;
@@ -3942,5 +3984,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox BF_StopMileageCheckBox;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.ComboBox ST_currentProfile2ComboBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox AD_FarmOrderComboBox;
     }
 }

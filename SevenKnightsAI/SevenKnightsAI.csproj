@@ -11,7 +11,7 @@
     <AssemblyName>Seven Knights AI Black</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>shane_icon.ico</ApplicationIcon>
+    <ApplicationIcon>icon_kagura.ico</ApplicationIcon>
     <StartupObject>SevenKnightsAI.Program</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
@@ -155,6 +155,7 @@
     <Compile Include="Classes\Imaging\ImageHashing.cs" />
     <Compile Include="Classes\Imaging\ImageSearch.cs" />
     <Compile Include="Classes\Imaging\LockBitmap.cs" />
+    <Compile Include="Classes\Mappings\AutoRepeatSettingPM.cs" />
     <Compile Include="Classes\Mappings\ForceClosePopupPM.cs" />
     <Compile Include="Classes\Mappings\AresCupPM.cs" />
     <Compile Include="Classes\Mappings\AhriConnectingPM.cs" />
@@ -349,47 +350,31 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dellon2.ico" />
     <None Include="Resources\myth_cover3.jpg" />
-    <Content Include="shane_icon.ico" />
-    <Content Include="yeon.jpg.ico" />
-    <Content Include="yeon_jpg_TvG_icon.ico" />
-    <Content Include="yeon_test.ico" />
     <None Include="icons\icon_adv.png" />
-    <Content Include="icons\icon_adventure.png" />
     <None Include="icons\icon_advkey.png" />
     <Content Include="icons\icon_arena.png" />
     <None Include="icons\icon_card.png" />
     <None Include="icons\icon_ess.png" />
     <Content Include="icons\icon_gold.png" />
     <None Include="icons\icon_golden.png" />
-    <Content Include="icons\icon_gold_chamber.png" />
-    <Content Include="icons\icon_help.png" />
     <Content Include="icons\icon_honor.png" />
     <None Include="icons\icon_horn.png" />
     <None Include="icons\icon_item.png" />
-    <Content Include="icons\icon_key_adventure.png" />
     <Content Include="icons\icon_key_arena.png" />
-    <Content Include="icons\icon_key_tower.png" />
     <None Include="icons\icon_mode.png" />
-    <Content Include="icons\icon_pushbullet.png" />
-    <Content Include="icons\icon_raid.png" />
     <None Include="icons\icon_report.png" />
     <Content Include="icons\icon_ruby.png" />
     <None Include="icons\icon_scale.png" />
     <None Include="icons\icon_setting.png" />
     <None Include="icons\icon_smart.png" />
     <None Include="icons\icon_star.png" />
-    <Content Include="icons\icon_topaz.png" />
-    <Content Include="icons\icon_uac.png" />
-    <Content Include="icons\SevenKnights.png" />
     <Content Include="icon_kagura.ico" />
     <Content Include="License-LGPL.txt" />
     <None Include="Resources\soulIcon.png" />
     <None Include="Resources\cards_icon.png" />
     <None Include="Resources\hero_icon.png" />
     <None Include="Resources\lv30_icon.png" />
-    <Content Include="spike_icon.ico" />
     <None Include="icons\telegramLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

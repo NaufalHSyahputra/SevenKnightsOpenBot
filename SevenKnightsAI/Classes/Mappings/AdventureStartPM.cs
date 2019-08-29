@@ -64,9 +64,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping AutoRepeatButton = new PixelMapping
         {
-            X = 447,
-            Y = 426,
+            X = 448,
+            Y = 425,
             Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping AutoRepeatSettingButton = new PixelMapping
+        {
+            X = 343,
+            Y = 491,
+            Color = 4479108,
             Type = MappingType.BUTTON
         };
 

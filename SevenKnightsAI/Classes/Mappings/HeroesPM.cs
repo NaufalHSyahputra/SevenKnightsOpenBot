@@ -644,15 +644,15 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SortButtonAscending = new PixelMapping
         {
-            X = 898,
+            X = 899,
             Y = 77,
-            Color = 15462136,
+            Color = 15593464,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping SortButtonDescending = new PixelMapping
         {
-            X = 898,
+            X = 899,
             Y = 77,
             Color = 2764596,
             Type = MappingType.ANCHOR
@@ -668,25 +668,41 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SortByBox = new PixelMapping
         {
-            X = 822,
-            Y = 83,
+            X = 668,
+            Y = 79,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping SortByBox2 = new PixelMapping
+        {
+            X = 805,
+            Y = 81,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping SortByBoxExpanded = new PixelMapping
         {
-            X = 753,
-            Y = 371,
-            Color = 2699317,
+            X = 650,
+            Y = 146,
+            Color = 13816531,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping SortByBoxExpanded2 = new PixelMapping
+        {
+            X = 745,
+            Y = 118,
+            Color = 13093837,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping SortByNormal = new PixelMapping
         {
-            X = 810,
-            Y = 242,
-            Color = 12895686,
+            X = 650,
+            Y = 146,
+            Color = 13816531,
             Type = MappingType.BUTTON
         };
 
@@ -708,8 +724,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SortByLevel = new PixelMapping
         {
-            X = 845,
-            Y = 346,
+            X = 807,
+            Y = 214,
             Color = 0,
             Type = MappingType.BUTTON
         };

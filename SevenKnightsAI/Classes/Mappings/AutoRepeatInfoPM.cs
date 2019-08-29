@@ -6,64 +6,64 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 538,
-            Y = 226,
-            Color = 9654545,
+            X = 531,
+            Y = 206,
+            Color = 9390602,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping CardIcon = new PixelMapping
         {
-            X = 532,
-            Y = 161,
-            Color = 16711159,
+            X = 529,
+            Y = 154,
+            Color = 15052104,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping ChestIcon = new PixelMapping
         {
-            X = 714,
-            Y = 163,
-            Color = 4071435,
+            X = 708,
+            Y = 154,
+            Color = 3087632,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CloseBtn = new PixelMapping
         {
-            X = 836,
-            Y = 63,
-            Color = 7238011,
+            X = 837,
+            Y = 59,
+            Color = 16777215,
             Type = MappingType.BOTH
         };
 
         public static readonly Rectangle Gold = new Rectangle
         {
-            X = 553,
-            Y = 218,
-            Width = 135,
-            Height = 23
+            X = 546,
+            Y = 189,
+            Width = 141,
+            Height = 31
         };
 
         public static readonly Rectangle Hero = new Rectangle
         {
-            X = 553,
-            Y = 158,
-            Width = 120,
-            Height = 27
+            X = 551,
+            Y = 142,
+            Width = 113,
+            Height = 30
         };
 
         public static readonly Rectangle Item = new Rectangle
         {
-            X = 726,
-            Y = 159,
+            X = 719,
+            Y = 141,
             Width = 103,
-            Height = 23
+            Height = 30
         };
 
         public static readonly Rectangle Soul = new Rectangle
         {
-            X = 554,
-            Y = 279,
-            Width = 110,
-            Height = 26
+            X = 548,
+            Y = 241,
+            Width = 120,
+            Height = 30
         };
     }
 }

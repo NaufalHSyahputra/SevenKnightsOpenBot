@@ -39,7 +39,6 @@ namespace SevenKnightsAI.Classes
         private readonly Color COLOR_LIMIT = Color.Peru;
         private readonly Color COLOR_SELL_HEROES = Color.MediumVioletRed;
         private readonly Color COLOR_SELL_ITEMS = Color.SeaGreen;
-        private readonly Color COLOR_SMART_MODE = Color.SteelBlue;
         private readonly Color COLOR_WAVE = Color.RoyalBlue;
 
         private AIProfiles AIProfiles;
@@ -82,7 +81,6 @@ namespace SevenKnightsAI.Classes
         private bool IsAdventureLimit;
         private bool IsAlreadyAdvEnd;
         private bool IsAlreadyAdvLoot;
-        private bool IsAlreadyAdvLootAuto;
         private bool alreadyCollectInboxBuyKeys;
         private System.Timers.Timer OneSecTimer;
         private int[] PreviousFingerprint;
@@ -102,12 +100,10 @@ namespace SevenKnightsAI.Classes
         private int TowerKeys;
         private TimeSpan TowerKeyTime;
         private BackgroundWorker Worker;
-        private string MapZone;
         private bool Hottimeloop;
         private bool Hottimeactive = true; //debug
         private string PlayerName = "";
-        private bool CheckPlayaName;
-        private bool checkslothero;
+        private bool changefarmorder;
         private bool changemap;
         private bool checkslotitem;
         private bool herofull;
@@ -119,8 +115,6 @@ namespace SevenKnightsAI.Classes
         private int entrytolv30;
         private int h30;
         private World world3; //for give delay to adventure_fight
-        private readonly World world4;
-        private readonly int stage4;
         private int internetdc;
         private int SmartModeCount;
         private int GoldenCrystalCount;
@@ -130,13 +124,11 @@ namespace SevenKnightsAI.Classes
         private int StarCount;
         private int SoulCount;
         private bool unknowncollected;
-        private bool isboostalreadylimit;
         private bool alreadystop = false;
-        int testhero = 0;
-        private bool alreadyadvready;
         private int CurrentBoost;
         private World currentworld;
         private int currentStage = 0;
+        private string MapZone;
 
         #endregion Private Fields
 
@@ -229,41 +221,9 @@ namespace SevenKnightsAI.Classes
             {
                 return "Current Objective : Arena";
             }
-            else if (CurrentObjective == Objective.CHECK_SLOT_HERO)
-            {
-                return "Current Objective : Checking Hero Slot";
-            }
-            else if (CurrentObjective == Objective.CHECK_SLOT_ITEM)
-            {
-                return "Current Objective : Checking Item Slot";
-            }
-            else if (CurrentObjective == Objective.SELL_HEROES)
-            {
-                return "Current Objective : Sell Heroes";
-            }
-            else if (CurrentObjective == Objective.SELL_ITEMS)
-            {
-                return "Current Objective : Sell Items";
-            }
-            else if (CurrentObjective == Objective.BUY_KEYS)
-            {
-                return "Current Objective : Buy Keys";
-            }
             else if (CurrentObjective == Objective.COLLECT_INBOX)
             {
                 return "Current Objective : Collect Inbox";
-            }
-            else if (CurrentObjective == Objective.COLLECT_QUESTS)
-            {
-                return "Current Objective : Collect Quest";
-            }
-            else if (CurrentObjective == Objective.SEND_HONORS)
-            {
-                return "Current Objective : Send Honors";
-            }
-            else if (CurrentObjective == Objective.SMART_MODE)
-            {
-                return "Current Objective : Smart Mode";
             }
             else if (CurrentObjective == Objective.POWER_UP_HEROES)
             {
@@ -312,16 +272,6 @@ namespace SevenKnightsAI.Classes
             ProgressSequence();
             AdventureCheckLimits();
         }
-
-        private void SmartModeAfterFight()
-        {
-            Log("Collecting Smart Mode Reward Finish", COLOR_SMART_MODE);
-            SendTelegram("[Smart Mode] Bot finish collecting smart mode rewards");
-            SmartModeCount++;
-            ReportSmartCount();
-            NextPossibleObjective();
-        }
-
         private void EndAutoRepeat()
         {
             AdventureLimitPowerUp++; //for limiting auto powerup
@@ -332,27 +282,35 @@ namespace SevenKnightsAI.Classes
                 CurrentBoost++;
                 this.Log("CurrentBoost = " + CurrentBoost);
             }
-            AdventureLimitCheckSlot++;
             AdventureLimitCollectInbox++;
             bool alreadystop = false;
             if (CurrentObjective != Objective.ADVENTURE || CurrentObjective == Objective.CHANGE_PROFILE)
             {
-                for (int i = 0; i < 3; i++)
+                if (!alreadystop)
                 {
-                    WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
+                    for (int i = 0; i < 3; i++)
+                    {
+                        WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
 
+                    }
                 }
+                alreadystop = true;
             }
             if (AISettings.AD_EnableProfile1 && AISettings.AD_BootMode && CurrentBoost == 100)
             {
-                for (int i = 0; i < 3; i++)
+                if (!alreadystop)
                 {
-                    WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
                     ChangeMode(Objective.CHANGE_PROFILE);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
+
+                    }
                 }
+                alreadystop = true;
                 return;
             }
-            if (AISettings.AD_EnableLimit)
+            if (AISettings.AD_EnableLimit && CurrentObjective != Objective.CHANGE_PROFILE)
             {
                 if (AdventureLimitCount2 >= AISettings.AD_Limit)
                 {
@@ -369,17 +327,7 @@ namespace SevenKnightsAI.Classes
 
                     }
                 }
-                else if (AISettings.AD_CheckSlot && AISettings.CS_EnableActive1 && AdventureLimitCheckSlot >= AISettings.CS_Enable1)
-                {
-                    checkslothero = true;
-                    checkslotitem = true;
-                    ChangeObjective(Objective.CHECK_SLOT_HERO);
-                    for (int i = 0; i < 3; i++)
-                    {
-                        WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
-                    }
-                }
-                else if (AdventureLimitPowerUp >= AISettings.PU_Active1 && AISettings.PU_enableActive1)
+                if (AdventureLimitPowerUp >= AISettings.PU_Active1 && AISettings.PU_enableActive1 && CurrentObjective != Objective.CHANGE_PROFILE)
                 {
                     AdventureLimitPowerUp = 0;
                     ChangeObjective(Objective.POWER_UP_HEROES);
@@ -388,7 +336,7 @@ namespace SevenKnightsAI.Classes
                         WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
                     }
                 }
-                else if (AdventureLimitFuse >= AISettings.BF_Active2 && AISettings.BF_EnableActivate2)
+                else if (AdventureLimitFuse >= AISettings.BF_Active2 && AISettings.BF_EnableActivate2 && CurrentObjective != Objective.CHANGE_PROFILE)
                 {
                     AdventureLimitFuse = 0;
                     ChangeObjective(Objective.FUSE_HEROES);
@@ -397,7 +345,7 @@ namespace SevenKnightsAI.Classes
                         WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
                     }
                 }
-                else if (AdventureLimitCollectInbox >= AISettings.RS_CollectInboxActive && AISettings.RS_CollectInbox)
+                else if (AdventureLimitCollectInbox >= AISettings.RS_CollectInboxActive && AISettings.RS_CollectInbox && CurrentObjective != Objective.CHANGE_PROFILE)
                 {
                     AdventureLimitCollectInbox = 0;
                     ChangeObjective(Objective.COLLECT_INBOX);
@@ -407,11 +355,9 @@ namespace SevenKnightsAI.Classes
                     }
                 }
             }
-            else if (AISettings.AD_World == World.Sequencer)
+            else if (AISettings.AD_World == World.Sequencer && CurrentObjective != Objective.CHANGE_PROFILE)
             {
                 CurrentSequenceCount2++; //for limiting sequence map
-                Log("Before: " + CurrentSequenceCount2);
-                Log("After: " + CurrentSequenceCount2 + " Progress Sequnce: " + AISettings.AD_AmountSequence[CurrentSequence]);
                 if (CurrentSequenceCount2 >= AISettings.AD_AmountSequence[CurrentSequence])
                 {
                     alreadystop = true;
@@ -422,20 +368,7 @@ namespace SevenKnightsAI.Classes
                         WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
                     }
                 }
-                if (AISettings.AD_CheckSlot && AISettings.CS_EnableActive1 && AdventureLimitCheckSlot >= AISettings.CS_Enable1)
-                {
-                    checkslothero = true;
-                    checkslotitem = true;
-                    ChangeObjective(Objective.CHECK_SLOT_HERO);
-                    if (!alreadystop)
-                    {
-                        for (int i = 0; i < 3; i++)
-                        {
-                            WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
-                        }
-                    }
-                }
-                else if (AdventureLimitPowerUp >= AISettings.PU_Active1 && AISettings.PU_enableActive1)
+                if (AdventureLimitPowerUp >= AISettings.PU_Active1 && AISettings.PU_enableActive1)
                 {
                     AdventureLimitPowerUp = 0;
                     ChangeObjective(Objective.POWER_UP_HEROES);
@@ -474,17 +407,7 @@ namespace SevenKnightsAI.Classes
             }
             else
             {
-                if (AISettings.AD_CheckSlot && AISettings.CS_EnableActive1 && AdventureLimitCheckSlot >= AISettings.CS_Enable1)
-                {
-                    checkslothero = true;
-                    checkslotitem = true;
-                    ChangeObjective(Objective.CHECK_SLOT_HERO);
-                    for (int i = 0; i < 3; i++)
-                    {
-                        WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
-                    }
-                }
-                else if (AdventureLimitPowerUp >= AISettings.PU_Active1 && AISettings.PU_enableActive1)
+                if (AdventureLimitPowerUp >= AISettings.PU_Active1 && AISettings.PU_enableActive1)
                 {
                     AdventureLimitPowerUp = 0;
                     ChangeObjective(Objective.POWER_UP_HEROES);
@@ -518,7 +441,7 @@ namespace SevenKnightsAI.Classes
 
         private void AdventureCheckLimits()
         {
-            if (CurrentObjective == Objective.CHECK_SLOT_HERO || CurrentObjective == Objective.ADVENTURE || CurrentObjective == Objective.POWER_UP_HEROES || CurrentObjective == Objective.COLLECT_INBOX || CurrentObjective == Objective.FUSE_HEROES)
+            if (CurrentObjective == Objective.ADVENTURE || CurrentObjective == Objective.POWER_UP_HEROES || CurrentObjective == Objective.COLLECT_INBOX || CurrentObjective == Objective.FUSE_HEROES)
             {
                 if (AISettings.AD_EnableLimit)
                 {
@@ -528,11 +451,7 @@ namespace SevenKnightsAI.Classes
                         Log("Limit reached [Adventure]", COLOR_LIMIT);
                         SendTelegram("[Adventure] Limit Reached");
                         AdventureLimitCount = 0;
-                        AdventureLimitPowerUp = 0; //for limiting auto powerup
-                        AdventureLimitFuse = 0; //for limiting auto fuse
                         AdventureLimitCount2 = 0; //for limiting adventure limit
-                        AdventureLimitCheckSlot = 0;
-                        AdventureLimitCollectInbox = 0;
                         IsAdventureLimit = true;
                         if (CurrentObjective == Objective.ADVENTURE)
                         {
@@ -552,11 +471,6 @@ namespace SevenKnightsAI.Classes
                             SendTelegram("[Adventure Sequence] Limit Reached");
                         }
                         AdventureLimitCount = 0;
-                        AdventureLimitPowerUp = 0; //for limiting auto powerup
-                        AdventureLimitFuse = 0; //for limiting auto fuse
-                        AdventureLimitCount2 = 0; //for limiting adventure limit
-                        AdventureLimitCheckSlot = 0;
-                        AdventureLimitCollectInbox = 0;
                         IsAdventureLimit = true;
                         if (CurrentObjective == Objective.ADVENTURE && AISettings.AD_NoChangeMode == false)
                         {
@@ -607,98 +521,6 @@ namespace SevenKnightsAI.Classes
             return AISettings.AR_UseRuby && ArenaRubiesCount < AISettings.AR_UseRubyAmount;
         }
 
-        private void BuyKeys()
-        {
-            PixelMapping[] array = new PixelMapping[]
-            {
-                ShopPM.Key10Honor100,
-                ShopPM.Key1Honor10
-            };
-            string[] array2 = new string[]
-            {
-                "10 Key",
-                "1 Key"
-            };
-            int start = -1;
-            KeysBoughtHonors = 0;
-            while (start <= 1 && !Worker.CancellationPending)
-            {
-                start++;
-                Scene scene;
-                SevenKnightsCore.Sleep(1000);
-                Log("Start buying keys", COLOR_BUY_KEYS);
-                CaptureFrame();
-                scene = SceneSearch();
-                if (scene.SceneType != SceneType.SHOP)
-                {
-                    Escape();
-                }
-                SendTelegram("[Buy Key] Bot will buy the keys with honors first");
-                SevenKnightsCore.Sleep(1000);
-                PixelMapping mapping;
-                mapping = array[start];
-                Log(string.Format("Buy {0} with honors", array2[start]), COLOR_BUY_KEYS);
-                SevenKnightsCore.Sleep(1000);
-                KeysBoughtHonors++;
-                WeightedClick(mapping, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(1000);
-                CaptureFrame();
-                scene = SceneSearch();
-                if (scene != null)
-                {
-                    if (scene.SceneType == SceneType.SHOP_BUY_FAILED_POPUP)
-                    {
-                        Log("Can't buy key because insufficient honor");
-                        WeightedClick(ShopBuyFailedPopupPM.OkButton, 1.0, 1.0, 1, 0, "left");
-                        continue;
-                    }
-                }
-                if (scene != null)
-                {
-                    if (scene.SceneType != SceneType.SHOP_BUY_POPUP)
-                    {
-                        Log("Can't buy key because insufficient honor2");
-                    }
-                }
-                WeightedClick(ShopBuyPopupPM.BuyButton, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(4000);
-                CaptureFrame();
-                scene = SceneSearch();
-                Log(scene.SceneType.ToString());
-                if ((MatchMapping(ShopPurchaseCompletePopupPM.AgainButtonBorder, 2) && MatchMapping(ShopPurchaseCompletePopupPM.OKButtonBorder, 2)) || scene.SceneType == SceneType.SHOP_PURCHASE_COMPLETE_POPUP)
-                {
-                    int counter = 1;
-                    while (true)
-                    {
-                        SevenKnightsCore.Sleep(1000);
-                        Log(string.Format("Keys bought ({0})", counter), COLOR_BUY_KEYS);
-                        WeightedClick(ShopPurchaseCompletePopupPM.AgainButton, 1.0, 1.0, 1, 0, "left");
-                        SevenKnightsCore.Sleep(3000);
-                        CaptureFrame();
-                        scene = SceneSearch();
-                        if ((!MatchMapping(ShopPurchaseCompletePopupPM.AgainButtonBorder, 2) || !MatchMapping(ShopPurchaseCompletePopupPM.OKButtonBorder, 2)) || scene.SceneType != SceneType.SHOP_PURCHASE_COMPLETE_POPUP)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            counter++;
-                        }
-                    }
-                }
-                if (start < 1)
-                {
-                    continue;
-                }
-                else
-                {
-                    DoneBuyKeys();
-                    break;
-                }
-            }
-            DoneBuyKeys();
-        }
-
         private Bitmap CaptureFrame()
         {
             bool sT_ForegroundMode = AIProfiles.ST_ForegroundMode;
@@ -727,41 +549,8 @@ namespace SevenKnightsAI.Classes
                 case Objective.ARENA:
                     message = "Arena";
                     break;
-
-                case Objective.CHECK_SLOT_HERO:
-                    message = "Checking Slot: Hero";
-                    break;
-
-                case Objective.CHECK_SLOT_ITEM:
-                    message = "Checking Slot: Item";
-                    break;
-
-                case Objective.SELL_HEROES:
-                    message = "Sell Heroes";
-                    break;
-
-                case Objective.SELL_ITEMS:
-                    message = "Sell Items";
-                    break;
-
-                case Objective.BUY_KEYS:
-                    message = "Buy Keys";
-                    break;
-
                 case Objective.COLLECT_INBOX:
                     message = "Collect Inbox";
-                    break;
-
-                case Objective.COLLECT_QUESTS:
-                    message = "Collect Quests";
-                    break;
-
-                case Objective.SEND_HONORS:
-                    message = "Send Honors";
-                    break;
-
-                case Objective.SMART_MODE:
-                    message = "Smart Mode";
                     break;
                 case Objective.POWER_UP_HEROES:
                     message = "Power Up Heroes";
@@ -793,11 +582,6 @@ namespace SevenKnightsAI.Classes
                 case Objective.ARENA:
                     message = "Arena";
                     AISettings.AR_Enable = false;
-                    break;
-
-                case Objective.SMART_MODE:
-                    message = "Smart Mode";
-                    AISettings.SM_Enable = false;
                     break;
 
                 case Objective.POWER_UP_HEROES:
@@ -1580,115 +1364,6 @@ namespace SevenKnightsAI.Classes
             return new Tuple<World, int, int>(item, item2, item3);
         }
 
-        private void HandleOutOfKey(SceneType sceneType)
-        {
-            if (sceneType != SceneType.OUT_OF_KEYS_POPUP)
-            {
-                return;
-            }
-            Dictionary<SceneType, PixelMapping[]> dictionary = new Dictionary<SceneType, PixelMapping[]>
-            {
-                {
-                    SceneType.OUT_OF_KEYS_OFFER,
-                    new PixelMapping[]
-                    {
-                        //OutOfKeysPopupPM.ShopButton,
-                        //OutOfKeysPopupPM.NoButton
-                    }
-                }
-            };
-            PixelMapping[] array = dictionary[sceneType];
-            if (IsBuyKeysEnabled())
-            {
-                WeightedClick(array[0], 1.0, 1.0, 1, 0, "left");
-                if (CurrentObjective != Objective.BUY_KEYS)
-                {
-                    ChangeObjective(Objective.BUY_KEYS);
-                    return;
-                }
-            }
-            else
-            {
-                WeightedClick(array[1], 1.0, 1.0, 1, 0, "left");
-                NextPossibleObjective();
-            }
-        }
-
-        private void HandleSmartMode()
-        {
-            Rectangle[] R_0 = new Rectangle[]
-            {
-                SmartLobbyPM.R_GoldenCrystal,
-                SmartLobbyPM.R_Gold
-            };
-            Rectangle R_2 = SmartLobbyPM.R_Star;
-            Rectangle[] R_1 = new Rectangle[]
-            {
-                SmartLobbyPM.R_Horn,
-                SmartLobbyPM.R_Scale,
-                SmartLobbyPM.R_Essecense
-            };
-            Log("Start Collecting Smart mode rewards", COLOR_SMART_MODE);
-            SendTelegram("[Smart Mode] Bot starting to collecting smart mode rewards");
-            SevenKnightsCore.Sleep(500);
-            Log("Collect rewards", COLOR_SMART_MODE);
-            WeightedClick(SmartLobbyPM.CollectButton, 1.0, 1.0, 1, 0, "left");
-            SevenKnightsCore.Sleep(1000);
-            CaptureFrame();
-            Scene scene = SceneSearch();
-            if (scene.SceneType == SceneType.SMART_LOOT_COLLECT_LOBBY)
-            {
-                WeightedClick(SmartLootCollectPM.OpenAllButton, 1.0, 1.0, 1, 0, "left");
-                Log("Collect rewards success", COLOR_SMART_MODE);
-                GoldenCrystalCount += ParseSmartResource(R_0[0]);
-                ReportResources(ResourceType.GOLDEN_CRYSTAL);
-                Sleep(750);
-                GoldCount += ParseSmartResource(R_0[1]);
-                ReportResources(ResourceType.GOLD);
-                Sleep(750);
-                HornCount += ParseSmartResource(R_1[0]);
-                ReportResources(ResourceType.HORN);
-                Sleep(750);
-                ScaleCount += ParseSmartResource(R_1[1]);
-                ReportResources(ResourceType.SCALE);
-                Sleep(750);
-                EssecenseCount += ParseSmartResource(R_1[2]);
-                ReportResources(ResourceType.ESSENCE);
-                Sleep(750);
-                StarCount += ParseSmartResource(R_2);
-                ReportResources(ResourceType.STAR);
-                Sleep(750);
-                SmartModeAfterFight();
-            }
-            else
-            {
-                Log("Resources Not Available", COLOR_SMART_MODE);
-                SmartModeAfterFight();
-            }
-        }
-
-        private void HeroSortReset(bool sortLevel = true, bool ascending = true)
-        {
-            if (sortLevel)
-            {
-                if (!MatchMapping(HeroesPM.SortByBoxExpanded, 2))
-                {
-                    WeightedClick(HeroesPM.SortByBox, 1.0, 1.0, 1, 0, "left");
-                    SevenKnightsCore.Sleep(300);
-                }
-                WeightedClick(HeroesPM.SortByLevel, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-            }
-            PixelMapping mapping = ascending ? HeroesPM.SortButtonAscending : HeroesPM.SortButtonDescending;
-            if (!MatchMapping(mapping, 2))
-            {
-                WeightedClick(HeroesPM.SortButton, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-            }
-            ScrollHeroCards(false);
-            SevenKnightsCore.Sleep(500);
-        }
-
         private void InitLoop()
         {
             CurrentObjective = Objective.IDLE;
@@ -1748,7 +1423,7 @@ namespace SevenKnightsAI.Classes
             CurrentBoost = 0;
             ReportAllResources();
             OneSecTimer.Enabled = true;
-            checkslothero = false;
+            changefarmorder = false;
             checkslotitem = false;
             changemap = false;
             IsAdventureLimit = false;
@@ -1757,12 +1432,9 @@ namespace SevenKnightsAI.Classes
             isboostsequence = false;
             IsAlreadyAdvEnd = false;
             IsAlreadyAdvLoot = false;
-            IsAlreadyAdvLootAuto = false;
             alreadyCollectInboxBuyKeys = false;
             internetdc = 0;
             unknowncollected = false;
-            isboostalreadylimit = false;
-            alreadyadvready = false;
             PreviousScene = DefaultScene;
         }
 
@@ -1833,7 +1505,6 @@ namespace SevenKnightsAI.Classes
                 WeightedClick(AdventureFightPM.ShowFightButton, 1.0, 1.0, 1, 0, "left");
             }
             IsAlreadyAdvLoot = false;
-            IsAlreadyAdvLootAuto = false;
             CaptureFrame();
             if (w == World.MysticWoods || w == World.SilentMine)
             {
@@ -1927,7 +1598,6 @@ namespace SevenKnightsAI.Classes
             bool flag2 = false;
             bool flag3 = false;
             Hottimeloop = true;
-            CheckPlayaName = true;
             alreadystop = false;
             Log("Initializing AI...");
             BlueStacks = new BlueStacks();
@@ -2071,7 +1741,7 @@ namespace SevenKnightsAI.Classes
                                     {
                                         MapSelectCounter = 0;
                                     }
-                                    if (scene.SceneType != SceneType.ADVENTURE_START && scene.SceneType != SceneType.MAP_SELECT && scene.SceneType != SceneType.ADVENTURE_READY && scene.SceneType != SceneType.MAP_SELECT_POPUP)
+                                    if (scene.SceneType != SceneType.ADVENTURE_START && scene.SceneType != SceneType.MAP_SELECT && scene.SceneType != SceneType.ADVENTURE_READY)
                                     {
                                         MapCheckCount = 0;
                                     }
@@ -2185,24 +1855,6 @@ namespace SevenKnightsAI.Classes
                                             WeightedClick(WifiWarningPopupPM.OkButton, 1.0, 1.0, 1, 0, "left");
                                             break;
 
-                                        case SceneType.UNKNOWN_AREA:
-                                            if (!unknowncollected)
-                                            {
-                                                WeightedClick(UnknownPopupPM.CollectBtn, 1.0, 1.0, 1, 0, "left");
-                                                Sleep(1000);
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
-                                        case SceneType.UNKNOWN_AREA_SUCCESS:
-                                            WeightedClick(UnknownPopupPM.CollectBtn, 1.0, 1.0, 1, 0, "left");
-                                            unknowncollected = true;
-                                            Sleep(1000);
-                                            break;
-
                                         case SceneType.LOBBY:
                                             UpdateAdventureKeys(scene.SceneType);
                                             UpdateGold(scene.SceneType);
@@ -2233,6 +1885,7 @@ namespace SevenKnightsAI.Classes
                                                     SendTelegram("Bot will stop to change profile, you can choose profile in Telegram and start bot again after changing profile");
                                                     Alert("RestartBot");
                                                     alreadystop = true;
+                                                    changefarmorder = false;
                                                 }
                                             }
                                             else if (CurrentObjective == Objective.ADVENTURE)
@@ -2243,33 +1896,13 @@ namespace SevenKnightsAI.Classes
                                             {
                                                 WeightedClick(LobbyPM.ArenaButton, 1.0, 1.0, 1, 0, "left");
                                             }
-                                            else if (CurrentObjective == Objective.SMART_MODE)
-                                            {
-                                                WeightedClick(LobbyPM.SmartButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else if (CurrentObjective == Objective.SELL_HEROES || CurrentObjective == Objective.FUSE_HEROES || CurrentObjective == Objective.POWER_UP_HEROES)
+                                            else if (CurrentObjective == Objective.FUSE_HEROES || CurrentObjective == Objective.POWER_UP_HEROES)
                                             {
                                                 WeightedClick(LobbyPM.HeroButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else if (CurrentObjective == Objective.CHECK_SLOT_HERO || CurrentObjective == Objective.CHECK_SLOT_ITEM)
-                                            {
-                                                NextPossibleObjective();
-                                            }
-                                            else if (CurrentObjective == Objective.BUY_KEYS)
-                                            {
-                                                WeightedClick(LobbyPM.ShopButton, 1.0, 1.0, 1, 0, "left");
                                             }
                                             else if (CurrentObjective == Objective.COLLECT_INBOX)
                                             {
                                                 WeightedClick(LobbyPM.InboxButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else if (CurrentObjective == Objective.COLLECT_QUESTS)
-                                            {
-                                                WeightedClick(LobbyPM.QuestButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else if (CurrentObjective == Objective.SEND_HONORS)
-                                            {
-                                                WeightedClick(LobbyPM.SocialButton, 1.0, 1.0, 1, 0, "left");
                                             }
                                             else if (CurrentObjective == Objective.IDLE)
                                             {
@@ -2279,7 +1912,6 @@ namespace SevenKnightsAI.Classes
                                         case SceneType.MAP_SELECT:
 
                                             if (MapSelectCounter >= 10000)
-
                                             {
 
                                                 WeightedClick(SharedPM.BackButton, 1.0, 1.0, 1, 0, "left");
@@ -2506,65 +2138,6 @@ namespace SevenKnightsAI.Classes
                                             }
                                             break;
 
-                                        case SceneType.MAP_SELECT_POPUP:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.FULL_ITEM_POPUP:
-                                            if (AISettings.AD_StopOnFullItems)
-                                            {
-                                                Alert("Items Full");
-                                                SendTelegram("Bot has stopped because Your inventory is full");
-                                                Escape();
-                                            }
-                                            if (!flag)
-                                            {
-                                                SendTelegram("Your inventory is full. Bot will start selling them if enabled.");
-                                                flag = true;
-                                            }
-                                            if (AISettings.RS_SellItems && CooldownSellItems <= 0)
-                                            {
-                                                if (CurrentObjective != Objective.SELL_ITEMS)
-                                                {
-                                                    ChangeObjective(Objective.SELL_ITEMS);
-                                                }
-                                                WeightedClick(SharedPM.Full_SellButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else
-                                            {
-                                                WeightedClick(SharedPM.Full_NoButton, 1.0, 1.0, 1, 0, "left");
-                                                itemfull = false;
-                                            }
-                                            SevenKnightsCore.Sleep(500);
-                                            break;
-
-                                        case SceneType.FULL_HERO_POPUP:
-                                            if (AISettings.AD_StopOnFullHeroes)
-                                            {
-                                                Alert("Heroes Full");
-                                                SendTelegram("Bot has stopped Because Your hero cards are full");
-                                                Escape();
-                                            }
-                                            if (!flag2)
-                                            {
-                                                SendTelegram("Your hero cards are full. Bot will start selling them if enabled.");
-                                                flag2 = true;
-                                            }
-                                            if (AISettings.RS_SellHeroes && CooldownSellHeroes <= 0)
-                                            {
-                                                if (CurrentObjective != Objective.SELL_HEROES)
-                                                {
-                                                    ChangeObjective(Objective.SELL_HEROES);
-                                                }
-                                                WeightedClick(SharedPM.Full_NoButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else
-                                            {
-                                                WeightedClick(SharedPM.Full_ProceedButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            SevenKnightsCore.Sleep(500);
-                                            break;
-
                                         case SceneType.ADVENTURE_READY:
                                             if (this.CurrentObjective == Objective.ADVENTURE && ExpectingScene(SceneType.ADVENTURE_READY, 3, 500))
                                             {
@@ -2575,6 +2148,30 @@ namespace SevenKnightsAI.Classes
                                                 this.WeightedClick(AdventureReadyPM.CloseButton, 1.0, 1.0, 1, 0, "left");
                                             }
                                             SevenKnightsCore.Sleep(500);
+                                            break;
+
+                                        case SceneType.AUTO_REPEAT_SETTING:
+                                            if (!MatchMapping(AutoRepeatSettingPM.AutoReplaceOn, 2))
+                                            {
+                                                WeightedClick(AutoRepeatSettingPM.AutoReplaceButton, 1.0, 1.0, 1, 0, "left");
+                                                SevenKnightsCore.Sleep(1500);
+                                            }
+                                            PixelMapping[] array = new PixelMapping[]
+                                                        {
+                                                            AutoRepeatSettingPM.AutoReplaceOrderNewest,
+                                                            AutoRepeatSettingPM.AutoReplaceOrderLowest,
+                                                            AutoRepeatSettingPM.AutoReplaceOrderHighest,
+                                                            AutoRepeatSettingPM.AutoReplaceOrderMaterial
+                                                        };
+                                            if (!MatchMapping(AutoRepeatSettingPM.AutoReplaceOrderExpanded, 2))
+                                            {
+                                                WeightedClick(AutoRepeatSettingPM.AutoReplaceOrderBox, 1.0, 1.0, 1, 0, "left");
+                                                SevenKnightsCore.Sleep(1500);
+                                                WeightedClick(array[AISettings.AD_FarmOrder], 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            changefarmorder = true;
+                                            SevenKnightsCore.Sleep(2500);
+                                            WeightedClick(AutoRepeatSettingPM.CloseButton, 1.0, 1.0, 1, 0, "left");
                                             break;
 
 
@@ -2628,50 +2225,74 @@ namespace SevenKnightsAI.Classes
                                                 {
                                                     SevenKnightsCore.Sleep(1000);
                                                     SelectTeam(SceneType.ADVENTURE_START, world2);
-                                                    if (AISettings.AD_UseFriend)
+                                                    if (!changefarmorder)
                                                     {
-                                                        if (MatchMapping(AdventureStartPM.UseFriendOff, 2))
-                                                        {
-                                                            WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(1000);
-                                                        }
+                                                        WeightedClick(AdventureStartPM.AutoRepeatSettingButton, 1.0, 1.0, 1, 0, "left");
+                                                        SevenKnightsCore.Sleep(1000);
                                                     }
                                                     else
                                                     {
-                                                        if (MatchMapping(AdventureStartPM.UseFriendOn, 2))
+                                                        if (AISettings.AD_UseFriend)
                                                         {
-                                                            WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(1000);
+                                                            if (MatchMapping(AdventureStartPM.UseFriendOff, 2))
+                                                            {
+                                                                WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
+                                                                SevenKnightsCore.Sleep(1000);
+                                                            }
                                                         }
-                                                    }
-                                                    if (AISettings.AD_BootMode && CheckBoost())
-                                                    {
-                                                        boost = true;
-                                                        CaptureFrame();
-                                                        if (MatchMapping(AdventureStartPM.BootmodeOff, 2))
+                                                        else
                                                         {
-                                                            Log("Boost Mode Off");
-                                                            if (AISettings.AD_BoostModeSequence && isboostsequence)
+                                                            if (MatchMapping(AdventureStartPM.UseFriendOn, 2))
                                                             {
-                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                WeightedClick(SharedPM.UseFriendButton, 1.0, 1.0, 1, 0, "left");
                                                                 SevenKnightsCore.Sleep(1000);
-                                                                boost = true;
                                                             }
-                                                            else if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory) && AISettings.AD_BoostAsgar)
+                                                        }
+                                                        if (AISettings.AD_BootMode && CheckBoost())
+                                                        {
+                                                            boost = true;
+                                                            CaptureFrame();
+                                                            if (MatchMapping(AdventureStartPM.BootmodeOff, 2))
                                                             {
-                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                SevenKnightsCore.Sleep(1000);
-                                                                boost = true;
+                                                                Log("Boost Mode Off");
+                                                                if (AISettings.AD_BoostModeSequence && isboostsequence)
+                                                                {
+                                                                    WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                    SevenKnightsCore.Sleep(1000);
+                                                                    boost = true;
+                                                                }
+                                                                else if ((world2 == World.MysticWoods || world2 == World.SilentMine || world2 == World.BlazingDesert || world2 == World.DarkGrave || world2 == World.DragonRuins || world2 == World.FrozenLand || world2 == World.Purgatory) && AISettings.AD_BoostAsgar)
+                                                                {
+                                                                    WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                    SevenKnightsCore.Sleep(1000);
+                                                                    boost = true;
+                                                                }
+                                                                else if (AISettings.AD_BoostAllMap)
+                                                                {
+                                                                    WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                    SevenKnightsCore.Sleep(1000);
+                                                                    boost = true;
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                                    {
+                                                                        WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                        SevenKnightsCore.Sleep(1000);
+                                                                        boost = false;
+                                                                    }
+                                                                }
                                                             }
-                                                            else if (AISettings.AD_BoostAllMap)
+                                                            else if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
                                                             {
-                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                SevenKnightsCore.Sleep(1000);
-                                                                boost = true;
-                                                            }
-                                                            else
-                                                            {
-                                                                if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                                Log("Boost Mode On");
+                                                                if (AISettings.AD_BoostModeSequence && !isboostsequence)
+                                                                {
+                                                                    WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
+                                                                    SevenKnightsCore.Sleep(1000);
+                                                                    boost = false;
+                                                                }
+                                                                else if ((world2 > World.Purgatory) && AISettings.AD_BoostAsgar)
                                                                 {
                                                                     WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
                                                                     SevenKnightsCore.Sleep(1000);
@@ -2679,48 +2300,32 @@ namespace SevenKnightsAI.Classes
                                                                 }
                                                             }
                                                         }
-                                                        else if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                        else
                                                         {
-                                                            Log("Boost Mode On");
-                                                            if (AISettings.AD_BoostModeSequence && !isboostsequence)
-                                                            {
-                                                                WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                                SevenKnightsCore.Sleep(1000);
-                                                                boost = false;
-                                                            }
-                                                            else if ((world2 > World.Purgatory) && AISettings.AD_BoostAsgar)
+                                                            if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
                                                             {
                                                                 WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
                                                                 SevenKnightsCore.Sleep(1000);
                                                                 boost = false;
                                                             }
                                                         }
-                                                    }
-                                                    else
-                                                    {
-                                                        if (MatchMapping(AdventureStartPM.BootmodeOn, 2))
+                                                        if (MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!itemfull || !herofull))
                                                         {
-                                                            WeightedClick(AdventureStartPM.UsedBootModeButton, 1.0, 1.0, 1, 0, "left");
-                                                            SevenKnightsCore.Sleep(1000);
-                                                            boost = false;
+                                                            WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
+                                                            SevenKnightsCore.Sleep(3400);
                                                         }
-                                                    }
-                                                    if (MatchMapping(AdventureStartPM.AutoRepeatOff, 2) && (!itemfull || !herofull))
-                                                    {
-                                                        WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(3400);
-                                                    }
-                                                    if (MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (itemfull || herofull))
-                                                    {
-                                                        WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
-                                                        SevenKnightsCore.Sleep(3400);
-                                                    }
-                                                    this.world3 = world2;
-                                                    Countentrylv30(boost);
-                                                    SevenKnightsCore.Sleep(1000);
-                                                    WeightedClick(SharedPM.PrepareFight_StartButton, 1.0, 1.0, 1, 0, "left");
-                                                    SevenKnightsCore.Sleep(1500);
+                                                        if (MatchMapping(AdventureStartPM.AutoRepeatOn, 2) && (itemfull || herofull))
+                                                        {
+                                                            WeightedClick(AdventureStartPM.AutoRepeatButton, 1.0, 1.0, 1, 0, "left");
+                                                            SevenKnightsCore.Sleep(3400);
+                                                        }
+                                                        this.world3 = world2;
+                                                        Countentrylv30(boost);
+                                                        SevenKnightsCore.Sleep(1000);
+                                                        WeightedClick(SharedPM.PrepareFight_StartButton, 1.0, 1.0, 1, 0, "left");
+                                                        SevenKnightsCore.Sleep(1500);
 
+                                                    }
                                                 }
                                                 else
                                                 {
@@ -2728,10 +2333,6 @@ namespace SevenKnightsAI.Classes
                                                     Escape();
                                                     SevenKnightsCore.Sleep(300);
                                                 }
-                                            }
-                                            else if (CurrentObjective == Objective.CHECK_SLOT_HERO)
-                                            {
-                                                WeightedClick(SharedPM.PrepareFight_ManageButton, 1.0, 1.0, 1, 0, "left");
                                             }
                                             else
                                             {
@@ -2804,21 +2405,6 @@ namespace SevenKnightsAI.Classes
                                             PerformAdventureFight(this.world3);
                                             break;
 
-                                        case SceneType.ADVENTURE_END:
-                                            if (CurrentObjective == Objective.CHECK_SLOT_HERO)
-                                            {
-                                                WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            if (!IsAlreadyAdvEnd)
-                                            {
-                                                EndAutoRepeat();
-                                            }
-                                            else
-                                            {
-                                                SevenKnightsCore.Sleep(750);
-                                            }
-                                            break;
-
                                         case SceneType.ADVENTURE_LOST:
                                             AdventureAfterFight();
                                             Log("Your team lost the battle [Adventure]", COLOR_DEATH);
@@ -2835,12 +2421,6 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.AUTO_REPEAT_INFO:
-                                            if (AISettings.AD_CheckSlot)
-                                            {
-                                                checkslothero = true;
-                                                checkslotitem = true;
-                                                ChangeObjective(Objective.CHECK_SLOT_HERO);
-                                            }
                                             CaptureFrame();
                                             ParseGoldAutoRepeat();
                                             Sleep(500);
@@ -2885,10 +2465,6 @@ namespace SevenKnightsAI.Classes
                                                         WeightedClick(AdventureLootPM.AgainButton, 1.0, 1.0, 1, 0, "left");
                                                     }
                                                 }
-                                                else if (CurrentObjective == Objective.CHECK_SLOT_HERO)
-                                                {
-                                                    WeightedClick(AdventureLootPM.AgainButton, 1.0, 1.0, 1, 0, "left");
-                                                }
                                                 else
                                                 {
                                                     WeightedClick(SharedPM.Loot_LobbyButton, 1.0, 1.0, 1, 0, "left");
@@ -2904,7 +2480,7 @@ namespace SevenKnightsAI.Classes
                                             if (!IsAlreadyAdvLoot)
                                             {
                                                 AdventureAfterFight();
-                                                IsAlreadyAdvLootAuto = true;
+                                                IsAlreadyAdvLoot = true;
                                                 SevenKnightsCore.Sleep(3500);
                                             }
                                             else
@@ -2918,16 +2494,8 @@ namespace SevenKnightsAI.Classes
                                                 SendTelegram("[Adventure] Bot will buy more keys or play other modes while waiting.");
                                                 flag3 = true;
                                             }
-                                            if (CurrentObjective != Objective.BUY_KEYS && AISettings.RS_BuyKeyHonors && KeysBoughtHonors < AISettings.RS_BuyKeyHonorsAmount)
-                                            {
-                                                ChangeObjective(Objective.BUY_KEYS);
-                                                WeightedClick(OutOfKeysOfferPM.BuyButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                                NextPossibleObjective();
-                                            }
+                                            Escape();
+                                            NextPossibleObjective();
                                             break;
 
                                         case SceneType.OUT_OF_KEYS_POPUP:
@@ -2936,16 +2504,8 @@ namespace SevenKnightsAI.Classes
                                                 SendTelegram("[Adventure] Bot will buy more keys or play other modes while waiting.");
                                                 flag3 = true;
                                             }
-                                            if (CurrentObjective != Objective.BUY_KEYS && AISettings.RS_BuyKeyHonors && KeysBoughtHonors < AISettings.RS_BuyKeyHonorsAmount)
-                                            {
-                                                ChangeObjective(Objective.BUY_KEYS);
-                                                Escape();
-                                            }
-                                            else
-                                            {
                                                 Escape();
                                                 NextPossibleObjective();
-                                            }
                                             break;
 
                                         case SceneType.BATTLE_MODES:
@@ -3052,19 +2612,7 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.ARENA_FULL_HONOR_POPUP:
-                                            if (AISettings.RS_BuyKeyHonors)
-                                            {
-                                                if (CurrentObjective != Objective.BUY_KEYS)
-                                                {
-                                                    ChangeObjective(Objective.BUY_KEYS);
-                                                    Escape();
-                                                }
-                                                Escape();
-                                            }
-                                            else
-                                            {
-                                                WeightedClick(ArenaFullHonorPopupPM.YesButton, 1.0, 1.0, 1, 0, "left");
-                                            }
+                                            WeightedClick(ArenaFullHonorPopupPM.YesButton, 1.0, 1.0, 1, 0, "left");
                                             break;
 
                                         case SceneType.OUT_OF_SWORDS_POPUP:
@@ -3095,8 +2643,8 @@ namespace SevenKnightsAI.Classes
                                             SevenKnightsCore.Sleep(300);
                                             break;
 
-                                        case SceneType.LEVEL_30_DIALOG:
-                                        case SceneType.LEVEL_30_MAX_DIALOG:
+                                        case SceneType.LEVEL_40_DIALOG:
+                                        case SceneType.LEVEL_40_MAX_DIALOG:
                                             Log("Hero Level 40", COLOR_LEVEL_30);
                                             WeightedClick(Level30MaxDialogPM.OkButton, 1.0, 1.0, 1, 0, "left");
                                             SevenKnightsCore.Sleep(300);
@@ -3148,28 +2696,6 @@ namespace SevenKnightsAI.Classes
                                                 {
                                                     FuseHeroes();
                                                 }
-                                                else if (CurrentObjective == Objective.CHECK_SLOT_HERO)
-                                                {
-                                                    if (checkslothero)
-                                                    {
-                                                        UpdateHeroCount();
-                                                        checkslothero = false;
-                                                    }
-                                                    else if (checkslotitem)
-                                                    {
-                                                        WeightedClick(HeroesPM.HeroCard1, 1.0, 1.0, 1, 0, "left");
-                                                    }
-                                                    else
-                                                    {
-                                                        Escape();
-                                                    }
-                                                    ReportCheckSlot(Objective.CHECK_SLOT_HERO);
-                                                    SevenKnightsCore.Sleep(1500);
-                                                }
-                                                else if (CurrentObjective == Objective.CHECK_SLOT_ITEM)
-                                                {
-                                                    WeightedClick(HeroesPM.HeroCard1, 1.0, 1.0, 1, 0, "left");
-                                                }
                                                 else
                                                 {
                                                     Escape();
@@ -3179,23 +2705,7 @@ namespace SevenKnightsAI.Classes
 
                                         case SceneType.ITEMS:
                                             SevenKnightsCore.Sleep(500);
-                                            if (CurrentObjective == Objective.CHECK_SLOT_ITEM)
-                                            {
-                                                if (checkslotitem)
-                                                {
-                                                    UpdateItemCount();
-                                                }
-                                                else
-                                                {
-                                                    Escape();
-                                                }
-                                                ReportCheckSlot(Objective.CHECK_SLOT_ITEM);
-                                                SevenKnightsCore.Sleep(1500);
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
+                                            Escape();
                                             break;
                                         case SceneType.HEROES_SAME_TEAM_POPUP:
                                             Escape();
@@ -3203,11 +2713,7 @@ namespace SevenKnightsAI.Classes
 
                                         case SceneType.HERO_JOIN:
                                             SevenKnightsCore.Sleep(500);
-                                            if (CurrentObjective == Objective.CHECK_SLOT_ITEM && checkslotitem == true && PreviousObjective == Objective.CHECK_SLOT_HERO)
-                                            {
-                                                WeightedClick(HeroJoinPM.ItemButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else if (CurrentObjective == Objective.FUSE_HEROES)
+                                            if (CurrentObjective == Objective.FUSE_HEROES)
                                             {
                                                 Escape();
                                             }
@@ -3218,11 +2724,7 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.HERO_REMOVE:
-                                            if (CurrentObjective == Objective.CHECK_SLOT_ITEM && checkslotitem == true && PreviousObjective == Objective.CHECK_SLOT_HERO)
-                                            {
-                                                WeightedClick(HeroJoinPM.ItemButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else if (CurrentObjective == Objective.FUSE_HEROES)
+                                            if (CurrentObjective == Objective.FUSE_HEROES)
                                             {
                                                 Escape();
                                             }
@@ -3230,120 +2732,6 @@ namespace SevenKnightsAI.Classes
                                             {
                                                 Escape();
                                             }
-                                            break;
-                                        case SceneType.SELL_HERO_CONFIRM_POPUP:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.SELL_ITEM_POPUP:
-                                            if (AISettings.RS_SellItems)
-                                            {
-                                                if (CurrentObjective != Objective.SELL_ITEMS)
-                                                {
-                                                    ChangeObjective(Objective.SELL_ITEMS);
-                                                }
-                                                SellItems();
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
-                                        case SceneType.SELL_ITEM_LOBBY:
-                                            if (CurrentObjective == Objective.SELL_ITEMS)
-                                            {
-                                                SellItems();
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
-                                        case SceneType.SELL_ITEM_SUCCESS_POPUP:
-                                            Escape();
-                                            break;
-                                        case SceneType.SELL_HEROES_SUCCESS_POPUP:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.SELL_ITEM_CONFIRM_POPUP:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.LOOT_HERO:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.LOOT_ITEM:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.SHOP_LOBBY:
-                                            if (CurrentObjective == Objective.BUY_KEYS)
-                                            {
-                                                WeightedClick(ShopPM.CommonShop, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
-                                        case SceneType.SHOP:
-                                            if (CurrentObjective == Objective.BUY_KEYS)
-                                            {
-                                                BuyKeys();
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
-                                        case SceneType.SMART_SELECT:
-                                            if (CurrentObjective == Objective.SMART_MODE)
-                                            {
-                                                WeightedClick(SmartSelectPM.CelestialTowerButton, 1.0, 1.0, 1, 0, "left");
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
-                                        case SceneType.SMART_LOOT_COLLECT_LOBBY:
-                                            if (CurrentObjective == Objective.SMART_MODE)
-                                            {
-                                                Escape();
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
-                                        case SceneType.SMART_LOBBY:
-                                            if (CurrentObjective == Objective.SMART_MODE)
-                                            {
-                                                HandleSmartMode();
-                                            }
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-                                        case SceneType.SHOP_BUY_POPUP:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.SHOP_BUY_FAILED_POPUP:
-                                            Escape();
-                                            break;
-
-                                        case SceneType.SHOP_PURCHASE_COMPLETE_POPUP:
-                                            Escape();
                                             break;
 
                                         case SceneType.INBOX:
@@ -3407,26 +2795,9 @@ namespace SevenKnightsAI.Classes
                                             }
                                             break;
 
-                                        case SceneType.SELL_HERO_FINISH:
-                                            WeightedClick(SellHeroConfirmPopupPM.SoldOKButton, 1.0, 1.0, 1, 0, "left");
-                                            break;
-
                                         case SceneType.RANK_UP:
                                             WeightedClick(ArenaEndPM.RankUpTap, 1.0, 1.0, 1, 0, "left");
                                             break;
-
-                                        case SceneType.SELL_HERO_LOBBY:
-                                            if (CurrentObjective == Objective.SELL_HEROES)
-                                            {
-                                                SellHeroes();
-                                            }
-
-                                            else
-                                            {
-                                                Escape();
-                                            }
-                                            break;
-
                                         case SceneType.HELPED_FRIEND:
                                             Escape();
                                             break;
@@ -3574,7 +2945,6 @@ namespace SevenKnightsAI.Classes
         {
             bool aD_Enable = AISettings.AD_Enable;
             bool aR_Enable = AISettings.AR_Enable;
-            bool sM_Enable = AISettings.SM_Enable;
             switch (CurrentObjective)
             {
                 case Objective.IDLE:
@@ -3589,19 +2959,9 @@ namespace SevenKnightsAI.Classes
                         ChangeObjective(Objective.ARENA);
                         return;
                     }
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
-                        return;
-                    }
                     break;
 
                 case Objective.ADVENTURE:
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
-                        return;
-                    }
                     if (aR_Enable)
                     {
                         ChangeObjective(Objective.ARENA);
@@ -3617,74 +2977,12 @@ namespace SevenKnightsAI.Classes
                         ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
-                        return;
-                    }
-                    ChangeObjective(Objective.IDLE);
-                    return;
-
-                case Objective.SMART_MODE:
-                    if (aR_Enable)
-                    {
-                        ChangeObjective(Objective.ARENA);
-                        return;
-                    }
-                    if (aD_Enable)
-                    {
-                        IsAdventureLimit = false;
-                        ChangeObjective(Objective.ADVENTURE);
-                        return;
-                    }
-                    ChangeObjective(Objective.IDLE);
-                    return;
-
-                case Objective.CHECK_SLOT_ITEM:
-                    if (aD_Enable && (!IsAdventureLimit || AdventureLimitCount < AISettings.AD_Limit))
-                    {
-                        ChangeObjective(Objective.ADVENTURE);
-                        return;
-                    }
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
-                        return;
-                    }
-                    if (aR_Enable)
-                    {
-                        ChangeObjective(Objective.ARENA);
-                        return;
-                    }
-                    ChangeObjective(Objective.IDLE);
-                    return;
-                case Objective.CHECK_SLOT_HERO:
-                    if (aD_Enable && (!IsAdventureLimit || AdventureLimitCount < AISettings.AD_Limit))
-                    {
-                        ChangeObjective(Objective.ADVENTURE);
-                        return;
-                    }
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
-                        return;
-                    }
-                    if (aR_Enable)
-                    {
-                        ChangeObjective(Objective.ARENA);
-                        return;
-                    }
                     ChangeObjective(Objective.IDLE);
                     return;
                 case Objective.POWER_UP_HEROES:
                     if (aD_Enable && !IsAdventureLimit)
                     {
                         ChangeObjective(Objective.ADVENTURE);
-                        return;
-                    }
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
                         return;
                     }
                     if (aR_Enable)
@@ -3700,11 +2998,6 @@ namespace SevenKnightsAI.Classes
                         ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
-                        return;
-                    }
                     if (aR_Enable)
                     {
                         ChangeObjective(Objective.ARENA);
@@ -3712,8 +3005,6 @@ namespace SevenKnightsAI.Classes
                     }
                     ChangeObjective(Objective.IDLE);
                     return;
-                case Objective.SELL_HEROES:
-                case Objective.SELL_ITEMS:
                     if (PreviousObjective != CurrentObjective)
                     {
                         ChangeObjective(PreviousObjective);
@@ -3721,17 +3012,10 @@ namespace SevenKnightsAI.Classes
                     }
                     ChangeObjective(Objective.IDLE);
                     break;
-
-                case Objective.BUY_KEYS:
                 case Objective.COLLECT_INBOX:
                     if (aD_Enable && !IsAdventureLimit)
                     {
                         ChangeObjective(Objective.ADVENTURE);
-                        return;
-                    }
-                    if (sM_Enable)
-                    {
-                        ChangeObjective(Objective.SMART_MODE);
                         return;
                     }
                     if (aR_Enable)
@@ -3741,16 +3025,6 @@ namespace SevenKnightsAI.Classes
                     }
                     ChangeObjective(Objective.IDLE);
                     break;
-                case Objective.COLLECT_QUESTS:
-                case Objective.SEND_HONORS:
-                    if (PreviousObjective == Objective.IDLE || PreviousObjective == Objective.ADVENTURE || PreviousObjective == Objective.ARENA)
-                    {
-                        ChangeObjective(PreviousObjective);
-                        return;
-                    }
-                    ChangeObjective(Objective.IDLE);
-                    return;
-
                 default:
                     return;
             }
@@ -4010,28 +3284,6 @@ namespace SevenKnightsAI.Classes
             }
             return result;
         }
-
-        private int ParseTopaz(int offsetX, int offsetY)
-        {
-            int result = -1;
-            Rectangle r_TopazBase = SharedPM.R_TopazBase;
-            r_TopazBase.X += offsetX;
-            r_TopazBase.Y += offsetY;
-            CaptureFrame();
-            using (Bitmap bitmap = CropFrame(BlueStacks.MainWindowAS.CurrentFrame, r_TopazBase))
-            {
-                using (Page page = Tesseractor.Engine.Process(bitmap, null))
-                {
-                    string text = ReplaceNumericResource(page.GetText());
-                    if (text.Length >= 1)
-                    {
-                        int.TryParse(text, out result);
-                    }
-                }
-            }
-            return result;
-        }
-
         private void ParseGoldAutoRepeat()
         {
             Rectangle rect = AutoRepeatInfoPM.Gold;
@@ -4201,23 +3453,6 @@ namespace SevenKnightsAI.Classes
             Worker.ReportProgress(0, userState);
         }
 
-        private void ReportSmartCount()
-        {
-            Dictionary<string, object> message = new Dictionary<string, object>
-            {
-                {
-                    "objective",
-                    Objective.SMART_MODE
-                },
-                {
-                    "count",
-                    SmartModeCount
-                }
-            };
-            ProgressArgs userState = new ProgressArgs(ProgressType.COUNT, message);
-            Worker.ReportProgress(0, userState);
-        }
-
         private void ReportCount(Objective objective)
         {
             int num = 0;
@@ -4261,44 +3496,6 @@ namespace SevenKnightsAI.Classes
             ProgressArgs userState = new ProgressArgs(ProgressType.COUNT, message);
             Worker.ReportProgress(0, userState);
         }
-
-        private void ReportCheckSlot(Objective objective)
-        {
-            int num = 0;
-            int num2 = 0;
-            switch (objective)
-            {
-                case Objective.CHECK_SLOT_HERO:
-                    num = HeroCount;
-                    num2 = HeroMax;
-                    break;
-
-                case Objective.CHECK_SLOT_ITEM:
-                    num = ItemCount;
-                    num2 = ItemMax;
-                    break;
-            }
-
-            Dictionary<string, object> message = new Dictionary<string, object>
-                {
-                    {
-                        "objective",
-                        objective
-                    },
-                    {
-                        "count",
-                         num
-                    },
-                    {
-                        "max",
-                         num2
-                    }
-                };
-
-            ProgressArgs userState = new ProgressArgs(ProgressType.CHECK_SLOT, message);
-            Worker.ReportProgress(0, userState);
-        }
-
         private void ReportKeys(Objective objective)
         {
             int num = 0;
@@ -4516,12 +3713,12 @@ namespace SevenKnightsAI.Classes
                 }
                 if (MatchMapping(Level30DialogPM.CharacterEye, 4) && MatchMapping(Level30DialogPM.DialogBorder, 4) && MatchMapping(Level30DialogPM.InboxIcon, 3))
                 {
-                    Scene result = new Scene(SceneType.LEVEL_30_DIALOG);
+                    Scene result = new Scene(SceneType.LEVEL_40_DIALOG);
                     return result;
                 }
                 if (MatchMapping(Level30MaxDialogPM.CharacterEye, 3) && MatchMapping(Level30MaxDialogPM.InboxButton, 4) && MatchMapping(Level30MaxDialogPM.YellowTick, 3) && MatchMapping(Level30MaxDialogPM.NecklaceCharacter, 3))
                 {
-                    Scene result = new Scene(SceneType.LEVEL_30_MAX_DIALOG);
+                    Scene result = new Scene(SceneType.LEVEL_40_MAX_DIALOG);
                     return result;
                 }
                 if (MatchMapping(LevelUpDialogPM.CharacterEye, 3) && MatchMapping(LevelUpDialogPM.YellowTick, 3))
@@ -4537,16 +3734,6 @@ namespace SevenKnightsAI.Classes
                 if (MatchMapping(LobbyPM.MenuButtonYellowLeft, 2) && MatchMapping(LobbyPM.MenuButtonYellowRight, 2))
                 {
                     Scene result = new Scene(SceneType.LOBBY);
-                    return result;
-                }
-                if (MatchMapping(UnknownPopupPM.PopupBorderBottom, 3) && MatchMapping(UnknownPopupPM.PopupBorderTop, 3))
-                {
-                    Scene result = new Scene(SceneType.UNKNOWN_AREA);
-                    return result;
-                }
-                if (MatchMapping(UnknownPopupSuccessPM.PopupBorderBottom, 3) && MatchMapping(UnknownPopupSuccessPM.PopupBorderTop, 3) && MatchMapping(UnknownPopupSuccessPM.CloseBtnBG, 3))
-                {
-                    Scene result = new Scene(SceneType.UNKNOWN_AREA_SUCCESS);
                     return result;
                 }
                 if ((MatchMapping(ArenaFightPM.ChatButton, 2) && MatchMapping(ArenaFightPM.PauseButton, 2) && MatchMapping(ArenaFightPM.TimeBorder, 2)) || (MatchMapping(ArenaFightPM.Point12, 2) && MatchMapping(ArenaFightPM.Point22, 2) && MatchMapping(ArenaFightPM.Point32, 2)))
@@ -4576,50 +3763,9 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.HOTTIME_CONFIRM_POPUP);
                     return result;
                 }
-
-                if (MatchMapping(ShopPM.ShopCommon, 2) && MatchMapping(ShopPM.ShopPackge, 2))
-                {
-                    Scene result = new Scene(SceneType.SHOP_LOBBY);
-                    return result;
-                }
                 if (MatchMapping(AutoRepeatInfoPM.GoldIcon, 2) && MatchMapping(AutoRepeatInfoPM.CardIcon, 2) && MatchMapping(AutoRepeatInfoPM.ChestIcon, 2))
                 {
                     Scene result = new Scene(SceneType.AUTO_REPEAT_INFO);
-                    return result;
-                }
-                if (MatchMapping(SmartSelectPM.Point1, 2) && MatchMapping(SmartSelectPM.Point2, 2))
-                {
-                    Scene result = new Scene(SceneType.SMART_SELECT);
-                    return result;
-                }
-                if (MatchMapping(SmartLobbyPM.Point1, 2) && MatchMapping(SmartLobbyPM.Point2, 2))
-                {
-                    Scene result = new Scene(SceneType.SMART_LOBBY);
-                    return result;
-                }
-                if (MatchMapping(SmartLootCollectPM.Point1, 2) && MatchMapping(SmartLootCollectPM.Point2, 2))
-                {
-                    Scene result = new Scene(SceneType.SMART_LOOT_COLLECT_LOBBY);
-                    return result;
-                }
-                if (MatchMapping(ShopPM.BoderRight, 2) && MatchMapping(ShopPM.Borderleft, 2) || (MatchMapping(ShopPM.BoderCompair1, 2) && MatchMapping(ShopPM.BoderCompair2, 2)))
-                {
-                    Scene result = new Scene(SceneType.SHOP);
-                    return result;
-                }
-                if ((MatchMapping(SharedPM.ShopPopup_DimmedBG, 2) || MatchMapping(SharedPM.ShopPopup_DimmedBG2, 2)) && MatchMapping(ShopBuyPopupPM.PopupBorderLeft, 2) && MatchMapping(ShopBuyPopupPM.RedCross, 2) && MatchMapping(ShopBuyPopupPM.YellowTick, 2))
-                {
-                    Scene result = new Scene(SceneType.SHOP_BUY_POPUP);
-                    return result;
-                }
-                if (MatchMapping(ShopPurchaseCompletePopupPM.AgainButtonBorder, 2) && MatchMapping(ShopPurchaseCompletePopupPM.OKButtonBorder, 2))
-                {
-                    Scene result = new Scene(SceneType.SHOP_PURCHASE_COMPLETE_POPUP);
-                    return result;
-                }
-                if ((MatchMapping(SharedPM.ShopPopup_DimmedBG, 2) || MatchMapping(SharedPM.ShopPopup_DimmedBG2, 2)) && ((MatchMapping(ShopBuyFailedPopupPM.PopupBorderLeft, 2) && MatchMapping(ShopBuyFailedPopupPM.YellowTick, 2)) || (MatchMapping(ShopBuyFailedPopupPM.PopupBorderLeft2, 2) && MatchMapping(ShopBuyFailedPopupPM.YellowTick2, 2))))
-                {
-                    Scene result = new Scene(SceneType.SHOP_BUY_FAILED_POPUP);
                     return result;
                 }
                 if (MatchMapping(InboxPM.CharacterBody, 3) && MatchMapping(InboxPM.MailIcon, 2) && MatchMapping(InboxPM.CharacterBody2, 3))
@@ -4642,11 +3788,6 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.INBOX_COLLECT_FAILED_POPUP_2);
                     return result;
                 }
-                if (MatchMapping(MasteryPopupPM.TitleBorder, 2) && MatchMapping(MasteryPopupPM.RedBackground, 2) && MatchMapping(MasteryPopupPM.CloseButton, 2))
-                {
-                    Scene result = new Scene(SceneType.MASTERY_POPUP);
-                    return result;
-                }
                 if (MatchMapping(MapSelectPM.Point1, 2) && MatchMapping(MapSelectPM.Point2, 2))
                 {
                     Scene result = new Scene(SceneType.MAP_SELECT);
@@ -4655,21 +3796,6 @@ namespace SevenKnightsAI.Classes
                 if (MatchMapping(OutOfSwordsPopupPM.PopupBorderLeft, 2) && (MatchMapping(OutOfSwordsPopupPM.DimmedBGStart, 2) || MatchMapping(OutOfSwordsPopupPM.DimmedBGEnd, 2) || MatchMapping(OutOfSwordsPopupPM.DimmedBG2Start, 2) || MatchMapping(OutOfSwordsPopupPM.DimmedBG2End, 2)))
                 {
                     Scene result = new Scene(SceneType.OUT_OF_SWORDS_POPUP);
-                    return result;
-                }
-                if (MatchMapping(MapSelectPopupPM.PopupBorderLeft, 2) && MatchMapping(MapSelectPopupPM.PopupBorderRight, 2) && MatchMapping(MapSelectPopupPM.DimmedBG, 2))
-                {
-                    Scene result = new Scene(SceneType.MAP_SELECT_POPUP);
-                    return result;
-                }
-                if (MatchMapping(SharedPM.Full_DimmedBG, 2) && MatchMapping(FullItemPopupPM.SellButtonIcon, 2))
-                {
-                    Scene result = new Scene(SceneType.FULL_ITEM_POPUP);
-                    return result;
-                }
-                if (MatchMapping(SharedPM.Full_DimmedBG, 2) && MatchMapping(FullHeroPopupPM.SellButtonIcon, 2))
-                {
-                    Scene result = new Scene(SceneType.FULL_HERO_POPUP);
                     return result;
                 }
                 if (MatchMapping(BattleModesPM.BorderTopLeft, 2) && MatchMapping(BattleModesPM.BorderBottomRight, 2) && MatchMapping(BattleModesPM.QuestRedScroll, 2))
@@ -4702,14 +3828,9 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.ADVENTURE_READY);
                     return result;
                 }
-                if (MatchMapping(SellHeroesLobbyPM.Point1, 2) && MatchMapping(SellHeroesLobbyPM.Point2, 2) && MatchMapping(SellHeroesLobbyPM.BackButton, 2) && MatchMapping(SellHeroesLobbyPM.RefreshButton, 2))
+                if (MatchMapping(AutoRepeatSettingPM.PopupBorder1, 2) && MatchMapping(AutoRepeatSettingPM.PopupBorder2, 2))
                 {
-                    Scene result = new Scene(SceneType.SELL_HERO_LOBBY);
-                    return result;
-                }
-                if (MatchMapping(SellItemsLobbyPM.Point1, 2) && MatchMapping(SellItemsLobbyPM.Point2, 2) && MatchMapping(SellItemsLobbyPM.BackButton, 2) && MatchMapping(SellItemsLobbyPM.RefreshButton, 2))
-                {
-                    Scene result = new Scene(SceneType.SELL_ITEM_LOBBY);
+                    Scene result = new Scene(SceneType.AUTO_REPEAT_SETTING);
                     return result;
                 }
                 if (MatchMapping(ItemsPM.Point1, 2) && MatchMapping(ItemsPM.Point2, 2))
@@ -4747,7 +3868,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.NO_MORE_RUBY_OFFER);
                     return result;
                 }
-                if (MatchMapping(AutoRepeatStopPM.x2Icon, 2) && MatchMapping(AutoRepeatStopPM.GoldIcon, 2) && MatchMapping(AutoRepeatStopPM.PopupBorder, 2))
+                if (MatchMapping(AutoRepeatStopPM.x2Icon, 2) && MatchMapping(AutoRepeatStopPM.GoldIcon, 2) && MatchMapping(AutoRepeatStopPM.HeroIcon, 2) && MatchMapping(AutoRepeatStopPM.PopupBorder, 2))
                 {
                     Scene result = new Scene(SceneType.AUTO_REPEAT_STOP);
                     return result;
@@ -4777,31 +3898,6 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.OUT_OF_KEYS_POPUP);
                     return result;
                 }
-                if (MatchMapping(SellHeroConfirmPopupPM.DimmedBG_1, 2) && MatchMapping(SellHeroConfirmPopupPM.DimmedBG_2, 2) && MatchMapping(SellHeroConfirmPopupPM.RedCross, 2) && MatchMapping(SellHeroConfirmPopupPM.SellButtonBG, 2))
-                {
-                    Scene result = new Scene(SceneType.SELL_HERO_CONFIRM_POPUP);
-                    return result;
-                }
-                if (MatchMapping(SellItemPopupPM.ItemIcon, 2) && MatchMapping(SellItemPopupPM.CloseButton, 2))
-                {
-                    Scene result = new Scene(SceneType.SELL_ITEM_POPUP);
-                    return result;
-                }
-                if (MatchMapping(SellItemConfirmPopupPM.DimmedBG_1, 2) && MatchMapping(SellItemConfirmPopupPM.DimmedBG_2, 2) && MatchMapping(SellItemConfirmPopupPM.RedCross, 2))
-                {
-                    Scene result = new Scene(SceneType.SELL_ITEM_CONFIRM_POPUP);
-                    return result;
-                }
-                if (MatchMapping(SellItemSuccessPopupPM.Point1, 2) && MatchMapping(SellItemSuccessPopupPM.Point2, 2) && MatchMapping(SellItemSuccessPopupPM.YellowTick, 2) && MatchMapping(SellItemSuccessPopupPM.DimmedBG, 2))
-                {
-                    Scene result = new Scene(SceneType.SELL_ITEM_SUCCESS_POPUP);
-                    return result;
-                }
-                if (MatchMapping(SellHeroesSuccessPopupPM.Point1, 2) && MatchMapping(SellHeroesSuccessPopupPM.Point2, 2) && MatchMapping(SellHeroesSuccessPopupPM.YellowTick, 2) && MatchMapping(SellHeroesSuccessPopupPM.DimmedBG, 2))
-                {
-                    Scene result = new Scene(SceneType.SELL_HEROES_SUCCESS_POPUP);
-                    return result;
-                }
                 if (MatchMapping(NetmarbleSplashPM.Mascot_1, 2) && MatchMapping(NetmarbleSplashPM.Mascot_2, 2) && MatchMapping(NetmarbleSplashPM.WhiteBackground, 2))
                 {
                     Scene result = new Scene(SceneType.NETMARBLE_SPLASH);
@@ -4810,6 +3906,11 @@ namespace SevenKnightsAI.Classes
                 if (MatchMapping(PatchUpdatePM.ProgressBar1, 2) && MatchMapping(PatchUpdatePM.ProgressBar2, 2) && MatchMapping(PatchUpdatePM.ProgressBar3, 2))
                 {
                     Scene result = new Scene(SceneType.PATCH_UPDATE);
+                    return result;
+                }
+                if (MatchMapping(UpdatePM.Popup_Point1, 2) && MatchMapping(UpdatePM.Popup_Point2, 2))
+                {
+                    Scene result = new Scene(SceneType.UPDATE_POPUP);
                     return result;
                 }
                 if (MatchMapping(UpdatePM.Point1, 2) && MatchMapping(UpdatePM.Point2, 2))
@@ -4850,11 +3951,6 @@ namespace SevenKnightsAI.Classes
                 if (MatchMapping(QuestRewardsPopupPM.QuestIcon, 2) && MatchMapping(QuestRewardsPopupPM.AragonPic, 2) && MatchMapping(QuestRewardsPopupPM.DimmedBG, 2))
                 {
                     Scene result = new Scene(SceneType.DAILY_QUEST_COMPLETE);
-                    return result;
-                }
-                if (MatchMapping(SellHeroConfirmPopupPM.SellButtonbg, 2) && MatchMapping(SellHeroConfirmPopupPM.GoldSellIconbg, 2) && MatchMapping(SellHeroConfirmPopupPM.SoldOKYellowTik, 2))
-                {
-                    Scene result = new Scene(SceneType.SELL_HERO_FINISH);
                     return result;
                 }
                 if (MatchMapping(Popup3PM.EventPackPoint1, 2) && MatchMapping(Popup3PM.EventPackPoint2, 2) && MatchMapping(Popup3PM.EventPackCloseBtn))
@@ -5470,9 +4566,9 @@ namespace SevenKnightsAI.Classes
                                     {
                                         Sleep(1000);
                                         WeightedClick(FuseConfirmPM.OKbtn, 1.0, 1.0, 1, 0, "left");
-                                        SevenKnightsCore.Sleep(6000);
+                                        SevenKnightsCore.Sleep(7000);
                                         this.Escape();
-                                        SevenKnightsCore.Sleep(2000);
+                                        SevenKnightsCore.Sleep(1500);
                                         Log("Fuse Success", COLOR_FUSE);
                                         num3++;
                                         fusedone = true;
@@ -5494,7 +4590,7 @@ namespace SevenKnightsAI.Classes
                                             SendTelegram("[Bulk Fusion] Fuse Mileage Points is full");
                                             Sleep(1000);
                                             this.WeightedClick(FuseFullMileagePopupPM.OKbtn, 1.0, 1.0, 1, 0, "left");
-                                            SevenKnightsCore.Sleep(6000);
+                                            SevenKnightsCore.Sleep(7000);
                                             this.Escape();
                                             SevenKnightsCore.Sleep(2000);
                                             Log("Fuse Success", COLOR_FUSE);
@@ -5552,8 +4648,15 @@ namespace SevenKnightsAI.Classes
                 {
                     WeightedClick(HeroesPM.SortByBox, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(1500);
+                    WeightedClick(HeroesPM.SortByNormal, 1.0, 1.0, 1, 0, "left");
                 }
-                WeightedClick(HeroesPM.SortByNormal, 1.0, 1.0, 1, 0, "left");
+                SevenKnightsCore.Sleep(2500);
+                if (!MatchMapping(HeroesPM.SortByBoxExpanded2, 2))
+                {
+                    WeightedClick(HeroesPM.SortByBox2, 1.0, 1.0, 1, 0, "left");
+                    SevenKnightsCore.Sleep(1500);
+                    WeightedClick(HeroesPM.SortByLevel, 1.0, 1.0, 1, 0, "left");
+                }
                 SevenKnightsCore.Sleep(1500);
                 if (!MatchMapping(HeroesPM.SortButtonAscending, 2))
                 {
@@ -5591,7 +4694,14 @@ namespace SevenKnightsAI.Classes
                             int searchStar = CheckHeroFrameStar(heroclicked);
                             if (searchStar == 99)
                             {
-                                Log("Fina,Leah,Cake Hero. Next hero", COLOR_POWER_UP);
+                                Log("Locked hero, skip.", COLOR_POWER_UP);
+                                heroclicked++;
+                                num3++;
+                                continue;
+                            }
+                            else if (searchStar == 98)
+                            {
+                                Log("Joined hero, skip.", COLOR_POWER_UP);
                                 heroclicked++;
                                 num3++;
                                 continue;
@@ -5600,9 +4710,18 @@ namespace SevenKnightsAI.Classes
                             {
                                 if (searchStar >= 4)
                                 {
-                                    Log("Hero more than 4 star detected, Done powering up heroes", COLOR_POWER_UP);
-                                    DonePowerUpHeroes(powerupsuccess);
-                                    return;
+                                    if (num3 >= 50)
+                                    {
+                                        Log("Hero more than 4 star detected, Done powering up heroes", COLOR_POWER_UP);
+                                        DonePowerUpHeroes(powerupsuccess);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        heroclicked++;
+                                        num3++;
+                                        continue;
+                                    }
                                 }
                                 if (skipstar == true && searchStar != skipto)
                                 {
@@ -6095,13 +5214,21 @@ namespace SevenKnightsAI.Classes
                 "img/4star2.png",
                 "img/4star3.png",
                 "img/5star.png",
+                "img/6star.png",
+                "img/6star2.png",
+                "img/6star3.png",
             };
             string lockPath = "img/lock.png";
+            string joinedPath = "img/joined.png";
             Bitmap bitmap = CropFrame(CaptureFrame(), heroFrame[hero]);
             bitmap.Save(@"heroFrame.png");
             if (ImageSearch.SearchBool(lockPath, @"heroFrame.png", 0.8))
             {
                 return 99; //locked hero
+            }
+            else if (ImageSearch.SearchBool(joinedPath, @"heroFrame.png", 0.8))
+            {
+                return 98; //Joined hero
             }
             else
             {
@@ -6109,372 +5236,40 @@ namespace SevenKnightsAI.Classes
                 if (ImageSearch.SearchBool(@imgStarPath[0], @"heroFrame.png", 0.8))
                 {
                     starfound = 1;
-                    Log("Found 1 Star Hero");
+                    //Log("Found 1 Star Hero");
                     return starfound;
                 }
                 else if (ImageSearch.SearchBool(@imgStarPath[1], @"heroFrame.png", 0.8))
                 {
-                    Log("Found 2 Star Hero");
+                    //Log("Found 2 Star Hero");
                     return 2;
                 }
                 else if (ImageSearch.SearchBool(@imgStarPath[2], @"heroFrame.png", 0.8))
                 {
-                    Log("Found 3 Star Hero");
+                    //Log("Found 3 Star Hero");
                     return 3;
                 }
                 else if (ImageSearch.SearchBool(@imgStarPath[3], @"heroFrame.png", 0.8) || ImageSearch.SearchBool(@imgStarPath[4], @"heroFrame.png", 0.8) || ImageSearch.SearchBool(@imgStarPath[5], @"heroFrame.png", 0.8))
                 {
-                    Log("Found 4 Star Hero");
+                    //Log("Found 4 Star Hero");
                     return 4;
                 }
                 else if (ImageSearch.SearchBool(@imgStarPath[6], @"heroFrame.png", 0.8))
                 {
-                    Log("Found 5 Star Hero");
+                    //Log("Found 5 Star Hero");
                     return 5;
                 }
-                else
+                else if (ImageSearch.SearchBool(@imgStarPath[7], @"heroFrame.png", 0.8) || ImageSearch.SearchBool(@imgStarPath[8], @"heroFrame.png", 0.8) || ImageSearch.SearchBool(@imgStarPath[9], @"heroFrame.png", 0.8))
                 {
-                    Log("Found 6 Star Hero");
+                    //Log("Found 6 Star Hero");
                     return 6;
                 }
+                else
+                {
+                    return 7;
+                }
             }
         }
-
-        private void SellHeroes()
-        {
-            PixelMapping[] array = new PixelMapping[]
-            {
-                SellHeroConfirmPopupPM.Star1,
-                SellHeroConfirmPopupPM.Star2,
-                SellHeroConfirmPopupPM.Star3,
-                SellHeroConfirmPopupPM.Star4,
-                SellHeroConfirmPopupPM.Star5,
-                SellHeroConfirmPopupPM.Star6
-            };
-            PixelMapping[] array2 = new PixelMapping[]
-            {
-                HeroesPM.HeroCard1,
-                HeroesPM.HeroCard2,
-                HeroesPM.HeroCard3,
-                HeroesPM.HeroCard4,
-                HeroesPM.HeroCard5,
-                HeroesPM.HeroCard6,
-                HeroesPM.HeroCard7,
-                HeroesPM.HeroCard8,
-                HeroesPM.HeroCard9,
-                HeroesPM.HeroCard10
-            };
-            PixelMapping[][] array3 = new PixelMapping[][]
-            {
-                new PixelMapping[]
-                {
-                    SellHeroConfirmPopupPM.ElementWater_1,
-                    SellHeroConfirmPopupPM.ElementWater_2,
-                    SellHeroConfirmPopupPM.ElementWater_3
-                },
-                new PixelMapping[]
-                {
-                    SellHeroConfirmPopupPM.ElementFire_1,
-                    SellHeroConfirmPopupPM.ElementFire_2,
-                    SellHeroConfirmPopupPM.ElementFire_3
-                },
-                new PixelMapping[]
-                {
-                    SellHeroConfirmPopupPM.ElementLight_1,
-                    SellHeroConfirmPopupPM.ElementLight_2,
-                    SellHeroConfirmPopupPM.ElementLight_3
-                },
-                new PixelMapping[]
-                {
-                    SellHeroConfirmPopupPM.ElementDark_1,
-                    SellHeroConfirmPopupPM.ElementDark_2,
-                    SellHeroConfirmPopupPM.ElementDark_3
-                },
-                new PixelMapping[]
-                {
-                    SellHeroConfirmPopupPM.ElementRock_1,
-                    SellHeroConfirmPopupPM.ElementRock_2,
-                    SellHeroConfirmPopupPM.ElementRock_3
-                }
-            };
-            Log("Start selling heroes", COLOR_SELL_HEROES);
-            SendTelegram("Bot will only sell the hero if the given condition is met.");
-            if (!MatchMapping(HeroesPM.SortByBoxExpanded, 2))
-            {
-                WeightedClick(HeroesPM.SortByBox, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-            }
-            WeightedClick(HeroesPM.SortByRank, 1.0, 1.0, 1, 0, "left");
-            SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-            if (!MatchMapping(HeroesPM.SortButtonAscending, 2))
-            {
-                WeightedClick(HeroesPM.SortButton, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-            }
-            ScrollHeroCards(false);
-            SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-            bool flag = false;
-            int monstar = 0;
-            int num = 0;
-            int num2 = 0;
-            int num3 = 0;
-            while (num3 < 100 && !Worker.CancellationPending)
-            {
-                CaptureFrame();
-                Scene scene = SceneSearch();
-                if (scene != null && scene.SceneType != SceneType.HEROES)
-                {
-                    Log("Stop Disini4");
-                    DoneSellHeroes(-1);
-                    return;
-                }
-                if (MatchMapping(HeroesPM.LastRow_1, 3) && MatchMapping(HeroesPM.LastRow_2, 3))
-                {
-                    flag = true;
-                }
-                if (!AISettings.RS_SellHeroAll && num2 >= AISettings.RS_SellHeroAmount)
-                {
-                    Log("Stop Disini3");
-                    DoneSellHeroes(-1);
-                    return;
-                }
-                /**************************************************************************************/
-                if (MatchMapping(HeroStar.Star1Loca1, 2) || MatchMapping(HeroStar.Star1Loca2, 2)
-                     || MatchMapping(HeroStar.Star1Loca3, 2) || MatchMapping(HeroStar.Star1Loca4, 2) || MatchMapping(HeroStar.Star1Loca5, 2)
-                     || MatchMapping(HeroStar.Star1Loca6, 2) || MatchMapping(HeroStar.Star1Loca7, 2)
-                     || MatchMapping(HeroStar.Star1Loca8, 2) || MatchMapping(HeroStar.Star1Loca9, 2) || MatchMapping(HeroStar.Star1Loca10, 2))
-                {
-                    monstar = 1;
-                }
-                else if (MatchMapping(HeroStar.Star2Loca1, 2) || MatchMapping(HeroStar.Star2Loca2, 2)
-                     || MatchMapping(HeroStar.Star2Loca3, 2) || MatchMapping(HeroStar.Star2Loca4, 2) || MatchMapping(HeroStar.Star2Loca5, 2)
-                     || MatchMapping(HeroStar.Star2Loca6, 2) || MatchMapping(HeroStar.Star2Loca7, 2)
-                     || MatchMapping(HeroStar.Star2Loca8, 2) || MatchMapping(HeroStar.Star2Loca9, 2) || MatchMapping(HeroStar.Star2Loca10, 2)
-                     || MatchMapping(HeroStar.Star2Loca1_2, 2) || MatchMapping(HeroStar.Star2Loca2_2, 2)
-                     || MatchMapping(HeroStar.Star2Loca3_2, 2) || MatchMapping(HeroStar.Star2Loca4_2, 2) || MatchMapping(HeroStar.Star2Loca5_2, 2)
-                     || MatchMapping(HeroStar.Star2Loca6_2, 2) || MatchMapping(HeroStar.Star2Loca7_2, 2)
-                     || MatchMapping(HeroStar.Star2Loca8_2, 2) || MatchMapping(HeroStar.Star2Loca9_2, 2) || MatchMapping(HeroStar.Star2Loca10_2, 2))
-                {
-                    monstar = 2;
-                }
-                else
-                {
-                    monstar = 4;
-                }
-
-                if (monstar <= AISettings.RS_SellHeroStars)
-                {
-                    //ตรวจเวล 30
-                    SevenKnightsCore.Sleep(500);
-                    WeightedClick(array2[num], 1.0, 1.0, 1, 0, "left");
-                    SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-                    CaptureFrame();
-                    scene = SceneSearch();
-                    if (scene != null && scene.SceneType != SceneType.HERO_JOIN && scene.SceneType != SceneType.HERO_REMOVE)
-                    {
-                        Log("Stop Disini2");
-                        DoneSellHeroes(-1);
-                        return;
-                    }
-                    if (MatchMapping(HeroJoinPM.KeyLockButton, 2)
-                           && MatchMapping(HeroJoinPM.SellButton, 2))
-                    {
-                        WeightedClick(HeroJoinPM.SellButton, 1.0, 1.0, 1, 0, "left");
-                        SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-                        WeightedClick(SellHeroConfirmPopupPM.SellLobbyButton, 1.0, 1.0, 1, 0, "left");
-                        SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-                        CaptureFrame();
-                        scene = SceneSearch();
-                        if (scene != null && scene.SceneType != SceneType.SELL_HERO_CONFIRM_POPUP)
-                        {
-                            Log("Stop Sell Hero.");
-                            DoneSellHeroes(-1);
-                            return;
-                        }
-                        PixelMapping[][] array4 = array3;
-                        for (int j = 0; j < array4.Length; j++)
-                        {
-                            PixelMapping[] array5 = array4[j];
-                            if (MatchMapping(array5[0], 5) && MatchMapping(array5[1], 5) && MatchMapping(array5[2], 5))
-                            {
-                                Log("-- Found element hero, skipping..", COLOR_SELL_HEROES);
-                                WeightedClick(SellHeroConfirmPopupPM.NoButton, 1.0, 1.0, 1, 0, "left");
-                                SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-                                Escape();
-                                SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-                            }
-                        }
-                        num2++;
-                        WeightedClick(SellHeroConfirmPopupPM.SellButton, 1.0, 1.0, 1, 0, "left");
-                        int n = 1;
-                        while (n <= 100)
-                        {
-                            SevenKnightsCore.Sleep(300);
-                            CaptureFrame();
-                            if (!MatchMapping(SellHeroConfirmPopupPM.SoldOKYellowTik, 2) && !MatchMapping(SellHeroConfirmPopupPM.SellButtonbg, 2))
-                            {
-                                n++;
-                            }
-                            else
-                            {
-                                n = 110;
-                                SevenKnightsCore.Sleep(500);
-                                WeightedClick(SellHeroConfirmPopupPM.SoldOKButton, 1.0, 1.0, 1, 0, "left");
-                                SevenKnightsCore.Sleep(1000);
-                                Log(string.Format("-- Hero sold ({0})", num2), COLOR_SELL_HEROES);
-                                Escape();
-                                SevenKnightsCore.Sleep(AIProfiles.ST_Delay);
-                                DoneSellHeroesMini();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        num = num + 1;
-                        Escape();
-                        SevenKnightsCore.Sleep(500);
-                    }
-                    if (!flag)
-                    {
-                        num %= 4;
-                    }
-                    if (num == 0)
-                    {
-                        ScrollHeroCards(true);
-                        SevenKnightsCore.Sleep(800);
-                    }
-                    if (flag && num >= array2.Length)
-                    {
-                        Log("Stop Disini");
-                        DoneSellHeroes(num2);
-                        return;
-                    }
-                }
-                else
-                {
-                    Log("Stop Disini1");
-                    DoneSellHeroes(-1);
-                    return;
-                }
-                num3++;
-                continue;
-            }
-            return;
-        }
-
-        private void SellItems()
-        {
-            PixelMapping[] BulkButton = new PixelMapping[]
-            {
-                SellItemsLobbyPM.Star1,
-                SellItemsLobbyPM.Star2,
-                SellItemsLobbyPM.Star3,
-                SellItemsLobbyPM.Star4,
-                SellItemsLobbyPM.Star5,
-                SellItemsLobbyPM.GoldOre
-            };
-            string[] array2 = new string[]
-            {
-                "1 Star Item",
-                "2 Star Item",
-                "3 Star Item",
-                "4 Star Item",
-                "5 Star Item",
-                "Gold Ore"
-            };
-            int test = AISettings.RS_SellItemStars;
-            Scene scene = SceneSearch();
-            Log("Start selling items", COLOR_SELL_ITEMS);
-            SendTelegram("Bot will selling items");
-            List<int> list = new List<int>();
-            for (int i = 0; i < test; i++)
-            {
-                list.Add(i);
-            }
-            if (list.Count <= 0)
-            {
-                Log("Nothing to do", COLOR_HONOR);
-                DoneSellItems();
-                return;
-            }
-            foreach (int current in list)
-            {
-                if (Worker.CancellationPending)
-                {
-                    return;
-                }
-                SevenKnightsCore.Sleep(500);
-                Log(string.Format("Selling {0}", array2[current]), COLOR_HONOR);
-                WeightedClick(SellItemsLobbyPM.BulkButton, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(1000);
-                PixelMapping mapping = BulkButton[current];
-                WeightedClick(mapping, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(1000);
-                CaptureFrame();
-                scene = SceneSearch();
-                if (!MatchMapping(SellItemsLobbyPM.Item1Exist, 5) && !MatchMapping(SellItemsLobbyPM.Item2Exist, 5))
-                {
-                    Log("Item Exist", COLOR_HONOR);
-                    WeightedClick(SellItemsLobbyPM.SellButton, 1.0, 1.0, 1, 0, "left");
-                    SevenKnightsCore.Sleep(1000);
-                    CaptureFrame();
-                    scene = SceneSearch();
-                    if (ExpectingScene(SceneType.SELL_ITEM_CONFIRM_POPUP, 15, 1000)) // SELL_ITEM_CONFIRM_POPUP
-                    {
-                        WeightedClick(SellItemConfirmPopupPM.SellButton, 1.0, 1.0, 1, 0, "left");
-                        SevenKnightsCore.Sleep(3000);
-                        CaptureFrame();
-                        scene = SceneSearch();
-                        if (ExpectingScene(SceneType.SELL_ITEM_SUCCESS_POPUP, 10, 2000)) // SELL_ITEM_SUCCESS_POPUP
-                        {
-                            Escape();
-                            SevenKnightsCore.Sleep(1000);
-                        }
-                    }
-                }
-                else
-                {
-                    Log(string.Format("{0} Doesn't Exists ", array2[current]), COLOR_HONOR);
-                }
-            }
-            if (AISettings.RS_SellGoldOre)
-            {
-                SevenKnightsCore.Sleep(500);
-                Log("Selling Gold Ore", COLOR_HONOR);
-                WeightedClick(SellItemsLobbyPM.BulkButton, 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(1000);
-                WeightedClick(BulkButton[5], 1.0, 1.0, 1, 0, "left");
-                SevenKnightsCore.Sleep(1000);
-                CaptureFrame();
-                scene = SceneSearch();
-                if (!MatchMapping(SellItemsLobbyPM.Item1Exist, 5) && !MatchMapping(SellItemsLobbyPM.Item2Exist, 5))
-                {
-                    Log("Gold Ore Exist", COLOR_HONOR);
-                    WeightedClick(SellItemsLobbyPM.SellButton, 1.0, 1.0, 1, 0, "left");
-                    SevenKnightsCore.Sleep(1000);
-                    CaptureFrame();
-                    scene = SceneSearch();
-                    if (ExpectingScene(SceneType.SELL_ITEM_CONFIRM_POPUP, 15, 1000)) // SELL_ITEM_CONFIRM_POPUP
-                    {
-                        WeightedClick(SellItemConfirmPopupPM.SellButton, 1.0, 1.0, 1, 0, "left");
-                        SevenKnightsCore.Sleep(3000);
-                        CaptureFrame();
-                        scene = SceneSearch();
-                        if (ExpectingScene(SceneType.SELL_ITEM_SUCCESS_POPUP, 10, 2000)) // SELL_ITEM_SUCCESS_POPUP
-                        {
-                            Escape();
-                            SevenKnightsCore.Sleep(1000);
-                        }
-                    }
-                }
-                else
-                {
-                    Log("Gold Ore Doesn't Exist", COLOR_HONOR);
-                }
-            }
-            DoneSellItems();
-        }
-
         private void SendTelegram(string text)
         {
             if (AIProfiles.ST_EnableTelegram == true)
@@ -6542,67 +5337,6 @@ namespace SevenKnightsAI.Classes
                 }
             }
             return true;
-        }
-
-        private void UpdateHeroCount()
-        {
-            int curHero = HeroCount;
-            int maxHero = HeroMax;
-            Rectangle rect = HeroesPM.R_HeroCount;
-            CaptureFrame();
-            using (Bitmap bitmap = CropFrame(BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
-            {
-                using (Page page = Tesseractor.Engine.Process(bitmap, null))
-                {
-                    string text = ReplaceNumericResource(page.GetText());
-                    Utility.FilterAscii(text);
-                    //this.Log("Old Text: " + text);
-                    if (text.Length >= 2)
-                    {
-                        string[] array = text.Split(new char[]
-                            {
-                                '/'
-                            });
-
-                        if (array.Length >= 1)
-                        {
-                            int.TryParse(array[0], out curHero);
-                        }
-
-                        if (array.Length >= 2)
-                        {
-                            int.TryParse(array[1], out maxHero);
-                        }
-                        Log(string.Format("HC: {0}/{1} String: {2}", curHero, maxHero, text.Trim()));
-#if DEBUG
-                        this.Log(string.Format("HC: {0}/{1} String: {2}", curHero, maxHero, text.Trim()));
-                        bitmap.Save(string.Format("H_{0} of {1}.png", curHero, maxHero));
-#endif
-                    }
-                    HeroCount = curHero;
-                    HeroMax = maxHero;
-                    if (curHero >= maxHero)
-                    {
-                        if (AISettings.RS_SellHeroes && CooldownSellHeroes <= 0)
-                        {
-                            Log("Heroes Full, Bot will Sell Heroes after check item slot");
-                            herofull = true;
-                            checkslothero = false;
-                        }
-                        else
-                        {
-                            Log("Heroes Full, Bot will check item slot");
-                            checkslothero = false;
-                            ChangeObjective(Objective.CHECK_SLOT_ITEM);
-                        }
-                    }
-                    else
-                    {
-                        checkslothero = false;
-                        ChangeObjective(Objective.CHECK_SLOT_ITEM);
-                    }
-                }
-            }
         }
 
         private void CheckSoul(World w)
@@ -6748,10 +5482,6 @@ namespace SevenKnightsAI.Classes
                     SharedPM.R_KeyNormalBase
                 },
                 {
-                    SceneType.SHOP,
-                    SharedPM.R_KeyNormalBase
-                },
-                {
                     SceneType.ADVENTURE_START,
                     SharedPM.R_KeyNormalBase
                 },
@@ -6813,10 +5543,6 @@ namespace SevenKnightsAI.Classes
                     SharedPM.R_GoldBase
                 },
                 {
-                    SceneType.SHOP,
-                    SharedPM.R_GoldBase
-                },
-                {
                     SceneType.MAP_SELECT,
                     SharedPM.R_GoldBase
                 },
@@ -6869,10 +5595,6 @@ namespace SevenKnightsAI.Classes
                     LobbyPM.R_HonorBase
                 },
                 {
-                    SceneType.SHOP,
-                    LobbyPM.R_HonorBase
-                },
-                {
                     SceneType.BATTLE_MODES,
                     LobbyPM.R_HonorBase
                 },
@@ -6911,10 +5633,6 @@ namespace SevenKnightsAI.Classes
                     SharedPM.R_RubyBase
                 },
                 {
-                    SceneType.SHOP,
-                    SharedPM.R_RubyBase
-                },
-                {
                     SceneType.MAP_SELECT,
                     SharedPM.R_RubyBase
                 },
@@ -6937,28 +5655,6 @@ namespace SevenKnightsAI.Classes
             {
                 RubyCount = num;
                 ReportResources(ResourceType.RUBY);
-            }
-        }
-
-        private void UpdateTopaz(SceneType sceneType)
-        {
-            Dictionary<SceneType, Point> dictionary = new Dictionary<SceneType, Point>
-            {
-                {
-                    SceneType.LOBBY,
-                    new Point(LobbyPM.TOPAZ_OFFSET_X, LobbyPM.TOPAZ_OFFSET_Y)
-                },
-                {
-                    SceneType.SHOP,
-                    new Point(ShopPM.TOPAZ_OFFSET_X, ShopPM.TOPAZ_OFFSET_Y)
-                }
-            };
-            Point point = dictionary[sceneType];
-            int num = ParseTopaz(point.X, point.Y);
-            if (num != -1)
-            {
-                TopazCount = num;
-                ReportResources(ResourceType.TOPAZ);
             }
         }
 

@@ -4,38 +4,45 @@
     {
         public static readonly PixelMapping x2Icon = new PixelMapping
         {
-            X = 671,
-            Y = 410,
-            Color = 2567998,
+            X = 471,
+            Y = 126,
+            Color = 12173259,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping GoldIcon = new PixelMapping
         {
-            X = 5,
-            Y = 503,
-            Color = 4737096,
+            X = 689,
+            Y = 25,
+            Color = 4733728,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping HeroIcon = new PixelMapping
+        {
+            X = 827,
+            Y = 24,
+            Color = 1841956,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping PopupBorder = new PixelMapping
         {
-            X = 287,
-            Y = 410,
-            Color = 12339767,
+            X = 543,
+            Y = 425,
+            Color = 14014169,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping NoButton = new PixelMapping
         {
-            X = 384,
-            Y = 426,
+            X = 377,
+            Y = 429,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping YesButton = new PixelMapping
         {
-            X = 597,
-            Y = 420,
+            X = 593,
+            Y = 425,
             Color = 0,
             Type = MappingType.BUTTON
         };

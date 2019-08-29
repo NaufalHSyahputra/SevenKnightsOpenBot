@@ -23,7 +23,7 @@
         public static readonly PixelMapping FightButtonHidden = new PixelMapping
         {
             X = 11,
-            Y = 485,
+            Y = 486,
             Color = 3031644,
             Type = MappingType.ANCHOR
         };
@@ -31,16 +31,16 @@
         public static readonly PixelMapping FightButtonHidden2 = new PixelMapping
         {
             X = 10,
-            Y = 514,
-            Color = 3096406,
+            Y = 515,
+            Color = 3096663,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FightButtonShown = new PixelMapping
         {
             X = 11,
-            Y = 485,
-            Color = 16448250,
+            Y = 487,
+            Color = 15921906,
             Type = MappingType.ANCHOR
         };
 

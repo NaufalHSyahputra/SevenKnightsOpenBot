@@ -42,6 +42,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "AD_Stage")]
         public int AD_Stage;
 
+        [XmlElement(ElementName = "AD_FarmOrder")]
+        public int AD_FarmOrder;
+
         [XmlElement(ElementName = "AD_StageSequence")]
         public int[] AD_StageSequence;
 
@@ -391,6 +394,7 @@ namespace SevenKnightsAI.Classes
             AD_EnableLimit = false;
             AD_Limit = 0;
             AD_Stage = 0;
+            AD_FarmOrder = 0;
             AD_Continuous = false;
             AD_StopOnFullHeroes = false;
             AD_StopOnFullItems = true;
@@ -746,6 +750,12 @@ namespace SevenKnightsAI.Classes
                 try
                 {
                     aISettings.AD_Stage = Convert.ToInt32(dictionary["AD_Stage"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_FarmOrder = Convert.ToInt32(dictionary["AD_FarmOrder"]);
                 }
                 catch (Exception)
                 { }
@@ -1317,6 +1327,10 @@ namespace SevenKnightsAI.Classes
                 {
                     "AD_Stage",
                     AD_Stage
+                },
+                {
+                    "AD_FarmOrder",
+                    AD_FarmOrder
                 },
                 {
                     "AD_WorldSequence",
