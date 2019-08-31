@@ -2,25 +2,25 @@
 {
     internal static class AutoRepeatStopPM
     {
-        public static readonly PixelMapping x2Icon = new PixelMapping
+        public static readonly PixelMapping HideAutoButton = new PixelMapping
         {
-            X = 471,
-            Y = 126,
-            Color = 12173259,
+            X = 9,
+            Y = 491,
+            Color = 4671303,
             Type = MappingType.ANCHOR
         };
-        public static readonly PixelMapping GoldIcon = new PixelMapping
+        public static readonly PixelMapping BlueBar = new PixelMapping
         {
-            X = 689,
-            Y = 25,
-            Color = 4733728,
+            X = 401,
+            Y = 23,
+            Color = 537675,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping HeroIcon = new PixelMapping
         {
-            X = 827,
-            Y = 24,
-            Color = 1841956,
+            X = 316,
+            Y = 426,
+            Color = 14275024,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping PopupBorder = new PixelMapping

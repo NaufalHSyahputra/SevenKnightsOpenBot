@@ -350,6 +350,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="thrud_banner.jpg" />
     <None Include="Resources\myth_cover3.jpg" />
     <None Include="icons\icon_adv.png" />
     <None Include="icons\icon_advkey.png" />

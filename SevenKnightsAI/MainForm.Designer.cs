@@ -21,7 +21,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ST_TelegramChatIDTextBox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.ST_TelegramTokenTextBox = new System.Windows.Forms.TextBox();
@@ -46,10 +45,6 @@
             this.goldLabel2 = new System.Windows.Forms.Label();
             this.summaryGroupBox = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.arenaPictureBox = new System.Windows.Forms.PictureBox();
-            this.adventurePictureBox = new System.Windows.Forms.PictureBox();
             this.arenaCountLabel = new System.Windows.Forms.Label();
             this.adventureCountLabel = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -72,14 +67,6 @@
             this.GB_WaitForKeys = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.AD_FarmOrderComboBox = new System.Windows.Forms.ComboBox();
             this.LG_logTextBox = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -146,9 +133,9 @@
             this.AD_teamComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.AD_UseFriendCheckBox = new System.Windows.Forms.CheckBox();
+            this.AD_difficultyLabel = new System.Windows.Forms.Label();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.AD_difficultyLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.AD_worldLabel = new System.Windows.Forms.Label();
             this.AD_stageLabel = new System.Windows.Forms.Label();
@@ -269,26 +256,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.topheaderPictureBox = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.arenaPictureBox = new System.Windows.Forms.PictureBox();
+            this.adventurePictureBox = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_reconnectNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_delayTrackBar)).BeginInit();
             this.summaryGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.adventurePictureBox)).BeginInit();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -342,7 +329,20 @@
             this.groupBox20.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.resourcesTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.topheaderPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adventurePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -380,17 +380,6 @@
             this.linkLabel2.TabIndex = 11;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "https://goo.gl/obtKV2";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Image = global::SevenKnightsAI.Properties.Resources.telegramLogo;
-            this.pictureBox2.Location = new System.Drawing.Point(7, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
             // 
             // ST_TelegramChatIDTextBox
             // 
@@ -641,7 +630,7 @@
             this.summaryGroupBox.Controls.Add(this.adventureKeysLabel2);
             this.summaryGroupBox.Controls.Add(this.arenaCountLabel);
             this.summaryGroupBox.Controls.Add(this.adventureCountLabel);
-            this.summaryGroupBox.Location = new System.Drawing.Point(4, 523);
+            this.summaryGroupBox.Location = new System.Drawing.Point(7, 507);
             this.summaryGroupBox.Name = "summaryGroupBox";
             this.summaryGroupBox.Size = new System.Drawing.Size(342, 130);
             this.summaryGroupBox.TabIndex = 4;
@@ -660,51 +649,6 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Visible = false;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::SevenKnightsAI.Properties.Resources.icon_key_arena;
-            this.pictureBox5.Location = new System.Drawing.Point(211, 29);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(37, 36);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox5, "Arena Keys");
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::SevenKnightsAI.Properties.Resources.icon_advkey;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 29);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(37, 36);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox3, "Adventure Keys");
-            // 
-            // arenaPictureBox
-            // 
-            this.arenaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("arenaPictureBox.Image")));
-            this.arenaPictureBox.Location = new System.Drawing.Point(211, 82);
-            this.arenaPictureBox.Name = "arenaPictureBox";
-            this.arenaPictureBox.Size = new System.Drawing.Size(37, 36);
-            this.arenaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.arenaPictureBox.TabIndex = 9;
-            this.arenaPictureBox.TabStop = false;
-            this.toolTip.SetToolTip(this.arenaPictureBox, "Arena");
-            // 
-            // adventurePictureBox
-            // 
-            this.adventurePictureBox.Image = global::SevenKnightsAI.Properties.Resources.icon_adv;
-            this.adventurePictureBox.Location = new System.Drawing.Point(14, 82);
-            this.adventurePictureBox.Name = "adventurePictureBox";
-            this.adventurePictureBox.Size = new System.Drawing.Size(37, 36);
-            this.adventurePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.adventurePictureBox.TabIndex = 8;
-            this.adventurePictureBox.TabStop = false;
-            this.toolTip.SetToolTip(this.adventurePictureBox, "Adventure");
-            this.adventurePictureBox.Click += new System.EventHandler(this.adventurePictureBox_Click);
             // 
             // arenaCountLabel
             // 
@@ -776,9 +720,9 @@
             this.splitterStatusLabel,
             this.tsslCursorPosition,
             this.tsslBuildInfo});
-            this.statusStrip.Location = new System.Drawing.Point(0, 654);
+            this.statusStrip.Location = new System.Drawing.Point(0, 638);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(505, 22);
+            this.statusStrip.Size = new System.Drawing.Size(511, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
@@ -804,7 +748,7 @@
             // splitterStatusLabel
             // 
             this.splitterStatusLabel.Name = "splitterStatusLabel";
-            this.splitterStatusLabel.Size = new System.Drawing.Size(350, 17);
+            this.splitterStatusLabel.Size = new System.Drawing.Size(356, 17);
             this.splitterStatusLabel.Spring = true;
             this.splitterStatusLabel.Click += new System.EventHandler(this.splitterStatusLabel_Click);
             // 
@@ -919,94 +863,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.LG_LogPixel_Click);
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::SevenKnightsAI.Properties.Resources.icon_gold1;
-            this.pictureBox6.Location = new System.Drawing.Point(63, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(19, 18);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 12;
-            this.pictureBox6.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox6, "Gold");
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(211, 3);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(19, 18);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 13;
-            this.pictureBox8.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox8, "Ruby");
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::SevenKnightsAI.Properties.Resources.icon_honor1;
-            this.pictureBox9.Location = new System.Drawing.Point(359, 3);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(19, 18);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox9.TabIndex = 14;
-            this.pictureBox9.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox9, "Honor");
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Image = global::SevenKnightsAI.Properties.Resources.hero_icon;
-            this.pictureBox18.Location = new System.Drawing.Point(6, 18);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(37, 39);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox18.TabIndex = 36;
-            this.pictureBox18.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox18, "Gold");
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Image = global::SevenKnightsAI.Properties.Resources.icon_gold1;
-            this.pictureBox15.Location = new System.Drawing.Point(6, 63);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(37, 38);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox15.TabIndex = 35;
-            this.pictureBox15.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox15, "Gold");
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = global::SevenKnightsAI.Properties.Resources.icon_item;
-            this.pictureBox13.Location = new System.Drawing.Point(6, 153);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(37, 36);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox13.TabIndex = 29;
-            this.pictureBox13.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox13, "Arena Keys");
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = global::SevenKnightsAI.Properties.Resources.cards_icon;
-            this.pictureBox12.Location = new System.Drawing.Point(6, 107);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(37, 40);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 29;
-            this.pictureBox12.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox12, "Arena Keys");
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Image = global::SevenKnightsAI.Properties.Resources.soulIcon;
-            this.pictureBox16.Location = new System.Drawing.Point(6, 197);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(32, 34);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox16.TabIndex = 20;
-            this.pictureBox16.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox16, "Gold");
-            // 
             // AD_FarmOrderComboBox
             // 
             this.AD_FarmOrderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1043,7 +899,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage18);
             this.tabControl1.ImageList = this.imageList1;
-            this.tabControl1.Location = new System.Drawing.Point(-4, 91);
+            this.tabControl1.Location = new System.Drawing.Point(-4, 81);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(513, 405);
@@ -1788,6 +1644,15 @@
             this.AD_UseFriendCheckBox.UseVisualStyleBackColor = true;
             this.AD_UseFriendCheckBox.CheckedChanged += new System.EventHandler(this.AD_UseFriendCheckBox_CheckedChanged);
             // 
+            // AD_difficultyLabel
+            // 
+            this.AD_difficultyLabel.Location = new System.Drawing.Point(57, 268);
+            this.AD_difficultyLabel.Name = "AD_difficultyLabel";
+            this.AD_difficultyLabel.Size = new System.Drawing.Size(54, 13);
+            this.AD_difficultyLabel.TabIndex = 6;
+            this.AD_difficultyLabel.Text = "Difficulty";
+            this.AD_difficultyLabel.Visible = false;
+            // 
             // groupBox27
             // 
             this.groupBox27.Controls.Add(this.label27);
@@ -1814,15 +1679,6 @@
             this.label27.Size = new System.Drawing.Size(54, 53);
             this.label27.TabIndex = 28;
             this.label27.Text = "Auto Replace Order";
-            // 
-            // AD_difficultyLabel
-            // 
-            this.AD_difficultyLabel.Location = new System.Drawing.Point(57, 268);
-            this.AD_difficultyLabel.Name = "AD_difficultyLabel";
-            this.AD_difficultyLabel.Size = new System.Drawing.Size(54, 13);
-            this.AD_difficultyLabel.TabIndex = 6;
-            this.AD_difficultyLabel.Text = "Difficulty";
-            this.AD_difficultyLabel.Visible = false;
             // 
             // label1
             // 
@@ -3218,9 +3074,9 @@
             this.groupBox2.Controls.Add(this.screenshotButton);
             this.groupBox2.Controls.Add(this.aiButton);
             this.groupBox2.Controls.Add(this.aiPause);
-            this.groupBox2.Location = new System.Drawing.Point(352, 523);
+            this.groupBox2.Location = new System.Drawing.Point(355, 507);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(148, 130);
+            this.groupBox2.Size = new System.Drawing.Size(154, 130);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
@@ -3254,7 +3110,7 @@
             this.resourcesTableLayoutPanel.Controls.Add(this.honorLabel2, 6, 0);
             this.resourcesTableLayoutPanel.Controls.Add(this.rubyLabel2, 4, 0);
             this.resourcesTableLayoutPanel.Controls.Add(this.goldLabel2, 2, 0);
-            this.resourcesTableLayoutPanel.Location = new System.Drawing.Point(0, 493);
+            this.resourcesTableLayoutPanel.Location = new System.Drawing.Point(3, 480);
             this.resourcesTableLayoutPanel.Name = "resourcesTableLayoutPanel";
             this.resourcesTableLayoutPanel.RowCount = 1;
             this.resourcesTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -3286,16 +3142,160 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::SevenKnightsAI.Properties.Resources.icon_gold1;
+            this.pictureBox6.Location = new System.Drawing.Point(63, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(19, 18);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 12;
+            this.pictureBox6.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox6, "Gold");
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(211, 3);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(19, 18);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 13;
+            this.pictureBox8.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox8, "Ruby");
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::SevenKnightsAI.Properties.Resources.icon_honor1;
+            this.pictureBox9.Location = new System.Drawing.Point(359, 3);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(19, 18);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 14;
+            this.pictureBox9.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox9, "Honor");
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Image = global::SevenKnightsAI.Properties.Resources.hero_icon;
+            this.pictureBox18.Location = new System.Drawing.Point(6, 18);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(37, 39);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox18.TabIndex = 36;
+            this.pictureBox18.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox18, "Gold");
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Image = global::SevenKnightsAI.Properties.Resources.soulIcon;
+            this.pictureBox16.Location = new System.Drawing.Point(6, 197);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(32, 34);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox16.TabIndex = 20;
+            this.pictureBox16.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox16, "Gold");
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Image = global::SevenKnightsAI.Properties.Resources.icon_gold1;
+            this.pictureBox15.Location = new System.Drawing.Point(6, 63);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(37, 38);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 35;
+            this.pictureBox15.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox15, "Gold");
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Image = global::SevenKnightsAI.Properties.Resources.icon_item;
+            this.pictureBox13.Location = new System.Drawing.Point(6, 153);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(37, 36);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 29;
+            this.pictureBox13.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox13, "Arena Keys");
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::SevenKnightsAI.Properties.Resources.cards_icon;
+            this.pictureBox12.Location = new System.Drawing.Point(6, 107);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(37, 40);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox12, "Arena Keys");
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Image = global::SevenKnightsAI.Properties.Resources.telegramLogo;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 18);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
             // topheaderPictureBox
             // 
             this.topheaderPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.myth_cover3;
+            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.thrud_banner;
             this.topheaderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.topheaderPictureBox.Name = "topheaderPictureBox";
-            this.topheaderPictureBox.Size = new System.Drawing.Size(508, 99);
+            this.topheaderPictureBox.Size = new System.Drawing.Size(508, 85);
             this.topheaderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::SevenKnightsAI.Properties.Resources.icon_key_arena;
+            this.pictureBox5.Location = new System.Drawing.Point(211, 29);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(37, 36);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox5, "Arena Keys");
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::SevenKnightsAI.Properties.Resources.icon_advkey;
+            this.pictureBox3.Location = new System.Drawing.Point(16, 29);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(37, 36);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox3, "Adventure Keys");
+            // 
+            // arenaPictureBox
+            // 
+            this.arenaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("arenaPictureBox.Image")));
+            this.arenaPictureBox.Location = new System.Drawing.Point(211, 82);
+            this.arenaPictureBox.Name = "arenaPictureBox";
+            this.arenaPictureBox.Size = new System.Drawing.Size(37, 36);
+            this.arenaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.arenaPictureBox.TabIndex = 9;
+            this.arenaPictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.arenaPictureBox, "Arena");
+            // 
+            // adventurePictureBox
+            // 
+            this.adventurePictureBox.Image = global::SevenKnightsAI.Properties.Resources.icon_adv;
+            this.adventurePictureBox.Location = new System.Drawing.Point(14, 82);
+            this.adventurePictureBox.Name = "adventurePictureBox";
+            this.adventurePictureBox.Size = new System.Drawing.Size(37, 36);
+            this.adventurePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.adventurePictureBox.TabIndex = 8;
+            this.adventurePictureBox.TabStop = false;
+            this.toolTip.SetToolTip(this.adventurePictureBox, "Adventure");
+            this.adventurePictureBox.Click += new System.EventHandler(this.adventurePictureBox_Click);
             // 
             // MainForm
             // 
@@ -3303,7 +3303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(505, 676);
+            this.ClientSize = new System.Drawing.Size(511, 660);
             this.Controls.Add(this.resourcesTableLayoutPanel);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip);
@@ -3321,26 +3321,13 @@
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_reconnectNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_delayTrackBar)).EndInit();
             this.summaryGroupBox.ResumeLayout(false);
             this.summaryGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.adventurePictureBox)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -3422,7 +3409,20 @@
             this.groupBox2.ResumeLayout(false);
             this.resourcesTableLayoutPanel.ResumeLayout(false);
             this.resourcesTableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.topheaderPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adventurePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

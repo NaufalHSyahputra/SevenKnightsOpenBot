@@ -3868,7 +3868,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.NO_MORE_RUBY_OFFER);
                     return result;
                 }
-                if (MatchMapping(AutoRepeatStopPM.x2Icon, 2) && MatchMapping(AutoRepeatStopPM.GoldIcon, 2) && MatchMapping(AutoRepeatStopPM.HeroIcon, 2) && MatchMapping(AutoRepeatStopPM.PopupBorder, 2))
+                if (MatchMapping(AutoRepeatStopPM.HideAutoButton, 2) && MatchMapping(AutoRepeatStopPM.BlueBar, 2) && MatchMapping(AutoRepeatStopPM.HeroIcon, 2) && MatchMapping(AutoRepeatStopPM.PopupBorder, 2))
                 {
                     Scene result = new Scene(SceneType.AUTO_REPEAT_STOP);
                     return result;
