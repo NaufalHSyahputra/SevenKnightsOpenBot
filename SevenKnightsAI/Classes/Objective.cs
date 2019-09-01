@@ -15,5 +15,7 @@
         FUSE_HEROES, //15
 
         CHANGE_PROFILE, //16
+
+        NEXT_POSSIBLE,
     }
 }

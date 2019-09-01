@@ -125,6 +125,7 @@ namespace SevenKnightsAI.Classes
         private int SoulCount;
         private bool unknowncollected;
         private bool alreadystop = false;
+        private string reason_stop = "";
         private int CurrentBoost;
         private World currentworld;
         private int currentStage = 0;
@@ -296,10 +297,11 @@ namespace SevenKnightsAI.Classes
                 }
                 alreadystop = true;
             }
-            if (AISettings.AD_EnableProfile1 && AISettings.AD_BootMode && CurrentBoost == 100)
+            if ((AISettings.AD_EnableProfile1 || AISettings.AD_EnableChangeProfile1) && AISettings.AD_BootMode && CurrentBoost == 100)
             {
                 if (!alreadystop)
                 {
+                    reason_stop = "boost";
                     ChangeMode(Objective.CHANGE_PROFILE);
                     for (int i = 0; i < 3; i++)
                     {
@@ -322,6 +324,10 @@ namespace SevenKnightsAI.Classes
                         WeightedClick(AdventureFightPM.StopButton, 1.0, 1.0, 1, 0, "left");
                         if (AISettings.AD_EnableProfile3)
                         {
+                            ChangeMode(Objective.CHANGE_PROFILE);
+                        }else if (AISettings.AD_EnableChangeProfile3)
+                        {
+                            reason_stop = "limit";
                             ChangeMode(Objective.CHANGE_PROFILE);
                         }
 
@@ -512,6 +518,17 @@ namespace SevenKnightsAI.Classes
                     SendTelegram("[Arena] Limit Reached");
                     ArenaLimitCount = 0;
                     NextPossibleObjective();
+                }
+            }
+            else if (AISettings.AR_EnableChangeProfile1)
+            {
+                ArenaLimitCount++;
+                if (ArenaLimitCount >= AISettings.AR_Limit)
+                {
+                    ArenaLimitCount = 0;
+                    reason_stop = "arena_limit";
+                    ChangeMode(Objective.CHANGE_PROFILE);
+
                 }
             }
         }
@@ -1046,7 +1063,15 @@ namespace SevenKnightsAI.Classes
                     Log(string.Format("Arena Score = {0}", test2), COLOR_ARENA);
                     int.TryParse(test2, out arenaScore);
                     ArenaRank = arenaScore;
-                    if (AISettings.AR_LimitArena)
+                    if (AISettings.AR_EnableChangeProfile2)
+                    {
+                        if (arenaScore >= AISettings.AR_LimitScore)
+                        {
+                            reason_stop = "arena_score";
+                            ChangeMode(Objective.CHANGE_PROFILE);
+                        }
+                    }
+                    else if (AISettings.AR_LimitArena)
                     {
                         if (arenaScore >= AISettings.AR_LimitScore)
                         {
@@ -1079,7 +1104,15 @@ namespace SevenKnightsAI.Classes
                     int.TryParse(test1, out arenaScore);
                     Log(string.Format("Arena Score = {0}", arenaScore), COLOR_ARENA);
                     ArenaRank = arenaScore;
-                    if (AISettings.AR_LimitArena)
+                    if (AISettings.AR_EnableChangeProfile2)
+                    {
+                        if (arenaScore >= AISettings.AR_LimitScore)
+                        {
+                            reason_stop = "arena_score";
+                            ChangeMode(Objective.CHANGE_PROFILE);
+                        }
+                    }
+                    else if (AISettings.AR_LimitArena)
                     {
                         if (arenaScore >= AISettings.AR_LimitScore)
                         {
@@ -1860,32 +1893,59 @@ namespace SevenKnightsAI.Classes
                                             UpdateGold(scene.SceneType);
                                             UpdateRuby(scene.SceneType);
                                             UpdateHonor(scene.SceneType);
-                                            /*
-                                            if (CheckPlayaName == true)
-                                            {
-                                                WeightedClick(LobbyPM.MasteryButton, 1.0, 1.0, 1, 0, "left");
-                                                SevenKnightsCore.Sleep(800);
-                                                CaptureFrame();
-                                                CheckOwnername();
-                                                Escape();
-                                                SevenKnightsCore.Sleep(800);
-                                                CheckPlayaName = false;
-                                            }
-                                            */
-                                            /*
-                                            if (MatchMapping(LobbyPM.UnknownAvailable, 3)) //&&Collect Unknown Area true
-                                            {
-                                                WeightedClick(LobbyPM.UnknownBtn, 1.0, 1.0, 1, 0, "left");
-                                                SevenKnightsCore.Sleep(2000);
-                                            }*/
                                             if (CurrentObjective == Objective.CHANGE_PROFILE)
                                             {
-                                                if (!alreadystop)
+                                                if (!alreadystop && (AISettings.AD_EnableProfile1 || AISettings.AD_EnableProfile2 || AISettings.AD_EnableProfile3))
                                                 {
                                                     SendTelegram("Bot will stop to change profile, you can choose profile in Telegram and start bot again after changing profile");
                                                     Alert("RestartBot");
                                                     alreadystop = true;
                                                     changefarmorder = false;
+                                                }
+                                                else if (!alreadystop && AISettings.AD_EnableChangeProfile1 && reason_stop == "boost")
+                                                {
+                                                    SendTelegram("Bot will change profile because boost limit reached");
+                                                    Alert("ChangeProfile1");
+                                                    alreadystop = true;
+                                                    changefarmorder = false;
+                                                    Sleep(5000);
+                                                    this.ChangeMode(Objective.IDLE);
+                                                }
+                                                else if (!alreadystop && AISettings.AD_EnableChangeProfile2 && reason_stop == "hottime")
+                                                {
+                                                    SendTelegram("Bot will change profile because Hot Time already end");
+                                                    Alert("ChangeProfile2");
+                                                    alreadystop = true;
+                                                    changefarmorder = false;
+                                                    Sleep(5000);
+                                                    this.ChangeMode(Objective.IDLE);
+                                                }
+                                                else if (!alreadystop && AISettings.AD_EnableChangeProfile3 && reason_stop == "limit")
+                                                {
+                                                    SendTelegram("Bot will change profile because adventure limit reached");
+                                                    Alert("ChangeProfile3");
+                                                    alreadystop = true;
+                                                    changefarmorder = false;
+                                                    Sleep(5000);
+                                                    this.ChangeMode(Objective.IDLE);
+                                                }
+                                                else if (AISettings.AR_EnableChangeProfile1 && reason_stop == "arena_limit")
+                                                {
+                                                    SendTelegram("Bot will change profile because arena limit reached");
+                                                    Alert("ARChangeProfile1");
+                                                    alreadystop = true;
+                                                    changefarmorder = false;
+                                                    Sleep(5000);
+                                                    this.ChangeMode(Objective.IDLE);
+                                                }
+                                                else if (AISettings.AR_EnableChangeProfile2 && reason_stop == "arena_score")
+                                                {
+                                                    SendTelegram("Bot will change profile because arena rank achieved");
+                                                    Alert("ARChangeProfile2");
+                                                    alreadystop = true;
+                                                    changefarmorder = false;
+                                                    Sleep(5000);
+                                                    this.ChangeMode(Objective.IDLE);
                                                 }
                                             }
                                             else if (CurrentObjective == Objective.ADVENTURE)
@@ -2397,8 +2457,9 @@ namespace SevenKnightsAI.Classes
                                             {
                                                 Hottimeactive = false;
                                                 SendTelegram("Hottime End!");
-                                                if (AISettings.AD_EnableProfile2)
+                                                if (AISettings.AD_EnableProfile2 || AISettings.AD_EnableChangeProfile2)
                                                 {
+                                                    reason_stop = "hottime";
                                                     ChangeMode(Objective.CHANGE_PROFILE);
                                                 }
                                             }

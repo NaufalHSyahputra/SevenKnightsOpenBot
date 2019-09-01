@@ -345,6 +345,27 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "AD_EnableProfile3")]
         public bool AD_EnableProfile3;
 
+        [XmlElement(ElementName = "AD_EnableChangeProfile1")]
+        public bool AD_EnableChangeProfile1;
+
+        [XmlElement(ElementName = "AD_EnableChangeProfile2")]
+        public bool AD_EnableChangeProfile2;
+
+        [XmlElement(ElementName = "AD_EnableChangeProfile3")]
+        public bool AD_EnableChangeProfile3;
+
+        [XmlElement(ElementName = "AR_EnableChangeProfile1")]
+        public bool AR_EnableChangeProfile1;
+
+        [XmlElement(ElementName = "AR_EnableChangeProfile2")]
+        public bool AR_EnableChangeProfile2;
+
+        [XmlElement(ElementName = "AR_Profile1")]
+        public string AR_Profile1;
+
+        [XmlElement(ElementName = "AR_Profile2")]
+        public string AR_Profile2;
+
         [XmlElement(ElementName = "AD_NoChangeMode")]
         public bool AD_NoChangeMode; 
 
@@ -451,6 +472,13 @@ namespace SevenKnightsAI.Classes
             AD_EnableProfile1 = false;
             AD_EnableProfile2 = false;
             AD_EnableProfile3 = false;
+            AD_EnableChangeProfile1 = false;
+            AD_EnableChangeProfile2 = false;
+            AD_EnableChangeProfile3 = false;
+            AR_EnableChangeProfile1 = false;
+            AR_EnableChangeProfile2 = false;
+            AR_Profile1 = null;
+            AR_Profile2 = null;
             AD_NoChangeMode = false;
         }
 
@@ -1127,7 +1155,49 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
+                    aISettings.AD_EnableChangeProfile1 = (bool)dictionary["AD_EnableChangeProfile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_EnableChangeProfile2 = (bool)dictionary["AD_EnableChangeProfile2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_EnableChangeProfile3 = (bool)dictionary["AD_EnableChangeProfile3"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_EnableChangeProfile1 = (bool)dictionary["AR_EnableChangeProfile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_EnableChangeProfile2 = (bool)dictionary["AR_EnableChangeProfile2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
                     aISettings.AD_NoChangeMode = (bool)dictionary["AD_NoChangeMode"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_Profile1 = (string)dictionary["AR_Profile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_Profile2 = (string)dictionary["AR_Profile2"];
                 }
                 catch (Exception)
                 { }
@@ -1582,6 +1652,34 @@ namespace SevenKnightsAI.Classes
                 {
                     "AD_EnableProfile3",
                     AD_EnableProfile3
+                },
+                {
+                    "AD_EnableChangeProfile1",
+                    AD_EnableChangeProfile1
+                },
+                {
+                    "AD_EnableChangeProfile2",
+                    AD_EnableChangeProfile2
+                },
+                {
+                    "AD_EnableChangeProfile3",
+                    AD_EnableChangeProfile3
+                },
+                {
+                    "AR_EnableChangeProfile1",
+                    AR_EnableChangeProfile1
+                },
+                {
+                    "AR_EnableChangeProfile2",
+                    AR_EnableChangeProfile2
+                },
+                {
+                    "AR_Profile1",
+                    AR_Profile1
+                },
+                {
+                    "AR_Profile2",
+                    AR_Profile2
                 },
                 {
                     "AD_NoChangeMode",

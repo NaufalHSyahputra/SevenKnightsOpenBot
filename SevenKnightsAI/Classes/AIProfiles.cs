@@ -113,6 +113,10 @@ namespace SevenKnightsAI.Classes
             {
                 CurrentKey = key;
             }
+            else
+            {
+                AutoClosingMessageBox.Show("NO KEY", "NO KEY",10000);
+            }
         }
 
         public static AIProfiles Load()
