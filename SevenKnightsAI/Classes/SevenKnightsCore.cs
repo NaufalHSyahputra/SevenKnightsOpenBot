@@ -4716,7 +4716,7 @@ namespace SevenKnightsAI.Classes
                 {
                     WeightedClick(HeroesPM.SortByBox2, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(1500);
-                    WeightedClick(HeroesPM.SortByLevel, 1.0, 1.0, 1, 0, "left");
+                    WeightedClick(HeroesPM.SortByGeneral, 1.0, 1.0, 1, 0, "left");
                 }
                 SevenKnightsCore.Sleep(1500);
                 if (!MatchMapping(HeroesPM.SortButtonAscending, 2))
