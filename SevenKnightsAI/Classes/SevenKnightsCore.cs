@@ -622,7 +622,7 @@ namespace SevenKnightsAI.Classes
 
         private bool CheckBoost()
         {
-            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureStartPM.R_Boost).ScaleByPercent(150))
+            using (Bitmap bitmap = this.CropFrame(this.BlueStacks.MainWindowAS.CurrentFrame, AdventureStartPM.R_Boost).ScaleByPercent(135))
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
@@ -650,9 +650,17 @@ namespace SevenKnightsAI.Classes
                         int.TryParse(array[0], out num3);
                         int.TryParse(array[1], out num4);
                         this.Log("Current: " + num3 + " Max: " + num4);
-                        CurrentBoost = num3;
+                        if (num3 <= 100)
+                        {
+                            CurrentBoost = num3;
+                        }
+                        else
+                        {
+                            this.Log("Bot read boost count incorrectly!");
+                        }
                         if (num3 >= 100)
                         {
+                            AISettings.AD_BootMode = false;
                             return false;
                         }
                         else
@@ -1656,10 +1664,11 @@ namespace SevenKnightsAI.Classes
                 if (dialogResult == DialogResult.OK)
                 {
                     string exePath = BlueStacks.GetExePath();
-                    BlueStacks.ResizeWindow();
                     BlueStacks.Kill();
                     SevenKnightsCore.Sleep(1000);
-                    Process.Start(exePath);
+                    BlueStacks.ResizeWindow();
+                    SevenKnightsCore.Sleep(2000);
+                    BlueStacks.LaunchEmulator();
                 }
                 return;
             }
@@ -2695,6 +2704,11 @@ namespace SevenKnightsAI.Classes
                                         case SceneType.LEVEL_UP_DIALOG:
                                             Log("Player Level Up", COLOR_LEVEL_UP);
                                             WeightedClick(LevelUpDialogPM.OkButton, 1.0, 1.0, 1, 0, "left");
+                                            SevenKnightsCore.Sleep(300);
+                                            break;
+
+                                        case SceneType.MY_INFO:
+                                            WeightedClick(LobbyPM.MyInfoClose, 1.0, 1.0, 1, 0, "left");
                                             SevenKnightsCore.Sleep(300);
                                             break;
 
@@ -3797,6 +3811,11 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.LOBBY);
                     return result;
                 }
+                if (MatchMapping(LobbyPM.MyInfo1, 2) && MatchMapping(LobbyPM.MyInfo1, 2))
+                {
+                    Scene result = new Scene(SceneType.MY_INFO);
+                    return result;
+                }
                 if ((MatchMapping(ArenaFightPM.ChatButton, 2) && MatchMapping(ArenaFightPM.PauseButton, 2) && MatchMapping(ArenaFightPM.TimeBorder, 2)) || (MatchMapping(ArenaFightPM.Point12, 2) && MatchMapping(ArenaFightPM.Point22, 2) && MatchMapping(ArenaFightPM.Point32, 2)))
                 {
                     Scene result = new Scene(SceneType.ARENA_FIGHT);
@@ -4723,6 +4742,10 @@ namespace SevenKnightsAI.Classes
                 {
                     WeightedClick(HeroesPM.SortButton, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(1000);
+                }
+                if (CheckHeroFrameStar(0) != 98)
+                {
+                    this.Escape();
                 }
                 bool powerupdone = false;
                 int herostar = 0;

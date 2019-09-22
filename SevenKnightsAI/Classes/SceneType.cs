@@ -85,6 +85,7 @@
         AHRI_CONNECTING,
         NO_MORE_RUBY_POPUP,
         NO_MORE_RUBY_OFFER,
-        TEMPORARY_STORAGE
+        TEMPORARY_STORAGE,
+        MY_INFO,
     }
 }

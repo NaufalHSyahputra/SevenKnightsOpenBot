@@ -368,17 +368,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping HeroCard1Red1 = new PixelMapping
         {
-            X = 428,
-            Y = 115,
-            Color = 15932676,
+            X = 427,
+            Y = 118,
+            Color = 15669764,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping HeroCard1Red2 = new PixelMapping
         {
-            X = 428,
-            Y = 121,
-            Color = 11672330,
+            X = 427,
+            Y = 120,
+            Color = 14290437,
             Type = MappingType.ANCHOR
         };
 

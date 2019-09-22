@@ -655,7 +655,7 @@
             this.summaryGroupBox.Controls.Add(this.adventureKeysLabel2);
             this.summaryGroupBox.Controls.Add(this.arenaCountLabel);
             this.summaryGroupBox.Controls.Add(this.adventureCountLabel);
-            this.summaryGroupBox.Location = new System.Drawing.Point(7, 507);
+            this.summaryGroupBox.Location = new System.Drawing.Point(7, 503);
             this.summaryGroupBox.Name = "summaryGroupBox";
             this.summaryGroupBox.Size = new System.Drawing.Size(342, 130);
             this.summaryGroupBox.TabIndex = 4;
@@ -672,6 +672,7 @@
             this.button8.Text = "&Export";
             this.toolTip.SetToolTip(this.button8, "Use this when you got an error. Send log file to Admin");
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Visible = false;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
             // pictureBox5
@@ -1056,10 +1057,10 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage18);
             this.tabControl1.ImageList = this.imageList1;
-            this.tabControl1.Location = new System.Drawing.Point(-4, 81);
+            this.tabControl1.Location = new System.Drawing.Point(-2, 82);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(513, 405);
+            this.tabControl1.Size = new System.Drawing.Size(513, 396);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage4
@@ -1074,7 +1075,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 23);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(505, 378);
+            this.tabPage4.Size = new System.Drawing.Size(505, 369);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Report";
             // 
@@ -1422,7 +1423,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 23);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(505, 378);
+            this.tabPage5.Size = new System.Drawing.Size(505, 369);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "Mode";
             // 
@@ -2345,7 +2346,7 @@
             this.tabControl3.Location = new System.Drawing.Point(-3, -1);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(508, 404);
+            this.tabControl3.Size = new System.Drawing.Size(508, 349);
             this.tabControl3.TabIndex = 1;
             // 
             // tabPage2
@@ -2358,7 +2359,7 @@
             this.tabPage2.Controls.Add(this.PU_enableCheckbox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(500, 378);
+            this.tabPage2.Size = new System.Drawing.Size(500, 323);
             this.tabPage2.TabIndex = 2;
             this.tabPage2.Text = "Auto Power Up";
             // 
@@ -2902,7 +2903,7 @@
             this.tabPage9.Controls.Add(this.BF_EnableCheckBox);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(500, 378);
+            this.tabPage9.Size = new System.Drawing.Size(500, 323);
             this.tabPage9.TabIndex = 4;
             this.tabPage9.Text = "Auto Bulk Fusion";
             // 
@@ -3030,7 +3031,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(500, 378);
+            this.tabPage12.Size = new System.Drawing.Size(500, 323);
             this.tabPage12.TabIndex = 6;
             this.tabPage12.Text = "Collect Inbox";
             // 
@@ -3171,7 +3172,7 @@
             this.tabPage18.ImageKey = "icon_setting.png";
             this.tabPage18.Location = new System.Drawing.Point(4, 23);
             this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Size = new System.Drawing.Size(505, 378);
+            this.tabPage18.Size = new System.Drawing.Size(505, 369);
             this.tabPage18.TabIndex = 2;
             this.tabPage18.Text = "Setting";
             // 
@@ -3183,7 +3184,7 @@
             this.tabControl6.Location = new System.Drawing.Point(-3, 0);
             this.tabControl6.Name = "tabControl6";
             this.tabControl6.SelectedIndex = 0;
-            this.tabControl6.Size = new System.Drawing.Size(508, 433);
+            this.tabControl6.Size = new System.Drawing.Size(508, 378);
             this.tabControl6.TabIndex = 0;
             // 
             // tabPage19
@@ -3193,7 +3194,7 @@
             this.tabPage19.Location = new System.Drawing.Point(4, 22);
             this.tabPage19.Name = "tabPage19";
             this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage19.Size = new System.Drawing.Size(500, 407);
+            this.tabPage19.Size = new System.Drawing.Size(500, 352);
             this.tabPage19.TabIndex = 0;
             this.tabPage19.Text = "Option";
             // 
@@ -3306,7 +3307,7 @@
             this.tabPage20.Controls.Add(this.groupBox39);
             this.tabPage20.Location = new System.Drawing.Point(4, 22);
             this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Size = new System.Drawing.Size(500, 407);
+            this.tabPage20.Size = new System.Drawing.Size(500, 352);
             this.tabPage20.TabIndex = 2;
             this.tabPage20.Text = "Profile";
             // 
@@ -3332,7 +3333,7 @@
             this.tabPage21.Location = new System.Drawing.Point(4, 22);
             this.tabPage21.Name = "tabPage21";
             this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(500, 407);
+            this.tabPage21.Size = new System.Drawing.Size(500, 352);
             this.tabPage21.TabIndex = 1;
             this.tabPage21.Text = "Remote Bot";
             // 
@@ -3378,7 +3379,7 @@
             this.groupBox2.Controls.Add(this.screenshotButton);
             this.groupBox2.Controls.Add(this.aiButton);
             this.groupBox2.Controls.Add(this.aiPause);
-            this.groupBox2.Location = new System.Drawing.Point(355, 507);
+            this.groupBox2.Location = new System.Drawing.Point(355, 503);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(154, 130);
             this.groupBox2.TabIndex = 15;
@@ -3414,7 +3415,7 @@
             this.resourcesTableLayoutPanel.Controls.Add(this.honorLabel2, 6, 0);
             this.resourcesTableLayoutPanel.Controls.Add(this.rubyLabel2, 4, 0);
             this.resourcesTableLayoutPanel.Controls.Add(this.goldLabel2, 2, 0);
-            this.resourcesTableLayoutPanel.Location = new System.Drawing.Point(3, 480);
+            this.resourcesTableLayoutPanel.Location = new System.Drawing.Point(3, 478);
             this.resourcesTableLayoutPanel.Name = "resourcesTableLayoutPanel";
             this.resourcesTableLayoutPanel.RowCount = 1;
             this.resourcesTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -3452,7 +3453,7 @@
             this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.thrud_banner;
             this.topheaderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.topheaderPictureBox.Name = "topheaderPictureBox";
-            this.topheaderPictureBox.Size = new System.Drawing.Size(508, 85);
+            this.topheaderPictureBox.Size = new System.Drawing.Size(508, 86);
             this.topheaderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;

@@ -152,10 +152,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_Boost = new Rectangle
         {
-            X = 709,
-            Y = 433,
-            Width = 85,
-            Height = 24
+            X = 719,
+            Y = 434,
+            Width = 80,
+            Height = 25
         };
 
 
