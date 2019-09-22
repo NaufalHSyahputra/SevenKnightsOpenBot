@@ -64,9 +64,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping AutoRepeatButton = new PixelMapping
         {
-            X = 447,
-            Y = 426,
+            X = 448,
+            Y = 425,
             Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping AutoRepeatSettingButton = new PixelMapping
+        {
+            X = 343,
+            Y = 491,
+            Color = 4479108,
             Type = MappingType.BUTTON
         };
 
@@ -144,10 +152,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle R_Boost = new Rectangle
         {
-            X = 709,
-            Y = 433,
-            Width = 85,
-            Height = 24
+            X = 719,
+            Y = 434,
+            Width = 80,
+            Height = 25
         };
 
 

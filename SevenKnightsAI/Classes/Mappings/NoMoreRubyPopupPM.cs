@@ -4,9 +4,9 @@
     {
         public static readonly PixelMapping DimmedBGEnd = new PixelMapping
         {
-            X = 710,
-            Y = 159,
-            Color = 4671045,
+            X = 784,
+            Y = 397,
+            Color = 2634047,
             Type = MappingType.ANCHOR
         };
 
@@ -20,17 +20,17 @@
 
         public static readonly PixelMapping PopupBorderLeft = new PixelMapping
         {
-            X = 455,
-            Y = 130,
-            Color = 11187913,
+            X = 349,
+            Y = 272,
+            Color = 15066597,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping PopupBorderRight = new PixelMapping
         {
-            X = 541,
-            Y = 266,
-            Color = 14540254,
+            X = 602,
+            Y = 272,
+            Color = 15000804,
             Type = MappingType.ANCHOR
         };
 

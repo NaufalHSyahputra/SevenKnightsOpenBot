@@ -98,6 +98,30 @@ namespace SevenKnightsAI.Classes.Mappings
             Type = MappingType.ANCHOR
         };
 
+        public static readonly PixelMapping MyInfo1 = new PixelMapping //Chest
+        {
+            X = 130,
+            Y = 20,
+            Color = 15066597,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping MyInfo2 = new PixelMapping //Chest
+        {
+            X = 933,
+            Y = 42,
+            Color = 7830161,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping MyInfoClose = new PixelMapping //Chest
+        {
+            X = 233,
+            Y = 23,
+            Color = 16777215,
+            Type = MappingType.BOTH
+        };
+
         public static readonly PixelMapping QuestAvailable = new PixelMapping
         {
             X = 76,

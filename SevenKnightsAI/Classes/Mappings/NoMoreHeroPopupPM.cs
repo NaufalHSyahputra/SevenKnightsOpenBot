@@ -5,8 +5,8 @@
         public static readonly PixelMapping DimmedBG = new PixelMapping
         {
             X = 450,
-            Y = 61,
-            Color = 3816509,
+            Y = 58,
+            Color = 3553338,
             Type = MappingType.ANCHOR
         };
 

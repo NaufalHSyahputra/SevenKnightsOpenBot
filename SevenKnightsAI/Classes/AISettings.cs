@@ -42,6 +42,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "AD_Stage")]
         public int AD_Stage;
 
+        [XmlElement(ElementName = "AD_FarmOrder")]
+        public int AD_FarmOrder;
+
         [XmlElement(ElementName = "AD_StageSequence")]
         public int[] AD_StageSequence;
 
@@ -309,6 +312,9 @@ namespace SevenKnightsAI.Classes
         [XmlElement(ElementName = "BF_OnlyLv30")]
         public bool BF_OnlyLv30;
 
+        [XmlElement(ElementName = "BF_StopMileage")]
+        public bool BF_StopMileage;
+
         [XmlElement(ElementName = "BF_Rank")]
         public int BF_Rank;
 
@@ -338,6 +344,27 @@ namespace SevenKnightsAI.Classes
 
         [XmlElement(ElementName = "AD_EnableProfile3")]
         public bool AD_EnableProfile3;
+
+        [XmlElement(ElementName = "AD_EnableChangeProfile1")]
+        public bool AD_EnableChangeProfile1;
+
+        [XmlElement(ElementName = "AD_EnableChangeProfile2")]
+        public bool AD_EnableChangeProfile2;
+
+        [XmlElement(ElementName = "AD_EnableChangeProfile3")]
+        public bool AD_EnableChangeProfile3;
+
+        [XmlElement(ElementName = "AR_EnableChangeProfile1")]
+        public bool AR_EnableChangeProfile1;
+
+        [XmlElement(ElementName = "AR_EnableChangeProfile2")]
+        public bool AR_EnableChangeProfile2;
+
+        [XmlElement(ElementName = "AR_Profile1")]
+        public string AR_Profile1;
+
+        [XmlElement(ElementName = "AR_Profile2")]
+        public string AR_Profile2;
 
         [XmlElement(ElementName = "AD_NoChangeMode")]
         public bool AD_NoChangeMode; 
@@ -373,6 +400,7 @@ namespace SevenKnightsAI.Classes
             BF_EnableActivate1 = false;
             BF_EnableActivate2 = false;
             BF_OnlyLv30 = false;
+            BF_StopMileage = false;
             BF_Rank = 1;
             BF_Active2 = 1;
             PU_1Material = 1;
@@ -387,6 +415,7 @@ namespace SevenKnightsAI.Classes
             AD_EnableLimit = false;
             AD_Limit = 0;
             AD_Stage = 0;
+            AD_FarmOrder = 0;
             AD_Continuous = false;
             AD_StopOnFullHeroes = false;
             AD_StopOnFullItems = true;
@@ -443,6 +472,13 @@ namespace SevenKnightsAI.Classes
             AD_EnableProfile1 = false;
             AD_EnableProfile2 = false;
             AD_EnableProfile3 = false;
+            AD_EnableChangeProfile1 = false;
+            AD_EnableChangeProfile2 = false;
+            AD_EnableChangeProfile3 = false;
+            AR_EnableChangeProfile1 = false;
+            AR_EnableChangeProfile2 = false;
+            AR_Profile1 = null;
+            AR_Profile2 = null;
             AD_NoChangeMode = false;
         }
 
@@ -597,6 +633,12 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
+                    aISettings.BF_StopMileage = (bool)dictionary["BF_StopMileage"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
                     aISettings.PU_Active1 = Convert.ToInt32(dictionary["PU_Active1"]);
                 }
                 catch (Exception)
@@ -736,6 +778,12 @@ namespace SevenKnightsAI.Classes
                 try
                 {
                     aISettings.AD_Stage = Convert.ToInt32(dictionary["AD_Stage"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_FarmOrder = Convert.ToInt32(dictionary["AD_FarmOrder"]);
                 }
                 catch (Exception)
                 { }
@@ -1107,7 +1155,49 @@ namespace SevenKnightsAI.Classes
                 { }
                 try
                 {
+                    aISettings.AD_EnableChangeProfile1 = (bool)dictionary["AD_EnableChangeProfile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_EnableChangeProfile2 = (bool)dictionary["AD_EnableChangeProfile2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AD_EnableChangeProfile3 = (bool)dictionary["AD_EnableChangeProfile3"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_EnableChangeProfile1 = (bool)dictionary["AR_EnableChangeProfile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_EnableChangeProfile2 = (bool)dictionary["AR_EnableChangeProfile2"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
                     aISettings.AD_NoChangeMode = (bool)dictionary["AD_NoChangeMode"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_Profile1 = (string)dictionary["AR_Profile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.AR_Profile2 = (string)dictionary["AR_Profile2"];
                 }
                 catch (Exception)
                 { }
@@ -1257,6 +1347,10 @@ namespace SevenKnightsAI.Classes
                     BF_OnlyLv30
                 },
                 {
+                    "BF_StopMileage",
+                    BF_StopMileage
+                },
+                {
                     "BF_Rank",
                     BF_Rank
                 },
@@ -1303,6 +1397,10 @@ namespace SevenKnightsAI.Classes
                 {
                     "AD_Stage",
                     AD_Stage
+                },
+                {
+                    "AD_FarmOrder",
+                    AD_FarmOrder
                 },
                 {
                     "AD_WorldSequence",
@@ -1554,6 +1652,34 @@ namespace SevenKnightsAI.Classes
                 {
                     "AD_EnableProfile3",
                     AD_EnableProfile3
+                },
+                {
+                    "AD_EnableChangeProfile1",
+                    AD_EnableChangeProfile1
+                },
+                {
+                    "AD_EnableChangeProfile2",
+                    AD_EnableChangeProfile2
+                },
+                {
+                    "AD_EnableChangeProfile3",
+                    AD_EnableChangeProfile3
+                },
+                {
+                    "AR_EnableChangeProfile1",
+                    AR_EnableChangeProfile1
+                },
+                {
+                    "AR_EnableChangeProfile2",
+                    AR_EnableChangeProfile2
+                },
+                {
+                    "AR_Profile1",
+                    AR_Profile1
+                },
+                {
+                    "AR_Profile2",
+                    AR_Profile2
                 },
                 {
                     "AD_NoChangeMode",

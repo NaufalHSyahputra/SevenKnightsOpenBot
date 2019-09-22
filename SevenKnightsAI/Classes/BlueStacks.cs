@@ -213,7 +213,7 @@ namespace SevenKnightsAI.Classes
 
         public void Kill()
         {
-            LDConsole("quit --name LDPlayer");
+            LDConsole("quitall");
         }
 
         public void LaunchGame()
@@ -258,7 +258,7 @@ namespace SevenKnightsAI.Classes
         public void ResizeWindow()
         {
             Kill();
-            Thread.Sleep(1500);
+            Thread.Sleep(2000);
             LDConsole("modify --name LDPlayer --resolution 960,540,160");
             Thread.Sleep(1000);
             LaunchEmulator();
