@@ -1558,7 +1558,7 @@ namespace SevenKnightsAI.Classes
                     }
                     if (!IsAlreadyAdvEnd)
                     {
-                        Sleep(1750);
+                        Sleep(1500);
                         EndAutoRepeat();
                     }
                     else
@@ -1586,7 +1586,7 @@ namespace SevenKnightsAI.Classes
                     }
                     if (!IsAlreadyAdvEnd)
                     {
-                        Sleep(2750);
+                        Sleep(1500);
                         EndAutoRepeat();
                     }
                     else
@@ -1622,7 +1622,7 @@ namespace SevenKnightsAI.Classes
                     }
                     if (!IsAlreadyAdvEnd)
                     {
-                        Sleep(6500);
+                        Sleep(2500);
                         EndAutoRepeat();
                     }
                     else
@@ -5463,8 +5463,8 @@ namespace SevenKnightsAI.Classes
                         ReportResources(ResourceType.SOUL);
                         //Log(string.Format("Soul: {0}/{1} String: {2}", curShard, maxShard, text.Trim()));
 #if DEBUG
-                        this.Log(string.Format("HC: {0}/{1} String: {2}", curHero, maxHero, text.Trim()));
-                        bitmap.Save(string.Format("H_{0} of {1}.png", curHero, maxHero));
+                        this.Log(string.Format("HC: {0}/{1} String: {2}", curShard, maxShard, text.Trim()));
+                        bitmap.Save(string.Format("H_{0} of {1}.png", curShard, maxShard));
 #endif
                     }
                 }
