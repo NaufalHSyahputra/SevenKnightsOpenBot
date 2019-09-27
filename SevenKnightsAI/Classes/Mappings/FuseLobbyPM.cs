@@ -32,30 +32,30 @@
         };
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 133,
-            Y = 97,
-            Color = 13094354,
+            X = 131,
+            Y = 98,
+            Color = 12174797,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point2 = new PixelMapping
         {
             X = 341,
-            Y = 178,
-            Color = 12305870,
+            Y = 419,
+            Color = 12174797,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point3 = new PixelMapping
         {
-            X = 64,
-            Y = 486,
-            Color = 15578197,
+            X = 72,
+            Y = 489,
+            Color = 13867856,
             Type = MappingType.ANCHOR
         };
-        public static readonly PixelMapping Point4 = new PixelMapping //super power up title
+        public static readonly PixelMapping Point4 = new PixelMapping
         {
-            X = 861,
-            Y = 131,
-            Color = 2588,
+            X = 338,
+            Y = 490,
+            Color = 15847834,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping OnlyLvl30Off = new PixelMapping

@@ -26,6 +26,22 @@
             Type = MappingType.ANCHOR
         };
 
+        public static readonly PixelMapping DimPopupBorder1 = new PixelMapping
+        {
+            X = 316,
+            Y = 177,
+            Color = 3419425,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping DimPopupBorder2 = new PixelMapping
+        {
+            X = 762,
+            Y = 176,
+            Color = 2827805,
+            Type = MappingType.ANCHOR
+        };
+
         public static readonly PixelMapping AutoReplaceOn = new PixelMapping
         {
             X = 146,

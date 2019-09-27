@@ -3908,7 +3908,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.ADVENTURE_READY);
                     return result;
                 }
-                if (MatchMapping(AutoRepeatSettingPM.PopupBorder1, 2) && MatchMapping(AutoRepeatSettingPM.PopupBorder2, 2))
+                if ((MatchMapping(AutoRepeatSettingPM.PopupBorder1, 2) && MatchMapping(AutoRepeatSettingPM.PopupBorder2, 2)) || (MatchMapping(AutoRepeatSettingPM.DimPopupBorder1, 2) && MatchMapping(AutoRepeatSettingPM.DimPopupBorder2, 2)))
                 {
                     Scene result = new Scene(SceneType.AUTO_REPEAT_SETTING);
                     return result;
@@ -4607,17 +4607,17 @@ namespace SevenKnightsAI.Classes
             while (num3 < 100 && !Worker.CancellationPending)
             {
                 CaptureFrame();
-                if (ExpectingScene(SceneType.FUSE_SUCCESS, 3, 500))
+                if (ExpectingScene(SceneType.FUSE_SUCCESS, 2, 500))
                 {
                     this.Escape();
                 }
-                else if (ExpectingScene(SceneType.LOBBY, 3, 500))
+                else if (ExpectingScene(SceneType.LOBBY, 2, 500))
                 {
                     this.WeightedClick(LobbyPM.HeroButton, 1.0, 1.0, 1, 0, "left");
                 }
                 else
                 {
-                    if (ExpectingScene(SceneType.HEROES, 15, 1000))
+                    if (ExpectingScene(SceneType.HEROES, 3, 500))
                     {
                         if (fusedone)
                         {
@@ -4627,7 +4627,7 @@ namespace SevenKnightsAI.Classes
                         {
                             SevenKnightsCore.Sleep(500);
                             WeightedClick(HeroesPM.BulkFuseBtn, 1.0, 1.0, 1, 0, "left");
-                            if (ExpectingScene(SceneType.FUSE_LOBBY, 15, 1000))
+                            if (ExpectingScene(SceneType.FUSE_LOBBY, 3, 500))
                             {
                                 CaptureFrame();
                                 if ((MatchMapping(FuseLobbyPM.OnlyLvl30Off, 2) || !MatchMapping(FuseLobbyPM.OnlyLvl30On, 2)) && AISettings.BF_OnlyLv30)
@@ -4642,7 +4642,7 @@ namespace SevenKnightsAI.Classes
                                 {
                                     Log("Found Hero to Fuse", COLOR_FUSE);
                                     WeightedClick(FuseLobbyPM.FuseBtn, 1.0, 1.0, 1, 0, "left");
-                                    if (ExpectingScene(SceneType.FUSE_CONFIRM, 15, 1000))
+                                    if (ExpectingScene(SceneType.FUSE_CONFIRM, 6, 500))
                                     {
                                         Sleep(1000);
                                         WeightedClick(FuseConfirmPM.OKbtn, 1.0, 1.0, 1, 0, "left");
@@ -4653,7 +4653,7 @@ namespace SevenKnightsAI.Classes
                                         num3++;
                                         fusedone = true;
                                     }
-                                    else if (ExpectingScene(SceneType.FUSE_MILEAGE_FULL_POPUP, 10, 500))
+                                    else if (ExpectingScene(SceneType.FUSE_MILEAGE_FULL_POPUP, 5, 500))
                                     {
                                         if (AISettings.BF_StopMileage)
                                         {
@@ -4670,9 +4670,9 @@ namespace SevenKnightsAI.Classes
                                             SendTelegram("[Bulk Fusion] Fuse Mileage Points is full");
                                             Sleep(1000);
                                             this.WeightedClick(FuseFullMileagePopupPM.OKbtn, 1.0, 1.0, 1, 0, "left");
-                                            SevenKnightsCore.Sleep(7000);
+                                            SevenKnightsCore.Sleep(6500);
                                             this.Escape();
-                                            SevenKnightsCore.Sleep(2000);
+                                            SevenKnightsCore.Sleep(500);
                                             Log("Fuse Success", COLOR_FUSE);
                                             num3++;
                                             fusedone = true;
@@ -4730,14 +4730,14 @@ namespace SevenKnightsAI.Classes
                     SevenKnightsCore.Sleep(1500);
                     WeightedClick(HeroesPM.SortByNormal, 1.0, 1.0, 1, 0, "left");
                 }
-                SevenKnightsCore.Sleep(2500);
+                SevenKnightsCore.Sleep(1000);
                 if (!MatchMapping(HeroesPM.SortByBoxExpanded2, 2))
                 {
                     WeightedClick(HeroesPM.SortByBox2, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(1500);
                     WeightedClick(HeroesPM.SortByGeneral, 1.0, 1.0, 1, 0, "left");
                 }
-                SevenKnightsCore.Sleep(1500);
+                SevenKnightsCore.Sleep(1000);
                 if (!MatchMapping(HeroesPM.SortButtonAscending, 2))
                 {
                     WeightedClick(HeroesPM.SortButton, 1.0, 1.0, 1, 0, "left");
@@ -4761,7 +4761,7 @@ namespace SevenKnightsAI.Classes
                 int powerupsuccess = 0;
                 while (num3 < 1000 && !Worker.CancellationPending)
                 {
-                    if (ExpectingScene(SceneType.HEROES, 15, 1000))
+                    if (ExpectingScene(SceneType.HEROES, 5, 500))
                     {
                         if (powerupdone)
                         {
@@ -4786,6 +4786,13 @@ namespace SevenKnightsAI.Classes
                             else if (searchStar == 98)
                             {
                                 Log("Joined hero, skip.", COLOR_POWER_UP);
+                                heroclicked++;
+                                num3++;
+                                continue;
+                            }
+                            else if (searchStar == 97)
+                            {
+                                Log("Hero already +5, skip.", COLOR_POWER_UP);
                                 heroclicked++;
                                 num3++;
                                 continue;
@@ -4847,7 +4854,7 @@ namespace SevenKnightsAI.Classes
                                             SceneType.HERO_JOIN,
                                             SceneType.HERO_REMOVE
                                         };
-                                        if (ExpectingScenes(list, 15, 1000))
+                                        if (ExpectingScenes(list, 5, 500))
                                         {
                                             CaptureFrame();
                                             if (!MatchMapping(SharedPM.Hero_RankUpButton, 3) && MatchMapping(SharedPM.Hero_PowerUpButton))
@@ -4857,7 +4864,7 @@ namespace SevenKnightsAI.Classes
                                                 {
                                                     Sleep(500);
                                                     WeightedClick(SharedPM.Hero_PowerUpButton, 1.0, 1.0, 1, 0, "left");
-                                                    if (ExpectingScene(SceneType.POWER_UP_LOBBY, 15, 1000))
+                                                    if (ExpectingScene(SceneType.POWER_UP_LOBBY, 5, 500))
                                                     {
                                                         CaptureFrame();
                                                         if (MatchMapping(PowerUpLobbyPM.OnlyLevel30Off, 2) && onlylv30material == 1)
@@ -4946,11 +4953,11 @@ namespace SevenKnightsAI.Classes
                                                                 Sleep(500);
                                                                 WeightedClick(PowerUpLobbyPM.PowerUpStartBtn, 1.0, 1.0, 1, 0, "left");
                                                                 Sleep(500);
-                                                                if (ExpectingScene(SceneType.POWER_UP_CONFIRM, 15, 1000))
+                                                                if (ExpectingScene(SceneType.POWER_UP_CONFIRM, 5, 500))
                                                                 {
                                                                     WeightedClick(PowerUpConfirmPM.OKbtn, 1.0, 1.0, 1, 0, "left");
                                                                     Sleep(2700);
-                                                                    if (ExpectingScene(SceneType.POWER_UP_SUCCESS, 15, 1000))
+                                                                    if (ExpectingScene(SceneType.POWER_UP_SUCCESS, 5, 500))
                                                                     {
                                                                         Log("Powering up hero success", COLOR_POWER_UP);
                                                                         WeightedClick(PowerUpSuccessPM.TapArea, 1.0, 1.0, 1, 0, "left");
@@ -5304,6 +5311,8 @@ namespace SevenKnightsAI.Classes
             };
             string lockPath = "img/lock.png";
             string joinedPath = "img/joined.png";
+            string plus = "img/plus.png";
+            string five = "img/5.png";
             Bitmap bitmap = CropFrame(CaptureFrame(), heroFrame[hero]);
             bitmap.Save(@"heroFrame.png");
             if (ImageSearch.SearchBool(lockPath, @"heroFrame.png", 0.8))
@@ -5313,6 +5322,10 @@ namespace SevenKnightsAI.Classes
             else if (ImageSearch.SearchBool(joinedPath, @"heroFrame.png", 0.8))
             {
                 return 98; //Joined hero
+            }
+            else if (ImageSearch.SearchBool(five, @"heroFrame.png", 0.8))
+            {
+                return 97; //+5 hero
             }
             else
             {
