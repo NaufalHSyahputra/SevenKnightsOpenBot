@@ -5323,7 +5323,7 @@ namespace SevenKnightsAI.Classes
             {
                 return 98; //Joined hero
             }
-            else if (ImageSearch.SearchBool(five, @"heroFrame.png", 0.8))
+            else if (ImageSearch.SearchBool(five, @"heroFrame.png", 0.7))
             {
                 return 97; //+5 hero
             }

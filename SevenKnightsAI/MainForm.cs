@@ -1148,6 +1148,10 @@ namespace SevenKnightsAI
             this.AD_NoChangeModeCheckBox.Checked = this.AISettings.AD_NoChangeMode;
             this.ST_EnableTelegramMsg1CheckBox.Checked = this.AIProfiles.ST_EnableTelegramMsg1;
             this.AD_FarmOrderComboBox.SelectedIndex = this.AISettings.AD_FarmOrder;
+            /*Change Profile*/
+            this.AD_ChangeProfile1CheckBox.Checked = this.AISettings.AD_EnableChangeProfile1;
+            this.AD_ChangeProfile2CheckBox.Checked = this.AISettings.AD_EnableChangeProfile2;
+            this.AD_ChangeProfile3CheckBox.Checked = this.AISettings.AD_EnableChangeProfile3;
         }
 
         private void InitArenaTab()
@@ -1629,7 +1633,7 @@ namespace SevenKnightsAI
             }
             ProfileComboBoxItem profileComboBoxItem = comboBox.SelectedItem as ProfileComboBoxItem;
             this.AIProfiles.ChangeProfile(profileComboBoxItem.Key);
-            this.ReloadTabs(false);
+            this.ReloadTabs(true);
         }
 
         private void ST_delayTrackBar_ValueChanged(object sender, EventArgs e)

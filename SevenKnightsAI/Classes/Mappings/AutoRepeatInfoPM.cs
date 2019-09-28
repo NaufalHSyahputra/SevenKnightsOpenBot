@@ -60,10 +60,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle Soul = new Rectangle
         {
-            X = 548,
-            Y = 241,
-            Width = 120,
-            Height = 30
+            X = 549,
+            Y = 244,
+            Width = 123,
+            Height = 23
         };
     }
 }

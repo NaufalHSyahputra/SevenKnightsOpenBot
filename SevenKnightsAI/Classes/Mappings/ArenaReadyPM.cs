@@ -56,10 +56,10 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly Rectangle ArenaScore = new Rectangle
         {
-            X = 618,
-            Y = 144,
-            Width = 64,
-            Height = 25
+            X = 620,
+            Y = 145,
+            Width = 61,
+            Height = 21
         };
 
         #endregion Public Fields
