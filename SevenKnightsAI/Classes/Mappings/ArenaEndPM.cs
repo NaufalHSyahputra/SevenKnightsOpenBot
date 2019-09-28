@@ -6,33 +6,33 @@ namespace SevenKnightsAI.Classes.Mappings
     {
         public static readonly PixelMapping ArenaButton = new PixelMapping
         {
-            X = 918,
-            Y = 249,
-            Color = 14672096,
+            X = 888,
+            Y = 256,
+            Color = 15658735,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping GetStrongerButton = new PixelMapping
         {
-            X = 903,
-            Y = 56,
-            Color = 15461097,
+            X = 900,
+            Y = 55,
+            Color = 6116684,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping LobbyButton = new PixelMapping
         {
-            X = 903,
-            Y = 328,
-            Color = 14013911,
+            X = 902,
+            Y = 339,
+            Color = 0,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping LobbyLoseButton = new PixelMapping
         {
-            X = 885,
-            Y = 426,
-            Color = 13553362,
+            X = 907,
+            Y = 424,
+            Color = 6382188,
             Type = MappingType.BOTH
         };
 
@@ -46,25 +46,25 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping QuickStartButton = new PixelMapping
         {
-            X = 917,
-            Y = 55,
-            Color = 13685460,
+            X = 900,
+            Y = 44,
+            Color = 8683398,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping ArenaLoseButton = new PixelMapping
         {
-            X = 896,
-            Y = 357,
-            Color = 16250872,
+            X = 887,
+            Y = 349,
+            Color = 15198184,
             Type = MappingType.BOTH
         };
 
         public static readonly PixelMapping QuickStartLoseButton = new PixelMapping
         {
-            X = 917,
-            Y = 161,
-            Color = 15329769,
+            X = 902,
+            Y = 135,
+            Color = 15921905,
             Type = MappingType.BOTH
         };
 

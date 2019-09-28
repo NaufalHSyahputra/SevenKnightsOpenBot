@@ -8,49 +8,49 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping CombatTeamBorderLeft = new PixelMapping //First "A" in "ARENA"
         {
-            X = 127,
-            Y = 78,
-            Color = 7036750,
+            X = 69,
+            Y = 485,
+            Color = 12500929,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ArenaLoopOn = new PixelMapping //First "A" in "ARENA"
         {
-            X = 356,
-            Y = 438,
-            Color = 4572671,
+            X = 358,
+            Y = 441,
+            Color = 2729964,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping ArenaLoop = new PixelMapping //First "A" in "ARENA"
         {
-            X = 356,
-            Y = 438,
+            X = 358,
+            Y = 441,
             Color = 0,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping ArenaLoopOff = new PixelMapping //First "A" in "ARENA"
         {
-            X = 356,
-            Y = 437,
+            X = 358,
+            Y = 441,
             Color = 0,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping FormationBorderLeft = new PixelMapping
         {
-            X = 586,
-            Y = 488,
-            Color = 16113323,
+            X = 298,
+            Y = 493,
+            Color = 266018,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping CombatTeamBorderRight = new PixelMapping //Mastery Button
         {
-            X = 64,
-            Y = 486,
-            Color = 12764357,
+            X = 722,
+            Y = 483,
+            Color = 12786986,
             Type = MappingType.ANCHOR
         };
 
