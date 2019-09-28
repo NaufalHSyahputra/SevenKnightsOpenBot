@@ -8,13 +8,13 @@ using System.Runtime.Versioning;
 using System.Security;
 using System.Security.Permissions;
 
-[assembly: AssemblyVersion("2.5.1")]
+[assembly: AssemblyVersion("2.6")]
 [assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
 [assembly: AssemblyCompany("NHS")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCopyright("NHS")]
 [assembly: AssemblyDescription("Seven Knights AI Black")]
-[assembly: AssemblyFileVersion("2.5.1")]
+[assembly: AssemblyFileVersion("2.6")]
 [assembly: AssemblyProduct("Seven Knights AI Black")]
 [assembly: AssemblyTitle("Seven Knights AI Black")]
 [assembly: AssemblyTrademark("NHS")]
