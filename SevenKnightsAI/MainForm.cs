@@ -1224,6 +1224,11 @@ namespace SevenKnightsAI
         private void InitSettingsTab()
         {
             this.ST_RefreshProfiles();
+            this.ST_RefreshAD1CProfiles();
+            this.ST_RefreshAD2CProfiles();
+            this.ST_RefreshAD3CProfiles();
+            this.ST_RefreshAR1CProfiles();
+            this.ST_RefreshAR2CProfiles();
             this.ST_delayTrackBar.Value = this.AIProfiles.ST_Delay;
             this.ST_reconnectInterruptCheckBox.Checked = this.AIProfiles.ST_ReconnectInterruptEnable;
             this.ST_reconnectNumericUpDown.Value = this.AIProfiles.ST_ReconnectInterruptInterval;
@@ -1431,6 +1436,11 @@ namespace SevenKnightsAI
 
         }
 
+        private void ReloadChangeProfile()
+        { 
+
+        }
+
         private void ResumeAI()
         {
             this.AIProfiles.TMP_Paused = false;
@@ -1633,7 +1643,12 @@ namespace SevenKnightsAI
             }
             ProfileComboBoxItem profileComboBoxItem = comboBox.SelectedItem as ProfileComboBoxItem;
             this.AIProfiles.ChangeProfile(profileComboBoxItem.Key);
-            this.ReloadTabs(true);
+            this.ReloadTabs(false);
+            this.ST_RefreshAD1CProfiles();
+            this.ST_RefreshAD2CProfiles();
+            this.ST_RefreshAD3CProfiles();
+            this.ST_RefreshAR1CProfiles();
+            this.ST_RefreshAR2CProfiles();
         }
 
         private void ST_delayTrackBar_ValueChanged(object sender, EventArgs e)
@@ -1752,49 +1767,99 @@ namespace SevenKnightsAI
             int num = 0;
             this.ST_currentProfileComboBox.Items.Clear();
             this.ST_currentProfile2ComboBox.Items.Clear();
-            this.AD_ChangeProfile1ComboBox.Items.Clear();
-            this.AD_ChangeProfile2ComboBox.Items.Clear();
-            this.AD_ChangeProfile3ComboBox.Items.Clear();
-            this.AR_ChangeProfile1ComboBox.Items.Clear();
-            this.AR_ChangeProfile2ComboBox.Items.Clear();
             foreach (KeyValuePair<string, AISettings> current in this.AIProfiles.Settings)
             {
                 ProfileComboBoxItem item = new ProfileComboBoxItem(current);
                 this.ST_currentProfileComboBox.Items.Add(item);
                 this.ST_currentProfile2ComboBox.Items.Add(item);
-                this.AD_ChangeProfile1ComboBox.Items.Add(item);
-                this.AD_ChangeProfile2ComboBox.Items.Add(item);
-                this.AD_ChangeProfile3ComboBox.Items.Add(item);
-                this.AR_ChangeProfile1ComboBox.Items.Add(item);
-                this.AR_ChangeProfile2ComboBox.Items.Add(item);
                 if (current.Key == this.AIProfiles.CurrentKey)
                 {
                     this.ST_currentProfileComboBox.SelectedIndex = num;
                     this.ST_currentProfile2ComboBox.SelectedIndex = num;
                 }
+                num++;
+            }
+            this.groupBox2.Text = this.ST_currentProfileComboBox.Text;
+        }
+
+        private void ST_RefreshAD1CProfiles()
+        {
+            int num = 0;
+            this.AD_ChangeProfile1ComboBox.Items.Clear();
+            foreach (KeyValuePair<string, AISettings> current in this.AIProfiles.Settings)
+            {
+                ProfileComboBoxItem item = new ProfileComboBoxItem(current);
+                this.AD_ChangeProfile1ComboBox.Items.Add(item);
                 if (current.Key == this.AISettings.AD_Profile1)
                 {
                     this.AD_ChangeProfile1ComboBox.SelectedIndex = num;
                 }
+                num++;
+            }
+        }
+
+        private void ST_RefreshAD2CProfiles()
+        {
+            int num = 0;
+            this.AD_ChangeProfile2ComboBox.Items.Clear();
+            foreach (KeyValuePair<string, AISettings> current in this.AIProfiles.Settings)
+            {
+                ProfileComboBoxItem item = new ProfileComboBoxItem(current);
+                this.AD_ChangeProfile2ComboBox.Items.Add(item);
                 if (current.Key == this.AISettings.AD_Profile2)
                 {
                     this.AD_ChangeProfile2ComboBox.SelectedIndex = num;
                 }
+                num++;
+            }
+        }
+
+        private void ST_RefreshAD3CProfiles()
+        {
+            int num = 0;
+            this.AD_ChangeProfile3ComboBox.Items.Clear();
+            foreach (KeyValuePair<string, AISettings> current in this.AIProfiles.Settings)
+            {
+                ProfileComboBoxItem item = new ProfileComboBoxItem(current);
+                this.AD_ChangeProfile3ComboBox.Items.Add(item);
                 if (current.Key == this.AISettings.AD_Profile3)
                 {
                     this.AD_ChangeProfile3ComboBox.SelectedIndex = num;
                 }
+                num++;
+            }
+        }
+
+        private void ST_RefreshAR1CProfiles()
+        {
+            int num = 0;
+            this.AR_ChangeProfile1ComboBox.Items.Clear();
+            foreach (KeyValuePair<string, AISettings> current in this.AIProfiles.Settings)
+            {
+                ProfileComboBoxItem item = new ProfileComboBoxItem(current);
+                this.AR_ChangeProfile1ComboBox.Items.Add(item);
                 if (current.Key == this.AISettings.AR_Profile1)
                 {
                     this.AR_ChangeProfile1ComboBox.SelectedIndex = num;
                 }
+                num++;
+            }
+        }
+
+        private void ST_RefreshAR2CProfiles()
+        {
+            int num = 0;
+            this.AR_ChangeProfile2ComboBox.Items.Clear();
+            foreach (KeyValuePair<string, AISettings> current in this.AIProfiles.Settings)
+            {
+                ProfileComboBoxItem item = new ProfileComboBoxItem(current);
+                this.AR_ChangeProfile2ComboBox.Items.Add(item);
                 if (current.Key == this.AISettings.AR_Profile2)
                 {
                     this.AR_ChangeProfile2ComboBox.SelectedIndex = num;
                 }
                 num++;
             }
-            this.groupBox2.Text = this.ST_currentProfileComboBox.Text;
         }
 
         private void StartAI()
