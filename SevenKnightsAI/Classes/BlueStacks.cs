@@ -88,6 +88,11 @@ namespace SevenKnightsAI.Classes
             return Adb("version").Contains("Android Debug Bridge");
         }
 
+        public void EscapeAdb()
+        {
+            Adb("shell input keyevent 4");
+        }
+
 
         private Process CreateProcess(string path, string arguments = null)
         {

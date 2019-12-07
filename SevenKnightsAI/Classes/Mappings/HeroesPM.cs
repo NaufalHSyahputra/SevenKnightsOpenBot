@@ -700,8 +700,8 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping SortByNormal = new PixelMapping
         {
-            X = 650,
-            Y = 146,
+            X = 670,
+            Y = 182,
             Color = 13816531,
             Type = MappingType.BUTTON
         };

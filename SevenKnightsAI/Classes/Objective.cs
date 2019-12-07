@@ -16,6 +16,14 @@
 
         CHANGE_PROFILE, //16
 
+        AUTO_SELL,
+
+        RAID,
+
+        EXTRA_RAID,
+
+        SIEGE_DEFENSE,
+
         NEXT_POSSIBLE,
     }
 }

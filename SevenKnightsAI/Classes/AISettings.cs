@@ -367,7 +367,67 @@ namespace SevenKnightsAI.Classes
         public string AR_Profile2;
 
         [XmlElement(ElementName = "AD_NoChangeMode")]
-        public bool AD_NoChangeMode; 
+        public bool AD_NoChangeMode;
+
+        [XmlElement(ElementName = "RD_Enable")]
+        public bool RD_Enable;
+
+        [XmlElement(ElementName = "RD_EnableLimit")]
+        public bool RD_EnableLimit;
+
+        [XmlElement(ElementName = "RD_Limit")]
+        public int RD_Limit;
+
+        [XmlElement(ElementName = "RD_SellItemRank")]
+        public int RD_SellItemRank;
+
+        [XmlElement(ElementName = "RD_SellJewelRank")]
+        public int RD_SellJewelRank;
+
+        [XmlElement(ElementName = "RD_SellAccRank")]
+        public int RD_SellAccRank;
+
+        [XmlElement(ElementName = "RD_FightItemRaid")]
+        public bool RD_FightItemRaid;
+
+        [XmlElement(ElementName = "RD_FightJewelRaid")]
+        public bool RD_FightJewelRaid;
+
+        [XmlElement(ElementName = "RD_FightAccRaid")]
+        public bool RD_FightAccRaid;
+
+        [XmlElement(ElementName = "RD_FightExtraRaid")]
+        public bool RD_FightExtraRaid;
+
+        [XmlElement(ElementName = "RD_EnableSellItem")]
+        public bool RD_EnableSellItem;
+
+        [XmlElement(ElementName = "RD_EnableCollectMileage")]
+        public bool RD_EnableCollectMileage;
+
+        [XmlElement(ElementName = "RD_StopOutKey")]
+        public bool RD_StopOutKey;
+
+        [XmlElement(ElementName = "RD_EnableChangeProfile1")]
+        public bool RD_EnableChangeProfile1;
+
+        [XmlElement(ElementName = "RD_Profile1")]
+        public string RD_Profile1;
+
+        [XmlElement(ElementName = "SD_Enable")]
+        public bool SD_Enable;
+
+        [XmlElement(ElementName = "SD_EnableLimit")]
+        public bool SD_EnableLimit;
+
+        [XmlElement(ElementName = "SD_Limit")]
+        public int SD_Limit;
+
+        [XmlElement(ElementName = "SD_EnableChangeProfile1")]
+        public bool SD_EnableChangeProfile1;
+
+        [XmlElement(ElementName = "SD_Profile1")]
+        public string SD_Profile1;
 
         public string Version = Application.ProductVersion;
 
@@ -480,6 +540,26 @@ namespace SevenKnightsAI.Classes
             AR_Profile1 = null;
             AR_Profile2 = null;
             AD_NoChangeMode = false;
+            RD_Enable = false;
+            RD_EnableLimit = false;
+            RD_Limit = 0;
+            RD_SellItemRank = 0;
+            RD_SellJewelRank = 0;
+            RD_SellAccRank = 0;
+            RD_EnableCollectMileage = false;
+            RD_EnableChangeProfile1 = false;
+            RD_EnableSellItem = false;
+            RD_StopOutKey = false;
+            RD_Profile1 = null;
+            RD_FightExtraRaid = false;
+            RD_FightItemRaid = false;
+            RD_FightJewelRaid = false;
+            RD_FightAccRaid = false;
+            SD_Enable = false;
+            SD_EnableChangeProfile1 = false;
+            SD_EnableLimit = false;
+            SD_Limit = 0;
+            SD_Profile1 = null;
         }
 
         #endregion Public Constructors
@@ -1201,6 +1281,126 @@ namespace SevenKnightsAI.Classes
                 }
                 catch (Exception)
                 { }
+                try
+                {
+                    aISettings.RD_Enable = (bool)dictionary["RD_Enable"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_EnableChangeProfile1 = (bool)dictionary["RD_EnableChangeProfile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_EnableCollectMileage = (bool)dictionary["RD_EnableCollectMileage"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_EnableLimit = (bool)dictionary["RD_EnableLimit"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_EnableSellItem = (bool)dictionary["RD_EnableSellItem"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_FightAccRaid = (bool)dictionary["RD_FightAccRaid"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_FightExtraRaid = (bool)dictionary["RD_FightExtraRaid"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_FightItemRaid = (bool)dictionary["RD_FightItemRaid"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_FightJewelRaid = (bool)dictionary["RD_FightJewelRaid"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_StopOutKey = (bool)dictionary["RD_StopOutKey"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_Limit = Convert.ToInt32(dictionary["RD_Limit"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_SellItemRank = Convert.ToInt32(dictionary["RD_SellItemRank"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_SellJewelRank = Convert.ToInt32(dictionary["RD_SellJewelRank"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_SellAccRank = Convert.ToInt32(dictionary["RD_SellAccRank"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.RD_Profile1 = (string)dictionary["RD_Profile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.SD_Enable = (bool)dictionary["SD_Enable"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.SD_EnableChangeProfile1 = (bool)dictionary["SD_EnableChangeProfile1"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.SD_EnableLimit = (bool)dictionary["SD_EnableLimit"];
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.SD_Limit = Convert.ToInt32(dictionary["SD_Limit"]);
+                }
+                catch (Exception)
+                { }
+                try
+                {
+                    aISettings.SD_Profile1 = (string)dictionary["SD_Profile1"];
+                }
+                catch (Exception)
+                { }
                 return aISettings;
             }
             throw new AISettingsException("Settings file not found", -1);
@@ -1682,9 +1882,85 @@ namespace SevenKnightsAI.Classes
                     AR_Profile2
                 },
                 {
-                    "AD_NoChangeMode",
-                    AD_NoChangeMode
-                }
+                    "RD_Enable",
+                    RD_Enable
+                },
+                {
+                    "RD_EnableChangeProfile1",
+                    RD_EnableChangeProfile1
+                },
+                {
+                    "RD_EnableCollectMileage",
+                    RD_EnableCollectMileage
+                },
+                {
+                    "RD_EnableLimit",
+                    RD_EnableLimit
+                },
+                {
+                    "RD_EnableSellItem",
+                    RD_EnableSellItem
+                },
+                {
+                    "RD_FightAccRaid",
+                    RD_FightAccRaid
+                },
+                {
+                    "RD_FightItemRaid",
+                    RD_FightItemRaid
+                },
+                {
+                    "RD_FightJewelRaid",
+                    RD_FightJewelRaid
+                },
+                {
+                    "RD_FightExtraRaid",
+                    RD_FightExtraRaid
+                },
+                {
+                    "RD_Limit",
+                    RD_Limit
+                },
+                {
+                    "RD_SellItemRank",
+                    RD_SellItemRank
+                },
+                {
+                    "RD_SellJewelRank",
+                    RD_SellJewelRank
+                },
+                {
+                    "RD_SellAccRank",
+                    RD_SellAccRank
+                },
+                {
+                    "RD_Profile1",
+                    RD_Profile1
+                },
+                {
+                    "RD_StopOutKey",
+                    RD_StopOutKey
+                },
+                {
+                    "SD_Enable",
+                    SD_Enable
+                },
+                {
+                    "SD_EnableChangeProfile1",
+                    SD_EnableChangeProfile1
+                },
+                {
+                    "SD_EnableLimit",
+                    SD_EnableLimit
+                },
+                {
+                    "SD_Limit",
+                    SD_Limit
+                },
+                {
+                    "SD_Profile1",
+                    SD_Profile1
+                },
             };
             string data = JsonConvert.SerializeObject(value);
             File.WriteAllText(filePath, data);

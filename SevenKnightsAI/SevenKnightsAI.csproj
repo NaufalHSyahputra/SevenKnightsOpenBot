@@ -155,7 +155,16 @@
     <Compile Include="Classes\Imaging\ImageHashing.cs" />
     <Compile Include="Classes\Imaging\ImageSearch.cs" />
     <Compile Include="Classes\Imaging\LockBitmap.cs" />
+    <Compile Include="Classes\Mappings\AdvAutoManageInventoryPM.cs" />
+    <Compile Include="Classes\Mappings\ManageInventoryNothingToSellPM.cs" />
     <Compile Include="Classes\Mappings\AutoRepeatSettingPM.cs" />
+    <Compile Include="Classes\Mappings\RaidAutoStopPopupPM.cs" />
+    <Compile Include="Classes\Mappings\AdvAutoLobbyPM.cs" />
+    <Compile Include="Classes\Mappings\RaidMileageCollectedPM.cs" />
+    <Compile Include="Classes\Mappings\RaidNoKeyPopupPM.cs" />
+    <Compile Include="Classes\Mappings\RaidStopPopupPM.cs" />
+    <Compile Include="Classes\Mappings\RaidEndPM.cs" />
+    <Compile Include="Classes\Mappings\ExtraRaidEndPM.cs" />
     <Compile Include="Classes\Mappings\ForceClosePopupPM.cs" />
     <Compile Include="Classes\Mappings\AresCupPM.cs" />
     <Compile Include="Classes\Mappings\AhriConnectingPM.cs" />
@@ -189,6 +198,17 @@
     <Compile Include="Classes\Mappings\LoadingPM.cs" />
     <Compile Include="Classes\Mappings\NoMoreRubyOfferPM.cs" />
     <Compile Include="Classes\Mappings\NoMoreRubyPopupPM.cs" />
+    <Compile Include="Classes\Mappings\ExtraRaidFightPM.cs" />
+    <Compile Include="Classes\Mappings\RaidFightPM.cs" />
+    <Compile Include="Classes\Mappings\RaidAutoRepeatInfoPM.cs" />
+    <Compile Include="Classes\Mappings\RaidExtraRaidPopupPM.cs" />
+    <Compile Include="Classes\Mappings\RaidFullMileagePM.cs" />
+    <Compile Include="Classes\Mappings\RaidFullItemPM.cs" />
+    <Compile Include="Classes\Mappings\ExtraRaidReadyPM.cs" />
+    <Compile Include="Classes\Mappings\ExtraRaidStartPM.cs" />
+    <Compile Include="Classes\Mappings\RaidStartPM.cs" />
+    <Compile Include="Classes\Mappings\RaidReadyPM.cs" />
+    <Compile Include="Classes\Mappings\RaidLobbyPM.cs" />
     <Compile Include="Classes\Mappings\TemporaryStoragePM.cs" />
     <Compile Include="Classes\Mappings\UnknownPopupSuccessPM.cs" />
     <Compile Include="Classes\Mappings\UnknownPopupPM.cs" />
@@ -350,6 +370,12 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\RaidIcon2.png" />
+    <None Include="Resources\ArenaIcon2.png" />
+    <None Include="Resources\Lv40Icon.png" />
+    <None Include="Resources\AdvIcon.png" />
+    <None Include="Resources\reboot_banner2.png" />
+    <None Include="Resources\reboot_banner.jpg" />
     <None Include="thrud_banner.jpg" />
     <None Include="Resources\myth_cover3.jpg" />
     <None Include="icons\icon_adv.png" />

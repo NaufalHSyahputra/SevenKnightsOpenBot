@@ -39,24 +39,32 @@
         /* Package & Bazzar Shop */
         public static readonly PixelMapping EventPackPoint1 = new PixelMapping // Ribbon LEft
         {
-            X = 264,
-            Y = 40,
-            Color = 2327774,
+            X = 200,
+            Y = 42,
+            Color = 15515499,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping EventPackPoint2 = new PixelMapping // Ribbon Right
         {
-            X = 783,
-            Y = 36,
-            Color = 16568190,
+            X = 776,
+            Y = 49,
+            Color = 13870161,
+            Type = MappingType.ANCHOR
+        };
+
+        public static readonly PixelMapping EventPackPoint3 = new PixelMapping // Ribbon Right
+        {
+            X = 574,
+            Y = 40,
+            Color = 16046757,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping EventPackCloseBtn = new PixelMapping
         {
-            X = 900,
-            Y = 41,
+            X = 901,
+            Y = 42,
             Color = 16777215,
             Type = MappingType.BOTH
         };

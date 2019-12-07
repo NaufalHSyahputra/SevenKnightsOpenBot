@@ -61,11 +61,31 @@ namespace SevenKnightsAI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AdvIcon {
+            get {
+                object obj = ResourceManager.GetObject("AdvIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream Alien_AlarmDrum_KevanGC_893953959 {
             get {
                 return ResourceManager.GetStream("Alien_AlarmDrum_KevanGC_893953959", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ArenaIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("ArenaIcon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -282,9 +302,49 @@ namespace SevenKnightsAI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Lv40Icon {
+            get {
+                object obj = ResourceManager.GetObject("Lv40Icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap myth_cover3 {
             get {
                 object obj = ResourceManager.GetObject("myth_cover3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RaidIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("RaidIcon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reboot_banner {
+            get {
+                object obj = ResourceManager.GetObject("reboot_banner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reboot_banner2 {
+            get {
+                object obj = ResourceManager.GetObject("reboot_banner2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -117,6 +117,11 @@ namespace SevenKnightsAI.Classes
             LDConsole(string.Format("killapp --name {0} --packagename {1}", LD_TITLE, ControlBluestacks.PACKAGE_NAME));
         }
 
+        public void KillAppWithADB()
+        {
+           Adb("shell am force-stop " + ControlBluestacks.PACKAGE_NAME);
+        }
+
         public bool CheckLDPlayer()
         {
             return LDConsole("runninglist").Contains(LD_TITLE);

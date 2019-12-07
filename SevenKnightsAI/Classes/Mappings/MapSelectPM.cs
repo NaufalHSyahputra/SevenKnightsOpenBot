@@ -63,6 +63,14 @@ namespace SevenKnightsAI.Classes.Mappings
             Type = MappingType.ANCHOR
         };
 
+        public static readonly PixelMapping AutoAdvBtn = new PixelMapping //World map Button
+        {
+            X = 594,
+            Y = 488,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
         public static readonly PixelMapping BtnBottom1 = new PixelMapping //World map Button
         {
             X = 754,

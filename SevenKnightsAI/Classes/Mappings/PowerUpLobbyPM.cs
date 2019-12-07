@@ -52,23 +52,23 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 237,
-            Y = 148,
-            Color = 14869218,
+            X = 528,
+            Y = 84,
+            Color = 13421515,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 75,
-            Y = 486,
-            Color = 15850895,
+            X = 238,
+            Y = 153,
+            Color = 12109005,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point3 = new PixelMapping
         {
-            X = 373,
-            Y = 405,
-            Color = 11966320,
+            X = 756,
+            Y = 88,
+            Color = 10922414,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping FullPowerUp = new PixelMapping
@@ -87,29 +87,29 @@ namespace SevenKnightsAI.Classes.Mappings
         };
         public static readonly PixelMapping PowerUp1StarBtn = new PixelMapping
         {
-            X = 502,
-            Y = 129,
-            Color = 13670527,
+            X = 482,
+            Y = 128,
+            Color = 0,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping PowerUp2StarBtn = new PixelMapping
         {
-            X = 596,
-            Y = 131,
-            Color = 13670527,
+            X = 566,
+            Y = 127,
+            Color = 0,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping PowerUp3StarBtn = new PixelMapping
         {
-            X = 687,
-            Y = 129,
+            X = 639,
+            Y = 128,
             Color = 13670527,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping PowerUp4StarBtn = new PixelMapping
         {
-            X = 782,
-            Y = 130,
+            X = 717,
+            Y = 124,
             Color = 13211513,
             Type = MappingType.BUTTON
         };

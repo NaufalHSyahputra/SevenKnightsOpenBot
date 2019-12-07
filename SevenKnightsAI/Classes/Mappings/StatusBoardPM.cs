@@ -133,8 +133,8 @@
 
         public static readonly PixelMapping ClosButton = new PixelMapping
         {
-            X = 860,
-            Y = 48,
+            X = 731,
+            Y = 79,
             Color = 0,
             Type = MappingType.BUTTON
         };

@@ -4,30 +4,30 @@
     {
         public static readonly PixelMapping TapArea = new PixelMapping
         {
-            X = 471,
-            Y = 504,
+            X = 488,
+            Y = 503,
             Color = 0,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 505,
-            Y = 404,
-            Color = 12698054,
+            X = 504,
+            Y = 419,
+            Color = 14803427,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 241,
-            Y = 393,
-            Color = 12633821,
+            X = 245,
+            Y = 451,
+            Color = 4084095,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point3 = new PixelMapping
         {
-            X = 464,
-            Y = 42,
-            Color = 10332088,
+            X = 458,
+            Y = 35,
+            Color = 8620695,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point4 = new PixelMapping //super power up title

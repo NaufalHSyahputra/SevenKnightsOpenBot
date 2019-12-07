@@ -79,5 +79,33 @@
             Color = 0,
             Type = MappingType.BUTTON
         };
+        public static readonly PixelMapping MileageFull1 = new PixelMapping
+        {
+            X = 908,
+            Y = 74,
+            Color = 13960194,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping MileageFull2 = new PixelMapping
+        {
+            X = 915,
+            Y = 75,
+            Color = 13829122,
+            Type = MappingType.ANCHOR
+        };
+        public static readonly PixelMapping CollectMileageBtn = new PixelMapping
+        {
+            X = 868,
+            Y = 86,
+            Color = 11119533,
+            Type = MappingType.BUTTON
+        };
+        public static readonly PixelMapping OKBtn = new PixelMapping
+        {
+            X = 594,
+            Y = 404,
+            Color = 12764101,
+            Type = MappingType.BUTTON
+        };
     }
 }

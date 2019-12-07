@@ -5,38 +5,38 @@
 
         public static readonly PixelMapping OKbtn = new PixelMapping
         {
-            X = 527,
-            Y = 399,
-            Color = 12106430,
+            X = 592,
+            Y = 401,
+            Color = 14014167,
             Type = MappingType.BUTTON
         };
 
         public static readonly PixelMapping CancelBtn = new PixelMapping
         {
-            X = 323,
-            Y = 405,
-            Color = 13683659,
+            X = 395,
+            Y = 404,
+            Color = 10390153,
             Type = MappingType.BUTTON
         };
         public static readonly PixelMapping Point1 = new PixelMapping
         {
-            X = 376,
-            Y = 142,
-            Color = 15067370,
+            X = 524,
+            Y = 143,
+            Color = 15725302,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point2 = new PixelMapping
         {
-            X = 779,
-            Y = 83,
-            Color = 4599808,
+            X = 788,
+            Y = 78,
+            Color = 4798208,
             Type = MappingType.ANCHOR
         };
         public static readonly PixelMapping Point3 = new PixelMapping
         {
-            X = 828,
-            Y = 130,
-            Color = 3421238,
+            X = 73,
+            Y = 483,
+            Color = 4933161,
             Type = MappingType.ANCHOR
         };
     }

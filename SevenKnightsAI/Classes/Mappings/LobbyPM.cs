@@ -30,6 +30,22 @@ namespace SevenKnightsAI.Classes.Mappings
             Type = MappingType.BUTTON
         };
 
+        public static readonly PixelMapping RaidButton = new PixelMapping
+        {
+            X = 831,
+            Y = 493,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
+        public static readonly PixelMapping GuildButton = new PixelMapping
+        {
+            X = 751,
+            Y = 486,
+            Color = 0,
+            Type = MappingType.BUTTON
+        };
+
         public static readonly PixelMapping ArenaButton = new PixelMapping
         {
             X = 751,
@@ -41,14 +57,6 @@ namespace SevenKnightsAI.Classes.Mappings
         public static readonly int GOLD_OFFSET_X = 0;
 
         public static readonly int GOLD_OFFSET_Y = 0;
-
-        public static readonly PixelMapping GuildButton = new PixelMapping
-        {
-            X = 258,
-            Y = 494,
-            Color = 0,
-            Type = MappingType.BUTTON
-        };
 
         public static readonly PixelMapping HeroButton = new PixelMapping
         {
@@ -84,17 +92,17 @@ namespace SevenKnightsAI.Classes.Mappings
 
         public static readonly PixelMapping MenuButtonYellowLeft = new PixelMapping //Chest
         {
-            X = 920,
-            Y = 32,
-            Color = 16711422,
+            X = 377,
+            Y = 503,
+            Color = 4938160,
             Type = MappingType.ANCHOR
         };
 
         public static readonly PixelMapping MenuButtonYellowRight = new PixelMapping //Chest
         {
-            X = 947,
-            Y = 31,
-            Color = 16777215,
+            X = 380,
+            Y = 488,
+            Color = 2832271,
             Type = MappingType.ANCHOR
         };
 

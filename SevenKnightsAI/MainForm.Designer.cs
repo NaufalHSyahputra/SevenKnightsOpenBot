@@ -46,6 +46,8 @@
             this.goldLabel2 = new System.Windows.Forms.Label();
             this.summaryGroupBox = new System.Windows.Forms.GroupBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.raidCountLabel = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.arenaPictureBox = new System.Windows.Forms.PictureBox();
@@ -163,6 +165,31 @@
             this.AD_stageComboBox = new System.Windows.Forms.ComboBox();
             this.AD_sequenceButton = new System.Windows.Forms.Button();
             this.AD_continuousCheckBox = new System.Windows.Forms.CheckBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.RD_ChangeProfile1ComboBox = new System.Windows.Forms.ComboBox();
+            this.RD_ChangeProfile1CheckBox = new System.Windows.Forms.CheckBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.RD_LimitNumericBox = new System.Windows.Forms.NumericUpDown();
+            this.RD_EnableLimitCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.RD_StopNoKeyCheckBox = new System.Windows.Forms.CheckBox();
+            this.RD_CollectMileageCheckBox = new System.Windows.Forms.CheckBox();
+            this.RD_SellItemCheckBox = new System.Windows.Forms.CheckBox();
+            this.RD_FightExtraRaidCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.RD_SellAccRankComboBox = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.RD_SellJewelRankComboBox = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.RD_SellItemRankComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.RD_AccRaidRadio = new System.Windows.Forms.RadioButton();
+            this.RD_JewelRaidRadio = new System.Windows.Forms.RadioButton();
+            this.RD_RaidItemRadio = new System.Windows.Forms.RadioButton();
+            this.RD_EnableCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.AR_ChangeProfile2ComboBox = new System.Windows.Forms.ComboBox();
@@ -187,6 +214,15 @@
             this.GC_pos2CheckBox = new System.Windows.Forms.CheckBox();
             this.GC_pos1CheckBox = new System.Windows.Forms.CheckBox();
             this.GC_teamComboBox = new System.Windows.Forms.ComboBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.groupBox28 = new System.Windows.Forms.GroupBox();
+            this.groupBox30 = new System.Windows.Forms.GroupBox();
+            this.SD_ChangeProfile1ComboBox = new System.Windows.Forms.ComboBox();
+            this.SD_ChangeProfile1CheckBox = new System.Windows.Forms.CheckBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.SD_LimitNumericBox = new System.Windows.Forms.NumericUpDown();
+            this.SD_EnableLimitCheckBox = new System.Windows.Forms.CheckBox();
+            this.SD_EnableCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -288,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ST_reconnectNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_delayTrackBar)).BeginInit();
             this.summaryGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).BeginInit();
@@ -322,6 +359,13 @@
             this.ADCH_ChangeHeroGroupBox.SuspendLayout();
             this.groupBox26.SuspendLayout();
             this.groupBox27.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RD_LimitNumericBox)).BeginInit();
+            this.groupBox24.SuspendLayout();
+            this.groupBox31.SuspendLayout();
+            this.groupBox22.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox29.SuspendLayout();
@@ -329,6 +373,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.AR_useRubyNumericBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AR_stopArenaNumericBox)).BeginInit();
             this.GC_formationPanel.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.groupBox28.SuspendLayout();
+            this.groupBox30.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SD_LimitNumericBox)).BeginInit();
             this.tabPage17.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -593,7 +641,7 @@
             this.arenaKeysLabel2.AutoSize = true;
             this.arenaKeysLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arenaKeysLabel2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.arenaKeysLabel2.Location = new System.Drawing.Point(254, 37);
+            this.arenaKeysLabel2.Location = new System.Drawing.Point(182, 33);
             this.arenaKeysLabel2.Name = "arenaKeysLabel2";
             this.arenaKeysLabel2.Size = new System.Drawing.Size(16, 18);
             this.arenaKeysLabel2.TabIndex = 10;
@@ -647,6 +695,8 @@
             // summaryGroupBox
             // 
             this.summaryGroupBox.Controls.Add(this.button8);
+            this.summaryGroupBox.Controls.Add(this.pictureBox1);
+            this.summaryGroupBox.Controls.Add(this.raidCountLabel);
             this.summaryGroupBox.Controls.Add(this.pictureBox5);
             this.summaryGroupBox.Controls.Add(this.pictureBox3);
             this.summaryGroupBox.Controls.Add(this.arenaPictureBox);
@@ -665,7 +715,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(105, 36);
+            this.button8.Location = new System.Drawing.Point(243, 85);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 22);
             this.button8.TabIndex = 29;
@@ -675,10 +725,32 @@
             this.button8.Visible = false;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SevenKnightsAI.Properties.Resources.RaidIcon2;
+            this.pictureBox1.Location = new System.Drawing.Point(243, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 36);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBox1, "Arena");
+            // 
+            // raidCountLabel
+            // 
+            this.raidCountLabel.AutoSize = true;
+            this.raidCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.raidCountLabel.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.raidCountLabel.Location = new System.Drawing.Point(286, 32);
+            this.raidCountLabel.Name = "raidCountLabel";
+            this.raidCountLabel.Size = new System.Drawing.Size(25, 20);
+            this.raidCountLabel.TabIndex = 11;
+            this.raidCountLabel.Text = "x0";
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::SevenKnightsAI.Properties.Resources.icon_key_arena;
-            this.pictureBox5.Location = new System.Drawing.Point(211, 29);
+            this.pictureBox5.Location = new System.Drawing.Point(139, 25);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(37, 36);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -699,8 +771,8 @@
             // 
             // arenaPictureBox
             // 
-            this.arenaPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("arenaPictureBox.Image")));
-            this.arenaPictureBox.Location = new System.Drawing.Point(211, 82);
+            this.arenaPictureBox.Image = global::SevenKnightsAI.Properties.Resources.ArenaIcon2;
+            this.arenaPictureBox.Location = new System.Drawing.Point(139, 78);
             this.arenaPictureBox.Name = "arenaPictureBox";
             this.arenaPictureBox.Size = new System.Drawing.Size(37, 36);
             this.arenaPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -710,7 +782,7 @@
             // 
             // adventurePictureBox
             // 
-            this.adventurePictureBox.Image = global::SevenKnightsAI.Properties.Resources.icon_adv;
+            this.adventurePictureBox.Image = global::SevenKnightsAI.Properties.Resources.AdvIcon;
             this.adventurePictureBox.Location = new System.Drawing.Point(14, 82);
             this.adventurePictureBox.Name = "adventurePictureBox";
             this.adventurePictureBox.Size = new System.Drawing.Size(37, 36);
@@ -725,7 +797,7 @@
             this.arenaCountLabel.AutoSize = true;
             this.arenaCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arenaCountLabel.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.arenaCountLabel.Location = new System.Drawing.Point(254, 89);
+            this.arenaCountLabel.Location = new System.Drawing.Point(182, 85);
             this.arenaCountLabel.Name = "arenaCountLabel";
             this.arenaCountLabel.Size = new System.Drawing.Size(25, 20);
             this.arenaCountLabel.TabIndex = 2;
@@ -812,13 +884,13 @@
             // 
             this.statusToolStripLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.statusToolStripLabel.Name = "statusToolStripLabel";
-            this.statusToolStripLabel.Size = new System.Drawing.Size(103, 17);
+            this.statusToolStripLabel.Size = new System.Drawing.Size(113, 17);
             this.statusToolStripLabel.Text = "Status: AI Stopped";
             // 
             // splitterStatusLabel
             // 
             this.splitterStatusLabel.Name = "splitterStatusLabel";
-            this.splitterStatusLabel.Size = new System.Drawing.Size(356, 17);
+            this.splitterStatusLabel.Size = new System.Drawing.Size(342, 17);
             this.splitterStatusLabel.Spring = true;
             this.splitterStatusLabel.Click += new System.EventHandler(this.splitterStatusLabel_Click);
             // 
@@ -830,7 +902,7 @@
             // tsslBuildInfo
             // 
             this.tsslBuildInfo.Name = "tsslBuildInfo";
-            this.tsslBuildInfo.Size = new System.Drawing.Size(37, 17);
+            this.tsslBuildInfo.Size = new System.Drawing.Size(41, 17);
             this.tsslBuildInfo.Text = "Build:";
             // 
             // saveSettingsButton
@@ -1430,7 +1502,9 @@
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage17);
             this.tabControl2.Location = new System.Drawing.Point(2, 0);
             this.tabControl2.Name = "tabControl2";
@@ -1659,9 +1733,9 @@
             this.AD_limitLabel.AutoSize = true;
             this.AD_limitLabel.Location = new System.Drawing.Point(379, 23);
             this.AD_limitLabel.Name = "AD_limitLabel";
-            this.AD_limitLabel.Size = new System.Drawing.Size(70, 13);
+            this.AD_limitLabel.Size = new System.Drawing.Size(83, 13);
             this.AD_limitLabel.TabIndex = 16;
-            this.AD_limitLabel.Text = "times per visit";
+            this.AD_limitLabel.Text = "times per entries";
             // 
             // AD_limitNumericBox
             // 
@@ -2020,8 +2094,317 @@
             this.AD_continuousCheckBox.UseVisualStyleBackColor = true;
             this.AD_continuousCheckBox.CheckedChanged += new System.EventHandler(this.AD_continuousCheckBox_CheckedChanged);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.groupBox21);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(500, 352);
+            this.tabPage3.TabIndex = 6;
+            this.tabPage3.Text = "Raid";
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.groupBox25);
+            this.groupBox21.Controls.Add(this.label28);
+            this.groupBox21.Controls.Add(this.RD_LimitNumericBox);
+            this.groupBox21.Controls.Add(this.RD_EnableLimitCheckBox);
+            this.groupBox21.Controls.Add(this.groupBox24);
+            this.groupBox21.Controls.Add(this.groupBox22);
+            this.groupBox21.Controls.Add(this.RD_EnableCheckBox);
+            this.groupBox21.Location = new System.Drawing.Point(3, 3);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(488, 338);
+            this.groupBox21.TabIndex = 1;
+            this.groupBox21.TabStop = false;
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.RD_ChangeProfile1ComboBox);
+            this.groupBox25.Controls.Add(this.RD_ChangeProfile1CheckBox);
+            this.groupBox25.Location = new System.Drawing.Point(6, 281);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(476, 51);
+            this.groupBox25.TabIndex = 34;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Change Profile when...";
+            // 
+            // RD_ChangeProfile1ComboBox
+            // 
+            this.RD_ChangeProfile1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RD_ChangeProfile1ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RD_ChangeProfile1ComboBox.FormattingEnabled = true;
+            this.RD_ChangeProfile1ComboBox.Location = new System.Drawing.Point(151, 19);
+            this.RD_ChangeProfile1ComboBox.Name = "RD_ChangeProfile1ComboBox";
+            this.RD_ChangeProfile1ComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_ChangeProfile1ComboBox.TabIndex = 32;
+            this.RD_ChangeProfile1ComboBox.Tag = "1";
+            this.RD_ChangeProfile1ComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_ChangeProfile1ComboBox_SelectedIndexChanged);
+            // 
+            // RD_ChangeProfile1CheckBox
+            // 
+            this.RD_ChangeProfile1CheckBox.AutoSize = true;
+            this.RD_ChangeProfile1CheckBox.Location = new System.Drawing.Point(6, 23);
+            this.RD_ChangeProfile1CheckBox.Name = "RD_ChangeProfile1CheckBox";
+            this.RD_ChangeProfile1CheckBox.Size = new System.Drawing.Size(114, 17);
+            this.RD_ChangeProfile1CheckBox.TabIndex = 31;
+            this.RD_ChangeProfile1CheckBox.Text = "Raid Limit reached";
+            this.RD_ChangeProfile1CheckBox.UseVisualStyleBackColor = true;
+            this.RD_ChangeProfile1CheckBox.CheckedChanged += new System.EventHandler(this.RD_ChangeProfile1CheckBox_CheckedChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(399, 16);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(83, 13);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "times per entries";
+            // 
+            // RD_LimitNumericBox
+            // 
+            this.RD_LimitNumericBox.Location = new System.Drawing.Point(340, 12);
+            this.RD_LimitNumericBox.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.RD_LimitNumericBox.Name = "RD_LimitNumericBox";
+            this.RD_LimitNumericBox.Size = new System.Drawing.Size(49, 20);
+            this.RD_LimitNumericBox.TabIndex = 21;
+            this.RD_LimitNumericBox.Tag = "3";
+            this.RD_LimitNumericBox.ValueChanged += new System.EventHandler(this.limitNumericBox_ValueChanged);
+            // 
+            // RD_EnableLimitCheckBox
+            // 
+            this.RD_EnableLimitCheckBox.Location = new System.Drawing.Point(282, 14);
+            this.RD_EnableLimitCheckBox.Name = "RD_EnableLimitCheckBox";
+            this.RD_EnableLimitCheckBox.Size = new System.Drawing.Size(52, 18);
+            this.RD_EnableLimitCheckBox.TabIndex = 20;
+            this.RD_EnableLimitCheckBox.Tag = "0";
+            this.RD_EnableLimitCheckBox.Text = "Limit:";
+            this.RD_EnableLimitCheckBox.UseVisualStyleBackColor = true;
+            this.RD_EnableLimitCheckBox.CheckedChanged += new System.EventHandler(this.RD_EnableLimitCheckBox_CheckedChanged);
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.RD_StopNoKeyCheckBox);
+            this.groupBox24.Controls.Add(this.RD_CollectMileageCheckBox);
+            this.groupBox24.Controls.Add(this.RD_SellItemCheckBox);
+            this.groupBox24.Controls.Add(this.RD_FightExtraRaidCheckBox);
+            this.groupBox24.Controls.Add(this.groupBox31);
+            this.groupBox24.Location = new System.Drawing.Point(6, 99);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(476, 176);
+            this.groupBox24.TabIndex = 6;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Settings";
+            // 
+            // RD_StopNoKeyCheckBox
+            // 
+            this.RD_StopNoKeyCheckBox.AutoSize = true;
+            this.RD_StopNoKeyCheckBox.Location = new System.Drawing.Point(320, 19);
+            this.RD_StopNoKeyCheckBox.Name = "RD_StopNoKeyCheckBox";
+            this.RD_StopNoKeyCheckBox.Size = new System.Drawing.Size(150, 17);
+            this.RD_StopNoKeyCheckBox.TabIndex = 3;
+            this.RD_StopNoKeyCheckBox.Text = "Stop bot when out of keys";
+            this.RD_StopNoKeyCheckBox.UseVisualStyleBackColor = true;
+            this.RD_StopNoKeyCheckBox.CheckedChanged += new System.EventHandler(this.RD_StopNoKeyCheckBox_CheckedChanged);
+            // 
+            // RD_CollectMileageCheckBox
+            // 
+            this.RD_CollectMileageCheckBox.AutoSize = true;
+            this.RD_CollectMileageCheckBox.Location = new System.Drawing.Point(6, 43);
+            this.RD_CollectMileageCheckBox.Name = "RD_CollectMileageCheckBox";
+            this.RD_CollectMileageCheckBox.Size = new System.Drawing.Size(177, 17);
+            this.RD_CollectMileageCheckBox.TabIndex = 2;
+            this.RD_CollectMileageCheckBox.Text = "Collect mileage reward when full";
+            this.RD_CollectMileageCheckBox.UseVisualStyleBackColor = true;
+            this.RD_CollectMileageCheckBox.CheckedChanged += new System.EventHandler(this.RD_CollectMileageCheckBox_CheckedChanged);
+            // 
+            // RD_SellItemCheckBox
+            // 
+            this.RD_SellItemCheckBox.AutoSize = true;
+            this.RD_SellItemCheckBox.Location = new System.Drawing.Point(12, 66);
+            this.RD_SellItemCheckBox.Name = "RD_SellItemCheckBox";
+            this.RD_SellItemCheckBox.Size = new System.Drawing.Size(115, 17);
+            this.RD_SellItemCheckBox.TabIndex = 1;
+            this.RD_SellItemCheckBox.Text = "Sell items when full";
+            this.RD_SellItemCheckBox.UseVisualStyleBackColor = true;
+            this.RD_SellItemCheckBox.CheckedChanged += new System.EventHandler(this.RD_SellItemCheckBox_CheckedChanged);
+            // 
+            // RD_FightExtraRaidCheckBox
+            // 
+            this.RD_FightExtraRaidCheckBox.AutoSize = true;
+            this.RD_FightExtraRaidCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.RD_FightExtraRaidCheckBox.Name = "RD_FightExtraRaidCheckBox";
+            this.RD_FightExtraRaidCheckBox.Size = new System.Drawing.Size(160, 17);
+            this.RD_FightExtraRaidCheckBox.TabIndex = 0;
+            this.RD_FightExtraRaidCheckBox.Text = "Fight Extra raid automatically";
+            this.RD_FightExtraRaidCheckBox.UseVisualStyleBackColor = true;
+            this.RD_FightExtraRaidCheckBox.CheckedChanged += new System.EventHandler(this.RD_FightExtraRaidCheckBox_CheckedChanged);
+            // 
+            // groupBox31
+            // 
+            this.groupBox31.Controls.Add(this.label32);
+            this.groupBox31.Controls.Add(this.RD_SellAccRankComboBox);
+            this.groupBox31.Controls.Add(this.label31);
+            this.groupBox31.Controls.Add(this.RD_SellJewelRankComboBox);
+            this.groupBox31.Controls.Add(this.label30);
+            this.groupBox31.Controls.Add(this.RD_SellItemRankComboBox);
+            this.groupBox31.Location = new System.Drawing.Point(6, 66);
+            this.groupBox31.Name = "groupBox31";
+            this.groupBox31.Size = new System.Drawing.Size(464, 104);
+            this.groupBox31.TabIndex = 4;
+            this.groupBox31.TabStop = false;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(6, 76);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(85, 13);
+            this.label32.TabIndex = 38;
+            this.label32.Text = "Accessory Rank";
+            // 
+            // RD_SellAccRankComboBox
+            // 
+            this.RD_SellAccRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RD_SellAccRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RD_SellAccRankComboBox.FormattingEnabled = true;
+            this.RD_SellAccRankComboBox.Items.AddRange(new object[] {
+            "★★★★★★",
+            "★★★★★",
+            "★★★★"});
+            this.RD_SellAccRankComboBox.Location = new System.Drawing.Point(97, 73);
+            this.RD_SellAccRankComboBox.Name = "RD_SellAccRankComboBox";
+            this.RD_SellAccRankComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_SellAccRankComboBox.TabIndex = 37;
+            this.RD_SellAccRankComboBox.Tag = "1";
+            this.RD_SellAccRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellAccRankComboBox_SelectedIndexChanged);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(6, 49);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(63, 13);
+            this.label31.TabIndex = 36;
+            this.label31.Text = "Jewel Rank";
+            // 
+            // RD_SellJewelRankComboBox
+            // 
+            this.RD_SellJewelRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RD_SellJewelRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RD_SellJewelRankComboBox.FormattingEnabled = true;
+            this.RD_SellJewelRankComboBox.Items.AddRange(new object[] {
+            "★★★★★★",
+            "★★★★★",
+            "★★★★"});
+            this.RD_SellJewelRankComboBox.Location = new System.Drawing.Point(97, 46);
+            this.RD_SellJewelRankComboBox.Name = "RD_SellJewelRankComboBox";
+            this.RD_SellJewelRankComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_SellJewelRankComboBox.TabIndex = 35;
+            this.RD_SellJewelRankComboBox.Tag = "1";
+            this.RD_SellJewelRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellJewelRankComboBox_SelectedIndexChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 22);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(56, 13);
+            this.label30.TabIndex = 34;
+            this.label30.Text = "Item Rank";
+            // 
+            // RD_SellItemRankComboBox
+            // 
+            this.RD_SellItemRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RD_SellItemRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RD_SellItemRankComboBox.FormattingEnabled = true;
+            this.RD_SellItemRankComboBox.Items.AddRange(new object[] {
+            "Rank S or lower",
+            "Rank A or lower",
+            "Rank B or lower",
+            "Rank C or lower",
+            "Rank D or lower",
+            "Rank E or lower"});
+            this.RD_SellItemRankComboBox.Location = new System.Drawing.Point(97, 19);
+            this.RD_SellItemRankComboBox.Name = "RD_SellItemRankComboBox";
+            this.RD_SellItemRankComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_SellItemRankComboBox.TabIndex = 33;
+            this.RD_SellItemRankComboBox.Tag = "1";
+            this.RD_SellItemRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellItemRankComboBox_SelectedIndexChanged);
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.RD_AccRaidRadio);
+            this.groupBox22.Controls.Add(this.RD_JewelRaidRadio);
+            this.groupBox22.Controls.Add(this.RD_RaidItemRadio);
+            this.groupBox22.Location = new System.Drawing.Point(6, 38);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(476, 55);
+            this.groupBox22.TabIndex = 5;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Raid Boss";
+            // 
+            // RD_AccRaidRadio
+            // 
+            this.RD_AccRaidRadio.AutoSize = true;
+            this.RD_AccRaidRadio.Location = new System.Drawing.Point(367, 19);
+            this.RD_AccRaidRadio.Name = "RD_AccRaidRadio";
+            this.RD_AccRaidRadio.Size = new System.Drawing.Size(99, 17);
+            this.RD_AccRaidRadio.TabIndex = 2;
+            this.RD_AccRaidRadio.TabStop = true;
+            this.RD_AccRaidRadio.Tag = "2";
+            this.RD_AccRaidRadio.Text = "Accessory Raid";
+            this.RD_AccRaidRadio.UseVisualStyleBackColor = true;
+            this.RD_AccRaidRadio.CheckedChanged += new System.EventHandler(this.RD_Boss_CheckedChanged);
+            // 
+            // RD_JewelRaidRadio
+            // 
+            this.RD_JewelRaidRadio.AutoSize = true;
+            this.RD_JewelRaidRadio.Location = new System.Drawing.Point(192, 19);
+            this.RD_JewelRaidRadio.Name = "RD_JewelRaidRadio";
+            this.RD_JewelRaidRadio.Size = new System.Drawing.Size(77, 17);
+            this.RD_JewelRaidRadio.TabIndex = 1;
+            this.RD_JewelRaidRadio.TabStop = true;
+            this.RD_JewelRaidRadio.Tag = "1";
+            this.RD_JewelRaidRadio.Text = "Jewel Raid";
+            this.RD_JewelRaidRadio.UseVisualStyleBackColor = true;
+            this.RD_JewelRaidRadio.CheckedChanged += new System.EventHandler(this.RD_Boss_CheckedChanged);
+            // 
+            // RD_RaidItemRadio
+            // 
+            this.RD_RaidItemRadio.AutoSize = true;
+            this.RD_RaidItemRadio.Location = new System.Drawing.Point(6, 19);
+            this.RD_RaidItemRadio.Name = "RD_RaidItemRadio";
+            this.RD_RaidItemRadio.Size = new System.Drawing.Size(70, 17);
+            this.RD_RaidItemRadio.TabIndex = 0;
+            this.RD_RaidItemRadio.TabStop = true;
+            this.RD_RaidItemRadio.Tag = "0";
+            this.RD_RaidItemRadio.Text = "Item Raid";
+            this.RD_RaidItemRadio.UseVisualStyleBackColor = true;
+            this.RD_RaidItemRadio.CheckedChanged += new System.EventHandler(this.RD_Boss_CheckedChanged);
+            // 
+            // RD_EnableCheckBox
+            // 
+            this.RD_EnableCheckBox.AutoSize = true;
+            this.RD_EnableCheckBox.Checked = true;
+            this.RD_EnableCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RD_EnableCheckBox.Location = new System.Drawing.Point(6, 0);
+            this.RD_EnableCheckBox.Name = "RD_EnableCheckBox";
+            this.RD_EnableCheckBox.Size = new System.Drawing.Size(84, 17);
+            this.RD_EnableCheckBox.TabIndex = 1;
+            this.RD_EnableCheckBox.Tag = "2";
+            this.RD_EnableCheckBox.Text = "Enable Raid";
+            this.RD_EnableCheckBox.UseVisualStyleBackColor = true;
+            this.RD_EnableCheckBox.CheckedChanged += new System.EventHandler(this.RD_EnableCheckBox_CheckedChanged);
+            // 
             // tabPage7
             // 
+            this.tabPage7.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage7.Controls.Add(this.groupBox11);
             this.tabPage7.Controls.Add(this.groupBox29);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
@@ -2329,6 +2712,118 @@
             this.GC_teamComboBox.Visible = false;
             this.GC_teamComboBox.SelectedIndexChanged += new System.EventHandler(this.teamComboBox_SelectedIndexChanged);
             // 
+            // tabPage8
+            // 
+            this.tabPage8.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage8.Controls.Add(this.groupBox28);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(500, 352);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Siege Defense";
+            // 
+            // groupBox28
+            // 
+            this.groupBox28.Controls.Add(this.groupBox30);
+            this.groupBox28.Controls.Add(this.label29);
+            this.groupBox28.Controls.Add(this.SD_LimitNumericBox);
+            this.groupBox28.Controls.Add(this.SD_EnableLimitCheckBox);
+            this.groupBox28.Controls.Add(this.SD_EnableCheckBox);
+            this.groupBox28.Location = new System.Drawing.Point(6, 7);
+            this.groupBox28.Name = "groupBox28";
+            this.groupBox28.Size = new System.Drawing.Size(488, 338);
+            this.groupBox28.TabIndex = 2;
+            this.groupBox28.TabStop = false;
+            this.groupBox28.Visible = false;
+            // 
+            // groupBox30
+            // 
+            this.groupBox30.Controls.Add(this.SD_ChangeProfile1ComboBox);
+            this.groupBox30.Controls.Add(this.SD_ChangeProfile1CheckBox);
+            this.groupBox30.Location = new System.Drawing.Point(6, 38);
+            this.groupBox30.Name = "groupBox30";
+            this.groupBox30.Size = new System.Drawing.Size(476, 51);
+            this.groupBox30.TabIndex = 34;
+            this.groupBox30.TabStop = false;
+            this.groupBox30.Text = "Change Profile when...";
+            // 
+            // SD_ChangeProfile1ComboBox
+            // 
+            this.SD_ChangeProfile1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SD_ChangeProfile1ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SD_ChangeProfile1ComboBox.FormattingEnabled = true;
+            this.SD_ChangeProfile1ComboBox.Location = new System.Drawing.Point(174, 21);
+            this.SD_ChangeProfile1ComboBox.Name = "SD_ChangeProfile1ComboBox";
+            this.SD_ChangeProfile1ComboBox.Size = new System.Drawing.Size(183, 21);
+            this.SD_ChangeProfile1ComboBox.TabIndex = 32;
+            this.SD_ChangeProfile1ComboBox.Tag = "1";
+            this.SD_ChangeProfile1ComboBox.SelectedIndexChanged += new System.EventHandler(this.SD_ChangeProfile1ComboBox_SelectedIndexChanged);
+            // 
+            // SD_ChangeProfile1CheckBox
+            // 
+            this.SD_ChangeProfile1CheckBox.AutoSize = true;
+            this.SD_ChangeProfile1CheckBox.Location = new System.Drawing.Point(6, 23);
+            this.SD_ChangeProfile1CheckBox.Name = "SD_ChangeProfile1CheckBox";
+            this.SD_ChangeProfile1CheckBox.Size = new System.Drawing.Size(162, 17);
+            this.SD_ChangeProfile1CheckBox.TabIndex = 31;
+            this.SD_ChangeProfile1CheckBox.Text = "Siege Defense Limit reached";
+            this.SD_ChangeProfile1CheckBox.UseVisualStyleBackColor = true;
+            this.SD_ChangeProfile1CheckBox.CheckedChanged += new System.EventHandler(this.SD_ChangeProfile1CheckBox_CheckedChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(399, 16);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(83, 13);
+            this.label29.TabIndex = 22;
+            this.label29.Text = "times per entries";
+            // 
+            // SD_LimitNumericBox
+            // 
+            this.SD_LimitNumericBox.Location = new System.Drawing.Point(340, 12);
+            this.SD_LimitNumericBox.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.SD_LimitNumericBox.Name = "SD_LimitNumericBox";
+            this.SD_LimitNumericBox.Size = new System.Drawing.Size(49, 20);
+            this.SD_LimitNumericBox.TabIndex = 21;
+            this.SD_LimitNumericBox.Tag = "4";
+            this.SD_LimitNumericBox.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.SD_LimitNumericBox.ValueChanged += new System.EventHandler(this.limitNumericBox_ValueChanged);
+            // 
+            // SD_EnableLimitCheckBox
+            // 
+            this.SD_EnableLimitCheckBox.Location = new System.Drawing.Point(282, 14);
+            this.SD_EnableLimitCheckBox.Name = "SD_EnableLimitCheckBox";
+            this.SD_EnableLimitCheckBox.Size = new System.Drawing.Size(52, 18);
+            this.SD_EnableLimitCheckBox.TabIndex = 20;
+            this.SD_EnableLimitCheckBox.Tag = "0";
+            this.SD_EnableLimitCheckBox.Text = "Limit:";
+            this.SD_EnableLimitCheckBox.UseVisualStyleBackColor = true;
+            this.SD_EnableLimitCheckBox.CheckedChanged += new System.EventHandler(this.SD_EnableLimitCheckBox_CheckedChanged);
+            // 
+            // SD_EnableCheckBox
+            // 
+            this.SD_EnableCheckBox.AutoSize = true;
+            this.SD_EnableCheckBox.Checked = true;
+            this.SD_EnableCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SD_EnableCheckBox.Location = new System.Drawing.Point(6, 0);
+            this.SD_EnableCheckBox.Name = "SD_EnableCheckBox";
+            this.SD_EnableCheckBox.Size = new System.Drawing.Size(132, 17);
+            this.SD_EnableCheckBox.TabIndex = 1;
+            this.SD_EnableCheckBox.Tag = "2";
+            this.SD_EnableCheckBox.Text = "Enable Siege Defense";
+            this.SD_EnableCheckBox.UseVisualStyleBackColor = true;
+            this.SD_EnableCheckBox.Visible = false;
+            this.SD_EnableCheckBox.CheckedChanged += new System.EventHandler(this.SD_EnableCheckBox_CheckedChanged);
+            // 
             // tabPage17
             // 
             this.tabPage17.Controls.Add(this.tabControl3);
@@ -2539,7 +3034,7 @@
             this.PU_4StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_4StarCheckBox.Name = "PU_4StarCheckBox";
             this.PU_4StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_4StarCheckBox.Size = new System.Drawing.Size(112, 17);
+            this.PU_4StarCheckBox.Size = new System.Drawing.Size(104, 17);
             this.PU_4StarCheckBox.TabIndex = 2;
             this.PU_4StarCheckBox.Text = "Power Up ★★★★";
             this.PU_4StarCheckBox.UseVisualStyleBackColor = true;
@@ -2583,7 +3078,7 @@
             this.PU_3OnlyLv30CheckBox.Name = "PU_3OnlyLv30CheckBox";
             this.PU_3OnlyLv30CheckBox.Size = new System.Drawing.Size(100, 17);
             this.PU_3OnlyLv30CheckBox.TabIndex = 9;
-            this.PU_3OnlyLv30CheckBox.Text = "Hero Only Lv30";
+            this.PU_3OnlyLv30CheckBox.Text = "Hero Only Lv40";
             this.PU_3OnlyLv30CheckBox.UseVisualStyleBackColor = true;
             this.PU_3OnlyLv30CheckBox.CheckedChanged += new System.EventHandler(this.PU_3OnlyLv30CheckBox_CheckedChanged);
             // 
@@ -2617,7 +3112,7 @@
             this.PU_3MOnlyLv30CheckBox.Name = "PU_3MOnlyLv30CheckBox";
             this.PU_3MOnlyLv30CheckBox.Size = new System.Drawing.Size(114, 17);
             this.PU_3MOnlyLv30CheckBox.TabIndex = 11;
-            this.PU_3MOnlyLv30CheckBox.Text = "Material Only Lv30";
+            this.PU_3MOnlyLv30CheckBox.Text = "Material Only Lv40";
             this.PU_3MOnlyLv30CheckBox.UseVisualStyleBackColor = true;
             this.PU_3MOnlyLv30CheckBox.CheckedChanged += new System.EventHandler(this.PU_3MOnlyLv30CheckBox_CheckedChanged);
             // 
@@ -2651,7 +3146,7 @@
             this.PU_3StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_3StarCheckBox.Name = "PU_3StarCheckBox";
             this.PU_3StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_3StarCheckBox.Size = new System.Drawing.Size(103, 17);
+            this.PU_3StarCheckBox.Size = new System.Drawing.Size(97, 17);
             this.PU_3StarCheckBox.TabIndex = 2;
             this.PU_3StarCheckBox.Text = "Power Up ★★★";
             this.PU_3StarCheckBox.UseVisualStyleBackColor = true;
@@ -2695,7 +3190,7 @@
             this.PU_2OnlyLv30CheckBox.Name = "PU_2OnlyLv30CheckBox";
             this.PU_2OnlyLv30CheckBox.Size = new System.Drawing.Size(100, 17);
             this.PU_2OnlyLv30CheckBox.TabIndex = 9;
-            this.PU_2OnlyLv30CheckBox.Text = "Hero Only Lv30";
+            this.PU_2OnlyLv30CheckBox.Text = "Hero Only Lv40";
             this.PU_2OnlyLv30CheckBox.UseVisualStyleBackColor = true;
             this.PU_2OnlyLv30CheckBox.CheckedChanged += new System.EventHandler(this.PU_2OnlyLv30CheckBox_CheckedChanged);
             // 
@@ -2729,7 +3224,7 @@
             this.PU_2MOnlyLv30CheckBox.Name = "PU_2MOnlyLv30CheckBox";
             this.PU_2MOnlyLv30CheckBox.Size = new System.Drawing.Size(114, 17);
             this.PU_2MOnlyLv30CheckBox.TabIndex = 11;
-            this.PU_2MOnlyLv30CheckBox.Text = "Material Only Lv30";
+            this.PU_2MOnlyLv30CheckBox.Text = "Material Only Lv40";
             this.PU_2MOnlyLv30CheckBox.UseVisualStyleBackColor = true;
             this.PU_2MOnlyLv30CheckBox.CheckedChanged += new System.EventHandler(this.PU_2MOnlyLv30CheckBox_CheckedChanged);
             // 
@@ -2763,7 +3258,7 @@
             this.PU_2StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_2StarCheckBox.Name = "PU_2StarCheckBox";
             this.PU_2StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_2StarCheckBox.Size = new System.Drawing.Size(94, 17);
+            this.PU_2StarCheckBox.Size = new System.Drawing.Size(90, 17);
             this.PU_2StarCheckBox.TabIndex = 2;
             this.PU_2StarCheckBox.Text = "Power Up ★★";
             this.PU_2StarCheckBox.UseVisualStyleBackColor = true;
@@ -2829,7 +3324,7 @@
             this.PU_1MOnlyLv30CheckBox.Name = "PU_1MOnlyLv30CheckBox";
             this.PU_1MOnlyLv30CheckBox.Size = new System.Drawing.Size(114, 17);
             this.PU_1MOnlyLv30CheckBox.TabIndex = 10;
-            this.PU_1MOnlyLv30CheckBox.Text = "Material Only Lv30";
+            this.PU_1MOnlyLv30CheckBox.Text = "Material Only Lv40";
             this.PU_1MOnlyLv30CheckBox.UseVisualStyleBackColor = true;
             this.PU_1MOnlyLv30CheckBox.CheckedChanged += new System.EventHandler(this.PU_1MOnlyLv30CheckBox_CheckedChanged);
             // 
@@ -2841,7 +3336,7 @@
             this.PU_1OnlyLv30CheckBox.Name = "PU_1OnlyLv30CheckBox";
             this.PU_1OnlyLv30CheckBox.Size = new System.Drawing.Size(100, 17);
             this.PU_1OnlyLv30CheckBox.TabIndex = 9;
-            this.PU_1OnlyLv30CheckBox.Text = "Hero Only Lv30";
+            this.PU_1OnlyLv30CheckBox.Text = "Hero Only Lv40";
             this.PU_1OnlyLv30CheckBox.UseVisualStyleBackColor = true;
             this.PU_1OnlyLv30CheckBox.CheckedChanged += new System.EventHandler(this.PU_1OnlyLv30CheckBox_CheckedChanged);
             // 
@@ -2875,7 +3370,7 @@
             this.PU_1StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_1StarCheckBox.Name = "PU_1StarCheckBox";
             this.PU_1StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_1StarCheckBox.Size = new System.Drawing.Size(85, 17);
+            this.PU_1StarCheckBox.Size = new System.Drawing.Size(83, 17);
             this.PU_1StarCheckBox.TabIndex = 2;
             this.PU_1StarCheckBox.Text = "Power Up ★";
             this.PU_1StarCheckBox.UseVisualStyleBackColor = true;
@@ -2992,9 +3487,9 @@
             this.BF_OnlyLv30CheckBox.AutoSize = true;
             this.BF_OnlyLv30CheckBox.Location = new System.Drawing.Point(6, 21);
             this.BF_OnlyLv30CheckBox.Name = "BF_OnlyLv30CheckBox";
-            this.BF_OnlyLv30CheckBox.Size = new System.Drawing.Size(77, 17);
+            this.BF_OnlyLv30CheckBox.Size = new System.Drawing.Size(74, 17);
             this.BF_OnlyLv30CheckBox.TabIndex = 9;
-            this.BF_OnlyLv30CheckBox.Text = "Only Lv 30";
+            this.BF_OnlyLv30CheckBox.Text = "Only Lv40";
             this.BF_OnlyLv30CheckBox.UseVisualStyleBackColor = true;
             this.BF_OnlyLv30CheckBox.CheckedChanged += new System.EventHandler(this.BF_OnlyLv30CheckBox_CheckedChanged);
             // 
@@ -3450,10 +3945,10 @@
             // topheaderPictureBox
             // 
             this.topheaderPictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.thrud_banner;
+            this.topheaderPictureBox.Image = global::SevenKnightsAI.Properties.Resources.reboot_banner2;
             this.topheaderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.topheaderPictureBox.Name = "topheaderPictureBox";
-            this.topheaderPictureBox.Size = new System.Drawing.Size(508, 86);
+            this.topheaderPictureBox.Size = new System.Drawing.Size(508, 99);
             this.topheaderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;
@@ -3488,6 +3983,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ST_delayTrackBar)).EndInit();
             this.summaryGroupBox.ResumeLayout(false);
             this.summaryGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arenaPictureBox)).EndInit();
@@ -3534,6 +4030,18 @@
             this.groupBox26.PerformLayout();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RD_LimitNumericBox)).EndInit();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            this.groupBox31.ResumeLayout(false);
+            this.groupBox31.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -3544,6 +4052,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.AR_stopArenaNumericBox)).EndInit();
             this.GC_formationPanel.ResumeLayout(false);
             this.GC_formationPanel.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.groupBox28.ResumeLayout(false);
+            this.groupBox28.PerformLayout();
+            this.groupBox30.ResumeLayout(false);
+            this.groupBox30.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SD_LimitNumericBox)).EndInit();
             this.tabPage17.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -4165,5 +4679,41 @@
         private System.Windows.Forms.ComboBox AR_ChangeProfile1ComboBox;
         private System.Windows.Forms.CheckBox AR_EnableChangeProfile1CheckBox;
         private System.Windows.Forms.CheckBox AR_EnableChangeProfile2CheckBox;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.CheckBox RD_CollectMileageCheckBox;
+        private System.Windows.Forms.CheckBox RD_SellItemCheckBox;
+        private System.Windows.Forms.CheckBox RD_FightExtraRaidCheckBox;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.RadioButton RD_AccRaidRadio;
+        private System.Windows.Forms.RadioButton RD_JewelRaidRadio;
+        private System.Windows.Forms.RadioButton RD_RaidItemRadio;
+        private System.Windows.Forms.CheckBox RD_EnableCheckBox;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.ComboBox RD_ChangeProfile1ComboBox;
+        private System.Windows.Forms.CheckBox RD_ChangeProfile1CheckBox;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.NumericUpDown RD_LimitNumericBox;
+        private System.Windows.Forms.CheckBox RD_EnableLimitCheckBox;
+        private System.Windows.Forms.CheckBox RD_StopNoKeyCheckBox;
+        private System.Windows.Forms.GroupBox groupBox28;
+        private System.Windows.Forms.GroupBox groupBox30;
+        private System.Windows.Forms.ComboBox SD_ChangeProfile1ComboBox;
+        private System.Windows.Forms.CheckBox SD_ChangeProfile1CheckBox;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.NumericUpDown SD_LimitNumericBox;
+        private System.Windows.Forms.CheckBox SD_EnableLimitCheckBox;
+        private System.Windows.Forms.CheckBox SD_EnableCheckBox;
+        private System.Windows.Forms.GroupBox groupBox31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ComboBox RD_SellItemRankComboBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label raidCountLabel;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox RD_SellAccRankComboBox;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.ComboBox RD_SellJewelRankComboBox;
     }
 }

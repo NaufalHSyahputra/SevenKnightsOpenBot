@@ -130,6 +130,17 @@ namespace SevenKnightsAI.Classes
         private World currentworld;
         private int currentStage = 0;
         private string MapZone;
+        private string forced = "";
+        private int RaidCount;
+        private int ExtraRaidCount;
+        private int SiegeDefenseCount;
+        private int RaidLimitCount;
+        private int SiegeDefenseLimitCount;
+        private bool IsRaidLimit;
+        private bool IsSiegeDefenseLimit;
+        private int AutoSellCount;
+        private bool RaidMileageFull;
+        private bool RaidAlreadyCount = false;
 
         #endregion Private Fields
 
@@ -198,8 +209,16 @@ namespace SevenKnightsAI.Classes
             return Worker;
         }
 
-        public void ChangeMode(Objective OBJA)
+        public void ChangeMode(Objective OBJA, bool forcedd = false)
         {
+            if (forcedd)
+            {
+                this.forced = "CP";
+            }
+            else
+            {
+                this.forced = "";
+            }
             ChangeObjective(OBJA);
         }
 
@@ -273,6 +292,26 @@ namespace SevenKnightsAI.Classes
             ProgressSequence();
             AdventureCheckLimits();
         }
+
+        private void RaidAfterFight()
+        {
+            if (!RaidAlreadyCount)
+            {
+                RaidAlreadyCount = true;
+                RaidCount++;
+            }
+            ReportCount(Objective.RAID);
+            RaidCheckLimits();
+        }
+        private void SiegeDefenseAfterFight()
+        {
+            if (CurrentObjective == Objective.SIEGE_DEFENSE)
+            {
+                SiegeDefenseCount++;
+            }
+            ReportCount(Objective.SIEGE_DEFENSE);
+            SiegeDefenseCheckLimits();
+        }
         private void EndAutoRepeat()
         {
             AdventureLimitPowerUp++; //for limiting auto powerup
@@ -297,7 +336,7 @@ namespace SevenKnightsAI.Classes
                 }
                 alreadystop = true;
             }
-            if ((AISettings.AD_EnableProfile1 || AISettings.AD_EnableChangeProfile1) && AISettings.AD_BootMode && CurrentBoost == 100)
+            if ((AISettings.AD_EnableProfile1 || AISettings.AD_EnableChangeProfile1) && AISettings.AD_BootMode && CurrentBoost >= 150)
             {
                 if (!alreadystop)
                 {
@@ -325,7 +364,8 @@ namespace SevenKnightsAI.Classes
                         if (AISettings.AD_EnableProfile3)
                         {
                             ChangeMode(Objective.CHANGE_PROFILE);
-                        }else if (AISettings.AD_EnableChangeProfile3)
+                        }
+                        else if (AISettings.AD_EnableChangeProfile3)
                         {
                             reason_stop = "limit";
                             ChangeMode(Objective.CHANGE_PROFILE);
@@ -487,6 +527,62 @@ namespace SevenKnightsAI.Classes
             }
         }
 
+        private void RaidCheckLimits()
+        {
+            if (CurrentObjective == Objective.RAID || CurrentObjective == Objective.EXTRA_RAID)
+            {
+                if (AISettings.RD_EnableLimit)
+                {
+                    RaidLimitCount++;
+                    if (RaidLimitCount >= AISettings.RD_Limit)
+                    {
+                        Log("Limit reached [Raid]", COLOR_LIMIT);
+                        SendTelegram("[Raid] Limit Reached");
+                        RaidLimitCount = 0;
+                        NextPossibleObjective();
+                    }
+                }
+                else if (AISettings.RD_EnableChangeProfile1)
+                {
+                    RaidLimitCount++;
+                    if (RaidLimitCount >= AISettings.RD_Limit)
+                    {
+                        RaidLimitCount = 0;
+                        reason_stop = "raid_limit";
+                        ChangeMode(Objective.CHANGE_PROFILE);
+                    }
+                }
+            }
+        }
+
+        private void SiegeDefenseCheckLimits()
+        {
+            if (CurrentObjective == Objective.SIEGE_DEFENSE)
+            {
+                if (AISettings.RD_EnableLimit)
+                {
+                    SiegeDefenseLimitCount++;
+                    if (SiegeDefenseLimitCount >= AISettings.SD_Limit)
+                    {
+                        Log("Limit reached [Raid]", COLOR_LIMIT);
+                        SendTelegram("[Raid] Limit Reached");
+                        SiegeDefenseLimitCount = 0;
+                        NextPossibleObjective();
+                    }
+                }
+                else if (AISettings.SD_EnableChangeProfile1)
+                {
+                    SiegeDefenseLimitCount++;
+                    if (SiegeDefenseLimitCount >= AISettings.SD_Limit)
+                    {
+                        SiegeDefenseLimitCount = 0;
+                        reason_stop = "sd_limit";
+                        ChangeMode(Objective.CHANGE_PROFILE);
+                    }
+                }
+            }
+        }
+
         private void Alert(string message)
         {
             ProgressArgs userState = new ProgressArgs(ProgressType.Alert, message);
@@ -547,7 +643,7 @@ namespace SevenKnightsAI.Classes
         private void ChangeCurrentWave(int wave, int total)
         {
             CurrentWave = wave;
-            Log("@ Wave " + wave + "/"+total+" Wave", COLOR_WAVE);
+            Log("@ Wave " + wave + "/" + total + " Wave", COLOR_WAVE);
         }
 
         private void ChangeObjective(Objective objective)
@@ -578,6 +674,18 @@ namespace SevenKnightsAI.Classes
                 case Objective.CHANGE_PROFILE:
                     message = "Change Profile";
                     break;
+                case Objective.RAID:
+                    message = "Raid";
+                    break;
+                case Objective.EXTRA_RAID:
+                    message = "Extra Raid";
+                    break;
+                case Objective.SIEGE_DEFENSE:
+                    message = "Siege Defense";
+                    break;
+                case Objective.AUTO_SELL:
+                    message = "Auto Sell";
+                    break;
             }
             PreviousObjective = CurrentObjective;
             CurrentObjective = objective;
@@ -594,28 +702,30 @@ namespace SevenKnightsAI.Classes
                     message = "Adventure";
                     AISettings.AD_Enable = false;
                     break;
-
-
                 case Objective.ARENA:
                     message = "Arena";
                     AISettings.AR_Enable = false;
                     break;
-
                 case Objective.POWER_UP_HEROES:
                     message = "Auto Power Up";
                     AISettings.PU_Enable = false;
                     break;
-
                 case Objective.FUSE_HEROES:
                     message = "Auto Bulk Fusion";
                     AISettings.BF_Enable = false;
                     break;
-
                 case Objective.COLLECT_INBOX:
                     message = "Collect Inbox";
                     AISettings.RS_CollectInbox = false;
                     break;
-
+                case Objective.RAID:
+                    message = "Raid";
+                    AISettings.RD_Enable = false;
+                    break;
+                case Objective.SIEGE_DEFENSE:
+                    message = "Siege Defense";
+                    AISettings.SD_Enable = false;
+                    break;
             }
             Log(message + " Disabled", Color.Orange);
         }
@@ -626,11 +736,11 @@ namespace SevenKnightsAI.Classes
             {
                 using (Page page = this.Tesseractor.Engine.Process(bitmap, null))
                 {
-                    string text = page.GetText().ToLower().Replace(" ", "").Replace("l100", "/100").Replace("l100", "/100").Replace("i100", "/100").Trim();
+                    string text = page.GetText().ToLower().Replace(" ", "").Replace(".", "").Replace("l100", "/100").Replace("l100", "/100").Replace("i100", "/100").Replace("l150", "/150").Replace("l150", "/150").Replace("i150", "/150").Replace("‘", "1").Replace("[150", "/150").Trim();
                     Utility.FilterAscii(text);
                     this.Log("BoostNumber = " + page.GetText().ToLower().Trim());
-                    bitmap.Save("Boost.png");
 #if DEBUG
+                    bitmap.Save("Boost.png");
                     Console.WriteLine("MapNumber = " + text.Trim());
                     bitmap.Save("MapNumber.png");
 # endif
@@ -645,27 +755,37 @@ namespace SevenKnightsAI.Classes
                         if (array.Length < 2)
                         {
                             bool result = false;
+                            num3 = CurrentBoost;
                             return result;
                         }
                         int.TryParse(array[0], out num3);
                         int.TryParse(array[1], out num4);
                         this.Log("Current: " + num3 + " Max: " + num4);
-                        if (num3 <= 100)
+                        if (num3 > 150 && CurrentBoost < 150)
                         {
-                            CurrentBoost = num3;
+                            bool result = true;
+                            num3 = CurrentBoost;
+                            return result;
                         }
                         else
                         {
-                            this.Log("Bot read boost count incorrectly!");
-                        }
-                        if (num3 >= 100)
-                        {
-                            AISettings.AD_BootMode = false;
-                            return false;
-                        }
-                        else
-                        {
-                            return true;
+                            if (num3 <= 150)
+                            {
+                                CurrentBoost = num3;
+                            }
+                            else
+                            {
+                                this.Log("Bot read boost count incorrectly!");
+                            }
+                            if (num3 >= 150)
+                            {
+                                AISettings.AD_BootMode = false;
+                                return false;
+                            }
+                            else
+                            {
+                                return true;
+                            }
                         }
                     }
                     else
@@ -755,7 +875,7 @@ namespace SevenKnightsAI.Classes
                         text = text.Replace("14-", "[4-");
                     }
                     Match regex = Regex.Match(text, @"(?<=\[)[^]]+(?=\])");
-                    this.Log("MapText: "+text);
+                    this.Log("MapText: " + text);
                     if (regex.Success)
                     {
                         string test1 = regex.Value;
@@ -1077,6 +1197,7 @@ namespace SevenKnightsAI.Classes
                         {
                             reason_stop = "arena_score";
                             ChangeMode(Objective.CHANGE_PROFILE);
+                            return;
                         }
                     }
                     else if (AISettings.AR_LimitArena)
@@ -1136,12 +1257,12 @@ namespace SevenKnightsAI.Classes
 
         private void Countentrylv30(bool boost)
         {
-                        /**
-                         * World 1 - 2 = 1 Wave = 16x
-                         * World 3 - 5 = 2 Wave = 8x
-                         * World 6-7 = 3 Wave = 7x
-                         * World 8-13 = 2 Wave = 4x
-                         */
+            /**
+             * World 1 - 2 = 1 Wave = 16x
+             * World 3 - 5 = 2 Wave = 8x
+             * World 6-7 = 3 Wave = 7x
+             * World 8-13 = 2 Wave = 4x
+             */
             if (this.world3 == World.MysticWoods || this.world3 == World.SilentMine)
             {
                 entrytolv30 = 16;
@@ -1226,7 +1347,7 @@ namespace SevenKnightsAI.Classes
         private void DonePowerUpHeroes(int powerUpCount)
         {
             Log("Done powering up heroes. Total Hero: " + powerUpCount.ToString(), COLOR_POWER_UP);
-            SendTelegram("[Auto Power Up] Bot has finished powering up your heroes. Total Hero: "+powerUpCount.ToString());
+            SendTelegram("[Auto Power Up] Bot has finished powering up your heroes. Total Hero: " + powerUpCount.ToString());
             if (powerUpCount == 0)
             {
                 Log("No more heroes that satisfied the conditions", COLOR_POWER_UP);
@@ -1284,12 +1405,14 @@ namespace SevenKnightsAI.Classes
             Hottimeloop = false;
             Hottimeactive = true;
             SevenKnightsCore.Sleep(800);
-            Escape();
+            this.WeightedClick(StatusBoardPM.ClosButton, 1.0, 1.0, 1, 0, "left");
             SevenKnightsCore.Sleep(1000);
         }
 
         private void Escape()
         {
+            BlueStacks.EscapeAdb();
+            /*
             CaptureFrame();
             if (this.MatchMapping(SharedPM.BackButtonAnchor, 2))
             {
@@ -1310,7 +1433,7 @@ namespace SevenKnightsAI.Classes
             else
             {
                 BlueStacks.MainWindowAS.PressKey(27u, 1, 0);
-            }
+            } */
         }
 
         private bool ExpectingScene(SceneType sceneType, int retry = 5, int sleepInterval = 500)
@@ -1477,6 +1600,15 @@ namespace SevenKnightsAI.Classes
             internetdc = 0;
             unknowncollected = false;
             PreviousScene = DefaultScene;
+            RaidCount = 0;
+            ExtraRaidCount = 0;
+            SiegeDefenseCount = 0;
+            RaidLimitCount = 0;
+            SiegeDefenseLimitCount = 0;
+            IsRaidLimit = false;
+            RaidMileageFull = false;
+            IsSiegeDefenseLimit = false;
+            AutoSellCount = 0;
         }
 
         private bool IsBuyKeysEnabled()
@@ -1809,6 +1941,18 @@ namespace SevenKnightsAI.Classes
                                             {
                                                 WeightedClick(AndroidPopupPM.OkButton, 1.0, 1.0, 1, 0, "left");
                                             }
+                                            else if (msg == "Seculitv Alel’ﬂcode : 1)")
+                                            {
+                                                WeightedClick(AndroidPopupPM.OkButton, 1.0, 1.0, 1, 0, "left");
+                                                if (!BlueStacks.RestartGame(5))
+                                                {
+                                                    SynchronizationContext.Send(delegate (object callback)
+                                                    {
+                                                        MessageBox.Show("BlueStacks restart failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                                                    }, null);
+                                                    return;
+                                                }
+                                            }
                                             Sleep(2000);
                                             break;
                                         case SceneType._FORCE_CLOSE:
@@ -1904,7 +2048,7 @@ namespace SevenKnightsAI.Classes
                                             UpdateHonor(scene.SceneType);
                                             if (CurrentObjective == Objective.CHANGE_PROFILE)
                                             {
-                                                if (!alreadystop && (AISettings.AD_EnableProfile1 || AISettings.AD_EnableProfile2 || AISettings.AD_EnableProfile3))
+                                                if (!alreadystop && (AISettings.AD_EnableProfile1 || AISettings.AD_EnableProfile2 || AISettings.AD_EnableProfile3 || this.forced == "CP"))
                                                 {
                                                     SendTelegram("Bot will stop to change profile, you can choose profile in Telegram and start bot again after changing profile");
                                                     Alert("RestartBot");
@@ -1938,7 +2082,7 @@ namespace SevenKnightsAI.Classes
                                                     Sleep(5000);
                                                     this.ChangeMode(Objective.IDLE);
                                                 }
-                                                else if (AISettings.AR_EnableChangeProfile1 && reason_stop == "arena_limit")
+                                                else if (!alreadystop && AISettings.AR_EnableChangeProfile1 && reason_stop == "arena_limit")
                                                 {
                                                     SendTelegram("Bot will change profile because arena limit reached");
                                                     Alert("ARChangeProfile1");
@@ -1947,7 +2091,7 @@ namespace SevenKnightsAI.Classes
                                                     Sleep(5000);
                                                     this.ChangeMode(Objective.IDLE);
                                                 }
-                                                else if (AISettings.AR_EnableChangeProfile2 && reason_stop == "arena_score")
+                                                else if (!alreadystop && AISettings.AR_EnableChangeProfile2 && reason_stop == "arena_score")
                                                 {
                                                     SendTelegram("Bot will change profile because arena rank achieved");
                                                     Alert("ARChangeProfile2");
@@ -1956,10 +2100,32 @@ namespace SevenKnightsAI.Classes
                                                     Sleep(5000);
                                                     this.ChangeMode(Objective.IDLE);
                                                 }
+                                                else if (!alreadystop && AISettings.RD_EnableChangeProfile1 && reason_stop == "raid_limit")
+                                                {
+                                                    SendTelegram("Bot will change profile because raid limit reached");
+                                                    Alert("RDChangeProfile1");
+                                                    alreadystop = true;
+                                                    changefarmorder = false;
+                                                    Sleep(5000);
+                                                    this.ChangeMode(Objective.IDLE);
+                                                }
+                                                else if (!alreadystop && AISettings.SD_EnableChangeProfile1 && reason_stop == "sd_limit")
+                                                {
+                                                    SendTelegram("Bot will change profile because siege defense limit reached");
+                                                    Alert("SDChangeProfile1");
+                                                    alreadystop = true;
+                                                    changefarmorder = false;
+                                                    Sleep(5000);
+                                                    this.ChangeMode(Objective.IDLE);
+                                                }
                                             }
-                                            else if (CurrentObjective == Objective.ADVENTURE)
+                                            else if (CurrentObjective == Objective.ADVENTURE || CurrentObjective == Objective.AUTO_SELL)
                                             {
                                                 WeightedClick(LobbyPM.AdventureButton, 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            else if (CurrentObjective == Objective.RAID || CurrentObjective == Objective.EXTRA_RAID)
+                                            {
+                                                WeightedClick(LobbyPM.RaidButton, 1.0, 1.0, 1, 0, "left");
                                             }
                                             else if (CurrentObjective == Objective.ARENA)
                                             {
@@ -1978,8 +2144,88 @@ namespace SevenKnightsAI.Classes
                                                 NextPossibleObjective();
                                             }
                                             break;
+                                        case SceneType.AUTO_ADVENTURE_LOBBY:
+                                            if (CurrentObjective == Objective.AUTO_SELL)
+                                            {
+                                                WeightedClick(AdvAutoLobbyPM.ManageInventoryBtn, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(1000);
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
+                                            break;
+                                        case SceneType.MANAGE_INVENTORY:
+                                            if (CurrentObjective == Objective.AUTO_SELL)
+                                            {
+                                                PixelMapping[] itemrank = new PixelMapping[]
+                                                {
+                                                            AdvAutoManageInventoryPM.RankSBtn,
+                                                            AdvAutoManageInventoryPM.RankABtn,
+                                                            AdvAutoManageInventoryPM.RankBBtn,
+                                                            AdvAutoManageInventoryPM.RankCBtn,
+                                                            AdvAutoManageInventoryPM.RankDBtn,
+                                                            AdvAutoManageInventoryPM.RankEBtn,
+                                                };
+                                                PixelMapping[] jewelrank = new PixelMapping[]
+                                                {
+                                                            AdvAutoManageInventoryPM.Rank6Btn,
+                                                            AdvAutoManageInventoryPM.Rank5Btn,
+                                                            AdvAutoManageInventoryPM.Rank4Btn,
+                                                };
+                                                PixelMapping[] accrank = new PixelMapping[]
+                                                {
+                                                            AdvAutoManageInventoryPM.AccRank6Btn,
+                                                            AdvAutoManageInventoryPM.AccRank5Btn,
+                                                            AdvAutoManageInventoryPM.AccRank4Btn,
+                                                };
+                                                if (!MatchMapping(AdvAutoManageInventoryPM.ItemRankExpanded, 2))
+                                                {
+                                                    WeightedClick(AdvAutoManageInventoryPM.ItemRankBtn, 1.0, 1.0, 1, 0, "left");
+                                                    SevenKnightsCore.Sleep(1500);
+                                                    WeightedClick(itemrank[AISettings.RD_SellItemRank], 1.0, 1.0, 1, 0, "left");
+                                                    SevenKnightsCore.Sleep(1500);
+                                                }
+                                                if (!MatchMapping(AdvAutoManageInventoryPM.JewelRankExpanded, 2))
+                                                {
+                                                    WeightedClick(AdvAutoManageInventoryPM.JewelRankBtn, 1.0, 1.0, 1, 0, "left");
+                                                    SevenKnightsCore.Sleep(1500);
+                                                    WeightedClick(jewelrank[AISettings.RD_SellJewelRank], 1.0, 1.0, 1, 0, "left");
+                                                    SevenKnightsCore.Sleep(1500);
+                                                }
+                                                if (!MatchMapping(AdvAutoManageInventoryPM.AccRankExpanded, 2))
+                                                {
+                                                    WeightedClick(AdvAutoManageInventoryPM.AccRankBtn, 1.0, 1.0, 1, 0, "left");
+                                                    SevenKnightsCore.Sleep(1500);
+                                                    WeightedClick(accrank[AISettings.RD_SellAccRank], 1.0, 1.0, 1, 0, "left");
+                                                    SevenKnightsCore.Sleep(1500);
+                                                }
+                                                WeightedClick(AdvAutoManageInventoryPM.SellBtn, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(2000);
+                                                if (ExpectingScene(SceneType.NOTHING_TO_SELL_POPUP, 2, 500))
+                                                {
+                                                    Log("Nothing to sell!");
+                                                    SendTelegram("[Auto Sell] Nothing to Sell");
+                                                    AutoSellCount++;
+                                                    ChangeObjective(PreviousObjective);
+                                                    Sleep(1000);
+                                                    Escape();
+                                                }
+                                                else if (ExpectingScene(SceneType.MANAGE_INVENTORY, 5, 1000))
+                                                {
+                                                    AutoSellCount++;
+                                                    ChangeObjective(PreviousObjective);
+                                                    Sleep(1000);
+                                                    Escape();
+                                                }
+                                            Sleep(1000);
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
+                                            break;
                                         case SceneType.MAP_SELECT:
-
                                             if (MapSelectCounter >= 10000)
                                             {
 
@@ -2200,6 +2446,11 @@ namespace SevenKnightsAI.Classes
                                                         SelectStageHeavenlyStairs(world, stage);
                                                     }
                                                 }
+                                            }
+                                            else if (CurrentObjective == Objective.AUTO_SELL)
+                                            {
+                                                WeightedClick(MapSelectPM.AutoAdvBtn, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(1000);
                                             }
                                             else
                                             {
@@ -2434,7 +2685,7 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.NO_MORE_HERO_POPUP:
-                                            
+
                                             if (AISettings.PU_enableActive3)
                                             {
                                                 Log("No More Hero to Level Up, bot will powering up hero and fuse");
@@ -2574,8 +2825,8 @@ namespace SevenKnightsAI.Classes
                                                 SendTelegram("[Adventure] Bot will buy more keys or play other modes while waiting.");
                                                 flag3 = true;
                                             }
-                                                Escape();
-                                                NextPossibleObjective();
+                                            Escape();
+                                            NextPossibleObjective();
                                             break;
 
                                         case SceneType.BATTLE_MODES:
@@ -2810,14 +3061,14 @@ namespace SevenKnightsAI.Classes
                                             break;
 
                                         case SceneType.INBOX:
-											if (CurrentObjective == Objective.COLLECT_INBOX)
-											{
-												CollectInbox();
-											}
-											else
-											{
-												Escape();
-											}
+                                            if (CurrentObjective == Objective.COLLECT_INBOX)
+                                            {
+                                                CollectInbox();
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
                                             break;
 
                                         case SceneType.INBOX_REWARDS_POPUP:
@@ -2846,6 +3097,212 @@ namespace SevenKnightsAI.Classes
 
                                         case SceneType.DAILY_QUEST_COMPLETE:
                                             WeightedClick(QuestRewardsPopupPM.OKButton, 1.0, 1.0, 1, 0, "left");
+                                            break;
+
+                                        case SceneType.RAID_LOBBY:
+                                            Sleep(500);
+                                            if (CurrentObjective == Objective.RAID || CurrentObjective == Objective.EXTRA_RAID)
+                                            {
+                                                if (MatchMapping(RaidLobbyPM.ExtraRaidAvailable, 2))
+                                                {
+                                                    ChangeObjective(Objective.EXTRA_RAID);
+                                                    Sleep(500);
+                                                    WeightedClick(RaidLobbyPM.ExtraRaidButon, 1.0, 1.0, 1, 0, "left");
+                                                }
+                                                else
+                                                {
+                                                    if (AISettings.RD_FightItemRaid)
+                                                    {
+                                                        WeightedClick(RaidLobbyPM.ItemRaidButton, 1.0, 1.0, 1, 0, "left");
+                                                    }
+                                                    else if (AISettings.RD_FightJewelRaid)
+                                                    {
+                                                        WeightedClick(RaidLobbyPM.JewelRaidButton, 1.0, 1.0, 1, 0, "left");
+                                                    }
+                                                    else if (AISettings.RD_FightAccRaid)
+                                                    {
+                                                        WeightedClick(RaidLobbyPM.AccRaidButton, 1.0, 1.0, 1, 0, "left");
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
+                                            break;
+                                        case SceneType.RAID_READY:
+                                            Sleep(500);
+                                            if (CurrentObjective == Objective.RAID)
+                                            {
+                                                if (RaidMileageFull && MatchMapping(RaidReadyPM.MileageFull, 2) && MatchMapping(RaidReadyPM.MileageBtn, 2))
+                                                {
+                                                    WeightedClick(RaidReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
+                                                    Sleep(1000);
+                                                }
+                                                WeightedClick(RaidReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
+                                            break;
+                                        case SceneType.RAID_MILEAGE_COLLECTED:
+                                            Sleep(1000);
+                                            RaidMileageFull = false;
+                                            WeightedClick(RaidMileageCollectedPM.OKBtn, 1.0, 1.0, 1, 0, "left");
+                                            Sleep(1000);
+                                            break;
+                                        case SceneType.RAID_START:
+                                            Sleep(500);
+                                            if (CurrentObjective == Objective.RAID)
+                                            {
+                                                if (MatchMapping(ExtraRaidStartPM.AutoRepeatOff, 2))
+                                                {
+                                                    WeightedClick(ExtraRaidStartPM.AutoRepeatBtn, 1.0, 1.0, 1, 0, "left");
+                                                }
+                                                Sleep(500);
+                                                WeightedClick(RaidStartPM.StartBtn, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(1000);
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
+                                            break;
+                                        case SceneType.RAID_FIGHT:
+                                            RaidAlreadyCount = false;
+                                            break;
+                                        case SceneType.EXTRA_RAID_FIGHT:
+                                            RaidAlreadyCount = false;
+                                            break;
+                                        case SceneType.EXTRA_RAID_POPUP:
+                                            Sleep(500);
+                                            if (AISettings.RD_FightExtraRaid)
+                                            {
+                                                ChangeObjective(Objective.EXTRA_RAID);
+                                                Log("You got Extra Raid, bot will attack automatically", COLOR_LIMIT);
+                                                SendTelegram("[Raid] You got Extra Raid, bot will attack automatically");
+                                                WeightedClick(RaidExtraRaidPopupPM.StartBtn, 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            else
+                                            {
+                                                Log("You got Extra Raid!", COLOR_LIMIT);
+                                                SendTelegram("[Raid] You got Extra Raid!");
+                                                this.Escape();
+                                            }
+                                            break;
+                                        case SceneType.RAID_AUTO_END:
+                                            RaidAfterFight();
+                                            Sleep(500);
+                                            if (CurrentObjective != Objective.RAID || IsRaidLimit)
+                                            {
+                                                WeightedClick(RaidEndPM.Auto_StopBtn, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(300);
+                                            }
+                                            else
+                                            {
+                                                Sleep(1000);
+                                            }
+                                            break;
+                                        case SceneType.RAID_AUTO_STOP_POPUP:
+                                            Sleep(1000);
+                                            WeightedClick(RaidAutoStopPopupPM.OKBtn, 1.0, 1.0, 1, 0, "left");
+                                            Sleep(700);
+                                            break;
+                                        case SceneType.RAID_NO_KEY_POPUP:
+                                            Sleep(1000);
+                                            if (AISettings.RD_StopOutKey)
+                                            {
+                                                Log("Run out of keys, Bot will stop!", Color.Brown);
+                                                SendTelegram("[RAID] Run out of keys, Bot will stop!");
+                                                Alert("RaidStopNoKey");
+                                            }
+                                            else
+                                            {
+                                                Log("Run out of keys, Bot will change objective!", Color.Brown);
+                                                SendTelegram("[RAID] Run out of keys, Bot will change objective!");
+                                                NextPossibleObjective();
+                                            }
+                                            WeightedClick(RaidAutoStopPopupPM.OKBtn, 1.0, 1.0, 1, 0, "left");
+                                            Sleep(700);
+                                            break;
+                                        case SceneType.RAID_STOP_POPUP:
+                                            Sleep(1000);
+                                            WeightedClick(RaidStopPopupPM.OKBtn, 1.0, 1.0, 1, 0, "left");
+                                            Sleep(700);
+                                            break;
+                                        case SceneType.RAID_AUTO_REPEAT_INFO:
+                                            Sleep(1000);
+                                            WeightedClick(RaidAutoRepeatInfoPM.CloseBtn, 1.0, 1.0, 1, 0, "left");
+                                            Sleep(1000);
+                                            break;
+                                        case SceneType.RAID_END:
+                                            Sleep(1000);
+                                            if (CurrentObjective != Objective.RAID)
+                                            {
+                                                WeightedClick(RaidEndPM.LobbyBtn, 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            else
+                                            {
+                                                WeightedClick(RaidEndPM.RaidBtn, 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            break;
+                                        case SceneType.RAID_FULL_ITEM_POPUP:
+                                            Sleep(1000);
+                                            if (MatchMapping(RaidFullItemPM.StartNoBtn, 2))
+                                            {
+                                                WeightedClick(RaidFullItemPM.StartNoBtn, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(1000);
+                                                ChangeObjective(Objective.AUTO_SELL);
+                                            }
+                                            else
+                                            {
+                                                WeightedClick(RaidFullItemPM.TapArea, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(1000);
+                                                ChangeObjective(Objective.AUTO_SELL);
+                                            }
+                                            break;
+                                        case SceneType.RAID_FULL_MILEAGE_POPUP:
+                                            Sleep(1000);
+                                            RaidMileageFull = true;
+                                            WeightedClick(RaidFullMileagePM.TapArea, 1.0, 1.0, 1, 0, "left");
+                                            Sleep(500);
+                                            break;
+                                        case SceneType.EXTRA_RAID_READY:
+                                            Sleep(1000);
+                                            if (CurrentObjective == Objective.EXTRA_RAID)
+                                            {
+                                                WeightedClick(ExtraRaidReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
+                                            break;
+
+                                        case SceneType.EXTRA_RAID_START:
+                                            Sleep(1000);
+                                            if (CurrentObjective == Objective.EXTRA_RAID)
+                                            {
+                                                if (MatchMapping(ExtraRaidStartPM.AutoRepeatOff, 2))
+                                                {
+                                                    WeightedClick(ExtraRaidStartPM.AutoRepeatBtn, 1.0, 1.0, 1, 0, "left");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Escape();
+                                            }
+                                            Sleep(500);
+                                            WeightedClick(ExtraRaidStartPM.StartBtn, 1.0, 1.0, 1, 0, "left");
+                                            Sleep(1000);
+                                            break;
+
+                                        case SceneType.EXTRA_RAID_END:
+                                            Sleep(1000);
+                                            WeightedClick(ExtraRaidEndPM.RaidBtn, 1.0, 1.0, 1, 0, "left");
+                                            ChangeObjective(Objective.RAID);
+                                            Sleep(750);
                                             break;
 
                                         case SceneType.HOTTIME_POPUP:
@@ -3020,6 +3477,8 @@ namespace SevenKnightsAI.Classes
         {
             bool aD_Enable = AISettings.AD_Enable;
             bool aR_Enable = AISettings.AR_Enable;
+            bool rD_Enable = AISettings.RD_Enable;
+            bool sD_Enable = AISettings.SD_Enable;
             switch (CurrentObjective)
             {
                 case Objective.IDLE:
@@ -3029,17 +3488,40 @@ namespace SevenKnightsAI.Classes
                         ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
+                    if (rD_Enable)
+                    {
+                        IsRaidLimit = false;
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
                     if (aR_Enable)
                     {
                         ChangeObjective(Objective.ARENA);
                         return;
                     }
+                    if (sD_Enable)
+                    {
+                        IsRaidLimit = false;
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
+                        return;
+                    }
                     break;
 
                 case Objective.ADVENTURE:
+                    if (rD_Enable)
+                    {
+                        IsRaidLimit = false;
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
                     if (aR_Enable)
                     {
                         ChangeObjective(Objective.ARENA);
+                        return;
+                    }
+                    if (sD_Enable)
+                    {
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
                         return;
                     }
                     ChangeObjective(Objective.IDLE);
@@ -3052,6 +3534,17 @@ namespace SevenKnightsAI.Classes
                         ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
+                    if (rD_Enable)
+                    {
+                        IsRaidLimit = false;
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
+                    if (sD_Enable)
+                    {
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
+                        return;
+                    }
                     ChangeObjective(Objective.IDLE);
                     return;
                 case Objective.POWER_UP_HEROES:
@@ -3060,9 +3553,20 @@ namespace SevenKnightsAI.Classes
                         ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
+                    if (rD_Enable)
+                    {
+                        IsRaidLimit = false;
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
                     if (aR_Enable)
                     {
                         ChangeObjective(Objective.ARENA);
+                        return;
+                    }
+                    if (sD_Enable)
+                    {
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
                         return;
                     }
                     ChangeObjective(Objective.IDLE);
@@ -3073,29 +3577,44 @@ namespace SevenKnightsAI.Classes
                         ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
+                    if (rD_Enable)
+                    {
+                        IsRaidLimit = false;
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
                     if (aR_Enable)
                     {
                         ChangeObjective(Objective.ARENA);
                         return;
                     }
-                    ChangeObjective(Objective.IDLE);
-                    return;
-                    if (PreviousObjective != CurrentObjective)
+                    if (sD_Enable)
                     {
-                        ChangeObjective(PreviousObjective);
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
                         return;
                     }
                     ChangeObjective(Objective.IDLE);
-                    break;
+                    return;
                 case Objective.COLLECT_INBOX:
                     if (aD_Enable && !IsAdventureLimit)
                     {
                         ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
+                    if (rD_Enable)
+                    {
+                        IsRaidLimit = false;
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
                     if (aR_Enable)
                     {
                         ChangeObjective(Objective.ARENA);
+                        return;
+                    }
+                    if (sD_Enable)
+                    {
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
                         return;
                     }
                     ChangeObjective(Objective.IDLE);
@@ -3104,7 +3623,6 @@ namespace SevenKnightsAI.Classes
                     return;
             }
         }
-
         private void OnOneSecEvent(object source, ElapsedEventArgs e)
         {
             if (AIProfiles.ST_EnableHotTimeProfile && ((HotTimeHelper.IsNowHotTime() && !AIProfiles.TMP_UsingHotTimeProfile) || (!HotTimeHelper.IsNowHotTime() && AIProfiles.TMP_UsingHotTimeProfile)))
@@ -3486,6 +4004,7 @@ namespace SevenKnightsAI.Classes
         private void ReportAllCount()
         {
             ReportCount(Objective.ADVENTURE);
+            ReportCount(Objective.RAID);
             ReportArenaCount();
         }
 
@@ -3537,6 +4056,9 @@ namespace SevenKnightsAI.Classes
                 case Objective.ADVENTURE:
                     num = AdventureCount;
                     num2 = h30;
+                    break;
+                case Objective.RAID:
+                    num = RaidCount;
                     break;
             }
 
@@ -3714,11 +4236,6 @@ namespace SevenKnightsAI.Classes
                 if ((MatchMapping(BluestackPM.LDStoreIcon1, 2) && MatchMapping(BluestackPM.LDStoreIcon2, 2) && MatchMapping(BluestackPM.Background, 2)) || MatchMapping(BluestackPM.LDStoreIcon1_2, 2) && MatchMapping(BluestackPM.LDStoreIcon2_2, 2) && MatchMapping(BluestackPM.Background_2, 2))
                 {
                     Scene result = new Scene(SceneType.EMULATOR_HOME);
-                    return result;
-                }
-                if (MatchMapping(ExitPopupPM.LeftBorder, 2) && MatchMapping(ExitPopupPM.RightBorder, 2) && MatchMapping(ExitPopupPM.OkButtonBorderLeft, 2) && MatchMapping(ExitPopupPM.TitleBorder1, 2))
-                {
-                    Scene result = new Scene(SceneType.EXIT_POPUP);
                     return result;
                 }
                 if (MatchMapping(HeroesPM.IconLeft, 2) && MatchMapping(HeroesPM.IconMiddle, 2) && MatchMapping(HeroesPM.IconRight, 2) && MatchMapping(HeroesPM.OptimizeBorder, 4))
@@ -4033,7 +4550,7 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.DAILY_QUEST_COMPLETE);
                     return result;
                 }
-                if (MatchMapping(Popup3PM.EventPackPoint1, 2) && MatchMapping(Popup3PM.EventPackPoint2, 2) && MatchMapping(Popup3PM.EventPackCloseBtn))
+                if (MatchMapping(Popup3PM.EventPackPoint1, 2) && MatchMapping(Popup3PM.EventPackPoint2, 2) && MatchMapping(Popup3PM.EventPackPoint3))
                 {
                     Scene result = new Scene(SceneType.EVENT_PACKAGE_POPUP);
                     return result;
@@ -4058,7 +4575,8 @@ namespace SevenKnightsAI.Classes
                     Scene result = new Scene(SceneType.PAUSE);
                     return result;
                 }
-                if (MatchMapping(DisconnectedPopupPM.Title1, 2) && MatchMapping(DisconnectedPopupPM.Title2, 2) && MatchMapping(DisconnectedPopupPM.Title3, 2) && MatchMapping(DisconnectedPopupPM.OKTick, 2))
+                if ((MatchMapping(DisconnectedPopupPM.Title1, 2) && MatchMapping(DisconnectedPopupPM.Title2, 2) && MatchMapping(DisconnectedPopupPM.Title3, 2) && MatchMapping(DisconnectedPopupPM.OKTick, 2)) ||
+                    MatchMapping(DisconnectedPopupPM.Title1, 2) && MatchMapping(DisconnectedPopupPM.Title2, 2) && MatchMapping(DisconnectedPopupPM.Title3, 2) && MatchMapping(DisconnectedPopupPM.OKTick, 2) && MatchMapping(DisconnectedPopupPM.AtLanding, 2))
                 {
                     Scene result = new Scene(SceneType.DISCONNECTED_POPUP);
                     return result;
@@ -4067,6 +4585,149 @@ namespace SevenKnightsAI.Classes
                     || ((MatchMapping(ArenaReadyPM.RewardBackground, 2) && MatchMapping(ArenaReadyPM.CollectBorder, 2))))
                 {
                     Scene result = new Scene(SceneType.ARENA_READY);
+                    return result;
+                }
+
+                if (MatchMapping(RaidLobbyPM.Point1, 2) && MatchMapping(RaidLobbyPM.Point2, 2) && MatchMapping(RaidLobbyPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_LOBBY);
+                    return result;
+                }
+
+                if (MatchMapping(RaidReadyPM.Point1, 2) && MatchMapping(RaidReadyPM.Point2, 2) && MatchMapping(RaidReadyPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_READY);
+                    return result;
+                }
+
+                if (MatchMapping(RaidMileageCollectedPM.Point1, 2) && MatchMapping(RaidMileageCollectedPM.Point2, 2) && MatchMapping(RaidMileageCollectedPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_MILEAGE_COLLECTED);
+                    return result;
+                }
+
+                if (MatchMapping(RaidStartPM.Point1, 2) && MatchMapping(RaidStartPM.Point2, 2) && MatchMapping(RaidStartPM.Point3, 2))
+                {
+                    if (CurrentObjective == Objective.EXTRA_RAID)
+                    {
+                        Scene result = new Scene(SceneType.EXTRA_RAID_START);
+                        return result;
+                    }
+                    else
+                    {
+                        Scene result = new Scene(SceneType.RAID_START);
+                        return result;
+                    }
+                }
+
+                if (MatchMapping(RaidFightPM.Point1, 2) && MatchMapping(RaidFightPM.Point2, 2) && MatchMapping(RaidFightPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_FIGHT);
+                    return result;
+                }
+
+                if (MatchMapping(RaidEndPM.Point1, 2) && MatchMapping(RaidEndPM.Point2, 2) && MatchMapping(RaidEndPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_END);
+                    return result;
+                }
+
+                if (MatchMapping(RaidEndPM.Auto_Point1, 2) && MatchMapping(RaidEndPM.Auto_Point2, 2) && MatchMapping(RaidEndPM.Auto_Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_AUTO_END);
+                    return result;
+                }
+
+                if ((MatchMapping(RaidFullItemPM.Point1, 2) && MatchMapping(RaidFullItemPM.Point2, 2) && MatchMapping(RaidFullItemPM.Point3, 2) || MatchMapping(RaidFullItemPM.Point1_start, 2) && MatchMapping(RaidFullItemPM.Point2_start, 2) && MatchMapping(RaidFullItemPM.Point3_start, 2)))
+                {
+                    Scene result = new Scene(SceneType.RAID_FULL_ITEM_POPUP);
+                    return result;
+                }
+
+                if (MatchMapping(RaidFullMileagePM.Point1, 2) && MatchMapping(RaidFullMileagePM.Point2, 2) && MatchMapping(RaidFullMileagePM.Point3, 2) && MatchMapping(RaidFullMileagePM.MileageFull, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_FULL_MILEAGE_POPUP);
+                    return result;
+                }
+
+                if (MatchMapping(RaidNoKeyPopupPM.Point1, 2) && MatchMapping(RaidNoKeyPopupPM.Point2, 2) && MatchMapping(RaidNoKeyPopupPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_NO_KEY_POPUP);
+                    return result;
+                }
+
+                if (MatchMapping(RaidAutoStopPopupPM.Point1, 2) && MatchMapping(RaidAutoStopPopupPM.Point2, 2) && MatchMapping(RaidAutoStopPopupPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_AUTO_STOP_POPUP);
+                    return result;
+                }
+
+                if (MatchMapping(RaidStopPopupPM.Point1, 2) && MatchMapping(RaidStopPopupPM.Point2, 2) && MatchMapping(RaidStopPopupPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_STOP_POPUP);
+                    return result;
+                }
+
+                if (MatchMapping(RaidAutoRepeatInfoPM.Point1, 2) && MatchMapping(RaidAutoRepeatInfoPM.Point2, 2) && MatchMapping(RaidAutoRepeatInfoPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.RAID_AUTO_REPEAT_INFO);
+                    return result;
+                }
+
+                if (MatchMapping(RaidExtraRaidPopupPM.Point1, 2) && MatchMapping(RaidExtraRaidPopupPM.Point2, 2) && MatchMapping(RaidExtraRaidPopupPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.EXTRA_RAID_POPUP);
+                    return result;
+                }
+
+                if (MatchMapping(ExtraRaidReadyPM.Point1, 2) && MatchMapping(ExtraRaidReadyPM.Point2, 2) && MatchMapping(ExtraRaidReadyPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.EXTRA_RAID_READY);
+                    return result;
+                }
+
+                if (CurrentObjective == Objective.EXTRA_RAID && MatchMapping(ExtraRaidStartPM.Point1, 2) && MatchMapping(ExtraRaidStartPM.Point2, 2) && MatchMapping(ExtraRaidStartPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.EXTRA_RAID_START);
+                    return result;
+                }
+
+                if (MatchMapping(ExtraRaidFightPM.Point1, 2) && MatchMapping(ExtraRaidFightPM.Point2, 2) && MatchMapping(ExtraRaidFightPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.EXTRA_RAID_FIGHT);
+                    return result;
+                }
+
+                if (MatchMapping(ExtraRaidEndPM.Point1, 2) && MatchMapping(ExtraRaidEndPM.Point2, 2) && MatchMapping(ExtraRaidEndPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.EXTRA_RAID_END);
+                    return result;
+                }
+                if (MatchMapping(AdvAutoLobbyPM.Point1, 2) && MatchMapping(AdvAutoLobbyPM.Point2, 2) && MatchMapping(AdvAutoLobbyPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.AUTO_ADVENTURE_LOBBY);
+                    return result;
+                }
+                if (MatchMapping(AdvAutoManageInventoryPM.Point1, 2) && MatchMapping(AdvAutoManageInventoryPM.Point2, 2) && MatchMapping(AdvAutoManageInventoryPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.MANAGE_INVENTORY);
+                    return result;
+                }
+
+                if (MatchMapping(ManageInventoryNothingToSellPM.Point1, 2) && MatchMapping(ManageInventoryNothingToSellPM.Point2, 2) && MatchMapping(ManageInventoryNothingToSellPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.NOTHING_TO_SELL_POPUP);
+                    return result;
+                }
+
+                if (MatchMapping(ExitPopupPM.LeftBorder, 2) && MatchMapping(ExitPopupPM.RightBorder, 2) && MatchMapping(ExitPopupPM.OkButtonBorderLeft, 2) && MatchMapping(ExitPopupPM.TitleBorder1, 2))
+                {
+                    Scene result = new Scene(SceneType.EXIT_POPUP);
+                    return result;
+                }
+                if (MatchMapping(FuseFullMileagePopupPM.Point1, 2) && MatchMapping(FuseFullMileagePopupPM.Point2, 2) && MatchMapping(FuseFullMileagePopupPM.Point3, 2))
+                {
+                    Scene result = new Scene(SceneType.FUSE_MILEAGE_FULL_POPUP);
                     return result;
                 }
             }
@@ -4615,6 +5276,10 @@ namespace SevenKnightsAI.Classes
                 {
                     this.WeightedClick(LobbyPM.HeroButton, 1.0, 1.0, 1, 0, "left");
                 }
+                else if (ExpectingScene(SceneType.EXIT_POPUP, 2, 500))
+                {
+                    this.WeightedClick(ExitPopupPM.NoButton, 1.0, 1.0, 1, 0, "left");
+                }
                 else
                 {
                     if (ExpectingScene(SceneType.HEROES, 3, 500))
@@ -4633,6 +5298,18 @@ namespace SevenKnightsAI.Classes
                                 if ((MatchMapping(FuseLobbyPM.OnlyLvl30Off, 2) || !MatchMapping(FuseLobbyPM.OnlyLvl30On, 2)) && AISettings.BF_OnlyLv30)
                                 {
                                     WeightedClick(FuseLobbyPM.OnlyLvl30Btn, 1.0, 1.0, 1, 0, "left");
+                                }
+                                Sleep(750);
+                                if (MatchMapping(FuseLobbyPM.MileageFull1, 2) && MatchMapping(FuseLobbyPM.MileageFull2, 2))
+                                {
+                                    Log("Collect Mileage Reward", COLOR_FUSE);
+                                    SendTelegram("[Bulk Fusion] bot will collect mileage reward");
+                                    WeightedClick(FuseLobbyPM.CollectMileageBtn, 1.0, 1.0, 1, 0, "left");
+                                    Sleep(1000);
+                                    WeightedClick(FuseLobbyPM.OKBtn, 1.0, 1.0, 1, 0, "left");
+                                    Sleep(1000);
+                                    Escape();
+
                                 }
                                 SevenKnightsCore.Sleep(750);
                                 WeightedClick(FuseLobbyPM.RegAllBtn, 1.0, 1.0, 1, 0, "left");
@@ -4743,10 +5420,6 @@ namespace SevenKnightsAI.Classes
                     WeightedClick(HeroesPM.SortButton, 1.0, 1.0, 1, 0, "left");
                     SevenKnightsCore.Sleep(1000);
                 }
-                if (CheckHeroFrameStar(0) != 98)
-                {
-                    this.Escape();
-                }
                 bool powerupdone = false;
                 int herostar = 0;
                 int heroclicked = 0;
@@ -4761,7 +5434,8 @@ namespace SevenKnightsAI.Classes
                 int powerupsuccess = 0;
                 while (num3 < 1000 && !Worker.CancellationPending)
                 {
-                    if (ExpectingScene(SceneType.HEROES, 5, 500))
+                    Sleep(300);
+                    if (ExpectingScene(SceneType.HEROES, 3, 300))
                     {
                         if (powerupdone)
                         {
@@ -4848,6 +5522,7 @@ namespace SevenKnightsAI.Classes
                                     }
                                     else
                                     {
+                                        Sleep(500);
                                         WeightedClick(array2[heroclicked], 1.0, 1.0, 1, 0, "left");
                                         List<SceneType> list = new List<SceneType>
                                         {
@@ -4900,7 +5575,7 @@ namespace SevenKnightsAI.Classes
                                                                     }
                                                                     else if (order == 1) // <= DESCENDING
                                                                     {
-                                                                        for (int i2 = materials-1; i2 >= 0; i2--)
+                                                                        for (int i2 = materials - 1; i2 >= 0; i2--)
                                                                         {
                                                                             Log("Powering up using " + array3[i2], COLOR_POWER_UP);
                                                                             WeightedClick(array[i2], 1.0, 1.0, 1, 0, "left");
@@ -4917,7 +5592,7 @@ namespace SevenKnightsAI.Classes
                                                                     if (order == 0)
                                                                     {
                                                                         int i3 = materials - 1; //1,2,3,4
-                                                                        for(i3=materials-1;i3<4;i3++)
+                                                                        for (i3 = materials - 1; i3 < 4; i3++)
                                                                         {
                                                                             Log("Powering up using " + array3[i3], COLOR_POWER_UP);
                                                                             WeightedClick(array[i3], 1.0, 1.0, 1, 0, "left");
@@ -4932,7 +5607,7 @@ namespace SevenKnightsAI.Classes
                                                                     else if (order == 1)
                                                                     {
                                                                         int i3 = materials - 1; //1,2,3,4
-                                                                        for (i3 = array3.Length-1; i3 >= materials - 1; i3--)
+                                                                        for (i3 = array3.Length - 1; i3 >= materials - 1; i3--)
                                                                         {
                                                                             Log("Powering up using " + array3[i3], COLOR_POWER_UP);
                                                                             WeightedClick(array[i3], 1.0, 1.0, 1, 0, "left");
@@ -5078,7 +5753,7 @@ namespace SevenKnightsAI.Classes
                                                     heroclicked++;
                                                     num3++;
                                                     continue;
-                                                    
+
                                                 }
                                             }
                                             else
@@ -5104,12 +5779,21 @@ namespace SevenKnightsAI.Classes
                                             SceneType.HERO_JOIN,
                                             SceneType.HERO_REMOVE
                                         };
-                        if (ExpectingScenes(list, 5, 500))
+                        if (ExpectingScenes(list, 2, 300))
                         {
                             Escape();
-                        }else if (ExpectingScene(SceneType.LOBBY, 3, 500))
+                        }
+                        else if (ExpectingScene(SceneType.POWER_UP_LOBBY, 2, 500))
+                        {
+                            Escape();
+                        }
+                        else if (ExpectingScene(SceneType.LOBBY, 2, 300))
                         {
                             this.WeightedClick(LobbyPM.HeroButton, 1.0, 1.0, 1, 0, "left");
+                        }
+                        else if (ExpectingScene(SceneType.EXIT_POPUP, 2, 500))
+                        {
+                            this.WeightedClick(ExitPopupPM.NoButton, 1.0, 1.0, 1, 0, "left");
                         }
                     }
                 }
@@ -5311,7 +5995,6 @@ namespace SevenKnightsAI.Classes
             };
             string lockPath = "img/lock.png";
             string joinedPath = "img/joined.png";
-            string plus = "img/plus.png";
             string five = "img/5.png";
             Bitmap bitmap = CropFrame(CaptureFrame(), heroFrame[hero]);
             bitmap.Save(@"heroFrame.png");
@@ -5479,84 +6162,6 @@ namespace SevenKnightsAI.Classes
                         this.Log(string.Format("HC: {0}/{1} String: {2}", curShard, maxShard, text.Trim()));
                         bitmap.Save(string.Format("H_{0} of {1}.png", curShard, maxShard));
 #endif
-                    }
-                }
-            }
-        }
-
-        private void UpdateItemCount()
-        {
-            int curItem = ItemCount;
-            int maxItem = ItemMax;
-            Rectangle rect = ItemsPM.R_ItemCount;
-            CaptureFrame();
-            using (Bitmap bitmap = CropFrame(BlueStacks.MainWindowAS.CurrentFrame, rect).ScaleByPercent(200))
-            {
-                using (Page page = Tesseractor.Engine.Process(bitmap, null))
-                {
-                    string text = ReplaceNumericResource(page.GetText());
-                    Utility.FilterAscii(text);
-                    if (text.Length >= 2)
-                    {
-                        string[] array = text.Split(new char[]
-                            {
-                                '/'
-                            });
-
-                        if (array.Length >= 1)
-                        {
-                            int.TryParse(array[0], out curItem);
-                        }
-
-                        if (array.Length >= 2)
-                        {
-                            int.TryParse(array[1], out maxItem);
-                        }
-                    }
-                    Log(string.Format("IC: {0}/{1} String: {2}", curItem, maxItem, text.Trim()));
-                    ItemCount = curItem;
-                    ItemMax = maxItem;
-                    if (curItem >= maxItem)
-                    {
-                        if (AISettings.RS_SellItems)
-                        {
-                            Log("Items Full, Bot will Sell Items");
-                            itemfull = true;
-                            checkslotitem = false;
-                        }
-                        else
-                        {
-                            Log("Items Full");
-                            itemfull = true;
-                            checkslotitem = false;
-                            if (AdventureLimitCount >= AISettings.AD_Limit)
-                            {
-                                Log("Limit reached [Adventure]", COLOR_LIMIT);
-                                SendTelegram("Limit Reached [Adventure]");
-                                AdventureLimitCount = 0;
-                                IsAdventureLimit = true;
-                                NextPossibleObjective();
-                            }
-                            else
-                            {
-                                ChangeObjective(Objective.ADVENTURE);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        checkslotitem = false;
-                        if (AdventureLimitCount >= AISettings.AD_Limit)
-                        {
-                            Log("Limit reached [Adventure]", COLOR_LIMIT);
-                            SendTelegram("Limit Reached [Adventure]");
-                            AdventureLimitCount = 0;
-                            NextPossibleObjective();
-                        }
-                        else
-                        {
-                            ChangeObjective(Objective.ADVENTURE);
-                        }
                     }
                 }
             }
@@ -5760,6 +6365,6 @@ namespace SevenKnightsAI.Classes
             BlueStacks.MainWindowAS.Click(mapping.X, mapping.Y, numClicks, delay, button);
         }
 
-#endregion Private Methods
+        #endregion Private Methods
     }
 }
