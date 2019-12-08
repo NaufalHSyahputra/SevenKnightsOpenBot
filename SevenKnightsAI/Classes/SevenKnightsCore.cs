@@ -297,11 +297,11 @@ namespace SevenKnightsAI.Classes
         {
             if (!RaidAlreadyCount)
             {
+                RaidCheckLimits();
                 RaidAlreadyCount = true;
                 RaidCount++;
             }
             ReportCount(Objective.RAID);
-            RaidCheckLimits();
         }
         private void SiegeDefenseAfterFight()
         {
@@ -539,17 +539,15 @@ namespace SevenKnightsAI.Classes
                         Log("Limit reached [Raid]", COLOR_LIMIT);
                         SendTelegram("[Raid] Limit Reached");
                         RaidLimitCount = 0;
+                        if (AISettings.RD_EnableChangeProfile1)
+                        {
+                            reason_stop = "raid_limit";
+                            ChangeMode(Objective.CHANGE_PROFILE);
+                        }
+                        else { 
                         NextPossibleObjective();
-                    }
-                }
-                else if (AISettings.RD_EnableChangeProfile1)
-                {
-                    RaidLimitCount++;
-                    if (RaidLimitCount >= AISettings.RD_Limit)
-                    {
-                        RaidLimitCount = 0;
-                        reason_stop = "raid_limit";
-                        ChangeMode(Objective.CHANGE_PROFILE);
+                        
+                        }
                     }
                 }
             }
@@ -613,18 +611,15 @@ namespace SevenKnightsAI.Classes
                     Log("Limit reached [Arena]", COLOR_LIMIT);
                     SendTelegram("[Arena] Limit Reached");
                     ArenaLimitCount = 0;
+                    if (AISettings.AR_EnableChangeProfile1)
+                    {
+                        reason_stop = "arena_limit";
+                        ChangeMode(Objective.CHANGE_PROFILE);
+                    }
+                    else
+                    {
                     NextPossibleObjective();
-                }
-            }
-            else if (AISettings.AR_EnableChangeProfile1)
-            {
-                ArenaLimitCount++;
-                if (ArenaLimitCount >= AISettings.AR_Limit)
-                {
-                    ArenaLimitCount = 0;
-                    reason_stop = "arena_limit";
-                    ChangeMode(Objective.CHANGE_PROFILE);
-
+                    }
                 }
             }
         }
@@ -3101,6 +3096,7 @@ namespace SevenKnightsAI.Classes
 
                                         case SceneType.RAID_LOBBY:
                                             Sleep(500);
+                                            RaidAlreadyCount = false;
                                             if (CurrentObjective == Objective.RAID || CurrentObjective == Objective.EXTRA_RAID)
                                             {
                                                 if (MatchMapping(RaidLobbyPM.ExtraRaidAvailable, 2))
@@ -3154,19 +3150,22 @@ namespace SevenKnightsAI.Classes
                                             break;
                                         case SceneType.RAID_START:
                                             Sleep(500);
-                                            if (CurrentObjective == Objective.RAID)
+                                            if (!RaidAlreadyCount)
                                             {
-                                                if (MatchMapping(ExtraRaidStartPM.AutoRepeatOff, 2))
+                                                if (CurrentObjective == Objective.RAID)
                                                 {
-                                                    WeightedClick(ExtraRaidStartPM.AutoRepeatBtn, 1.0, 1.0, 1, 0, "left");
+                                                    if (MatchMapping(ExtraRaidStartPM.AutoRepeatOff, 2))
+                                                    {
+                                                        WeightedClick(ExtraRaidStartPM.AutoRepeatBtn, 1.0, 1.0, 1, 0, "left");
+                                                    }
+                                                    Sleep(500);
+                                                    WeightedClick(RaidStartPM.StartBtn, 1.0, 1.0, 1, 0, "left");
+                                                    Sleep(1000);
                                                 }
-                                                Sleep(500);
-                                                WeightedClick(RaidStartPM.StartBtn, 1.0, 1.0, 1, 0, "left");
-                                                Sleep(1000);
-                                            }
-                                            else
-                                            {
-                                                Escape();
+                                                else
+                                                {
+                                                    Escape();
+                                                }
                                             }
                                             break;
                                         case SceneType.RAID_FIGHT:
@@ -3265,7 +3264,16 @@ namespace SevenKnightsAI.Classes
                                         case SceneType.RAID_FULL_MILEAGE_POPUP:
                                             Sleep(1000);
                                             RaidMileageFull = true;
-                                            WeightedClick(RaidFullMileagePM.TapArea, 1.0, 1.0, 1, 0, "left");
+                                            if (MatchMapping(RaidFullMileagePM.Start_YesBtn, 2) && MatchMapping(RaidFullMileagePM.Start_NoBtn, 2))
+                                            {
+                                                WeightedClick(RaidFullMileagePM.Start_YesBtn, 1.0, 1.0, 1, 0, "left");
+                                                Sleep(1000);
+                                                WeightedClick(RaidFullMileagePM.CollectedOKBtn, 1.0, 1.0, 1, 0, "left");
+                                            }
+                                            else
+                                            {
+                                                WeightedClick(RaidFullMileagePM.TapArea, 1.0, 1.0, 1, 0, "left");
+                                            }
                                             Sleep(500);
                                             break;
                                         case SceneType.EXTRA_RAID_READY:
@@ -4644,7 +4652,7 @@ namespace SevenKnightsAI.Classes
                     return result;
                 }
 
-                if (MatchMapping(RaidFullMileagePM.Point1, 2) && MatchMapping(RaidFullMileagePM.Point2, 2) && MatchMapping(RaidFullMileagePM.Point3, 2) && MatchMapping(RaidFullMileagePM.MileageFull, 2))
+                if ((MatchMapping(RaidFullMileagePM.Point1, 2) && MatchMapping(RaidFullMileagePM.Point2, 2) && MatchMapping(RaidFullMileagePM.Point3, 2) && MatchMapping(RaidFullMileagePM.MileageFull, 2)) || (MatchMapping(RaidFullMileagePM.Start_Point1, 2) && MatchMapping(RaidFullMileagePM.Start_Point2, 2) && MatchMapping(RaidFullMileagePM.Start_Point3, 2)))
                 {
                     Scene result = new Scene(SceneType.RAID_FULL_MILEAGE_POPUP);
                     return result;

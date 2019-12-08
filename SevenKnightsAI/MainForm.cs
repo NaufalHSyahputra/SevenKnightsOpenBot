@@ -1730,6 +1730,7 @@ namespace SevenKnightsAI
             this.ST_RefreshAD3CProfiles();
             this.ST_RefreshAR1CProfiles();
             this.ST_RefreshAR2CProfiles();
+            this.ST_RefreshRD1CProfiles();
         }
 
         private void ST_delayTrackBar_ValueChanged(object sender, EventArgs e)
@@ -3225,7 +3226,7 @@ namespace SevenKnightsAI
         {
             ComboBox comboBox = sender as ComboBox;
             ProfileComboBoxItem profileComboBoxItem = comboBox.SelectedItem as ProfileComboBoxItem;
-            this.AISettings.RD_Profile1 = profileComboBoxItem.Key;
+            this.AISettings.SD_Profile1 = profileComboBoxItem.Key;
         }
 
         private void RD_SellItemRankComboBox_SelectedIndexChanged(object sender, EventArgs e)
