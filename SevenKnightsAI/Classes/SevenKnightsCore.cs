@@ -137,6 +137,7 @@ namespace SevenKnightsAI.Classes
         private int RaidLimitCount;
         private int SiegeDefenseLimitCount;
         private bool IsRaidLimit;
+        private bool changeRaidBoss = false;
         private bool IsSiegeDefenseLimit;
         private int AutoSellCount;
         private bool RaidMileageFull;
@@ -336,7 +337,7 @@ namespace SevenKnightsAI.Classes
                 }
                 alreadystop = true;
             }
-            if ((AISettings.AD_EnableProfile1 || AISettings.AD_EnableChangeProfile1) && AISettings.AD_BootMode && CurrentBoost >= 150)
+            if ((AISettings.AD_EnableProfile1 || AISettings.AD_EnableChangeProfile1) && AISettings.AD_BootMode && CurrentBoost >= 100)
             {
                 if (!alreadystop)
                 {
@@ -543,6 +544,7 @@ namespace SevenKnightsAI.Classes
                         {
                             reason_stop = "raid_limit";
                             ChangeMode(Objective.CHANGE_PROFILE);
+                            return;
                         }
                         else { 
                         NextPossibleObjective();
@@ -615,10 +617,11 @@ namespace SevenKnightsAI.Classes
                     {
                         reason_stop = "arena_limit";
                         ChangeMode(Objective.CHANGE_PROFILE);
+                        return;
                     }
                     else
                     {
-                    NextPossibleObjective();
+                        NextPossibleObjective();
                     }
                 }
             }
@@ -756,7 +759,7 @@ namespace SevenKnightsAI.Classes
                         int.TryParse(array[0], out num3);
                         int.TryParse(array[1], out num4);
                         this.Log("Current: " + num3 + " Max: " + num4);
-                        if (num3 > 150 && CurrentBoost < 150)
+                        if (num3 > 100 && CurrentBoost < 100)
                         {
                             bool result = true;
                             num3 = CurrentBoost;
@@ -764,7 +767,7 @@ namespace SevenKnightsAI.Classes
                         }
                         else
                         {
-                            if (num3 <= 150)
+                            if (num3 <= 100)
                             {
                                 CurrentBoost = num3;
                             }
@@ -772,7 +775,7 @@ namespace SevenKnightsAI.Classes
                             {
                                 this.Log("Bot read boost count incorrectly!");
                             }
-                            if (num3 >= 150)
+                            if (num3 >= 100)
                             {
                                 AISettings.AD_BootMode = false;
                                 return false;
@@ -2043,6 +2046,7 @@ namespace SevenKnightsAI.Classes
                                             UpdateHonor(scene.SceneType);
                                             if (CurrentObjective == Objective.CHANGE_PROFILE)
                                             {
+                                                alreadystop = false;
                                                 if (!alreadystop && (AISettings.AD_EnableProfile1 || AISettings.AD_EnableProfile2 || AISettings.AD_EnableProfile3 || this.forced == "CP"))
                                                 {
                                                     SendTelegram("Bot will stop to change profile, you can choose profile in Telegram and start bot again after changing profile");
@@ -2748,6 +2752,7 @@ namespace SevenKnightsAI.Classes
                                             Sleep(500);
                                             ReportCount(Objective.ADVENTURE);
                                             WeightedClick(AutoRepeatInfoPM.CloseBtn, 1.0, 1.0, 1, 0, "left");
+                                            alreadystop = false;
                                             break;
 
                                         case SceneType.AUTO_REPEAT_STOP:
@@ -3094,6 +3099,10 @@ namespace SevenKnightsAI.Classes
                                             WeightedClick(QuestRewardsPopupPM.OKButton, 1.0, 1.0, 1, 0, "left");
                                             break;
 
+                                        case SceneType.KYRIELLE_QUEST:
+                                            WeightedClick(KyrielleQuestRewardsPopupPM.OKButton, 1.0, 1.0, 1, 0, "left");
+                                            break;
+
                                         case SceneType.RAID_LOBBY:
                                             Sleep(500);
                                             RaidAlreadyCount = false;
@@ -3130,9 +3139,9 @@ namespace SevenKnightsAI.Classes
                                             Sleep(500);
                                             if (CurrentObjective == Objective.RAID)
                                             {
-                                                if (RaidMileageFull && MatchMapping(RaidReadyPM.MileageFull, 2) && MatchMapping(RaidReadyPM.MileageBtn, 2))
+                                                if (RaidMileageFull || (MatchMapping(RaidReadyPM.MileageFull, 2) && MatchMapping(RaidReadyPM.MileageBtn, 2)))
                                                 {
-                                                    WeightedClick(RaidReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
+                                                    WeightedClick(RaidReadyPM.MileageBtn, 1.0, 1.0, 1, 0, "left");
                                                     Sleep(1000);
                                                 }
                                                 WeightedClick(RaidReadyPM.ReadyButton, 1.0, 1.0, 1, 0, "left");
@@ -3192,11 +3201,10 @@ namespace SevenKnightsAI.Classes
                                             break;
                                         case SceneType.RAID_AUTO_END:
                                             RaidAfterFight();
-                                            Sleep(500);
-                                            if (CurrentObjective != Objective.RAID || IsRaidLimit)
+                                            Sleep(300);
+                                            if (CurrentObjective != Objective.RAID || IsRaidLimit || changeRaidBoss)
                                             {
                                                 WeightedClick(RaidEndPM.Auto_StopBtn, 1.0, 1.0, 1, 0, "left");
-                                                Sleep(300);
                                             }
                                             else
                                             {
@@ -3204,7 +3212,7 @@ namespace SevenKnightsAI.Classes
                                             }
                                             break;
                                         case SceneType.RAID_AUTO_STOP_POPUP:
-                                            Sleep(1000);
+                                            Sleep(100);
                                             WeightedClick(RaidAutoStopPopupPM.OKBtn, 1.0, 1.0, 1, 0, "left");
                                             Sleep(700);
                                             break;
@@ -3613,6 +3621,70 @@ namespace SevenKnightsAI.Classes
                     {
                         IsRaidLimit = false;
                         ChangeObjective(Objective.RAID);
+                        return;
+                    }
+                    if (aR_Enable)
+                    {
+                        ChangeObjective(Objective.ARENA);
+                        return;
+                    }
+                    if (sD_Enable)
+                    {
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
+                        return;
+                    }
+                    ChangeObjective(Objective.IDLE);
+                    break;
+                case Objective.RAID:
+                    if (aD_Enable && !IsAdventureLimit)
+                    {
+                        ChangeObjective(Objective.ADVENTURE);
+                        return;
+                    }
+                    if (aR_Enable)
+                    {
+                        ChangeObjective(Objective.ARENA);
+                        return;
+                    }
+                    if (sD_Enable)
+                    {
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
+                        return;
+                    }
+                    ChangeObjective(Objective.IDLE);
+                    break;
+                case Objective.EXTRA_RAID:
+                    if (rD_Enable)
+                    {
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
+                    if (aD_Enable && !IsAdventureLimit)
+                    {
+                        ChangeObjective(Objective.ADVENTURE);
+                        return;
+                    }
+                    if (aR_Enable)
+                    {
+                        ChangeObjective(Objective.ARENA);
+                        return;
+                    }
+                    if (sD_Enable)
+                    {
+                        ChangeObjective(Objective.SIEGE_DEFENSE);
+                        return;
+                    }
+                    ChangeObjective(Objective.IDLE);
+                    break;
+                case Objective.AUTO_SELL:
+                    if (rD_Enable)
+                    {
+                        ChangeObjective(Objective.RAID);
+                        return;
+                    }
+                    if (aD_Enable && !IsAdventureLimit)
+                    {
+                        ChangeObjective(Objective.ADVENTURE);
                         return;
                     }
                     if (aR_Enable)
@@ -4556,6 +4628,11 @@ namespace SevenKnightsAI.Classes
                 if (MatchMapping(QuestRewardsPopupPM.QuestIcon, 2) && MatchMapping(QuestRewardsPopupPM.AragonPic, 2) && MatchMapping(QuestRewardsPopupPM.DimmedBG, 2))
                 {
                     Scene result = new Scene(SceneType.DAILY_QUEST_COMPLETE);
+                    return result;
+                }
+                if (MatchMapping(KyrielleQuestRewardsPopupPM.Kyrielle1, 2) && MatchMapping(KyrielleQuestRewardsPopupPM.Kyrielle2, 2) && MatchMapping(KyrielleQuestRewardsPopupPM.Kyrielle3, 2))
+                {
+                    Scene result = new Scene(SceneType.KYRIELLE_QUEST);
                     return result;
                 }
                 if (MatchMapping(Popup3PM.EventPackPoint1, 2) && MatchMapping(Popup3PM.EventPackPoint2, 2) && MatchMapping(Popup3PM.EventPackPoint3))
@@ -5785,13 +5862,11 @@ namespace SevenKnightsAI.Classes
                         List<SceneType> list = new List<SceneType>
                                         {
                                             SceneType.HERO_JOIN,
-                                            SceneType.HERO_REMOVE
+                                            SceneType.HERO_REMOVE,
+                                            SceneType.POWER_UP_LOBBY,
+                                            SceneType.POWER_UP_SUCCESS,
                                         };
                         if (ExpectingScenes(list, 2, 300))
-                        {
-                            Escape();
-                        }
-                        else if (ExpectingScene(SceneType.POWER_UP_LOBBY, 2, 500))
                         {
                             Escape();
                         }

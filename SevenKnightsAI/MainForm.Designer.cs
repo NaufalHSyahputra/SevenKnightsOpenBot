@@ -734,7 +734,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox1, "Arena");
+            this.toolTip.SetToolTip(this.pictureBox1, "Raid");
             // 
             // raidCountLabel
             // 
@@ -884,13 +884,13 @@
             // 
             this.statusToolStripLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.statusToolStripLabel.Name = "statusToolStripLabel";
-            this.statusToolStripLabel.Size = new System.Drawing.Size(113, 17);
+            this.statusToolStripLabel.Size = new System.Drawing.Size(103, 17);
             this.statusToolStripLabel.Text = "Status: AI Stopped";
             // 
             // splitterStatusLabel
             // 
             this.splitterStatusLabel.Name = "splitterStatusLabel";
-            this.splitterStatusLabel.Size = new System.Drawing.Size(342, 17);
+            this.splitterStatusLabel.Size = new System.Drawing.Size(356, 17);
             this.splitterStatusLabel.Spring = true;
             this.splitterStatusLabel.Click += new System.EventHandler(this.splitterStatusLabel_Click);
             // 
@@ -902,7 +902,7 @@
             // tsslBuildInfo
             // 
             this.tsslBuildInfo.Name = "tsslBuildInfo";
-            this.tsslBuildInfo.Size = new System.Drawing.Size(41, 17);
+            this.tsslBuildInfo.Size = new System.Drawing.Size(37, 17);
             this.tsslBuildInfo.Text = "Build:";
             // 
             // saveSettingsButton
@@ -1065,7 +1065,7 @@
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox18.TabIndex = 36;
             this.pictureBox18.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox18, "Gold");
+            this.toolTip.SetToolTip(this.pictureBox18, "Hero Lv 40");
             // 
             // pictureBox16
             // 
@@ -1076,7 +1076,7 @@
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox16.TabIndex = 20;
             this.pictureBox16.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox16, "Gold");
+            this.toolTip.SetToolTip(this.pictureBox16, "Soul Stone");
             // 
             // pictureBox15
             // 
@@ -1098,7 +1098,7 @@
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox13.TabIndex = 29;
             this.pictureBox13.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox13, "Arena Keys");
+            this.toolTip.SetToolTip(this.pictureBox13, "Item received");
             // 
             // pictureBox12
             // 
@@ -1109,7 +1109,7 @@
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox12.TabIndex = 29;
             this.pictureBox12.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBox12, "Arena Keys");
+            this.toolTip.SetToolTip(this.pictureBox12, "Hero received");
             // 
             // LG_logTextBox
             // 
@@ -1171,6 +1171,7 @@
             this.button9.Size = new System.Drawing.Size(152, 23);
             this.button9.TabIndex = 11;
             this.button9.Text = "Reset ADB";
+            this.toolTip.SetToolTip(this.button9, "Press this button before Start AI");
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -1184,6 +1185,7 @@
             this.ST_currentProfile2ComboBox.Size = new System.Drawing.Size(150, 21);
             this.ST_currentProfile2ComboBox.TabIndex = 3;
             this.ST_currentProfile2ComboBox.Tag = "2";
+            this.toolTip.SetToolTip(this.ST_currentProfile2ComboBox, "Current Profile");
             this.ST_currentProfile2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ST_currentProfileComboBox_SelectedIndexChanged);
             // 
             // label12
@@ -3034,7 +3036,7 @@
             this.PU_4StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_4StarCheckBox.Name = "PU_4StarCheckBox";
             this.PU_4StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_4StarCheckBox.Size = new System.Drawing.Size(104, 17);
+            this.PU_4StarCheckBox.Size = new System.Drawing.Size(112, 17);
             this.PU_4StarCheckBox.TabIndex = 2;
             this.PU_4StarCheckBox.Text = "Power Up ★★★★";
             this.PU_4StarCheckBox.UseVisualStyleBackColor = true;
@@ -3146,7 +3148,7 @@
             this.PU_3StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_3StarCheckBox.Name = "PU_3StarCheckBox";
             this.PU_3StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_3StarCheckBox.Size = new System.Drawing.Size(97, 17);
+            this.PU_3StarCheckBox.Size = new System.Drawing.Size(103, 17);
             this.PU_3StarCheckBox.TabIndex = 2;
             this.PU_3StarCheckBox.Text = "Power Up ★★★";
             this.PU_3StarCheckBox.UseVisualStyleBackColor = true;
@@ -3258,7 +3260,7 @@
             this.PU_2StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_2StarCheckBox.Name = "PU_2StarCheckBox";
             this.PU_2StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_2StarCheckBox.Size = new System.Drawing.Size(90, 17);
+            this.PU_2StarCheckBox.Size = new System.Drawing.Size(94, 17);
             this.PU_2StarCheckBox.TabIndex = 2;
             this.PU_2StarCheckBox.Text = "Power Up ★★";
             this.PU_2StarCheckBox.UseVisualStyleBackColor = true;
@@ -3370,7 +3372,7 @@
             this.PU_1StarCheckBox.Location = new System.Drawing.Point(6, 0);
             this.PU_1StarCheckBox.Name = "PU_1StarCheckBox";
             this.PU_1StarCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PU_1StarCheckBox.Size = new System.Drawing.Size(83, 17);
+            this.PU_1StarCheckBox.Size = new System.Drawing.Size(85, 17);
             this.PU_1StarCheckBox.TabIndex = 2;
             this.PU_1StarCheckBox.Text = "Power Up ★";
             this.PU_1StarCheckBox.UseVisualStyleBackColor = true;

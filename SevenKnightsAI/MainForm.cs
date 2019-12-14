@@ -281,6 +281,8 @@ namespace SevenKnightsAI
                     bot.send_inline_keyboard.keyboard_R1_1_callback_data = "EnableAdventure";
                     bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                     bot.send_inline_keyboard.keyboard_R1_2_callback_data = "EnableArena";
+                    bot.send_inline_keyboard.keyboard_R1_4 = "Raid";
+                    bot.send_inline_keyboard.keyboard_R1_4_callback_data = "EnableRaid";
                     bot.send_inline_keyboard.keyboard_R1_3 = "Power Up";
                     bot.send_inline_keyboard.keyboard_R1_3_callback_data = "EnablePowerUp";
                     bot.send_inline_keyboard.keyboard_R2_1 = "Bulk Fusion";
@@ -298,6 +300,11 @@ namespace SevenKnightsAI
                 {
                     SendCommand("Enable Arena");
                     bot.sendMessage.send(bot.chat_id, "Arena Enabled");
+                }
+                if (bot.data == "EnableRaid")
+                {
+                    SendCommand("Enable Raid");
+                    bot.sendMessage.send(bot.chat_id, "Raid Enabled");
                 }
                 if (bot.data == "EnablePowerUp")
                 {
@@ -320,6 +327,8 @@ namespace SevenKnightsAI
                     bot.send_inline_keyboard.keyboard_R1_1_callback_data = "DisableAdventure";
                     bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                     bot.send_inline_keyboard.keyboard_R1_2_callback_data = "DisableArena";
+                    bot.send_inline_keyboard.keyboard_R1_4 = "Raid";
+                    bot.send_inline_keyboard.keyboard_R1_4_callback_data = "DisableRaid";
                     bot.send_inline_keyboard.keyboard_R1_3 = "Power Up";
                     bot.send_inline_keyboard.keyboard_R1_3_callback_data = "DisablePowerUp";
                     bot.send_inline_keyboard.keyboard_R2_1 = "Bulk Fusion";
@@ -337,6 +346,11 @@ namespace SevenKnightsAI
                 {
                     SendCommand("Disable Arena");
                     bot.sendMessage.send(bot.chat_id, "Arena Disabled");
+                }
+                if (bot.data == "DisableRaid")
+                {
+                    SendCommand("Disable Raid");
+                    bot.sendMessage.send(bot.chat_id, "Raid Disabled");
                 }
                 if (bot.data == "DisablePowerUp")
                 {
@@ -359,6 +373,8 @@ namespace SevenKnightsAI
                     bot.send_inline_keyboard.keyboard_R1_1_callback_data = "CMAdventure";
                     bot.send_inline_keyboard.keyboard_R1_2 = "Arena";
                     bot.send_inline_keyboard.keyboard_R1_2_callback_data = "CMArena";
+                    bot.send_inline_keyboard.keyboard_R1_4 = "Raid";
+                    bot.send_inline_keyboard.keyboard_R1_4_callback_data = "CMRaid";
                     bot.send_inline_keyboard.keyboard_R1_3 = "Power Up";
                     bot.send_inline_keyboard.keyboard_R1_3_callback_data = "CMPowerUp";
                     bot.send_inline_keyboard.keyboard_R2_1 = "Bulk Fusion";
@@ -378,6 +394,11 @@ namespace SevenKnightsAI
                 {
                     SendCommand("CM Arena");
                     bot.sendMessage.send(bot.chat_id, "Change Mode To Arena");
+                }
+                if (bot.data == "CMRaid")
+                {
+                    SendCommand("CM Raid");
+                    bot.sendMessage.send(bot.chat_id, "Change Mode To Raid");
                 }
                 if (bot.data == "CMSmartMode")
                 {
@@ -2242,6 +2263,10 @@ namespace SevenKnightsAI
                         {
                             this.AISettings.PU_Enable = true;
                         }
+                        else if ((string)progressArgsT.Message == "Enable Raid")
+                        {
+                            this.AISettings.RD_Enable = true;
+                        }
                         else if ((string)progressArgsT.Message == "Enable BulkFusion")
                         {
                             this.AISettings.BF_Enable = true;
@@ -2253,6 +2278,10 @@ namespace SevenKnightsAI
                         else if ((string)progressArgsT.Message == "Disable Adventure")
                         {
                             AI.DisableMode(Objective.ADVENTURE);
+                        }
+                        else if ((string)progressArgsT.Message == "Disable Raid")
+                        {
+                            AI.DisableMode(Objective.RAID);
                         }
                         else if ((string)progressArgsT.Message == "Disable Arena")
                         {
@@ -2270,6 +2299,13 @@ namespace SevenKnightsAI
                             if (AISettings.AR_Enable)
                             {
                                 this.AI.ChangeMode(Objective.ARENA, false);
+                            }
+                        }
+                        else if ((string)progressArgsT.Message == "CM Raid")
+                        {
+                            if (AISettings.RD_Enable)
+                            {
+                                this.AI.ChangeMode(Objective.RAID, false);
                             }
                         }
                         else if ((string)progressArgsT.Message == "CM PowerUp")
@@ -3123,22 +3159,12 @@ namespace SevenKnightsAI
         {
             CheckBox checkBox = sender as CheckBox;
             this.AISettings.AR_EnableChangeProfile1 = checkBox.Checked;
-            if (checkBox.Checked == true)
-            {
-                this.AISettings.AR_EnableLimit = false;
-                AR_limitCheckBox.Checked = false;
-            }
         }
 
         private void AR_EnableChangeProfile2CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
             this.AISettings.AR_EnableChangeProfile2 = checkBox.Checked;
-            if (checkBox.Checked == true)
-            {
-                this.AISettings.AR_LimitArena = false;
-                AR_stopArenaCheckBox.Checked = false;
-            }
         }
 
         private void AR_ChangeProfile1ComboBox_SelectedIndexChanged(object sender, EventArgs e)

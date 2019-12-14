@@ -158,6 +158,7 @@
     <Compile Include="Classes\Mappings\AdvAutoManageInventoryPM.cs" />
     <Compile Include="Classes\Mappings\ManageInventoryNothingToSellPM.cs" />
     <Compile Include="Classes\Mappings\AutoRepeatSettingPM.cs" />
+    <Compile Include="Classes\Mappings\KyrielleQuestRewardsPopupPM.cs" />
     <Compile Include="Classes\Mappings\RaidAutoStopPopupPM.cs" />
     <Compile Include="Classes\Mappings\AdvAutoLobbyPM.cs" />
     <Compile Include="Classes\Mappings\RaidMileageCollectedPM.cs" />
