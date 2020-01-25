@@ -83,13 +83,13 @@
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.ST_currentProfile2ComboBox = new System.Windows.Forms.ComboBox();
             this.LG_logTextBox = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.ST_currentProfile2ComboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.logsBox = new System.Windows.Forms.RichTextBox();
@@ -173,22 +173,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.RD_LimitNumericBox = new System.Windows.Forms.NumericUpDown();
             this.RD_EnableLimitCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.RD_StopNoKeyCheckBox = new System.Windows.Forms.CheckBox();
-            this.RD_CollectMileageCheckBox = new System.Windows.Forms.CheckBox();
-            this.RD_SellItemCheckBox = new System.Windows.Forms.CheckBox();
-            this.RD_FightExtraRaidCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox31 = new System.Windows.Forms.GroupBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.RD_SellAccRankComboBox = new System.Windows.Forms.ComboBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.RD_SellJewelRankComboBox = new System.Windows.Forms.ComboBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.RD_SellItemRankComboBox = new System.Windows.Forms.ComboBox();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.RD_AccRaidRadio = new System.Windows.Forms.RadioButton();
-            this.RD_JewelRaidRadio = new System.Windows.Forms.RadioButton();
-            this.RD_RaidItemRadio = new System.Windows.Forms.RadioButton();
             this.RD_EnableCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -318,6 +302,41 @@
             this.button4 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.topheaderPictureBox = new System.Windows.Forms.PictureBox();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tabControl4 = new System.Windows.Forms.TabControl();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.RD_AccRaidRadio = new System.Windows.Forms.RadioButton();
+            this.RD_JewelRaidRadio = new System.Windows.Forms.RadioButton();
+            this.RD_RaidItemRadio = new System.Windows.Forms.RadioButton();
+            this.groupBox32 = new System.Windows.Forms.GroupBox();
+            this.groupBox33 = new System.Windows.Forms.GroupBox();
+            this.groupBox34 = new System.Windows.Forms.GroupBox();
+            this.groupBox35 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.RD_SellItemRankComboBox = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.RD_SellJewelRankComboBox = new System.Windows.Forms.ComboBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.RD_SellAccRankComboBox = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.RD_FightExtraRaidCheckBox = new System.Windows.Forms.CheckBox();
+            this.RD_SellItemCheckBox = new System.Windows.Forms.CheckBox();
+            this.RD_CollectMileageCheckBox = new System.Windows.Forms.CheckBox();
+            this.RD_StopNoKeyCheckBox = new System.Windows.Forms.CheckBox();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ST_opacityTrackBar)).BeginInit();
@@ -363,9 +382,6 @@
             this.groupBox21.SuspendLayout();
             this.groupBox25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RD_LimitNumericBox)).BeginInit();
-            this.groupBox24.SuspendLayout();
-            this.groupBox31.SuspendLayout();
-            this.groupBox22.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox29.SuspendLayout();
@@ -405,6 +421,19 @@
             this.groupBox2.SuspendLayout();
             this.resourcesTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.topheaderPictureBox)).BeginInit();
+            this.tabControl4.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            this.tabPage13.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            this.groupBox32.SuspendLayout();
+            this.groupBox33.SuspendLayout();
+            this.groupBox34.SuspendLayout();
+            this.groupBox35.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.groupBox31.SuspendLayout();
+            this.groupBox24.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -1111,6 +1140,31 @@
             this.pictureBox12.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBox12, "Hero received");
             // 
+            // button9
+            // 
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(4, 71);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(152, 23);
+            this.button9.TabIndex = 11;
+            this.button9.Text = "Reset ADB";
+            this.toolTip.SetToolTip(this.button9, "Press this button before Start AI");
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // ST_currentProfile2ComboBox
+            // 
+            this.ST_currentProfile2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ST_currentProfile2ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ST_currentProfile2ComboBox.FormattingEnabled = true;
+            this.ST_currentProfile2ComboBox.Location = new System.Drawing.Point(6, 32);
+            this.ST_currentProfile2ComboBox.Name = "ST_currentProfile2ComboBox";
+            this.ST_currentProfile2ComboBox.Size = new System.Drawing.Size(150, 21);
+            this.ST_currentProfile2ComboBox.TabIndex = 3;
+            this.ST_currentProfile2ComboBox.Tag = "2";
+            this.toolTip.SetToolTip(this.ST_currentProfile2ComboBox, "Current Profile");
+            this.ST_currentProfile2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ST_currentProfileComboBox_SelectedIndexChanged);
+            // 
             // LG_logTextBox
             // 
             this.LG_logTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1162,31 +1216,6 @@
             this.groupBox4.TabIndex = 34;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Shortcut";
-            // 
-            // button9
-            // 
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(4, 71);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(152, 23);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "Reset ADB";
-            this.toolTip.SetToolTip(this.button9, "Press this button before Start AI");
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // ST_currentProfile2ComboBox
-            // 
-            this.ST_currentProfile2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ST_currentProfile2ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ST_currentProfile2ComboBox.FormattingEnabled = true;
-            this.ST_currentProfile2ComboBox.Location = new System.Drawing.Point(6, 32);
-            this.ST_currentProfile2ComboBox.Name = "ST_currentProfile2ComboBox";
-            this.ST_currentProfile2ComboBox.Size = new System.Drawing.Size(150, 21);
-            this.ST_currentProfile2ComboBox.TabIndex = 3;
-            this.ST_currentProfile2ComboBox.Tag = "2";
-            this.toolTip.SetToolTip(this.ST_currentProfile2ComboBox, "Current Profile");
-            this.ST_currentProfile2ComboBox.SelectedIndexChanged += new System.EventHandler(this.ST_currentProfileComboBox_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -1508,6 +1537,7 @@
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage17);
+            this.tabControl2.Controls.Add(this.tabPage10);
             this.tabControl2.Location = new System.Drawing.Point(2, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -2099,7 +2129,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.groupBox21);
+            this.tabPage3.Controls.Add(this.tabControl4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(500, 352);
@@ -2113,9 +2143,8 @@
             this.groupBox21.Controls.Add(this.RD_LimitNumericBox);
             this.groupBox21.Controls.Add(this.RD_EnableLimitCheckBox);
             this.groupBox21.Controls.Add(this.groupBox24);
-            this.groupBox21.Controls.Add(this.groupBox22);
             this.groupBox21.Controls.Add(this.RD_EnableCheckBox);
-            this.groupBox21.Location = new System.Drawing.Point(3, 3);
+            this.groupBox21.Location = new System.Drawing.Point(3, 0);
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Size = new System.Drawing.Size(488, 338);
             this.groupBox21.TabIndex = 1;
@@ -2123,11 +2152,13 @@
             // 
             // groupBox25
             // 
+            this.groupBox25.Controls.Add(this.comboBox1);
+            this.groupBox25.Controls.Add(this.checkBox8);
             this.groupBox25.Controls.Add(this.RD_ChangeProfile1ComboBox);
             this.groupBox25.Controls.Add(this.RD_ChangeProfile1CheckBox);
-            this.groupBox25.Location = new System.Drawing.Point(6, 281);
+            this.groupBox25.Location = new System.Drawing.Point(6, 220);
             this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(476, 51);
+            this.groupBox25.Size = new System.Drawing.Size(476, 81);
             this.groupBox25.TabIndex = 34;
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "Change Profile when...";
@@ -2137,9 +2168,9 @@
             this.RD_ChangeProfile1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.RD_ChangeProfile1ComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RD_ChangeProfile1ComboBox.FormattingEnabled = true;
-            this.RD_ChangeProfile1ComboBox.Location = new System.Drawing.Point(151, 19);
+            this.RD_ChangeProfile1ComboBox.Location = new System.Drawing.Point(166, 21);
             this.RD_ChangeProfile1ComboBox.Name = "RD_ChangeProfile1ComboBox";
-            this.RD_ChangeProfile1ComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_ChangeProfile1ComboBox.Size = new System.Drawing.Size(198, 21);
             this.RD_ChangeProfile1ComboBox.TabIndex = 32;
             this.RD_ChangeProfile1ComboBox.Tag = "1";
             this.RD_ChangeProfile1ComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_ChangeProfile1ComboBox_SelectedIndexChanged);
@@ -2188,207 +2219,6 @@
             this.RD_EnableLimitCheckBox.Text = "Limit:";
             this.RD_EnableLimitCheckBox.UseVisualStyleBackColor = true;
             this.RD_EnableLimitCheckBox.CheckedChanged += new System.EventHandler(this.RD_EnableLimitCheckBox_CheckedChanged);
-            // 
-            // groupBox24
-            // 
-            this.groupBox24.Controls.Add(this.RD_StopNoKeyCheckBox);
-            this.groupBox24.Controls.Add(this.RD_CollectMileageCheckBox);
-            this.groupBox24.Controls.Add(this.RD_SellItemCheckBox);
-            this.groupBox24.Controls.Add(this.RD_FightExtraRaidCheckBox);
-            this.groupBox24.Controls.Add(this.groupBox31);
-            this.groupBox24.Location = new System.Drawing.Point(6, 99);
-            this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(476, 176);
-            this.groupBox24.TabIndex = 6;
-            this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "Settings";
-            // 
-            // RD_StopNoKeyCheckBox
-            // 
-            this.RD_StopNoKeyCheckBox.AutoSize = true;
-            this.RD_StopNoKeyCheckBox.Location = new System.Drawing.Point(320, 19);
-            this.RD_StopNoKeyCheckBox.Name = "RD_StopNoKeyCheckBox";
-            this.RD_StopNoKeyCheckBox.Size = new System.Drawing.Size(150, 17);
-            this.RD_StopNoKeyCheckBox.TabIndex = 3;
-            this.RD_StopNoKeyCheckBox.Text = "Stop bot when out of keys";
-            this.RD_StopNoKeyCheckBox.UseVisualStyleBackColor = true;
-            this.RD_StopNoKeyCheckBox.CheckedChanged += new System.EventHandler(this.RD_StopNoKeyCheckBox_CheckedChanged);
-            // 
-            // RD_CollectMileageCheckBox
-            // 
-            this.RD_CollectMileageCheckBox.AutoSize = true;
-            this.RD_CollectMileageCheckBox.Location = new System.Drawing.Point(6, 43);
-            this.RD_CollectMileageCheckBox.Name = "RD_CollectMileageCheckBox";
-            this.RD_CollectMileageCheckBox.Size = new System.Drawing.Size(177, 17);
-            this.RD_CollectMileageCheckBox.TabIndex = 2;
-            this.RD_CollectMileageCheckBox.Text = "Collect mileage reward when full";
-            this.RD_CollectMileageCheckBox.UseVisualStyleBackColor = true;
-            this.RD_CollectMileageCheckBox.CheckedChanged += new System.EventHandler(this.RD_CollectMileageCheckBox_CheckedChanged);
-            // 
-            // RD_SellItemCheckBox
-            // 
-            this.RD_SellItemCheckBox.AutoSize = true;
-            this.RD_SellItemCheckBox.Location = new System.Drawing.Point(12, 66);
-            this.RD_SellItemCheckBox.Name = "RD_SellItemCheckBox";
-            this.RD_SellItemCheckBox.Size = new System.Drawing.Size(115, 17);
-            this.RD_SellItemCheckBox.TabIndex = 1;
-            this.RD_SellItemCheckBox.Text = "Sell items when full";
-            this.RD_SellItemCheckBox.UseVisualStyleBackColor = true;
-            this.RD_SellItemCheckBox.CheckedChanged += new System.EventHandler(this.RD_SellItemCheckBox_CheckedChanged);
-            // 
-            // RD_FightExtraRaidCheckBox
-            // 
-            this.RD_FightExtraRaidCheckBox.AutoSize = true;
-            this.RD_FightExtraRaidCheckBox.Location = new System.Drawing.Point(6, 19);
-            this.RD_FightExtraRaidCheckBox.Name = "RD_FightExtraRaidCheckBox";
-            this.RD_FightExtraRaidCheckBox.Size = new System.Drawing.Size(160, 17);
-            this.RD_FightExtraRaidCheckBox.TabIndex = 0;
-            this.RD_FightExtraRaidCheckBox.Text = "Fight Extra raid automatically";
-            this.RD_FightExtraRaidCheckBox.UseVisualStyleBackColor = true;
-            this.RD_FightExtraRaidCheckBox.CheckedChanged += new System.EventHandler(this.RD_FightExtraRaidCheckBox_CheckedChanged);
-            // 
-            // groupBox31
-            // 
-            this.groupBox31.Controls.Add(this.label32);
-            this.groupBox31.Controls.Add(this.RD_SellAccRankComboBox);
-            this.groupBox31.Controls.Add(this.label31);
-            this.groupBox31.Controls.Add(this.RD_SellJewelRankComboBox);
-            this.groupBox31.Controls.Add(this.label30);
-            this.groupBox31.Controls.Add(this.RD_SellItemRankComboBox);
-            this.groupBox31.Location = new System.Drawing.Point(6, 66);
-            this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(464, 104);
-            this.groupBox31.TabIndex = 4;
-            this.groupBox31.TabStop = false;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 76);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(85, 13);
-            this.label32.TabIndex = 38;
-            this.label32.Text = "Accessory Rank";
-            // 
-            // RD_SellAccRankComboBox
-            // 
-            this.RD_SellAccRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RD_SellAccRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RD_SellAccRankComboBox.FormattingEnabled = true;
-            this.RD_SellAccRankComboBox.Items.AddRange(new object[] {
-            "★★★★★★",
-            "★★★★★",
-            "★★★★"});
-            this.RD_SellAccRankComboBox.Location = new System.Drawing.Point(97, 73);
-            this.RD_SellAccRankComboBox.Name = "RD_SellAccRankComboBox";
-            this.RD_SellAccRankComboBox.Size = new System.Drawing.Size(183, 21);
-            this.RD_SellAccRankComboBox.TabIndex = 37;
-            this.RD_SellAccRankComboBox.Tag = "1";
-            this.RD_SellAccRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellAccRankComboBox_SelectedIndexChanged);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(6, 49);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(63, 13);
-            this.label31.TabIndex = 36;
-            this.label31.Text = "Jewel Rank";
-            // 
-            // RD_SellJewelRankComboBox
-            // 
-            this.RD_SellJewelRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RD_SellJewelRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RD_SellJewelRankComboBox.FormattingEnabled = true;
-            this.RD_SellJewelRankComboBox.Items.AddRange(new object[] {
-            "★★★★★★",
-            "★★★★★",
-            "★★★★"});
-            this.RD_SellJewelRankComboBox.Location = new System.Drawing.Point(97, 46);
-            this.RD_SellJewelRankComboBox.Name = "RD_SellJewelRankComboBox";
-            this.RD_SellJewelRankComboBox.Size = new System.Drawing.Size(183, 21);
-            this.RD_SellJewelRankComboBox.TabIndex = 35;
-            this.RD_SellJewelRankComboBox.Tag = "1";
-            this.RD_SellJewelRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellJewelRankComboBox_SelectedIndexChanged);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(6, 22);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(56, 13);
-            this.label30.TabIndex = 34;
-            this.label30.Text = "Item Rank";
-            // 
-            // RD_SellItemRankComboBox
-            // 
-            this.RD_SellItemRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.RD_SellItemRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RD_SellItemRankComboBox.FormattingEnabled = true;
-            this.RD_SellItemRankComboBox.Items.AddRange(new object[] {
-            "Rank S or lower",
-            "Rank A or lower",
-            "Rank B or lower",
-            "Rank C or lower",
-            "Rank D or lower",
-            "Rank E or lower"});
-            this.RD_SellItemRankComboBox.Location = new System.Drawing.Point(97, 19);
-            this.RD_SellItemRankComboBox.Name = "RD_SellItemRankComboBox";
-            this.RD_SellItemRankComboBox.Size = new System.Drawing.Size(183, 21);
-            this.RD_SellItemRankComboBox.TabIndex = 33;
-            this.RD_SellItemRankComboBox.Tag = "1";
-            this.RD_SellItemRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellItemRankComboBox_SelectedIndexChanged);
-            // 
-            // groupBox22
-            // 
-            this.groupBox22.Controls.Add(this.RD_AccRaidRadio);
-            this.groupBox22.Controls.Add(this.RD_JewelRaidRadio);
-            this.groupBox22.Controls.Add(this.RD_RaidItemRadio);
-            this.groupBox22.Location = new System.Drawing.Point(6, 38);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(476, 55);
-            this.groupBox22.TabIndex = 5;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "Raid Boss";
-            // 
-            // RD_AccRaidRadio
-            // 
-            this.RD_AccRaidRadio.AutoSize = true;
-            this.RD_AccRaidRadio.Location = new System.Drawing.Point(367, 19);
-            this.RD_AccRaidRadio.Name = "RD_AccRaidRadio";
-            this.RD_AccRaidRadio.Size = new System.Drawing.Size(99, 17);
-            this.RD_AccRaidRadio.TabIndex = 2;
-            this.RD_AccRaidRadio.TabStop = true;
-            this.RD_AccRaidRadio.Tag = "2";
-            this.RD_AccRaidRadio.Text = "Accessory Raid";
-            this.RD_AccRaidRadio.UseVisualStyleBackColor = true;
-            this.RD_AccRaidRadio.CheckedChanged += new System.EventHandler(this.RD_Boss_CheckedChanged);
-            // 
-            // RD_JewelRaidRadio
-            // 
-            this.RD_JewelRaidRadio.AutoSize = true;
-            this.RD_JewelRaidRadio.Location = new System.Drawing.Point(192, 19);
-            this.RD_JewelRaidRadio.Name = "RD_JewelRaidRadio";
-            this.RD_JewelRaidRadio.Size = new System.Drawing.Size(77, 17);
-            this.RD_JewelRaidRadio.TabIndex = 1;
-            this.RD_JewelRaidRadio.TabStop = true;
-            this.RD_JewelRaidRadio.Tag = "1";
-            this.RD_JewelRaidRadio.Text = "Jewel Raid";
-            this.RD_JewelRaidRadio.UseVisualStyleBackColor = true;
-            this.RD_JewelRaidRadio.CheckedChanged += new System.EventHandler(this.RD_Boss_CheckedChanged);
-            // 
-            // RD_RaidItemRadio
-            // 
-            this.RD_RaidItemRadio.AutoSize = true;
-            this.RD_RaidItemRadio.Location = new System.Drawing.Point(6, 19);
-            this.RD_RaidItemRadio.Name = "RD_RaidItemRadio";
-            this.RD_RaidItemRadio.Size = new System.Drawing.Size(70, 17);
-            this.RD_RaidItemRadio.TabIndex = 0;
-            this.RD_RaidItemRadio.TabStop = true;
-            this.RD_RaidItemRadio.Tag = "0";
-            this.RD_RaidItemRadio.Text = "Item Raid";
-            this.RD_RaidItemRadio.UseVisualStyleBackColor = true;
-            this.RD_RaidItemRadio.CheckedChanged += new System.EventHandler(this.RD_Boss_CheckedChanged);
             // 
             // RD_EnableCheckBox
             // 
@@ -3955,6 +3785,415 @@
             this.topheaderPictureBox.TabIndex = 0;
             this.topheaderPictureBox.TabStop = false;
             // 
+            // tabPage10
+            // 
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(500, 352);
+            this.tabPage10.TabIndex = 8;
+            this.tabPage10.Text = "tabPage10";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // tabControl4
+            // 
+            this.tabControl4.Controls.Add(this.tabPage11);
+            this.tabControl4.Controls.Add(this.tabPage13);
+            this.tabControl4.Location = new System.Drawing.Point(-4, 0);
+            this.tabControl4.Name = "tabControl4";
+            this.tabControl4.SelectedIndex = 0;
+            this.tabControl4.Size = new System.Drawing.Size(504, 348);
+            this.tabControl4.TabIndex = 2;
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage11.Controls.Add(this.groupBox21);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(496, 322);
+            this.tabPage11.TabIndex = 0;
+            this.tabPage11.Text = "Control";
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage13.Controls.Add(this.groupBox32);
+            this.tabPage13.Controls.Add(this.groupBox22);
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(496, 322);
+            this.tabPage13.TabIndex = 1;
+            this.tabPage13.Text = "Raid Boss Setting";
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.RD_AccRaidRadio);
+            this.groupBox22.Controls.Add(this.RD_JewelRaidRadio);
+            this.groupBox22.Controls.Add(this.RD_RaidItemRadio);
+            this.groupBox22.Location = new System.Drawing.Point(6, 6);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(485, 55);
+            this.groupBox22.TabIndex = 6;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Raid Boss";
+            // 
+            // RD_AccRaidRadio
+            // 
+            this.RD_AccRaidRadio.AutoSize = true;
+            this.RD_AccRaidRadio.Location = new System.Drawing.Point(367, 19);
+            this.RD_AccRaidRadio.Name = "RD_AccRaidRadio";
+            this.RD_AccRaidRadio.Size = new System.Drawing.Size(99, 17);
+            this.RD_AccRaidRadio.TabIndex = 2;
+            this.RD_AccRaidRadio.TabStop = true;
+            this.RD_AccRaidRadio.Tag = "2";
+            this.RD_AccRaidRadio.Text = "Accessory Raid";
+            this.RD_AccRaidRadio.UseVisualStyleBackColor = true;
+            // 
+            // RD_JewelRaidRadio
+            // 
+            this.RD_JewelRaidRadio.AutoSize = true;
+            this.RD_JewelRaidRadio.Location = new System.Drawing.Point(192, 19);
+            this.RD_JewelRaidRadio.Name = "RD_JewelRaidRadio";
+            this.RD_JewelRaidRadio.Size = new System.Drawing.Size(77, 17);
+            this.RD_JewelRaidRadio.TabIndex = 1;
+            this.RD_JewelRaidRadio.TabStop = true;
+            this.RD_JewelRaidRadio.Tag = "1";
+            this.RD_JewelRaidRadio.Text = "Jewel Raid";
+            this.RD_JewelRaidRadio.UseVisualStyleBackColor = true;
+            // 
+            // RD_RaidItemRadio
+            // 
+            this.RD_RaidItemRadio.AutoSize = true;
+            this.RD_RaidItemRadio.Location = new System.Drawing.Point(6, 19);
+            this.RD_RaidItemRadio.Name = "RD_RaidItemRadio";
+            this.RD_RaidItemRadio.Size = new System.Drawing.Size(70, 17);
+            this.RD_RaidItemRadio.TabIndex = 0;
+            this.RD_RaidItemRadio.TabStop = true;
+            this.RD_RaidItemRadio.Tag = "0";
+            this.RD_RaidItemRadio.Text = "Item Raid";
+            this.RD_RaidItemRadio.UseVisualStyleBackColor = true;
+            // 
+            // groupBox32
+            // 
+            this.groupBox32.Controls.Add(this.groupBox35);
+            this.groupBox32.Controls.Add(this.groupBox34);
+            this.groupBox32.Controls.Add(this.groupBox33);
+            this.groupBox32.Location = new System.Drawing.Point(6, 67);
+            this.groupBox32.Name = "groupBox32";
+            this.groupBox32.Size = new System.Drawing.Size(485, 132);
+            this.groupBox32.TabIndex = 7;
+            this.groupBox32.TabStop = false;
+            this.groupBox32.Text = "Raid Boss";
+            // 
+            // groupBox33
+            // 
+            this.groupBox33.Controls.Add(this.checkBox2);
+            this.groupBox33.Controls.Add(this.checkBox5);
+            this.groupBox33.Controls.Add(this.numericUpDown1);
+            this.groupBox33.Location = new System.Drawing.Point(6, 19);
+            this.groupBox33.Name = "groupBox33";
+            this.groupBox33.Size = new System.Drawing.Size(149, 100);
+            this.groupBox33.TabIndex = 0;
+            this.groupBox33.TabStop = false;
+            this.groupBox33.Text = "Item Raid";
+            // 
+            // groupBox34
+            // 
+            this.groupBox34.Controls.Add(this.checkBox6);
+            this.groupBox34.Controls.Add(this.checkBox3);
+            this.groupBox34.Controls.Add(this.numericUpDown2);
+            this.groupBox34.Location = new System.Drawing.Point(161, 19);
+            this.groupBox34.Name = "groupBox34";
+            this.groupBox34.Size = new System.Drawing.Size(143, 100);
+            this.groupBox34.TabIndex = 1;
+            this.groupBox34.TabStop = false;
+            this.groupBox34.Text = "Jewel Raid";
+            // 
+            // groupBox35
+            // 
+            this.groupBox35.Controls.Add(this.checkBox7);
+            this.groupBox35.Controls.Add(this.checkBox4);
+            this.groupBox35.Controls.Add(this.numericUpDown3);
+            this.groupBox35.Location = new System.Drawing.Point(310, 19);
+            this.groupBox35.Name = "groupBox35";
+            this.groupBox35.Size = new System.Drawing.Size(169, 100);
+            this.groupBox35.TabIndex = 1;
+            this.groupBox35.TabStop = false;
+            this.groupBox35.Text = "Accessory Raid";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(6, 19);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(97, 17);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "Fight Item Raid";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(6, 19);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(104, 17);
+            this.checkBox3.TabIndex = 1;
+            this.checkBox3.Text = "Fight Jewel Raid";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(6, 19);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(126, 17);
+            this.checkBox4.TabIndex = 2;
+            this.checkBox4.Text = "Fight Accessory Raid";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(64, 42);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown1.TabIndex = 24;
+            this.numericUpDown1.Tag = "3";
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.Location = new System.Drawing.Point(6, 42);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(52, 18);
+            this.checkBox5.TabIndex = 23;
+            this.checkBox5.Tag = "0";
+            this.checkBox5.Text = "Limit:";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.Location = new System.Drawing.Point(6, 42);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(52, 18);
+            this.checkBox6.TabIndex = 25;
+            this.checkBox6.Tag = "0";
+            this.checkBox6.Text = "Limit:";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(59, 42);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown2.TabIndex = 26;
+            this.numericUpDown2.Tag = "3";
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.Location = new System.Drawing.Point(6, 44);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(52, 18);
+            this.checkBox7.TabIndex = 27;
+            this.checkBox7.Tag = "0";
+            this.checkBox7.Text = "Limit:";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(66, 42);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDown3.TabIndex = 28;
+            this.numericUpDown3.Tag = "3";
+            // 
+            // groupBox31
+            // 
+            this.groupBox31.Controls.Add(this.label32);
+            this.groupBox31.Controls.Add(this.RD_SellAccRankComboBox);
+            this.groupBox31.Controls.Add(this.label31);
+            this.groupBox31.Controls.Add(this.RD_SellJewelRankComboBox);
+            this.groupBox31.Controls.Add(this.label30);
+            this.groupBox31.Controls.Add(this.RD_SellItemRankComboBox);
+            this.groupBox31.Location = new System.Drawing.Point(6, 66);
+            this.groupBox31.Name = "groupBox31";
+            this.groupBox31.Size = new System.Drawing.Size(464, 104);
+            this.groupBox31.TabIndex = 4;
+            this.groupBox31.TabStop = false;
+            // 
+            // RD_SellItemRankComboBox
+            // 
+            this.RD_SellItemRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RD_SellItemRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RD_SellItemRankComboBox.FormattingEnabled = true;
+            this.RD_SellItemRankComboBox.Items.AddRange(new object[] {
+            "Rank S or lower",
+            "Rank A or lower",
+            "Rank B or lower",
+            "Rank C or lower",
+            "Rank D or lower",
+            "Rank E or lower"});
+            this.RD_SellItemRankComboBox.Location = new System.Drawing.Point(97, 19);
+            this.RD_SellItemRankComboBox.Name = "RD_SellItemRankComboBox";
+            this.RD_SellItemRankComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_SellItemRankComboBox.TabIndex = 33;
+            this.RD_SellItemRankComboBox.Tag = "1";
+            this.RD_SellItemRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellItemRankComboBox_SelectedIndexChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 22);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(56, 13);
+            this.label30.TabIndex = 34;
+            this.label30.Text = "Item Rank";
+            // 
+            // RD_SellJewelRankComboBox
+            // 
+            this.RD_SellJewelRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RD_SellJewelRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RD_SellJewelRankComboBox.FormattingEnabled = true;
+            this.RD_SellJewelRankComboBox.Items.AddRange(new object[] {
+            "★★★★★★",
+            "★★★★★",
+            "★★★★"});
+            this.RD_SellJewelRankComboBox.Location = new System.Drawing.Point(97, 46);
+            this.RD_SellJewelRankComboBox.Name = "RD_SellJewelRankComboBox";
+            this.RD_SellJewelRankComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_SellJewelRankComboBox.TabIndex = 35;
+            this.RD_SellJewelRankComboBox.Tag = "1";
+            this.RD_SellJewelRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellJewelRankComboBox_SelectedIndexChanged);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(6, 49);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(63, 13);
+            this.label31.TabIndex = 36;
+            this.label31.Text = "Jewel Rank";
+            // 
+            // RD_SellAccRankComboBox
+            // 
+            this.RD_SellAccRankComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RD_SellAccRankComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RD_SellAccRankComboBox.FormattingEnabled = true;
+            this.RD_SellAccRankComboBox.Items.AddRange(new object[] {
+            "★★★★★★",
+            "★★★★★",
+            "★★★★"});
+            this.RD_SellAccRankComboBox.Location = new System.Drawing.Point(97, 73);
+            this.RD_SellAccRankComboBox.Name = "RD_SellAccRankComboBox";
+            this.RD_SellAccRankComboBox.Size = new System.Drawing.Size(183, 21);
+            this.RD_SellAccRankComboBox.TabIndex = 37;
+            this.RD_SellAccRankComboBox.Tag = "1";
+            this.RD_SellAccRankComboBox.SelectedIndexChanged += new System.EventHandler(this.RD_SellAccRankComboBox_SelectedIndexChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(6, 76);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(85, 13);
+            this.label32.TabIndex = 38;
+            this.label32.Text = "Accessory Rank";
+            // 
+            // RD_FightExtraRaidCheckBox
+            // 
+            this.RD_FightExtraRaidCheckBox.AutoSize = true;
+            this.RD_FightExtraRaidCheckBox.Location = new System.Drawing.Point(6, 19);
+            this.RD_FightExtraRaidCheckBox.Name = "RD_FightExtraRaidCheckBox";
+            this.RD_FightExtraRaidCheckBox.Size = new System.Drawing.Size(160, 17);
+            this.RD_FightExtraRaidCheckBox.TabIndex = 0;
+            this.RD_FightExtraRaidCheckBox.Text = "Fight Extra raid automatically";
+            this.RD_FightExtraRaidCheckBox.UseVisualStyleBackColor = true;
+            this.RD_FightExtraRaidCheckBox.CheckedChanged += new System.EventHandler(this.RD_FightExtraRaidCheckBox_CheckedChanged);
+            // 
+            // RD_SellItemCheckBox
+            // 
+            this.RD_SellItemCheckBox.AutoSize = true;
+            this.RD_SellItemCheckBox.Location = new System.Drawing.Point(12, 66);
+            this.RD_SellItemCheckBox.Name = "RD_SellItemCheckBox";
+            this.RD_SellItemCheckBox.Size = new System.Drawing.Size(115, 17);
+            this.RD_SellItemCheckBox.TabIndex = 1;
+            this.RD_SellItemCheckBox.Text = "Sell items when full";
+            this.RD_SellItemCheckBox.UseVisualStyleBackColor = true;
+            this.RD_SellItemCheckBox.CheckedChanged += new System.EventHandler(this.RD_SellItemCheckBox_CheckedChanged);
+            // 
+            // RD_CollectMileageCheckBox
+            // 
+            this.RD_CollectMileageCheckBox.AutoSize = true;
+            this.RD_CollectMileageCheckBox.Location = new System.Drawing.Point(6, 43);
+            this.RD_CollectMileageCheckBox.Name = "RD_CollectMileageCheckBox";
+            this.RD_CollectMileageCheckBox.Size = new System.Drawing.Size(177, 17);
+            this.RD_CollectMileageCheckBox.TabIndex = 2;
+            this.RD_CollectMileageCheckBox.Text = "Collect mileage reward when full";
+            this.RD_CollectMileageCheckBox.UseVisualStyleBackColor = true;
+            this.RD_CollectMileageCheckBox.CheckedChanged += new System.EventHandler(this.RD_CollectMileageCheckBox_CheckedChanged);
+            // 
+            // RD_StopNoKeyCheckBox
+            // 
+            this.RD_StopNoKeyCheckBox.AutoSize = true;
+            this.RD_StopNoKeyCheckBox.Location = new System.Drawing.Point(320, 19);
+            this.RD_StopNoKeyCheckBox.Name = "RD_StopNoKeyCheckBox";
+            this.RD_StopNoKeyCheckBox.Size = new System.Drawing.Size(150, 17);
+            this.RD_StopNoKeyCheckBox.TabIndex = 3;
+            this.RD_StopNoKeyCheckBox.Text = "Stop bot when out of keys";
+            this.RD_StopNoKeyCheckBox.UseVisualStyleBackColor = true;
+            this.RD_StopNoKeyCheckBox.CheckedChanged += new System.EventHandler(this.RD_StopNoKeyCheckBox_CheckedChanged);
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.RD_StopNoKeyCheckBox);
+            this.groupBox24.Controls.Add(this.RD_CollectMileageCheckBox);
+            this.groupBox24.Controls.Add(this.RD_SellItemCheckBox);
+            this.groupBox24.Controls.Add(this.RD_FightExtraRaidCheckBox);
+            this.groupBox24.Controls.Add(this.groupBox31);
+            this.groupBox24.Location = new System.Drawing.Point(6, 38);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(476, 176);
+            this.groupBox24.TabIndex = 6;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Settings";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(166, 48);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(198, 21);
+            this.comboBox1.TabIndex = 34;
+            this.comboBox1.Tag = "1";
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(6, 50);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(154, 17);
+            this.checkBox8.TabIndex = 33;
+            this.checkBox8.Text = "All Raid Boss Limit reached";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.aiButton;
@@ -4038,12 +4277,6 @@
             this.groupBox25.ResumeLayout(false);
             this.groupBox25.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RD_LimitNumericBox)).EndInit();
-            this.groupBox24.ResumeLayout(false);
-            this.groupBox24.PerformLayout();
-            this.groupBox31.ResumeLayout(false);
-            this.groupBox31.PerformLayout();
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox22.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -4103,6 +4336,25 @@
             this.resourcesTableLayoutPanel.ResumeLayout(false);
             this.resourcesTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.topheaderPictureBox)).EndInit();
+            this.tabControl4.ResumeLayout(false);
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage13.ResumeLayout(false);
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            this.groupBox32.ResumeLayout(false);
+            this.groupBox33.ResumeLayout(false);
+            this.groupBox33.PerformLayout();
+            this.groupBox34.ResumeLayout(false);
+            this.groupBox34.PerformLayout();
+            this.groupBox35.ResumeLayout(false);
+            this.groupBox35.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.groupBox31.ResumeLayout(false);
+            this.groupBox31.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4684,14 +4936,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.GroupBox groupBox21;
-        private System.Windows.Forms.GroupBox groupBox24;
-        private System.Windows.Forms.CheckBox RD_CollectMileageCheckBox;
-        private System.Windows.Forms.CheckBox RD_SellItemCheckBox;
-        private System.Windows.Forms.CheckBox RD_FightExtraRaidCheckBox;
-        private System.Windows.Forms.GroupBox groupBox22;
-        private System.Windows.Forms.RadioButton RD_AccRaidRadio;
-        private System.Windows.Forms.RadioButton RD_JewelRaidRadio;
-        private System.Windows.Forms.RadioButton RD_RaidItemRadio;
         private System.Windows.Forms.CheckBox RD_EnableCheckBox;
         private System.Windows.Forms.GroupBox groupBox25;
         private System.Windows.Forms.ComboBox RD_ChangeProfile1ComboBox;
@@ -4699,7 +4943,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.NumericUpDown RD_LimitNumericBox;
         private System.Windows.Forms.CheckBox RD_EnableLimitCheckBox;
-        private System.Windows.Forms.CheckBox RD_StopNoKeyCheckBox;
         private System.Windows.Forms.GroupBox groupBox28;
         private System.Windows.Forms.GroupBox groupBox30;
         private System.Windows.Forms.ComboBox SD_ChangeProfile1ComboBox;
@@ -4708,14 +4951,42 @@
         private System.Windows.Forms.NumericUpDown SD_LimitNumericBox;
         private System.Windows.Forms.CheckBox SD_EnableLimitCheckBox;
         private System.Windows.Forms.CheckBox SD_EnableCheckBox;
-        private System.Windows.Forms.GroupBox groupBox31;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ComboBox RD_SellItemRankComboBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label raidCountLabel;
+        private System.Windows.Forms.TabControl tabControl4;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.RadioButton RD_AccRaidRadio;
+        private System.Windows.Forms.RadioButton RD_JewelRaidRadio;
+        private System.Windows.Forms.RadioButton RD_RaidItemRadio;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.GroupBox groupBox32;
+        private System.Windows.Forms.GroupBox groupBox35;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.GroupBox groupBox34;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.GroupBox groupBox33;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.CheckBox RD_StopNoKeyCheckBox;
+        private System.Windows.Forms.CheckBox RD_CollectMileageCheckBox;
+        private System.Windows.Forms.CheckBox RD_SellItemCheckBox;
+        private System.Windows.Forms.CheckBox RD_FightExtraRaidCheckBox;
+        private System.Windows.Forms.GroupBox groupBox31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.ComboBox RD_SellAccRankComboBox;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.ComboBox RD_SellJewelRankComboBox;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.ComboBox RD_SellItemRankComboBox;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox8;
     }
 }
